@@ -1,0 +1,72 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* App custom styles */
+.container { max-width: 980px; margin: 0 auto; padding: 1rem; }
+.header { display: flex; align-items: center; justify-content: space-between; }
+.authbar { display: flex; gap: 0.5rem; align-items: center; }
+.tabs { display: flex; gap: 0.5rem; margin: 1rem 0; justify-content: center; }
+.tabs button.active { border-color: #646cff; }
+.main { display: grid; gap: 1rem; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; }
+.row { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.deck { border: 1px solid #333; border-radius: 8px; padding: 0.75rem; margin: 0.5rem 0; }
+.cards { display: grid; grid-template-columns: 1fr; gap: 0.5rem; }
+.card-edit { display: grid; gap: 0.35rem; text-align: left; }
+.review-card { border: 1px solid #333; border-radius: 8px; padding: 1rem; min-height: 220px; text-align: left; }
+.import-label input { margin-left: 0.5rem; }
+
+/* DeckManager category grouping and tile view */
+.category { margin: 1rem 0; }
+.badge {
+  background: #eef2ff;
+  color: #334155;
+  border: 1px solid #c7d2fe;
+  border-radius: 999px;
+  padding: 2px 8px;
+  font-size: 12px;
+}
+.tiles { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.75rem; margin-top: 0.5rem; }
+.tile { border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.75rem; background: #fff; text-align: left; }
+.tile h4 { margin: 0 0 0.5rem 0; font-size: 14px; }
+.tile-actions { justify-content: flex-end; }
