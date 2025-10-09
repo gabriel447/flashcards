@@ -34,7 +34,7 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
     onCardUpdated(deckId, res.data.card as Card, res.data.reviewedCount as number | undefined);
   };
 
-  if (dueCards.length === 0) return <p className="empty-state">Sem cards devidos agora. Volte mais tarde!</p>;
+  if (dueCards.length === 0) return <p className="empty-state">Sem cards agora. Volte mais tarde!</p>;
 
   return (
     <section className="due-container">
