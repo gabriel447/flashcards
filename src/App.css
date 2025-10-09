@@ -166,7 +166,7 @@
 
 /* Review label and empty state */
 .review-label { color: #2563eb; font-weight: 600; display: inline-block; margin-right: 0.5rem; }
-.empty-state { color: #6b7280; }
+.empty-state { color: #6b7280; text-align: center; }
 
 /* Icon buttons */
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #0f172a; border-radius: 8px; padding: 0.4rem; width: 34px; height: 34px; }
