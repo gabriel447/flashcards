@@ -83,7 +83,7 @@
 .textarea { min-height: 90px; }
 .form-actions { margin-top: 1.25rem; }
 .row { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
-.deck { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin: 0.9rem 0; background: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.04); }
+.deck { border: 1px solid #e5e7eb; border-radius: 12px; padding: 1rem; margin: 0.9rem 0; background: #ffffff; box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
 .deck-header { padding: 0.25rem 0.5rem; border-radius: 6px; }
 .deck-header:hover { background: #f3f4f6; }
 .deck-header strong, .deck-name { color: #111827; font-size: 1.1rem; font-weight: 700; }
@@ -100,6 +100,8 @@
 /* Toolbar tweaks */
 .toolbar { flex-wrap: nowrap; }
 .toolbar .input { flex: 1; }
+/* Espaçamento extra entre a barra e a lista de decks */
+.decks-section .toolbar { margin-bottom: 2.5rem; }
 
 /* DeckManager category grouping and tile view */
 .category { margin: 1rem 0; }
@@ -130,7 +132,7 @@
 .btn:hover { background: #eef2f7; }
 .btn-sm { padding: 0.45rem 0.75rem; font-size: 0.95rem; }
 .btn-primary { background: #3b82f6; border-color: #3b82f6; color: #ffffff; box-shadow: 0 1px 2px rgba(0,0,0,0.06); }
-.btn-primary:hover { background: #2766dd; border-color: #2766dd; }
+.btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
 .btn-secondary { background: #ffffff; border-color: #cbd5e1; color: #0f172a; }
 .btn-secondary:hover { background: #dbe0e4; }
 .btn-danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
@@ -174,11 +176,12 @@
 
 /* Dark scheme adjustments */
 @media (prefers-color-scheme: dark) {
-  .deck { border-color: #374151; background: #111827; }
+  /* Keep deck cards white with shadow also in dark theme */
   .deck-header:hover { background: #1f2937; }
-  .deck-header strong, .deck-name, .chevron { color: #e5e7eb; }
+  .deck-header strong, .deck-name, .chevron { color: #111827; }
   .btn { border-color: #1f2937; background: #111827; color: #e5e7eb; }
   .btn:hover { background: #0b1220; }
+  .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
   .btn-secondary { background: #374151; border-color: #374151; color: #e5e7eb; }
   .btn-secondary:hover { background: #2b3442; }
   .btn-outline { background: transparent; border-color: #374151; color: #e5e7eb; }
@@ -228,21 +231,22 @@
 /* Mantemos as faces do flip com fundo branco também no tema escuro */
 
 /* Decks section button colors (scoped) */
-.decks-section .btn-primary { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
-.decks-section .btn-primary:hover { background: #2766dd; border-color: #2766dd; }
+.decks-section .btn-primary { background: #111827; border-color: #1f2937; color: #e5e7eb; }
+/* Hover do "Criar deck" igual ao do "Importar JSON" */
+.decks-section .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
 .decks-section .btn-secondary { background: #e5e7eb; border-color: #cbd5e1; color: #111827; }
-.decks-section .btn-secondary:hover { background: #d1d5db; }
-.decks-section .icon-btn { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
-.decks-section .icon-btn:hover { background: #e2e8f0; }
+.decks-section .btn-secondary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
+.decks-section .icon-btn { background: transparent; border-color: transparent; color: #111827; }
+.decks-section .icon-btn:hover { background: transparent; }
 .decks-section .icon-btn.danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
 .decks-section .icon-btn.danger:hover { background: #dc2626; border-color: #dc2626; }
 
 /* Decks section button colors (dark, scoped) */
 @media (prefers-color-scheme: dark) {
-  .decks-section .btn-primary { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
-  .decks-section .btn-primary:hover { background: #2766dd; border-color: #2766dd; }
+  .decks-section .btn-primary { background: #111827; border-color: #1f2937; color: #e5e7eb; }
+  .decks-section .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
   .decks-section .btn-secondary { background: #1f2937; border-color: #334155; color: #e5e7eb; }
-  .decks-section .btn-secondary:hover { background: #111827; border-color: #334155; }
-  .decks-section .icon-btn { background: #1f2937; border-color: #334155; color: #e5e7eb; }
-  .decks-section .icon-btn:hover { background: #0b1220; }
+  .decks-section .btn-secondary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
+  .decks-section .icon-btn { background: transparent; border-color: transparent; color: #111827; }
+  .decks-section .icon-btn:hover { background: transparent; }
 }
