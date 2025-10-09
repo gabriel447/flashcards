@@ -108,7 +108,7 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
       </div>
 
       {Object.values(decks).length === 0 ? (
-        <p>Nenhum deck ainda. Gere ou crie um novo.</p>
+        <p className="empty-state">Nenhum deck ainda. Gere ou crie um novo.</p>
       ) : (
         <div>
           {Object.values(decks).map(deck => (
