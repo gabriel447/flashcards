@@ -204,3 +204,44 @@
   .review-card .review-label { color: #60a5fa; }
   .empty-state { color: #9ca3af; }
 }
+/* Devidos layout & carousel */
+.due-container { max-width: 980px; margin: 0 auto; }
+.due-swiper { padding: 1.5rem 0; min-height: 60vh; }
+.due-swiper .swiper-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; }
+.due-swiper .review-card { width: 100%; max-width: 380px; margin: 0 auto; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.12); padding: 1.25rem; }
+/* Swiper UI polish */
+.due-swiper .swiper-pagination { display: none; }
+.due-swiper .swiper-button-next, .due-swiper .swiper-button-prev { color: #3b82f6; }
+
+/* Flip card interaction */
+.flip-card { perspective: 1000px; cursor: pointer; }
+.flip-card-inner { position: relative; width: 100%; min-height: 460px; transform-style: preserve-3d; transition: transform 0.6s ease; }
+.flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
+.flip-card-front, .flip-card-back { position: absolute; inset: 0; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 0.5rem 0.75rem; }
+.flip-card-back { transform: rotateY(180deg); }
+
+/* Grade row outside card */
+.grade-row { display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-top: 0.75rem; width: 100%; max-width: 380px; margin-left: auto; margin-right: auto; min-height: 44px; }
+
+/* Ensure readable text inside flip card faces (light theme) */
+.flip-card-front h3, .flip-card-front p, .flip-card-back h3, .flip-card-back p { color: #0f172a; }
+
+/* Decks section button colors (scoped) */
+.decks-section .btn-primary { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+.decks-section .btn-primary:hover { background: #2766dd; border-color: #2766dd; }
+.decks-section .btn-secondary { background: #e5e7eb; border-color: #cbd5e1; color: #111827; }
+.decks-section .btn-secondary:hover { background: #d1d5db; }
+.decks-section .icon-btn { background: #f1f5f9; border-color: #cbd5e1; color: #0f172a; }
+.decks-section .icon-btn:hover { background: #e2e8f0; }
+.decks-section .icon-btn.danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
+.decks-section .icon-btn.danger:hover { background: #dc2626; border-color: #dc2626; }
+
+/* Decks section button colors (dark, scoped) */
+@media (prefers-color-scheme: dark) {
+  .decks-section .btn-primary { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+  .decks-section .btn-primary:hover { background: #2766dd; border-color: #2766dd; }
+  .decks-section .btn-secondary { background: #1f2937; border-color: #334155; color: #e5e7eb; }
+  .decks-section .btn-secondary:hover { background: #111827; border-color: #334155; }
+  .decks-section .icon-btn { background: #1f2937; border-color: #334155; color: #e5e7eb; }
+  .decks-section .icon-btn:hover { background: #0b1220; }
+}

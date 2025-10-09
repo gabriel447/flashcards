@@ -1,18 +1,18 @@
 import { useMemo, useRef, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck, Card } from '../types';
-import { TrashIcon, PencilIcon, DownloadIcon, EyeIcon, ChevronDownIcon } from './icons';
+import { TrashIcon, DownloadIcon } from './icons';
 
 type Props = {
   userId: string;
   decks: Record<string, Deck>;
   onUpdateDecks: (decks: Record<string, Deck>) => void;
+  onOpenDeckDue?: (deckId: string) => void;
 };
 
-export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
+export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue }: Props) {
   const [newDeckName, setNewDeckName] = useState('');
   const [importing, setImporting] = useState(false);
-  const [openedDeckId, setOpenedDeckId] = useState<string>('');
   const [editingCardId, setEditingCardId] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -49,7 +49,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     const next = { ...decks };
     delete next[deckId];
     onUpdateDecks(next);
-    if (openedDeckId === deckId) setOpenedDeckId('');
+    // if current deck is open elsewhere, no action needed here
   };
 
   const importDecks = async (file: File) => {
@@ -81,7 +81,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   };
 
   return (
-    <section>
+    <section className="decks-section">
       <h2>Decks</h2>
       <div className="toolbar">
         <input className="input" value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="Nome do novo deck" />
@@ -113,8 +113,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
           {Object.values(decks).map(deck => (
             <div key={deck.id} className="deck">
               <div className="row" style={{ justifyContent: 'space-between' }}>
-                <div className="row deck-header" style={{ cursor: 'pointer' }} onClick={() => setOpenedDeckId(openedDeckId === deck.id ? '' : deck.id)}>
-                  <ChevronDownIcon className="chevron" style={{ transform: openedDeckId === deck.id ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                <div className="row deck-header">
                   <strong className="deck-name">{deck.name}</strong>
                 </div>
                 <div className="row">
@@ -146,18 +145,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
                   </button>
                 </div>
               </div>
-              {openedDeckId === deck.id && (
-                <DeckReviewPanel
-                  deck={deck}
-                  userId={userId}
-                  onSave={(card) => saveCard(deck.id, card)}
-                  onDelete={(cardId) => deleteCard(deck.id, cardId)}
-                  onReviewed={(card) => onUpdateDecks({
-                    ...decks,
-                    [deck.id]: { ...deck, cards: { ...deck.cards, [card.id]: card } },
-                  })}
-                />
-              )}
             </div>
           ))}
         </div>
@@ -166,91 +153,4 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   );
 }
 
-function DeckReviewPanel({ deck, userId, onSave, onDelete, onReviewed }: {
-  deck: Deck;
-  userId: string;
-  onSave: (card: Card) => void;
-  onDelete: (cardId: string) => void;
-  onReviewed: (card: Card) => void;
-}) {
-  const now = Date.now();
-  const due = useMemo(() => {
-    return Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now);
-  }, [deck, now]);
-
-  const [showAnswer, setShowAnswer] = useState(false);
-  const [editing, setEditing] = useState(false);
-  const current = due[0];
-
-  const grade = async (q: number) => {
-    if (!current) return;
-    const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
-    onReviewed(res.data.card as Card);
-    setShowAnswer(false);
-    setEditing(false);
-  };
-
-  if (!current) return <p className="empty-state">Sem cards devidos neste deck agora.</p>;
-
-  return (
-    <div className="review-card">
-      <div className="row">
-        <div className="row">
-          <button
-            className="icon-btn"
-            title={editing ? 'Fechar edição' : 'Editar card'}
-            aria-label={editing ? 'Fechar edição' : 'Editar card'}
-            onClick={() => setEditing(e => !e)}
-          >
-            <PencilIcon />
-          </button>
-          <button
-            className="icon-btn danger"
-            title="Deletar card"
-            aria-label="Deletar card"
-            onClick={() => onDelete(current.id)}
-          >
-            <TrashIcon />
-          </button>
-        </div>
-        {current?.category && (
-          <span className="badge muted" style={{ marginLeft: 'auto' }}>
-            {current.category}
-          </span>
-        )}
-      </div>
-
-      {!editing ? (
-        <>
-          <h3>Pergunta</h3>
-          <p>{current.question}</p>
-          {showAnswer && (
-            <>
-              <h3>Resposta</h3>
-              <p>{current.answer}</p>
-            </>
-          )}
-          <div className="row">
-            {!showAnswer ? (
-              <button className="btn btn-primary" onClick={() => setShowAnswer(true)}>
-                <EyeIcon /> Mostrar resposta
-              </button>
-            ) : (
-              <>
-                <span className="review-label">Como você foi?</span>
-                {[0,1,2,3,4,5].map(q => (
-                  <button className="btn btn-grade" key={q} onClick={() => grade(q)}>{q}</button>
-                ))}
-              </>
-            )}
-          </div>
-        </>
-      ) : (
-        <div className="card-edit">
-          <input value={current.question} onChange={(e) => onSave({ ...current, question: e.target.value })} />
-          <textarea value={current.answer} onChange={(e) => onSave({ ...current, answer: e.target.value })} />
-        </div>
-      )}
-    </div>
-  );
-}
+// Deck inline review removed; decks now navigate to the Devidos view

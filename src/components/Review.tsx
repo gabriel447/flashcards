@@ -1,6 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 import 'swiper/css';
+import 'swiper/css/navigation';
 import { api } from '../lib/api';
 import type { Deck, Card } from '../types';
 
@@ -24,6 +26,7 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
     return items;
   }, [decks]);
 
+  // Controle de exibição da resposta (flip)
   const [showAnswer, setShowAnswer] = useState(false);
 
   const grade = async (deckId: string, cardId: string, q: number) => {
@@ -32,35 +35,52 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
     setShowAnswer(false);
   };
 
-  if (dueCards.length === 0) return <p>Sem cards devidos agora. Volte mais tarde!</p>;
+  if (dueCards.length === 0) return <p className="empty-state">Sem cards devidos agora. Volte mais tarde!</p>;
 
   return (
-    <section>
+    <section className="due-container">
       <h2>Revisão Espaçada</h2>
-      <Swiper spaceBetween={16} slidesPerView={1}>
+      <Swiper
+        className="due-swiper"
+        spaceBetween={16}
+        slidesPerView={1}
+        modules={[Navigation]}
+        navigation
+        onSlideChange={() => { setShowAnswer(false); }}
+      >
         {dueCards.map(({ deckId, card }) => (
           <SwiperSlide key={card.id}>
             <div className="review-card">
-              <h3>Pergunta</h3>
-              <p>{card.question}</p>
-              {showAnswer && (
-                <>
-                  <h3>Resposta</h3>
-                  <p>{card.answer}</p>
-                </>
-              )}
-              <div className="row">
-                {!showAnswer ? (
-                  <button onClick={() => setShowAnswer(true)}>Mostrar resposta</button>
-                ) : (
-                  <>
-                    <span>Como você foi?</span>
-                    {[0,1,2,3,4,5].map(q => (
-                      <button key={q} onClick={() => grade(deckId, card.id, q)}>{q}</button>
-                    ))}
-                  </>
-                )}
+              <div
+                className={`flip-card ${showAnswer ? 'flipped' : ''}`}
+                onClick={() => setShowAnswer(s => !s)}
+                role="button"
+                aria-label={showAnswer ? 'Mostrar pergunta' : 'Mostrar resposta'}
+              >
+                <div className="flip-card-inner">
+                  <div className="flip-card-front">
+                    <h3>Pergunta</h3>
+                    <p>{card.question}</p>
+                  </div>
+                  <div className="flip-card-back">
+                    <h3>Resposta</h3>
+                    <p>{card.answer}</p>
+                  </div>
+                </div>
               </div>
+              {/* avaliação agora fora do card */}
+            </div>
+            <div className="grade-row">
+              {showAnswer ? (
+                <>
+                  <span className="review-label">Como você foi?</span>
+                  {[0,1,2,3,4,5].map(q => (
+                    <button className="btn btn-grade" key={q} onClick={() => grade(deckId, card.id, q)}>{q}</button>
+                  ))}
+                </>
+              ) : (
+                <span className="review-label">Clique para virar a carta</span>
+              )}
             </div>
           </SwiperSlide>
         ))}

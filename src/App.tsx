@@ -3,16 +3,19 @@ import './App.css';
 import { Generator } from './components/Generator.tsx';
 import { DeckManager } from './components/DeckManager.tsx';
 import { Stats } from './components/Stats.tsx';
+import { Review } from './components/Review.tsx';
+import { Due } from './components/Due.tsx';
 import { api } from './lib/api';
 import type { Deck, Card } from './types.ts';
 
-type View = 'gerar' | 'decks' | 'stats';
+type View = 'gerar' | 'decks' | 'devidos' | 'stats';
 
 function App() {
   const [userId] = useState<string>('anon');
   const [view, setView] = useState<View>('gerar');
   const [decks, setDecks] = useState<Record<string, Deck>>({});
   const [busy, setBusy] = useState(false);
+  const [selectedDeckId, setSelectedDeckId] = useState<string>('');
 
   useEffect(() => {
     if (!userId) return;
@@ -29,6 +32,7 @@ function App() {
       <nav className="tabs">
         <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>Decks</button>
+        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>Devidos</button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>
 
@@ -42,7 +46,42 @@ function App() {
             />
           )}
           {view === 'decks' && (
-            <DeckManager userId={userId} decks={decks} onUpdateDecks={setDecks} />
+            <DeckManager
+              userId={userId}
+              decks={decks}
+              onUpdateDecks={setDecks}
+              onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('devidos'); }}
+            />
+          )}
+          {view === 'devidos' && (
+            selectedDeckId && decks[selectedDeckId] ? (
+              <Due
+                deck={decks[selectedDeckId]}
+                userId={userId}
+                onSave={(card: Card) => setDecks(prev => ({
+                  ...prev,
+                  [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
+                }))}
+                onDelete={(cardId: string) => {
+                  const next = { ...decks };
+                  delete next[selectedDeckId].cards[cardId];
+                  setDecks(next);
+                }}
+                onReviewed={(card: Card) => setDecks(prev => ({
+                  ...prev,
+                  [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
+                }))}
+              />
+            ) : (
+              <Review
+                userId={userId}
+                decks={decks}
+                onCardUpdated={(deckId: string, card: Card) => setDecks(prev => ({
+                  ...prev,
+                  [deckId]: { ...prev[deckId], cards: { ...prev[deckId].cards, [card.id]: card } },
+                }))}
+              />
+            )
           )}
           {view === 'stats' && (
             <Stats decks={decks} />
