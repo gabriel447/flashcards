@@ -1,9 +1,13 @@
 import type { Deck } from '../types';
 
-export function Stats({ decks }: { decks: Record<string, Deck> }) {
+type Props = {
+  decks: Record<string, Deck>;
+  reviewedCounts?: Record<string, number>;
+};
+
+export function Stats({ decks, reviewedCounts }: Props) {
   const total = Object.values(decks).reduce((acc, d) => acc + Object.keys(d.cards || {}).length, 0);
-  const now = Date.now();
-  const due = Object.values(decks).reduce((acc, d) => acc + Object.values(d.cards || {}).filter(c => new Date(c.due).getTime() <= now).length, 0);
+  const reviewedTotal = Object.values(reviewedCounts || {}).reduce((acc, n) => acc + (n || 0), 0);
 
   return (
     <section>
@@ -18,8 +22,8 @@ export function Stats({ decks }: { decks: Record<string, Deck> }) {
           <span className="value">{total}</span>
         </div>
         <div className="stat-card">
-          <span className="label">Cards devidos</span>
-          <span className="value">{due}</span>
+          <span className="label">Cards revisados</span>
+          <span className="value">{reviewedTotal}</span>
         </div>
       </div>
     </section>

@@ -8,9 +8,10 @@ type Props = {
   decks: Record<string, Deck>;
   onUpdateDecks: (decks: Record<string, Deck>) => void;
   onOpenDeckDue?: (deckId: string) => void;
+  reviewedCounts?: Record<string, number>;
 };
 
-export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue }: Props) {
+export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, reviewedCounts }: Props) {
   const [newDeckName, setNewDeckName] = useState('');
   const [importing, setImporting] = useState(false);
   const [editingCardId, setEditingCardId] = useState<string>('');
@@ -119,11 +120,11 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue }: Pro
                 <div className="row">
                   {(() => {
                     const total = Object.keys(deck.cards || {}).length;
-                    const dueCount = Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= Date.now()).length;
+                    const reviewed = reviewedCounts?.[deck.id] ?? 0;
                     return (
                       <div className="deck-stats">
-                        <span className="badge info">{dueCount} devidos</span>
                         <span className="badge muted">{total} cards</span>
+                        <span className="badge info">{reviewed} revisados</span>
                       </div>
                     );
                   })()}

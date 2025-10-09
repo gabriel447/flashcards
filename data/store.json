@@ -466,9 +466,9 @@
               ],
               "category": "S3",
               "repetitions": 0,
-              "interval": 0,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:14:22.112Z"
             },
             "card_jqkhj8issfi7": {
               "id": "card_jqkhj8issfi7",
@@ -481,9 +481,9 @@
               ],
               "category": "S3",
               "repetitions": 0,
-              "interval": 0,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:14:37.256Z"
             },
             "card_jqkhj8qnwc8g": {
               "id": "card_jqkhj8qnwc8g",
@@ -495,10 +495,10 @@
                 "buckets"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.6,
+              "due": "2025-10-10T19:14:42.113Z"
             },
             "card_jqkhj8fjmpp2": {
               "id": "card_jqkhj8fjmpp2",
@@ -511,9 +511,9 @@
               ],
               "category": "S3",
               "repetitions": 0,
-              "interval": 0,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:14:45.281Z"
             },
             "card_jqkhj8l7cw2r": {
               "id": "card_jqkhj8l7cw2r",

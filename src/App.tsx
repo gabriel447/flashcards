@@ -16,6 +16,7 @@ function App() {
   const [decks, setDecks] = useState<Record<string, Deck>>({});
   const [busy, setBusy] = useState(false);
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
+  const [reviewedCounts, setReviewedCounts] = useState<Record<string, number>>({});
 
   useEffect(() => {
     if (!userId) return;
@@ -32,7 +33,7 @@ function App() {
       <nav className="tabs">
         <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>Decks</button>
-        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>Devidos</button>
+        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>Revisão</button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>
 
@@ -51,6 +52,7 @@ function App() {
               decks={decks}
               onUpdateDecks={setDecks}
               onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('devidos'); }}
+              reviewedCounts={reviewedCounts}
             />
           )}
           {view === 'devidos' && (
@@ -67,24 +69,36 @@ function App() {
                   delete next[selectedDeckId].cards[cardId];
                   setDecks(next);
                 }}
-                onReviewed={(card: Card) => setDecks(prev => ({
-                  ...prev,
-                  [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
-                }))}
+                onReviewed={(card: Card) => {
+                  setDecks(prev => ({
+                    ...prev,
+                    [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
+                  }));
+                  setReviewedCounts(prev => ({
+                    ...prev,
+                    [selectedDeckId]: (prev[selectedDeckId] || 0) + 1,
+                  }));
+                }}
               />
             ) : (
               <Review
                 userId={userId}
                 decks={decks}
-                onCardUpdated={(deckId: string, card: Card) => setDecks(prev => ({
-                  ...prev,
-                  [deckId]: { ...prev[deckId], cards: { ...prev[deckId].cards, [card.id]: card } },
-                }))}
+                onCardUpdated={(deckId: string, card: Card) => {
+                  setDecks(prev => ({
+                    ...prev,
+                    [deckId]: { ...prev[deckId], cards: { ...prev[deckId].cards, [card.id]: card } },
+                  }));
+                  setReviewedCounts(prev => ({
+                    ...prev,
+                    [deckId]: (prev[deckId] || 0) + 1,
+                  }));
+                }}
               />
             )
           )}
           {view === 'stats' && (
-            <Stats decks={decks} />
+            <Stats decks={decks} reviewedCounts={reviewedCounts} />
           )}
       </main>
     </div>
