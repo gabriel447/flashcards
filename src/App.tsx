@@ -69,14 +69,14 @@ function App() {
                   delete next[selectedDeckId].cards[cardId];
                   setDecks(next);
                 }}
-                onReviewed={(card: Card) => {
+                onReviewed={(card: Card, reviewedCount?: number) => {
                   setDecks(prev => ({
                     ...prev,
                     [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
                   }));
                   setReviewedCounts(prev => ({
                     ...prev,
-                    [selectedDeckId]: (prev[selectedDeckId] || 0) + 1,
+                    [selectedDeckId]: reviewedCount ?? ((prev[selectedDeckId] || 0) + 1),
                   }));
                 }}
               />
@@ -84,14 +84,14 @@ function App() {
               <Review
                 userId={userId}
                 decks={decks}
-                onCardUpdated={(deckId: string, card: Card) => {
+                onCardUpdated={(deckId: string, card: Card, reviewedCount?: number) => {
                   setDecks(prev => ({
                     ...prev,
                     [deckId]: { ...prev[deckId], cards: { ...prev[deckId].cards, [card.id]: card } },
                   }));
                   setReviewedCounts(prev => ({
                     ...prev,
-                    [deckId]: (prev[deckId] || 0) + 1,
+                    [deckId]: reviewedCount ?? ((prev[deckId] || 0) + 1),
                   }));
                 }}
               />

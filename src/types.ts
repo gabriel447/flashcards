@@ -8,10 +8,13 @@ export type Card = {
   interval: number;
   easeFactor: number;
   due: string;
+  reviews?: number;
+  lastReviewedAt?: string;
 };
 
 export type Deck = {
   id: string;
   name: string;
   cards: Record<string, Card>;
+  reviewedCount?: number;
 };

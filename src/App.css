@@ -165,7 +165,7 @@
 .stat-card .value { font-size: 1.4rem; font-weight: 700; color: #111827; }
 
 /* Review label and empty state */
-.review-label { color: #2563eb; font-weight: 600; }
+.review-label { color: #2563eb; font-weight: 600; display: inline-block; margin-right: 0.5rem; }
 .empty-state { color: #6b7280; }
 
 /* Icon buttons */

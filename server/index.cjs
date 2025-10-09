@@ -64,7 +64,7 @@ app.post('/api/decks', (req, res) => {
   if (!userId || !name) return res.status(400).json({ error: 'userId e name obrigatórios' });
   const store = getUserStore(userId);
   const deckId = makeId('deck');
-  store.users[userId].decks[deckId] = { id: deckId, name, cards: {} };
+  store.users[userId].decks[deckId] = { id: deckId, name, cards: {}, reviewedCount: 0 };
   persist(store);
   res.json({ deck: store.users[userId].decks[deckId] });
 });
@@ -120,8 +120,9 @@ app.post('/api/review', (req, res) => {
 
   const updated = scheduleReview(card, grade);
   deck.cards[cardId] = updated;
+  deck.reviewedCount = (deck.reviewedCount || 0) + 1;
   persist(store);
-  res.json({ card: updated });
+  res.json({ card: updated, reviewedCount: deck.reviewedCount });
 });
 
 // Deletar card
@@ -240,6 +241,8 @@ app.post('/api/generate', async (req, res) => {
   }
 
   persist(store);
+  // garantir reviewedCount no deck criado
+  store.users[userId].decks[targetDeckId].reviewedCount = store.users[userId].decks[targetDeckId].reviewedCount || 0;
   res.json({ deck: store.users[userId].decks[targetDeckId] });
 });
 

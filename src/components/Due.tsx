@@ -12,7 +12,7 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
   userId: string;
   onSave: (card: Card) => void;
   onDelete: (cardId: string) => void;
-  onReviewed: (card: Card) => void;
+  onReviewed: (card: Card, reviewedCount?: number) => void;
 }) {
   const now = Date.now();
   const dueCards = useMemo(() => {
@@ -36,8 +36,7 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
   const grade = async (q: number) => {
     if (!current) return;
     const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
-    onReviewed(res.data.card as Card);
-    setShowAnswer(false);
+    onReviewed(res.data.card as Card, res.data.reviewedCount as number | undefined);
     setEditing(false);
   };
 
@@ -115,10 +114,10 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
               <div className="grade-row">
                 {showAnswer ? (
                   <>
-                    <span className="review-label">Como você foi?</span>
-                    {[0,1,2,3,4,5].map(q => (
-                      <button className="btn btn-grade" key={q} onClick={() => grade(q)}>{q}</button>
-                    ))}
+                    <span className="review-label">Como você foi ?</span>
+                    <button className="btn btn-grade" onClick={() => grade(1)}>Mal</button>
+                    <button className="btn btn-grade" onClick={() => grade(4)}>Bem</button>
+                    <button className="btn btn-grade" onClick={() => grade(5)}>Excelente</button>
                   </>
                 ) : (
                   <span className="review-label">Clique para virar a carta</span>

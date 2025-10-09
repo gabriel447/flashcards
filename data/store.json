@@ -526,9 +526,9 @@
               ],
               "category": "S3",
               "repetitions": 0,
-              "interval": 0,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:56:15.178Z"
             },
             "card_jqkhj8i9cnyq": {
               "id": "card_jqkhj8i9cnyq",
@@ -541,9 +541,9 @@
               ],
               "category": "S3",
               "repetitions": 0,
-              "interval": 0,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:56:19.291Z"
             },
             "card_jqkhj8q8hyxq": {
               "id": "card_jqkhj8q8hyxq",
@@ -555,10 +555,10 @@
                 "segurança"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T19:56:24.956Z"
             },
             "card_jqkhj886cg1y": {
               "id": "card_jqkhj886cg1y",

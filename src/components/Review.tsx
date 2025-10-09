@@ -9,7 +9,7 @@ import type { Deck, Card } from '../types';
 type Props = {
   userId: string;
   decks: Record<string, Deck>;
-  onCardUpdated: (deckId: string, card: Card) => void;
+  onCardUpdated: (deckId: string, card: Card, reviewedCount?: number) => void;
 };
 
 export function Review({ userId, decks, onCardUpdated }: Props) {
@@ -31,8 +31,7 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
 
   const grade = async (deckId: string, cardId: string, q: number) => {
     const res = await api.post('/review', { userId, deckId, cardId, grade: q });
-    onCardUpdated(deckId, res.data.card);
-    setShowAnswer(false);
+    onCardUpdated(deckId, res.data.card as Card, res.data.reviewedCount as number | undefined);
   };
 
   if (dueCards.length === 0) return <p className="empty-state">Sem cards devidos agora. Volte mais tarde!</p>;
@@ -73,10 +72,10 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
             <div className="grade-row">
               {showAnswer ? (
                 <>
-                  <span className="review-label">Como você foi?</span>
-                  {[0,1,2,3,4,5].map(q => (
-                    <button className="btn btn-grade" key={q} onClick={() => grade(deckId, card.id, q)}>{q}</button>
-                  ))}
+                  <span className="review-label">Como você foi ?</span>
+                  <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 1)}>Mal</button>
+                  <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Bem</button>
+                  <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 5)}>Excelente</button>
                 </>
               ) : (
                 <span className="review-label">Clique para virar a carta</span>
