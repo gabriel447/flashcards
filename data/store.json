@@ -451,303 +451,159 @@
     },
     "anon": {
       "decks": {
-        "deck_ii0d4c1b06bj": {
-          "id": "deck_ii0d4c1b06bj",
+        "deck_jopog7u5ekbl": {
+          "id": "deck_jopog7u5ekbl",
           "name": "AWS",
           "cards": {
-            "card_ii0r9vca12ka": {
-              "id": "card_ii0r9vca12ka",
-              "question": "O que é computação em nuvem?",
-              "answer": "É a entrega de serviços de computação pela internet, incluindo armazenamento, servidores, bancos de dados e rede.",
+            "card_joq78sr7jsqe": {
+              "id": "card_joq78sr7jsqe",
+              "question": "O que é o Amazon S3?",
+              "answer": "Um serviço de armazenamento de objetos na nuvem que oferece escalabilidade, disponibilidade e segurança.",
               "tags": [
-                "computação em nuvem",
-                "definição"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vkt3dwv": {
-              "id": "card_ii0r9vkt3dwv",
-              "question": "Quais são os principais modelos de serviço na computação em nuvem?",
-              "answer": "Os principais modelos são IaaS (Infrastructure as a Service), PaaS (Platform as a Service) e SaaS (Software as a Service).",
-              "tags": [
-                "modelos de serviço",
-                "IaaS",
-                "PaaS",
-                "SaaS"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9v7jtwxj": {
-              "id": "card_ii0r9v7jtwxj",
-              "question": "Quais são os benefícios da computação em nuvem?",
-              "answer": "Os benefícios incluem escalabilidade, custo reduzido, acessibilidade e segurança aprimorada.",
-              "tags": [
-                "benefícios",
-                "vantagens"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vncwad2": {
-              "id": "card_ii0r9vncwad2",
-              "question": "O que é IaaS?",
-              "answer": "IaaS é um modelo de computação em nuvem que fornece infraestrutura virtualizada sob demanda, como servidores e armazenamento.",
-              "tags": [
-                "IaaS",
-                "Infraestrutura"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vi03myo": {
-              "id": "card_ii0r9vi03myo",
-              "question": "O que é PaaS?",
-              "answer": "PaaS é um modelo que fornece uma plataforma para desenvolver, executar e gerenciar aplicações sem a complexidade de construir e manter a infraestrutura.",
-              "tags": [
-                "PaaS",
-                "Plataforma"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vn4m4cw": {
-              "id": "card_ii0r9vn4m4cw",
-              "question": "O que é SaaS?",
-              "answer": "SaaS é um modelo de entrega de software onde as aplicações são hospedadas na nuvem e acessadas via internet.",
-              "tags": [
-                "SaaS",
-                "Software"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vsrk9w6": {
-              "id": "card_ii0r9vsrk9w6",
-              "question": "Quais são os tipos de nuvem?",
-              "answer": "Os tipos de nuvem incluem nuvem pública, nuvem privada e nuvem híbrida.",
-              "tags": [
-                "tipos de nuvem",
-                "nuvem pública",
-                "nuvem privada",
-                "nuvem híbrida"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9v2du0k5": {
-              "id": "card_ii0r9v2du0k5",
-              "question": "O que é uma nuvem pública?",
-              "answer": "Uma nuvem pública é um ambiente de nuvem onde os serviços são oferecidos a múltiplos clientes pela internet e são geridos por um provedor de nuvem.",
-              "tags": [
-                "nuvem pública",
-                "definição"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vw4sx6d": {
-              "id": "card_ii0r9vw4sx6d",
-              "question": "O que é uma nuvem privada?",
-              "answer": "Uma nuvem privada é uma infraestrutura de nuvem exclusiva para uma única organização, oferecendo maior controle e segurança.",
-              "tags": [
-                "nuvem privada",
-                "definição"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii0r9vlr2gbi": {
-              "id": "card_ii0r9vlr2gbi",
-              "question": "O que é uma nuvem híbrida?",
-              "answer": "Uma nuvem híbrida combina nuvens públicas e privadas, permitindo que dados e aplicativos sejam compartilhados entre elas.",
-              "tags": [
-                "nuvem híbrida",
-                "definição"
-              ],
-              "category": "O que é computação em nuvem?",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-08T21:26:27.091Z"
-            },
-            "card_ii2je0ie12yy": {
-              "id": "card_ii2je0ie12yy",
-              "question": "O que é o AWS IAM?",
-              "answer": "AWS Identity and Access Management (IAM) é um serviço que permite controlar o acesso aos recursos da AWS.",
-              "tags": [
-                "IAM",
                 "AWS",
-                "Identidade",
-                "Acesso"
+                "S3",
+                "armazenamento"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je0whfb0l": {
-              "id": "card_ii2je0whfb0l",
-              "question": "Qual é a função principal do IAM?",
-              "answer": "Gerenciar usuários e permissões para acessar serviços e recursos da AWS.",
+            "card_joq78sc4s0uk": {
+              "id": "card_joq78sc4s0uk",
+              "question": "Quais são os principais tipos de armazenamento no S3?",
+              "answer": "S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier e S3 Glacier Deep Archive.",
               "tags": [
-                "Função",
-                "IAM",
-                "Permissões"
+                "AWS",
+                "S3",
+                "tipos de armazenamento"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je0t5so91": {
-              "id": "card_ii2je0t5so91",
-              "question": "O que são políticas no AWS IAM?",
-              "answer": "Conjuntos de regras que definem permissões para acessar recursos da AWS.",
+            "card_joq78sa6oq65": {
+              "id": "card_joq78sa6oq65",
+              "question": "O que são 'buckets' no S3?",
+              "answer": "Contêineres que armazenam objetos no Amazon S3.",
               "tags": [
-                "Políticas",
-                "IAM",
-                "Permissões"
+                "AWS",
+                "S3",
+                "buckets"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je0d8i4m1": {
-              "id": "card_ii2je0d8i4m1",
-              "question": "O que é um usuário IAM?",
-              "answer": "Um usuário IAM é uma entidade que pode fazer chamadas para a API da AWS, como uma pessoa ou um aplicativo.",
+            "card_joq78s3ir9ou": {
+              "id": "card_joq78s3ir9ou",
+              "question": "Como o S3 garante a durabilidade dos dados?",
+              "answer": "O S3 fornece 99.999999999% (11 9's) de durabilidade ao armazenar múltiplas cópias dos dados em diferentes locais.",
               "tags": [
-                "Usuário",
-                "IAM"
+                "AWS",
+                "S3",
+                "durabilidade"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je00bbint": {
-              "id": "card_ii2je00bbint",
-              "question": "Qual é a diferença entre usuários e grupos no IAM?",
-              "answer": "Usuários são entidades individuais, enquanto grupos são coleções de usuários que compartilham permissões.",
+            "card_joq78sjs4rpt": {
+              "id": "card_joq78sjs4rpt",
+              "question": "O que é a política de controle de acesso (ACL) no S3?",
+              "answer": "Um conjunto de permissões que define quem pode acessar os objetos dentro de um bucket.",
               "tags": [
-                "Usuários",
-                "Grupos",
-                "IAM"
+                "AWS",
+                "S3",
+                "ACL"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je0xjc1qg": {
-              "id": "card_ii2je0xjc1qg",
-              "question": "O que é uma função IAM?",
-              "answer": "Uma função IAM é um conjunto de permissões que pode ser assumido por entidades confiáveis, como usuários ou serviços da AWS.",
+            "card_joq78siew1l0": {
+              "id": "card_joq78siew1l0",
+              "question": "O que significa 'versioning' no S3?",
+              "answer": "Um recurso que permite manter várias versões de um objeto em um bucket.",
               "tags": [
-                "Função",
-                "IAM",
-                "Permissões"
+                "AWS",
+                "S3",
+                "versioning"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je0mi1vxp": {
-              "id": "card_ii2je0mi1vxp",
-              "question": "Como as credenciais temporárias são geradas no IAM?",
-              "answer": "Através do uso de funções IAM e do AWS Security Token Service (STS).",
+            "card_joq78sroy382": {
+              "id": "card_joq78sroy382",
+              "question": "Como o Amazon S3 lida com a segurança dos dados?",
+              "answer": "Através de criptografia em repouso e em trânsito, além de políticas de controle de acesso.",
               "tags": [
-                "Credenciais",
-                "Temporárias",
-                "STS"
+                "AWS",
+                "S3",
+                "segurança"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je00s4bk9": {
-              "id": "card_ii2je00s4bk9",
-              "question": "O que é o AWS Organizations?",
-              "answer": "Um serviço que permite gerenciar várias contas da AWS de forma centralizada, incluindo políticas de controle de serviço.",
+            "card_joq78sim6tsc": {
+              "id": "card_joq78sim6tsc",
+              "question": "O que é o S3 Transfer Acceleration?",
+              "answer": "Um recurso que permite transferências de dados mais rápidas para o S3 usando a rede global da AWS.",
               "tags": [
-                "AWS Organizations",
-                "Gerenciamento",
-                "Contas"
+                "AWS",
+                "S3",
+                "Transfer Acceleration"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je05cj14l": {
-              "id": "card_ii2je05cj14l",
-              "question": "O que é autenticação multifator (MFA) no IAM?",
-              "answer": "Uma camada adicional de segurança que requer mais de uma forma de verificação para acessar recursos.",
+            "card_joq78st6o83y": {
+              "id": "card_joq78st6o83y",
+              "question": "Qual é o limite de tamanho de um objeto armazenado no S3?",
+              "answer": "Um objeto pode ter até 5 terabytes de tamanho.",
               "tags": [
-                "MFA",
-                "Segurança",
-                "IAM"
+                "AWS",
+                "S3",
+                "tamanho de objeto"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             },
-            "card_ii2je018sppr": {
-              "id": "card_ii2je018sppr",
-              "question": "Qual é a importância da política de menor privilégio no IAM?",
-              "answer": "Garante que usuários e serviços tenham apenas as permissões necessárias para realizar suas funções, minimizando riscos de segurança.",
+            "card_joq78s9nmzd4": {
+              "id": "card_joq78s9nmzd4",
+              "question": "O que são eventos no S3?",
+              "answer": "Notificações que podem ser geradas em resposta a ações como uploads ou exclusões de objetos.",
               "tags": [
-                "Menor Privilégio",
-                "Segurança",
-                "IAM"
+                "AWS",
+                "S3",
+                "eventos"
               ],
-              "category": "AWS Identity & Access Management",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-08T21:27:50.184Z"
+              "due": "2025-10-09T17:21:58.060Z"
             }
           }
         }

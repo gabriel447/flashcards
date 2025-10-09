@@ -32,6 +32,8 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   };
 
   const deleteCard = async (deckId: string, cardId: string) => {
+    const ok = window.confirm('Tem certeza que deseja deletar este card?');
+    if (!ok) return;
     await api.delete(`/decks/${deckId}/cards/${cardId}`, { params: { userId } });
     const next = { ...decks };
     delete next[deckId].cards[cardId];
@@ -39,23 +41,13 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   };
 
   const deleteDeck = async (deckId: string) => {
+    const ok = window.confirm('Tem certeza que deseja deletar este deck? Isso removerá todos os cards.');
+    if (!ok) return;
     await api.delete(`/decks/${deckId}`, { params: { userId } });
     const next = { ...decks };
     delete next[deckId];
     onUpdateDecks(next);
     if (openedDeckId === deckId) setOpenedDeckId('');
-  };
-
-  const exportDecks = async () => {
-    const res = await api.get('/export', { params: { userId } });
-    const dataStr = JSON.stringify(res.data.data, null, 2);
-    const blob = new Blob([dataStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `flashcards_${userId}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
   };
 
   const importDecks = async (file: File) => {
@@ -73,6 +65,18 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
       setImporting(false);
     }
   };
+  const exportSingleDeck = async (deck: Deck) => {
+    const res = await api.get(`/decks/${deck.id}/export`, { params: { userId } });
+    const dataStr = JSON.stringify(res.data.deck, null, 2);
+    const blob = new Blob([dataStr], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const safeName = (deck.name || 'deck').toLowerCase().replace(/[^a-z0-9]+/g, '-');
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `deck_${safeName}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
 
   return (
     <section>
@@ -80,7 +84,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
       <div className="row">
         <input value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="Nome do novo deck" />
         <button onClick={createDeck}>Criar deck</button>
-        <button onClick={exportDecks}>Exportar decks</button>
         <label className="import-label">
           Importar JSON
           <input type="file" accept="application/json" onChange={(e) => {
@@ -97,22 +100,25 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
           {Object.values(decks).map(deck => (
             <div key={deck.id} className="deck">
               <div className="row" style={{ justifyContent: 'space-between' }}>
-                <strong>{deck.name}</strong>
-                <span>{Object.keys(deck.cards || {}).length} cards</span>
+                <div className="row" style={{ cursor: 'pointer' }} onClick={() => setOpenedDeckId(openedDeckId === deck.id ? '' : deck.id)}>
+                  <strong>{deck.name}</strong>
+                  <span>{Object.keys(deck.cards || {}).length} cards</span>
+                </div>
                 <div className="row">
-                  <button onClick={() => setOpenedDeckId(openedDeckId === deck.id ? '' : deck.id)}>
-                  {openedDeckId === deck.id ? 'Fechar' : 'Abrir'}
-                  </button>
-                  <button onClick={() => deleteDeck(deck.id)}>Deletar deck</button>
+                  <button onClick={(e) => { e.stopPropagation(); exportSingleDeck(deck); }}>Exportar deck</button>
+                  <button onClick={(e) => { e.stopPropagation(); deleteDeck(deck.id); }}>Deletar deck</button>
                 </div>
               </div>
               {openedDeckId === deck.id && (
-                <DeckCardsView
+                <DeckReviewPanel
                   deck={deck}
-                  onEdit={(cardId) => setEditingCardId(cardId)}
-                  editingCardId={editingCardId}
+                  userId={userId}
                   onSave={(card) => saveCard(deck.id, card)}
                   onDelete={(cardId) => deleteCard(deck.id, cardId)}
+                  onReviewed={(card) => onUpdateDecks({
+                    ...decks,
+                    [deck.id]: { ...deck, cards: { ...deck.cards, [card.id]: card } },
+                  })}
                 />
               )}
             </div>
@@ -123,57 +129,71 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   );
 }
 
-function DeckCardsView({ deck, onEdit, editingCardId, onSave, onDelete }: {
+function DeckReviewPanel({ deck, userId, onSave, onDelete, onReviewed }: {
   deck: Deck;
-  onEdit: (cardId: string) => void;
-  editingCardId: string;
+  userId: string;
   onSave: (card: Card) => void;
   onDelete: (cardId: string) => void;
+  onReviewed: (card: Card) => void;
 }) {
-  const groups = useMemo(() => {
-    const map: Record<string, Card[]> = {};
-    Object.values(deck.cards || {}).forEach((card) => {
-      const key = card.category || 'Sem categoria';
-      (map[key] ||= []).push(card);
-    });
-    return map;
-  }, [deck]);
+  const now = Date.now();
+  const due = useMemo(() => {
+    return Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now);
+  }, [deck, now]);
+
+  const [showAnswer, setShowAnswer] = useState(false);
+  const [editing, setEditing] = useState(false);
+  const current = due[0];
+
+  const grade = async (q: number) => {
+    if (!current) return;
+    const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
+    onReviewed(res.data.card as Card);
+    setShowAnswer(false);
+    setEditing(false);
+  };
+
+  if (!current) return <p>Sem cards devidos neste deck agora.</p>;
 
   return (
-    <div>
-      {Object.entries(groups).map(([cat, cards]) => (
-        <div key={cat} className="category">
-          <div className="row" style={{ justifyContent: 'space-between' }}>
-            <strong>{cat}</strong>
-            <span className="badge">{cards.length}</span>
-          </div>
-          <div className="tiles">
-            {cards.map((card) => (
-              <div key={card.id} className="tile">
-                {editingCardId === card.id ? (
-                  <div className="card-edit">
-                    <input value={card.question} onChange={(e) => onSave({ ...card, question: e.target.value })} />
-                    <textarea value={card.answer} onChange={(e) => onSave({ ...card, answer: e.target.value })} />
-                    <div className="row tile-actions">
-                      <button onClick={() => onEdit('')}>Fechar</button>
-                      <button onClick={() => onDelete(card.id)}>Deletar</button>
-                    </div>
-                  </div>
-                ) : (
-                  <>
-                    <h4>{card.question}</h4>
-                    <small>Tags: {card.tags?.join(', ') || '-'}</small>
-                    <div className="row tile-actions">
-                      <button onClick={() => onEdit(card.id)}>Editar</button>
-                      <button onClick={() => onDelete(card.id)}>Deletar</button>
-                    </div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
+    <div className="review-card">
+      <div className="row" style={{ justifyContent: 'space-between' }}>
+        <div className="row">
+          <button onClick={() => setEditing(e => !e)}>{editing ? 'Fechar edição' : 'Editar card'}</button>
+          <button onClick={() => onDelete(current.id)}>Deletar card</button>
         </div>
-      ))}
+        <span className="badge">Devidos: {due.length}</span>
+      </div>
+
+      {!editing ? (
+        <>
+          <h3>Pergunta</h3>
+          <p>{current.question}</p>
+          {showAnswer && (
+            <>
+              <h3>Resposta</h3>
+              <p>{current.answer}</p>
+            </>
+          )}
+          <div className="row">
+            {!showAnswer ? (
+              <button onClick={() => setShowAnswer(true)}>Mostrar resposta</button>
+            ) : (
+              <>
+                <span>Como você foi?</span>
+                {[0,1,2,3,4,5].map(q => (
+                  <button key={q} onClick={() => grade(q)}>{q}</button>
+                ))}
+              </>
+            )}
+          </div>
+        </>
+      ) : (
+        <div className="card-edit">
+          <input value={current.question} onChange={(e) => onSave({ ...current, question: e.target.value })} />
+          <textarea value={current.answer} onChange={(e) => onSave({ ...current, answer: e.target.value })} />
+        </div>
+      )}
     </div>
   );
 }

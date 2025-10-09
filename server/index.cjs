@@ -150,6 +150,17 @@ app.delete('/api/decks/:deckId', (req, res) => {
   res.json({ ok: true });
 });
 
+// Exportar deck específico
+app.get('/api/decks/:deckId/export', (req, res) => {
+  const { userId } = req.query;
+  const { deckId } = req.params;
+  if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
+  const store = getUserStore(userId);
+  const deck = store.users[userId].decks[deckId];
+  if (!deck) return res.status(404).json({ error: 'Deck não encontrado' });
+  res.json({ deck });
+});
+
 // Import/Export
 app.get('/api/export', (req, res) => {
   const { userId } = req.query;
