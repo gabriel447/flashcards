@@ -570,10 +570,10 @@
                 "classes"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.6,
+              "due": "2025-10-10T19:58:16.130Z"
             },
             "card_jqkhj8t6n17m": {
               "id": "card_jqkhj8t6n17m",
@@ -585,10 +585,10 @@
                 "versionamento"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-09T18:13:30.692Z"
+              "due": "2025-10-10T20:01:26.362Z"
             },
             "card_jqkhj8cx9w8p": {
               "id": "card_jqkhj8cx9w8p",

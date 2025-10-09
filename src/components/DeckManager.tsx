@@ -120,7 +120,9 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
                 <div className="row">
                   {(() => {
                     const total = Object.keys(deck.cards || {}).length;
-                    const reviewed = (deck as any)?.reviewedCount ?? reviewedCounts?.[deck.id] ?? 0;
+                    const reviewed = (deck as any)?.reviewedCount
+                      ?? reviewedCounts?.[deck.id]
+                      ?? Object.values(deck.cards || {}).reduce((acc, c) => acc + (c.reviews || c.repetitions || 0), 0);
                     return (
                       <div className="deck-stats">
                         <span className="badge muted">{total} cards</span>

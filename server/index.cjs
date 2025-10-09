@@ -56,6 +56,23 @@ app.get('/api/decks', (req, res) => {
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
   const store = getUserStore(userId);
   const decks = store.users[userId].decks || {};
+  // garantir reviewedCount em todos os decks (migração leve)
+  // se ausente ou zerado, tenta calcular pelo somatório de reviews dos cards
+  let updated = false;
+  Object.values(decks).forEach(d => {
+    const cardsArr = Object.values(d.cards || {});
+    const sumReviews = cardsArr.reduce((acc, c) => acc + (c.reviews || 0), 0);
+    const sumReps = cardsArr.reduce((acc, c) => acc + (c.repetitions || 0), 0);
+    const derived = Math.max(sumReviews, sumReps);
+    if (typeof d.reviewedCount !== 'number') {
+      d.reviewedCount = derived;
+      updated = true;
+    } else if (d.reviewedCount === 0 && derived > 0) {
+      d.reviewedCount = derived;
+      updated = true;
+    }
+  });
+  if (updated) persist(store);
   res.json({ decks });
 });
 

@@ -7,7 +7,14 @@ type Props = {
 
 export function Stats({ decks, reviewedCounts }: Props) {
   const total = Object.values(decks).reduce((acc, d) => acc + Object.keys(d.cards || {}).length, 0);
-  const reviewedTotal = Object.values(reviewedCounts || {}).reduce((acc, n) => acc + (n || 0), 0);
+  const persistedReviewedTotal = Object.values(decks).reduce((acc, d) => {
+    const deckCount = typeof d.reviewedCount === 'number'
+      ? d.reviewedCount
+      : Object.values(d.cards || {}).reduce((inner, c) => inner + (c.reviews || c.repetitions || 0), 0);
+    return acc + deckCount;
+  }, 0);
+  const sessionReviewedTotal = Object.values(reviewedCounts || {}).reduce((acc, n) => acc + (n || 0), 0);
+  const reviewedTotal = persistedReviewedTotal || sessionReviewedTotal;
 
   return (
     <section>
