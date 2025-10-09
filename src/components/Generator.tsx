@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 
-type Props = { userId: string; decks: Record<string, Deck>; onDeckCreated: (deck: Deck) => void };
+type Props = { userId: string; decks: Record<string, Deck>; onDeckCreated: (deck: Deck) => void; onLoadingChange?: (loading: boolean) => void };
 
-export function Generator({ userId, decks, onDeckCreated }: Props) {
+export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Props) {
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [deckName, setDeckName] = useState('');
   const [category, setCategory] = useState('');
@@ -21,6 +21,7 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
     if (!useExisting && !nameValid) return;
     if (!catValid) return;
     setLoading(true);
+    onLoadingChange?.(true);
     try {
       const body: any = {
         userId,
@@ -37,6 +38,7 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
       setCategory('');
     } finally {
       setLoading(false);
+      onLoadingChange?.(false);
     }
   };
 
@@ -47,13 +49,14 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
         <label className="form-control">
           <span className="form-label">Selecionar deck</span>
           <div className="chip-group">
-            <button type="button" className={`chip ${selectedDeckId === '' ? 'active' : ''}`} onClick={() => setSelectedDeckId('')}>Criar novo</button>
+            <button type="button" className={`chip ${selectedDeckId === '' ? 'active' : ''}`} onClick={() => setSelectedDeckId('')} disabled={loading}>Criar novo</button>
             {deckOptions.map(d => (
               <button
                 type="button"
                 key={d.id}
                 className={`chip ${selectedDeckId === d.id ? 'active' : ''}`}
                 onClick={() => setSelectedDeckId(d.id)}
+                disabled={loading}
               >
                 {d.name}
               </button>
@@ -63,16 +66,16 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
         {!selectedDeckId && (
           <label className="form-control">
             <span className="form-label">Nome do deck</span>
-            <input className="input" value={deckName} onChange={(e) => setDeckName(e.target.value)} placeholder="Ex.: AWS" />
+            <input className="input" value={deckName} onChange={(e) => setDeckName(e.target.value)} placeholder="Ex.: AWS" disabled={loading} />
           </label>
         )}
         <label className="form-control">
           <span className="form-label">Categoria</span>
-          <input className="input" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Ex.: S3" />
+          <input className="input" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Ex.: S3" disabled={loading} />
         </label>
         <label className="form-control">
           <span className="form-label">Quantidade</span>
-          <input className="input" type="number" min={1} max={50} value={count} onChange={(e) => setCount(Number(e.target.value))} />
+          <input className="input" type="number" min={1} max={50} value={count} onChange={(e) => setCount(Number(e.target.value))} disabled={loading} />
         </label>
       </div>
       <div className="form-actions">

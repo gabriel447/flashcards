@@ -58,6 +58,7 @@
 }
 .tabs button:hover { background: #eef2f7; }
 .tabs button.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+.tabs button:disabled { opacity: 0.6; cursor: not-allowed; }
 .main { display: grid; gap: 1rem; }
 .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .form-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-bottom: 1rem; }
@@ -77,6 +78,7 @@
   border-color: #3b82f6;
   box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
 }
+.input:disabled { background: #eef2f7; color: #6b7280; border-color: #e5e7eb; cursor: not-allowed; }
 .compact { max-width: 320px; }
 .textarea { min-height: 90px; }
 .form-actions { margin-top: 1.25rem; }
@@ -120,6 +122,7 @@
 .chip { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; border-radius: 999px; padding: 0.35rem 0.75rem; font-weight: 600; cursor: pointer; }
 .chip:hover { background: #f3f4f6; }
 .chip.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+.chip:disabled { opacity: 0.6; cursor: not-allowed; }
 
 /* Buttons */
 .btn { border: 1px solid #e5e7eb; background: #f8fafc; color: #0f172a; border-radius: 10px; padding: 0.6rem 1rem; font-weight: 600; }
@@ -185,14 +188,17 @@
   .icon-btn:hover { background: #0b1220; }
   .btn:disabled { background: #1f2937; border-color: #1f2937; color: #9ca3af; opacity: 0.8; }
   .btn-primary:disabled { background: #3b82f6; border-color: #3b82f6; color: #ffffff; opacity: 0.7; }
+  .input:disabled { background: #eef2f7; color: #6b7280; border-color: #e5e7eb; cursor: not-allowed; }
   /* abas como botões no tema escuro */
   .tabs button { border-color: #1f2937; background: #111827; color: #e5e7eb; }
   .tabs button:hover { background: #0b1220; }
   .tabs button.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+  .tabs button:disabled { opacity: 0.6; cursor: not-allowed; }
   .review-card h3, .review-card p { color: #e5e7eb; }
   .chip { border-color: #374151; background: #111827; color: #e5e7eb; }
   .chip:hover { background: #0b1220; }
   .chip.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
+  .chip:disabled { opacity: 0.6; cursor: not-allowed; }
   .review-card span { color: #e5e7eb; }
   .review-card .review-label { color: #60a5fa; }
   .empty-state { color: #9ca3af; }

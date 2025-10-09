@@ -12,6 +12,7 @@ function App() {
   const [userId] = useState<string>('anon');
   const [view, setView] = useState<View>('gerar');
   const [decks, setDecks] = useState<Record<string, Deck>>({});
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
     if (!userId) return;
@@ -26,9 +27,9 @@ function App() {
     <div className="container">
       <header className="header"><h1>Flashcards Inteligentes</h1></header>
       <nav className="tabs">
-        <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')}>Gerar</button>
-        <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')}>Decks</button>
-        <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')}>Estatísticas</button>
+        <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
+        <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>Decks</button>
+        <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>
 
       <main className="main">
@@ -37,6 +38,7 @@ function App() {
               userId={userId}
               decks={decks}
               onDeckCreated={(deck: Deck) => setDecks(prev => ({ ...prev, [deck.id]: deck }))}
+              onLoadingChange={setBusy}
             />
           )}
           {view === 'decks' && (

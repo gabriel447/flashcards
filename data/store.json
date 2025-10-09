@@ -604,6 +604,456 @@
               "interval": 0,
               "easeFactor": 2.5,
               "due": "2025-10-09T18:13:30.692Z"
+            },
+            "card_jqmodlwfipoc": {
+              "id": "card_jqmodlwfipoc",
+              "question": "O que significa EC2 na AWS?",
+              "answer": "Elastic Compute Cloud.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "computação"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodljsng8q": {
+              "id": "card_jqmodljsng8q",
+              "question": "Qual é a principal função do EC2?",
+              "answer": "Provisionar instâncias de servidores virtuais na nuvem.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "função"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlvjdpq5": {
+              "id": "card_jqmodlvjdpq5",
+              "question": "Quais são os tipos de instâncias EC2 disponíveis?",
+              "answer": "Tipos otimizados para computação, memória, armazenamento e GPU.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "tipos de instância"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodluop8pr": {
+              "id": "card_jqmodluop8pr",
+              "question": "O que são AMIs no contexto do EC2?",
+              "answer": "Amazon Machine Images, que são templates para criar instâncias.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "AMIs"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlm8ydpg": {
+              "id": "card_jqmodlm8ydpg",
+              "question": "Como você pode escalar instâncias EC2?",
+              "answer": "Usando Auto Scaling Groups.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "escalabilidade"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlhj9cdh": {
+              "id": "card_jqmodlhj9cdh",
+              "question": "O que é um Elastic IP?",
+              "answer": "Um endereço IP fixo que pode ser associado a instâncias EC2.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "Elastic IP"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlt997m3": {
+              "id": "card_jqmodlt997m3",
+              "question": "Qual é o propósito do Security Group em EC2?",
+              "answer": "Controlar o tráfego de entrada e saída das instâncias.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "segurança"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlhvvgc0": {
+              "id": "card_jqmodlhvvgc0",
+              "question": "O que é o Amazon EC2 Spot Instances?",
+              "answer": "Instâncias EC2 que permitem comprar capacidade não utilizada a preços reduzidos.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "Spot Instances"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodlmfl8wy": {
+              "id": "card_jqmodlmfl8wy",
+              "question": "Como você pode monitorar instâncias EC2?",
+              "answer": "Usando o Amazon CloudWatch.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "monitoramento"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqmodl5kj52t": {
+              "id": "card_jqmodl5kj52t",
+              "question": "O que é o EC2 Instance Store?",
+              "answer": "Armazenamento temporário associado a instâncias EC2.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "Instance Store"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:15:12.873Z"
+            },
+            "card_jqp9xcsan8ij": {
+              "id": "card_jqp9xcsan8ij",
+              "question": "O que é o AWS Lambda?",
+              "answer": "Um serviço de computação que permite executar código sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Computação Sem Servidor"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xcnvz19z": {
+              "id": "card_jqp9xcnvz19z",
+              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
+              "answer": "Node.js, Python, Ruby, Java, Go, .NET Core, e Custom Runtime.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Linguagens de Programação"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xchqoilo": {
+              "id": "card_jqp9xchqoilo",
+              "question": "Como o AWS Lambda cobra pelo uso?",
+              "answer": "Com base no número de solicitações e na duração do tempo de execução do código.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Custo"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xcn46jpp": {
+              "id": "card_jqp9xcn46jpp",
+              "question": "O que são triggers no AWS Lambda?",
+              "answer": "Eventos que podem invocar funções Lambda, como mudanças em dados no S3 ou mensagens no SQS.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Triggers"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xcvcrud3": {
+              "id": "card_jqp9xcvcrud3",
+              "question": "Qual é o limite máximo de tempo de execução de uma função Lambda?",
+              "answer": "15 minutos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Limites"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xczfoqlx": {
+              "id": "card_jqp9xczfoqlx",
+              "question": "O que é um 'cold start' no AWS Lambda?",
+              "answer": "O tempo necessário para inicializar uma função Lambda pela primeira vez após um período de inatividade.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Cold Start"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xcgui8eu": {
+              "id": "card_jqp9xcgui8eu",
+              "question": "O que é o AWS Lambda Layers?",
+              "answer": "Um recurso que permite compartilhar bibliotecas e dependências entre funções Lambda.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Layers"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xcyk9ph9": {
+              "id": "card_jqp9xcyk9ph9",
+              "question": "Qual é o limite de tamanho para o código de uma função Lambda?",
+              "answer": "O tamanho máximo para um pacote de implantação é de 50 MB (ou 250 MB se armazenado no S3).",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Tamanho do Código"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xciiwe87": {
+              "id": "card_jqp9xciiwe87",
+              "question": "O que é o AWS Lambda@Edge?",
+              "answer": "Uma extensão do AWS Lambda que permite executar código em resposta a eventos de CDN na AWS CloudFront.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Edge"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqp9xc1hfe6z": {
+              "id": "card_jqp9xc1hfe6z",
+              "question": "Como o AWS Lambda se integra com o Amazon API Gateway?",
+              "answer": "O API Gateway pode ser usado para criar APIs RESTful que invocam funções Lambda.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "API Gateway"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:17:14.112Z"
+            },
+            "card_jqqwf06duqn7": {
+              "id": "card_jqqwf06duqn7",
+              "question": "O que significa VPC na AWS?",
+              "answer": "Virtual Private Cloud.",
+              "tags": [
+                "VPC",
+                "AWS",
+                "Nuvem"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0d6z5i9": {
+              "id": "card_jqqwf0d6z5i9",
+              "question": "Qual é a principal função de uma VPC?",
+              "answer": "Isolar recursos em uma rede virtual privada.",
+              "tags": [
+                "VPC",
+                "Isolamento",
+                "Rede"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0ymo4zy": {
+              "id": "card_jqqwf0ymo4zy",
+              "question": "Quantas VPCs você pode criar por conta da AWS?",
+              "answer": "Até 5 VPCs por região, mas pode ser aumentado mediante solicitação.",
+              "tags": [
+                "Limitações",
+                "VPC",
+                "AWS"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0yd91st": {
+              "id": "card_jqqwf0yd91st",
+              "question": "O que são sub-redes em uma VPC?",
+              "answer": "Divisões da VPC que permitem segmentar a rede.",
+              "tags": [
+                "Sub-redes",
+                "VPC",
+                "Rede"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0dnz20c": {
+              "id": "card_jqqwf0dnz20c",
+              "question": "O que é um gateway de Internet em uma VPC?",
+              "answer": "Permite que instâncias na VPC tenham acesso à Internet.",
+              "tags": [
+                "Gateway",
+                "Internet",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf06ou8zl": {
+              "id": "card_jqqwf06ou8zl",
+              "question": "O que são tabelas de rotas em uma VPC?",
+              "answer": "Definem como o tráfego é direcionado entre sub-redes e a Internet.",
+              "tags": [
+                "Tabelas de Rotas",
+                "VPC",
+                "Tráfego"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0lfsawq": {
+              "id": "card_jqqwf0lfsawq",
+              "question": "Qual é a diferença entre uma VPC pública e uma VPC privada?",
+              "answer": "VPC pública tem acesso à Internet; VPC privada não tem.",
+              "tags": [
+                "Pública",
+                "Privada",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf04r9c92": {
+              "id": "card_jqqwf04r9c92",
+              "question": "O que é um endpoint VPC?",
+              "answer": "Permite acesso a serviços da AWS sem usar a Internet.",
+              "tags": [
+                "Endpoint",
+                "VPC",
+                "Serviços"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0v35pdu": {
+              "id": "card_jqqwf0v35pdu",
+              "question": "O que é o AWS Direct Connect?",
+              "answer": "Uma conexão dedicada entre sua rede e a AWS.",
+              "tags": [
+                "Direct Connect",
+                "VPC",
+                "Conexão"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
+            },
+            "card_jqqwf0jjtkw1": {
+              "id": "card_jqqwf0jjtkw1",
+              "question": "Como você pode aumentar a segurança de uma VPC?",
+              "answer": "Usando grupos de segurança e listas de controle de acesso (ACLs).",
+              "tags": [
+                "Segurança",
+                "VPC",
+                "Grupos de Segurança"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:18:29.916Z"
             }
           }
         }
