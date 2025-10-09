@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck, Card } from '../types';
+import { TrashIcon, PencilIcon, DownloadIcon, EyeIcon, ChevronDownIcon } from './icons';
 
 type Props = {
   userId: string;
@@ -13,6 +14,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   const [importing, setImporting] = useState(false);
   const [openedDeckId, setOpenedDeckId] = useState<string>('');
   const [editingCardId, setEditingCardId] = useState<string>('');
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const createDeck = async () => {
     if (!newDeckName.trim()) return;
@@ -81,16 +83,27 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   return (
     <section>
       <h2>Decks</h2>
-      <div className="row">
-        <input value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="Nome do novo deck" />
-        <button onClick={createDeck}>Criar deck</button>
-        <label className="import-label">
+      <div className="toolbar">
+        <input className="input" value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="Nome do novo deck" />
+        <button className="btn btn-primary btn-sm" onClick={createDeck}>Criar deck</button>
+        <button
+          className="btn btn-secondary btn-sm"
+          onClick={() => fileInputRef.current?.click()}
+          disabled={importing}
+        >
           Importar JSON
-          <input type="file" accept="application/json" onChange={(e) => {
+        </button>
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept="application/json"
+          onChange={(e) => {
             const file = e.target.files?.[0];
             if (file) importDecks(file);
-          }} disabled={importing} />
-        </label>
+            if (fileInputRef.current) fileInputRef.current.value = '';
+          }}
+          style={{ display: 'none' }}
+        />
       </div>
 
       {Object.values(decks).length === 0 ? (
@@ -100,13 +113,37 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
           {Object.values(decks).map(deck => (
             <div key={deck.id} className="deck">
               <div className="row" style={{ justifyContent: 'space-between' }}>
-                <div className="row" style={{ cursor: 'pointer' }} onClick={() => setOpenedDeckId(openedDeckId === deck.id ? '' : deck.id)}>
-                  <strong>{deck.name}</strong>
-                  <span>{Object.keys(deck.cards || {}).length} cards</span>
+                <div className="row deck-header" style={{ cursor: 'pointer' }} onClick={() => setOpenedDeckId(openedDeckId === deck.id ? '' : deck.id)}>
+                  <ChevronDownIcon className="chevron" style={{ transform: openedDeckId === deck.id ? 'rotate(180deg)' : 'rotate(0deg)' }} />
+                  <strong className="deck-name">{deck.name}</strong>
                 </div>
                 <div className="row">
-                  <button onClick={(e) => { e.stopPropagation(); exportSingleDeck(deck); }}>Exportar deck</button>
-                  <button onClick={(e) => { e.stopPropagation(); deleteDeck(deck.id); }}>Deletar deck</button>
+                  {(() => {
+                    const total = Object.keys(deck.cards || {}).length;
+                    const dueCount = Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= Date.now()).length;
+                    return (
+                      <div className="deck-stats">
+                        <span className="badge info">{dueCount} devidos</span>
+                        <span className="badge muted">{total} cards</span>
+                      </div>
+                    );
+                  })()}
+                  <button
+                    className="icon-btn"
+                    title="Exportar deck"
+                    aria-label="Exportar deck"
+                    onClick={(e) => { e.stopPropagation(); exportSingleDeck(deck); }}
+                  >
+                    <DownloadIcon />
+                  </button>
+                  <button
+                    className="icon-btn danger"
+                    title="Deletar deck"
+                    aria-label="Deletar deck"
+                    onClick={(e) => { e.stopPropagation(); deleteDeck(deck.id); }}
+                  >
+                    <TrashIcon />
+                  </button>
                 </div>
               </div>
               {openedDeckId === deck.id && (
@@ -153,16 +190,34 @@ function DeckReviewPanel({ deck, userId, onSave, onDelete, onReviewed }: {
     setEditing(false);
   };
 
-  if (!current) return <p>Sem cards devidos neste deck agora.</p>;
+  if (!current) return <p className="empty-state">Sem cards devidos neste deck agora.</p>;
 
   return (
     <div className="review-card">
-      <div className="row" style={{ justifyContent: 'space-between' }}>
+      <div className="row">
         <div className="row">
-          <button onClick={() => setEditing(e => !e)}>{editing ? 'Fechar edição' : 'Editar card'}</button>
-          <button onClick={() => onDelete(current.id)}>Deletar card</button>
+          <button
+            className="icon-btn"
+            title={editing ? 'Fechar edição' : 'Editar card'}
+            aria-label={editing ? 'Fechar edição' : 'Editar card'}
+            onClick={() => setEditing(e => !e)}
+          >
+            <PencilIcon />
+          </button>
+          <button
+            className="icon-btn danger"
+            title="Deletar card"
+            aria-label="Deletar card"
+            onClick={() => onDelete(current.id)}
+          >
+            <TrashIcon />
+          </button>
         </div>
-        <span className="badge">Devidos: {due.length}</span>
+        {current?.category && (
+          <span className="badge muted" style={{ marginLeft: 'auto' }}>
+            {current.category}
+          </span>
+        )}
       </div>
 
       {!editing ? (
@@ -177,12 +232,14 @@ function DeckReviewPanel({ deck, userId, onSave, onDelete, onReviewed }: {
           )}
           <div className="row">
             {!showAnswer ? (
-              <button onClick={() => setShowAnswer(true)}>Mostrar resposta</button>
+              <button className="btn btn-primary" onClick={() => setShowAnswer(true)}>
+                <EyeIcon /> Mostrar resposta
+              </button>
             ) : (
               <>
-                <span>Como você foi?</span>
+                <span className="review-label">Como você foi?</span>
                 {[0,1,2,3,4,5].map(q => (
-                  <button key={q} onClick={() => grade(q)}>{q}</button>
+                  <button className="btn btn-grade" key={q} onClick={() => grade(q)}>{q}</button>
                 ))}
               </>
             )}

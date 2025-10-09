@@ -8,11 +8,20 @@ export function Stats({ decks }: { decks: Record<string, Deck> }) {
   return (
     <section>
       <h2>Estatísticas de Aprendizado</h2>
-      <ul>
-        <li>Total de decks: {Object.keys(decks).length}</li>
-        <li>Total de cards: {total}</li>
-        <li>Cards devidos: {due}</li>
-      </ul>
+      <div className="stats-cards">
+        <div className="stat-card">
+          <span className="label">Total de decks</span>
+          <span className="value">{Object.keys(decks).length}</span>
+        </div>
+        <div className="stat-card">
+          <span className="label">Total de cards</span>
+          <span className="value">{total}</span>
+        </div>
+        <div className="stat-card">
+          <span className="label">Cards devidos</span>
+          <span className="value">{due}</span>
+        </div>
+      </div>
     </section>
   );
 }

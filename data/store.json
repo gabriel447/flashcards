@@ -451,14 +451,14 @@
     },
     "anon": {
       "decks": {
-        "deck_jopog7u5ekbl": {
-          "id": "deck_jopog7u5ekbl",
+        "deck_jqk4c8ioqrg8": {
+          "id": "deck_jqk4c8ioqrg8",
           "name": "AWS",
           "cards": {
-            "card_joq78sr7jsqe": {
-              "id": "card_joq78sr7jsqe",
+            "card_jqkhj8nglmed": {
+              "id": "card_jqkhj8nglmed",
               "question": "O que é o Amazon S3?",
-              "answer": "Um serviço de armazenamento de objetos na nuvem que oferece escalabilidade, disponibilidade e segurança.",
+              "answer": "Um serviço de armazenamento de objetos na nuvem oferecido pela AWS.",
               "tags": [
                 "AWS",
                 "S3",
@@ -468,27 +468,27 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78sc4s0uk": {
-              "id": "card_joq78sc4s0uk",
-              "question": "Quais são os principais tipos de armazenamento no S3?",
-              "answer": "S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, S3 Glacier e S3 Glacier Deep Archive.",
+            "card_jqkhj8issfi7": {
+              "id": "card_jqkhj8issfi7",
+              "question": "Qual é a principal unidade de armazenamento do S3?",
+              "answer": "O objeto, que consiste em dados e metadados.",
               "tags": [
                 "AWS",
                 "S3",
-                "tipos de armazenamento"
+                "objetos"
               ],
               "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78sa6oq65": {
-              "id": "card_joq78sa6oq65",
-              "question": "O que são 'buckets' no S3?",
-              "answer": "Contêineres que armazenam objetos no Amazon S3.",
+            "card_jqkhj8qnwc8g": {
+              "id": "card_jqkhj8qnwc8g",
+              "question": "O que é um bucket no Amazon S3?",
+              "answer": "Um contêiner para armazenar objetos no S3.",
               "tags": [
                 "AWS",
                 "S3",
@@ -498,12 +498,42 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78s3ir9ou": {
-              "id": "card_joq78s3ir9ou",
+            "card_jqkhj8fjmpp2": {
+              "id": "card_jqkhj8fjmpp2",
+              "question": "Qual a capacidade máxima de um objeto armazenado no S3?",
+              "answer": "Até 5 terabytes por objeto.",
+              "tags": [
+                "AWS",
+                "S3",
+                "limites"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:13:30.692Z"
+            },
+            "card_jqkhj8l7cw2r": {
+              "id": "card_jqkhj8l7cw2r",
+              "question": "O que significa a sigla 'S3'?",
+              "answer": "Simple Storage Service.",
+              "tags": [
+                "AWS",
+                "S3",
+                "siglas"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-09T18:13:30.692Z"
+            },
+            "card_jqkhj8i9cnyq": {
+              "id": "card_jqkhj8i9cnyq",
               "question": "Como o S3 garante a durabilidade dos dados?",
-              "answer": "O S3 fornece 99.999999999% (11 9's) de durabilidade ao armazenar múltiplas cópias dos dados em diferentes locais.",
+              "answer": "Armazenando múltiplas cópias dos dados em diferentes locais.",
               "tags": [
                 "AWS",
                 "S3",
@@ -513,42 +543,12 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78sjs4rpt": {
-              "id": "card_joq78sjs4rpt",
-              "question": "O que é a política de controle de acesso (ACL) no S3?",
-              "answer": "Um conjunto de permissões que define quem pode acessar os objetos dentro de um bucket.",
-              "tags": [
-                "AWS",
-                "S3",
-                "ACL"
-              ],
-              "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
-            },
-            "card_joq78siew1l0": {
-              "id": "card_joq78siew1l0",
-              "question": "O que significa 'versioning' no S3?",
-              "answer": "Um recurso que permite manter várias versões de um objeto em um bucket.",
-              "tags": [
-                "AWS",
-                "S3",
-                "versioning"
-              ],
-              "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
-            },
-            "card_joq78sroy382": {
-              "id": "card_joq78sroy382",
-              "question": "Como o Amazon S3 lida com a segurança dos dados?",
-              "answer": "Através de criptografia em repouso e em trânsito, além de políticas de controle de acesso.",
+            "card_jqkhj8q8hyxq": {
+              "id": "card_jqkhj8q8hyxq",
+              "question": "O que são políticas de bucket no S3?",
+              "answer": "Regras que definem permissões de acesso aos buckets e objetos.",
               "tags": [
                 "AWS",
                 "S3",
@@ -558,52 +558,52 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78sim6tsc": {
-              "id": "card_joq78sim6tsc",
-              "question": "O que é o S3 Transfer Acceleration?",
-              "answer": "Um recurso que permite transferências de dados mais rápidas para o S3 usando a rede global da AWS.",
+            "card_jqkhj886cg1y": {
+              "id": "card_jqkhj886cg1y",
+              "question": "Quais são os diferentes tipos de classes de armazenamento no S3?",
+              "answer": "S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA, S3 One Zone-IA, entre outros.",
               "tags": [
                 "AWS",
                 "S3",
-                "Transfer Acceleration"
+                "classes"
               ],
               "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78st6o83y": {
-              "id": "card_joq78st6o83y",
-              "question": "Qual é o limite de tamanho de um objeto armazenado no S3?",
-              "answer": "Um objeto pode ter até 5 terabytes de tamanho.",
+            "card_jqkhj8t6n17m": {
+              "id": "card_jqkhj8t6n17m",
+              "question": "O que é o versionamento no S3?",
+              "answer": "Uma funcionalidade que permite manter várias versões de um objeto.",
               "tags": [
                 "AWS",
                 "S3",
-                "tamanho de objeto"
+                "versionamento"
               ],
               "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             },
-            "card_joq78s9nmzd4": {
-              "id": "card_joq78s9nmzd4",
-              "question": "O que são eventos no S3?",
-              "answer": "Notificações que podem ser geradas em resposta a ações como uploads ou exclusões de objetos.",
+            "card_jqkhj8cx9w8p": {
+              "id": "card_jqkhj8cx9w8p",
+              "question": "Como o S3 lida com a segurança dos dados?",
+              "answer": "Através de criptografia em trânsito e em repouso, além de controles de acesso.",
               "tags": [
                 "AWS",
                 "S3",
-                "eventos"
+                "segurança"
               ],
               "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-09T17:21:58.060Z"
+              "due": "2025-10-09T18:13:30.692Z"
             }
           }
         }

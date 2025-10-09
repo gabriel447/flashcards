@@ -10,6 +10,7 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
   const [category, setCategory] = useState('');
   const [count, setCount] = useState(10);
   const [loading, setLoading] = useState(false);
+  const [successMsg, setSuccessMsg] = useState('');
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
 
@@ -29,7 +30,10 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
       if (useExisting) body.deckId = selectedDeckId;
       else body.deckName = nameValid;
       const res = await api.post('/generate', body);
-      onDeckCreated(res.data.deck);
+      const deck = res.data.deck as Deck;
+      onDeckCreated(deck);
+      window.alert('Cards gerados com sucesso!');
+      setSuccessMsg('');
       setCategory('');
     } finally {
       setLoading(false);
@@ -39,32 +43,41 @@ export function Generator({ userId, decks, onDeckCreated }: Props) {
   return (
     <section>
       <h2>Gerar Flashcards com IA</h2>
-      <div className="grid">
-        <label>
-          Selecionar deck existente
-          <select value={selectedDeckId} onChange={(e) => setSelectedDeckId(e.target.value)}>
-            <option value="">(Nenhum — criar novo)</option>
+      <div className="form-grid">
+        <label className="form-control">
+          <span className="form-label">Selecionar deck</span>
+          <div className="chip-group">
+            <button type="button" className={`chip ${selectedDeckId === '' ? 'active' : ''}`} onClick={() => setSelectedDeckId('')}>Criar novo</button>
             {deckOptions.map(d => (
-              <option key={d.id} value={d.id}>{d.name}</option>
+              <button
+                type="button"
+                key={d.id}
+                className={`chip ${selectedDeckId === d.id ? 'active' : ''}`}
+                onClick={() => setSelectedDeckId(d.id)}
+              >
+                {d.name}
+              </button>
             ))}
-          </select>
+          </div>
         </label>
         {!selectedDeckId && (
-          <label>
-            Nome do deck
-            <input value={deckName} onChange={(e) => setDeckName(e.target.value)} placeholder="Ex.: AWS" />
+          <label className="form-control">
+            <span className="form-label">Nome do deck</span>
+            <input className="input" value={deckName} onChange={(e) => setDeckName(e.target.value)} placeholder="Ex.: AWS" />
           </label>
         )}
-        <label>
-          Tema (categoria)
-          <input value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Ex.: S3" />
+        <label className="form-control">
+          <span className="form-label">Categoria</span>
+          <input className="input" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Ex.: S3" />
         </label>
-        <label>
-          Quantidade
-          <input type="number" min={1} max={50} value={count} onChange={(e) => setCount(Number(e.target.value))} />
+        <label className="form-control">
+          <span className="form-label">Quantidade</span>
+          <input className="input" type="number" min={1} max={50} value={count} onChange={(e) => setCount(Number(e.target.value))} />
         </label>
       </div>
-      <button onClick={generate} disabled={loading}>{loading ? 'Gerando...' : 'Gerar'}</button>
+      <div className="form-actions">
+        <button className="btn btn-primary btn-sm" onClick={generate} disabled={loading}>{loading ? (<><span className="spinner" />Gerando</>) : 'Gerar'}</button>
+      </div>
     </section>
   );
 }
