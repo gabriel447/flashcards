@@ -22,6 +22,7 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
   const [queue, setQueue] = useState(initialQueue);
 
   const [activeIndex, setActiveIndex] = useState(0);
+  const [showEndSlide, setShowEndSlide] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
   const [editing, setEditing] = useState(false);
   // Evitar transição visual ao resetar na troca de slide
@@ -30,6 +31,8 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
   const [canAdvance, setCanAdvance] = useState(false);
   // Evitar reavaliação do mesmo card
   const [hasRated, setHasRated] = useState(false);
+  // Mostrar quando o card ficará disponível novamente após avaliar
+  const [nextDueLabel, setNextDueLabel] = useState('');
   const current = queue[activeIndex];
 
   useEffect(() => {
@@ -47,14 +50,25 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
     setEditing(false);
     setCanAdvance(true);
     setHasRated(true);
-    // Se estamos no último card do deck, esvazia a fila e mostra estado vazio
+    // Se estamos no último card do deck, mostra slide final; só somemos ao avançar
     if (activeIndex === queue.length - 1) {
-      setCanAdvance(false);
-      setQueue([]);
+      setShowEndSlide(true);
     }
     try {
       const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
       onReviewed(res.data.card as Card, res.data.reviewedCount as number | undefined);
+      const dueIso = (res.data.card as Card)?.due;
+      if (dueIso) {
+        const diffMs = Math.max(0, new Date(dueIso).getTime() - Date.now());
+        const mins = Math.round(diffMs / 60000);
+        const hours = Math.round(diffMs / 3600000);
+        const days = Math.round(diffMs / 86400000);
+        let label = '';
+        if (days >= 1) label = `${days} dia${days > 1 ? 's' : ''}`;
+        else if (hours >= 1) label = `${hours} hora${hours > 1 ? 's' : ''}`;
+        else label = `${Math.max(mins, 1)} minuto${mins > 1 ? 's' : ''}`;
+        setNextDueLabel(label);
+      }
     } catch (e) {
       console.error(e);
     }
@@ -74,12 +88,19 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
         allowTouchMove={false}
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
+          // Se avançou para o slide final, limpar fila e mostrar estado vazio
+          if (showEndSlide && swiper.activeIndex === queue.length) {
+            setShowEndSlide(false);
+            setQueue([]);
+            return;
+          }
           // resetar para pergunta sem transição para evitar flash da resposta
           setNoTransition(true);
           setShowAnswer(false);
           setEditing(false);
           setCanAdvance(false);
           setHasRated(false);
+          setNextDueLabel('');
           // Mantém a fila estável; a navegação cuida do avanço
           setTimeout(() => setNoTransition(false), 0);
         }}
@@ -144,12 +165,19 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
             {!editing && (
               <div className="grade-row">
                 {showAnswer ? (
-                  <>
-                    <span className="review-label">Como você foi ?</span>
-                    <button className="btn btn-grade" onClick={() => grade(1)} disabled={hasRated}>Mal</button>
-                    <button className="btn btn-grade" onClick={() => grade(4)} disabled={hasRated}>Bem</button>
-                    <button className="btn btn-grade" onClick={() => grade(5)} disabled={hasRated}>Excelente</button>
-                  </>
+                  hasRated ? (
+                    <span className="review-label" style={{ color: '#1f6feb' }}>
+                      Próxima revisão em{' '}
+                      <span style={{ color: '#000' }}>~ {nextDueLabel || 'breve'}</span>
+                    </span>
+                  ) : (
+                    <>
+                      <span className="review-label">Como você foi ?</span>
+                      <button className="btn btn-grade" onClick={() => grade(1)}>Mal</button>
+                      <button className="btn btn-grade" onClick={() => grade(4)}>Bem</button>
+                      <button className="btn btn-grade" onClick={() => grade(5)}>Excelente</button>
+                    </>
+                  )
                 ) : (
                   <span className="review-label">Clique para virar a carta</span>
                 )}
@@ -157,6 +185,11 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
             )}
           </SwiperSlide>
         ))}
+        {showEndSlide && (
+          <SwiperSlide key="end-slide">
+            <div style={{ height: 1 }} />
+          </SwiperSlide>
+        )}
       </Swiper>
     </section>
   );
