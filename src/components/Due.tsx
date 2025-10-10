@@ -127,11 +127,7 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
                     <TrashIcon />
                   </button>
                 </div>
-                {card?.category && (
-                  <span className="badge muted" style={{ marginLeft: 'auto' }}>
-                    {card.category}
-                  </span>
-                )}
+                {/* Removido: badge fora do card para manter apenas na pergunta */}
               </div>
 
               {!editing ? (
@@ -144,6 +140,11 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
                   >
                     <div className={`flip-card-inner ${noTransition ? 'no-transition' : ''}`}>
                       <div className="flip-card-front">
+                        {(card.category || (card.tags && card.tags[0])) && (
+                          <span className="subject-badge badge info" title="Assunto">
+                            {card.category || card.tags[0]}
+                          </span>
+                        )}
                         <h3>Pergunta</h3>
                         <p>{card.question}</p>
                       </div>

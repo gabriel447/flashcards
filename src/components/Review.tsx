@@ -112,6 +112,11 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
               >
                 <div className={`flip-card-inner ${noTransition ? 'no-transition' : ''}`}>
                   <div className="flip-card-front">
+                    {(card.category || (card.tags && card.tags[0])) && (
+                      <span className="subject-badge badge info" title="Assunto">
+                        {card.category || card.tags[0]}
+                      </span>
+                    )}
                     <h3>Pergunta</h3>
                     <p>{card.question}</p>
                   </div>
