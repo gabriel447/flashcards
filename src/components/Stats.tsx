@@ -14,7 +14,7 @@ export function Stats({ decks, reviewedCounts }: Props) {
     return acc + deckCount;
   }, 0);
   const sessionReviewedTotal = Object.values(reviewedCounts || {}).reduce((acc, n) => acc + (n || 0), 0);
-  const reviewedTotal = persistedReviewedTotal || sessionReviewedTotal;
+  const reviewedTotal = persistedReviewedTotal + sessionReviewedTotal;
 
   return (
     <section>

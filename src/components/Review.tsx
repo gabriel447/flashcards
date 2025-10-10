@@ -32,6 +32,7 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
   const grade = async (deckId: string, cardId: string, q: number) => {
     const res = await api.post('/review', { userId, deckId, cardId, grade: q });
     onCardUpdated(deckId, res.data.card as Card, res.data.reviewedCount as number | undefined);
+    setShowAnswer(false);
   };
 
   if (dueCards.length === 0) return <p className="empty-state">Sem cards agora. Volte mais tarde!</p>;

@@ -38,6 +38,7 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
     const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
     onReviewed(res.data.card as Card, res.data.reviewedCount as number | undefined);
     setEditing(false);
+    setShowAnswer(false);
   };
 
   if (dueCards.length === 0) return <p className="empty-state">Sem cards devidos neste deck agora.</p>;
