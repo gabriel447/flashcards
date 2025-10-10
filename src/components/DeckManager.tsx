@@ -123,8 +123,7 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
                     const persistedReviewed = typeof (deck as any)?.reviewedCount === 'number'
                       ? (deck as any).reviewedCount
                       : Object.values(deck.cards || {}).reduce((acc, c) => acc + (c.reviews || c.repetitions || 0), 0);
-                    const sessionReviewed = reviewedCounts?.[deck.id] || 0;
-                    const reviewed = persistedReviewed + sessionReviewed;
+                    const reviewed = persistedReviewed;
                     return (
                       <div className="deck-stats">
                         <span className="badge muted">{total} cards</span>

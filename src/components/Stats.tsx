@@ -13,8 +13,8 @@ export function Stats({ decks, reviewedCounts }: Props) {
       : Object.values(d.cards || {}).reduce((inner, c) => inner + (c.reviews || c.repetitions || 0), 0);
     return acc + deckCount;
   }, 0);
-  const sessionReviewedTotal = Object.values(reviewedCounts || {}).reduce((acc, n) => acc + (n || 0), 0);
-  const reviewedTotal = persistedReviewedTotal + sessionReviewedTotal;
+  // Como atualizamos reviewedCount do deck em tempo real, usamos somente o persistido
+  const reviewedTotal = persistedReviewedTotal;
 
   return (
     <section>

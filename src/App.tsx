@@ -84,11 +84,16 @@ function App() {
                 onReviewed={(card: Card, reviewedCount?: number) => {
                   setDecks(prev => ({
                     ...prev,
-                    [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
+                    [selectedDeckId]: {
+                      ...decks[selectedDeckId],
+                      reviewedCount: reviewedCount ?? ((decks[selectedDeckId].reviewedCount || 0) + 1),
+                      cards: { ...decks[selectedDeckId].cards, [card.id]: card },
+                    },
                   }));
+                  // Guarda apenas o delta da sessão para evitar contagem dupla
                   setReviewedCounts(prev => ({
                     ...prev,
-                    [selectedDeckId]: reviewedCount ?? ((prev[selectedDeckId] || 0) + 1),
+                    [selectedDeckId]: (prev[selectedDeckId] || 0) + 1,
                   }));
                 }}
               />
@@ -99,11 +104,16 @@ function App() {
                 onCardUpdated={(deckId: string, card: Card, reviewedCount?: number) => {
                   setDecks(prev => ({
                     ...prev,
-                    [deckId]: { ...prev[deckId], cards: { ...prev[deckId].cards, [card.id]: card } },
+                    [deckId]: {
+                      ...prev[deckId],
+                      reviewedCount: reviewedCount ?? ((prev[deckId]?.reviewedCount || 0) + 1),
+                      cards: { ...prev[deckId].cards, [card.id]: card },
+                    },
                   }));
+                  // Guarda apenas o delta da sessão
                   setReviewedCounts(prev => ({
                     ...prev,
-                    [deckId]: reviewedCount ?? ((prev[deckId] || 0) + 1),
+                    [deckId]: (prev[deckId] || 0) + 1,
                   }));
                 }}
               />
