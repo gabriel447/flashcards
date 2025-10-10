@@ -44,7 +44,7 @@ function App() {
           Decks{deckCount > 0 ? ` (${deckCount})` : ''}
         </button>
         <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>
-          Revisão{totalDue > 0 ? ` (${totalDue})` : ''}
+          Revisar{totalDue > 0 ? ` (${totalDue})` : ''}
         </button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>

@@ -29,7 +29,7 @@ export function Stats({ decks, reviewedCounts }: Props) {
           <span className="value">{total}</span>
         </div>
         <div className="stat-card">
-          <span className="label">Cards revisados</span>
+          <span className="label">Revisões</span>
           <span className="value">{reviewedTotal}</span>
         </div>
       </div>

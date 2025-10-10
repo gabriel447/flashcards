@@ -127,7 +127,6 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
                     return (
                       <div className="deck-stats">
                         <span className="badge muted">{total} cards</span>
-                        <span className="badge info">{reviewed} revisados</span>
                       </div>
                     );
                   })()}

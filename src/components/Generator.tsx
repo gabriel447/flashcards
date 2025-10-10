@@ -70,7 +70,7 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
           </label>
         )}
         <label className="form-control">
-          <span className="form-label">Categoria</span>
+          <span className="form-label">Assunto</span>
           <input className="input" value={category} onChange={(e) => setCategory(e.target.value)} placeholder="Ex.: S3" disabled={loading} />
         </label>
         <label className="form-control">
