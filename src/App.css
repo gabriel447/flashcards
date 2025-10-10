@@ -213,11 +213,16 @@
 .due-swiper .review-card { width: 100%; max-width: 380px; margin: 0 auto; }
 /* Swiper UI polish */
 .due-swiper .swiper-pagination { display: none; }
-.due-swiper .swiper-button-next, .due-swiper .swiper-button-prev { color: #3b82f6; }
+/* Navegação controlada: esconder esquerda e só habilitar direita após avaliação */
+.due-swiper .swiper-button-prev { display: none !important; }
+/* Esconder completamente a seta direita até liberar */
+.due-swiper .swiper-button-next { display: none !important; color: #3b82f6; }
+.due-swiper.can-advance .swiper-button-next { display: flex !important; opacity: 1; pointer-events: auto; }
 
 /* Flip card interaction */
 .flip-card { perspective: 1000px; cursor: pointer; }
 .flip-card-inner { position: relative; width: 100%; min-height: 460px; transform-style: preserve-3d; transition: transform 0.6s ease; }
+.flip-card-inner.no-transition { transition: none !important; }
 .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 .flip-card-front, .flip-card-back { position: absolute; inset: 0; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1.25rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
 .flip-card-back { transform: rotateY(180deg); }

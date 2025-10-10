@@ -15,46 +15,76 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
   onReviewed: (card: Card, reviewedCount?: number) => void;
 }) {
   const now = Date.now();
-  const dueCards = useMemo(() => {
+  // Fila local estável para a sessão de revisão do deck
+  const initialQueue = useMemo(() => {
     return Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now);
   }, [deck, now]);
+  const [queue, setQueue] = useState(initialQueue);
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
   const [editing, setEditing] = useState(false);
-  const current = dueCards[activeIndex];
+  // Evitar transição visual ao resetar na troca de slide
+  const [noTransition, setNoTransition] = useState(false);
+  // Controle de liberação para avançar
+  const [canAdvance, setCanAdvance] = useState(false);
+  // Evitar reavaliação do mesmo card
+  const [hasRated, setHasRated] = useState(false);
+  const current = queue[activeIndex];
 
   useEffect(() => {
-    // Ajusta índice ativo se a lista mudar após avaliar ou deletar
-    if (activeIndex >= dueCards.length) {
-      setActiveIndex(dueCards.length > 0 ? dueCards.length - 1 : 0);
+    // Ajusta índice ativo se a fila mudar por razões externas
+    if (activeIndex >= queue.length) {
+      setActiveIndex(queue.length > 0 ? queue.length - 1 : 0);
       setShowAnswer(false);
       setEditing(false);
     }
-  }, [dueCards.length, activeIndex]);
+  }, [queue.length, activeIndex]);
 
   const grade = async (q: number) => {
     if (!current) return;
-    const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
-    onReviewed(res.data.card as Card, res.data.reviewedCount as number | undefined);
+    // Liberação otimista da navegação
     setEditing(false);
-    setShowAnswer(false);
+    setCanAdvance(true);
+    setHasRated(true);
+    // Se estamos no último card do deck, esvazia a fila e mostra estado vazio
+    if (activeIndex === queue.length - 1) {
+      setCanAdvance(false);
+      setQueue([]);
+    }
+    try {
+      const res = await api.post('/review', { userId, deckId: deck.id, cardId: current.id, grade: q });
+      onReviewed(res.data.card as Card, res.data.reviewedCount as number | undefined);
+    } catch (e) {
+      console.error(e);
+    }
   };
 
-  if (dueCards.length === 0) return <p className="empty-state">Sem cards devidos neste deck agora.</p>;
+  if (queue.length === 0) return <p className="empty-state">Sem cards devidos neste deck agora.</p>;
 
   return (
     <section className="due-container">
       <h2>Devidos — {deck.name}</h2>
       <Swiper
-        className="due-swiper"
+        className={`due-swiper ${canAdvance ? 'can-advance' : ''}`}
         spaceBetween={16}
         slidesPerView={1}
         modules={[Navigation]}
         navigation
-        onSlideChange={(swiper) => { setActiveIndex(swiper.activeIndex); setShowAnswer(false); setEditing(false); }}
+        allowTouchMove={false}
+        onSlideChange={(swiper) => {
+          setActiveIndex(swiper.activeIndex);
+          // resetar para pergunta sem transição para evitar flash da resposta
+          setNoTransition(true);
+          setShowAnswer(false);
+          setEditing(false);
+          setCanAdvance(false);
+          setHasRated(false);
+          // Mantém a fila estável; a navegação cuida do avanço
+          setTimeout(() => setNoTransition(false), 0);
+        }}
       >
-        {dueCards.map((card) => (
+        {queue.map((card) => (
           <SwiperSlide key={card.id}>
             <div className="review-card">
               <div className="row">
@@ -87,11 +117,11 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
                 <>
                   <div
                     className={`flip-card ${showAnswer ? 'flipped' : ''}`}
-                    onClick={() => setShowAnswer(s => !s)}
+                    onClick={() => { if (!showAnswer) setShowAnswer(true); }}
                     role="button"
                     aria-label={showAnswer ? 'Mostrar pergunta' : 'Mostrar resposta'}
                   >
-                    <div className="flip-card-inner">
+                    <div className={`flip-card-inner ${noTransition ? 'no-transition' : ''}`}>
                       <div className="flip-card-front">
                         <h3>Pergunta</h3>
                         <p>{card.question}</p>
@@ -116,9 +146,9 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
                 {showAnswer ? (
                   <>
                     <span className="review-label">Como você foi ?</span>
-                    <button className="btn btn-grade" onClick={() => grade(1)}>Mal</button>
-                    <button className="btn btn-grade" onClick={() => grade(4)}>Bem</button>
-                    <button className="btn btn-grade" onClick={() => grade(5)}>Excelente</button>
+                    <button className="btn btn-grade" onClick={() => grade(1)} disabled={hasRated}>Mal</button>
+                    <button className="btn btn-grade" onClick={() => grade(4)} disabled={hasRated}>Bem</button>
+                    <button className="btn btn-grade" onClick={() => grade(5)} disabled={hasRated}>Excelente</button>
                   </>
                 ) : (
                   <span className="review-label">Clique para virar a carta</span>
