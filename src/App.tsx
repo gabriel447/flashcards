@@ -17,6 +17,14 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [reviewedCounts, setReviewedCounts] = useState<Record<string, number>>({});
+  const deckCount = useMemo(() => Object.keys(decks).length, [decks]);
+  const totalDue = useMemo(() => {
+    const now = Date.now();
+    return Object.values(decks).reduce((acc, deck) => {
+      const dueInDeck = Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now).length;
+      return acc + dueInDeck;
+    }, 0);
+  }, [decks]);
 
   useEffect(() => {
     if (!userId) return;
@@ -32,8 +40,12 @@ function App() {
       <header className="header"><h1>Flashcards Inteligentes</h1></header>
       <nav className="tabs">
         <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
-        <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>Decks</button>
-        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>Revisão</button>
+        <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>
+          Decks{deckCount > 0 ? ` (${deckCount})` : ''}
+        </button>
+        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>
+          Revisão{totalDue > 0 ? ` (${totalDue})` : ''}
+        </button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>
 

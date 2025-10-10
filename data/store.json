@@ -451,259 +451,161 @@
     },
     "anon": {
       "decks": {
-        "deck_k8gh7jdej7da": {
-          "id": "deck_k8gh7jdej7da",
+        "deck_kw5s23dcjkhh": {
+          "id": "deck_kw5s23dcjkhh",
           "name": "AWS",
           "cards": {
-            "card_k8gj8w1x0dha": {
-              "id": "card_k8gj8w1x0dha",
-              "question": "O que é Amazon EC2?",
-              "answer": "Amazon EC2 (Elastic Compute Cloud) é um serviço que fornece capacidade de computação escalável na nuvem da AWS.",
+            "card_kw65qsz1106e": {
+              "id": "card_kw65qsz1106e",
+              "question": "O que é o Amazon S3?",
+              "answer": "É um serviço de armazenamento de objetos na nuvem que oferece escalabilidade, disponibilidade e segurança.",
               "tags": [
                 "AWS",
-                "EC2",
-                "computação",
-                "nuvem"
+                "S3",
+                "armazenamento"
               ],
-              "category": "EC2",
-              "repetitions": 1,
-              "interval": 1,
-              "easeFactor": 2.5,
-              "due": "2025-10-11T02:50:53.124Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-10T02:50:53.124Z"
-            },
-            "card_k8hw66wcyfr6": {
-              "id": "card_k8hw66wcyfr6",
-              "question": "O que é o AWS Lambda?",
-              "answer": "Um serviço de computação serverless que permite executar código sem provisionar ou gerenciar servidores.",
-              "tags": [
-                "serverless",
-                "computação",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 1,
-              "interval": 1,
-              "easeFactor": 2.6,
-              "due": "2025-10-11T02:51:30.266Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-10T02:51:30.266Z"
-            },
-            "card_k8hw66swu6a0": {
-              "id": "card_k8hw66swu6a0",
-              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
-              "answer": "Python, Node.js, Java, Go, Ruby, .NET Core, entre outras.",
-              "tags": [
-                "linguagens",
-                "programação",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 1,
-              "interval": 1,
-              "easeFactor": 2.6,
-              "due": "2025-10-11T02:51:35.969Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-10T02:51:35.969Z"
-            },
-            "card_k8hw66i5pe9t": {
-              "id": "card_k8hw66i5pe9t",
-              "question": "Qual é o limite de tempo de execução de uma função Lambda?",
-              "answer": "O limite é de 15 minutos por execução.",
-              "tags": [
-                "limite",
-                "execução",
-                "AWS"
-              ],
-              "category": "Lambda",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
+              "due": "2025-10-10T13:38:06.100Z"
             },
-            "card_k8hw66jos0e3": {
-              "id": "card_k8hw66jos0e3",
-              "question": "O que é um 'trigger' no contexto do AWS Lambda?",
-              "answer": "Um evento que invoca uma função Lambda, como um upload para o S3 ou uma chamada de API Gateway.",
+            "card_kw65qsgxmmkx": {
+              "id": "card_kw65qsgxmmkx",
+              "question": "Quais são os tipos de armazenamento disponíveis no S3?",
+              "answer": "Standard, Intelligent-Tiering, Standard-IA, One Zone-IA, Glacier e Glacier Deep Archive.",
               "tags": [
-                "trigger",
-                "evento",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw66zzxmoy": {
-              "id": "card_k8hw66zzxmoy",
-              "question": "Pode-se usar o AWS Lambda para tarefas de longa duração?",
-              "answer": "Não, pois o limite de execução é de 15 minutos.",
-              "tags": [
-                "tarefa",
-                "duração",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw66gjckfz": {
-              "id": "card_k8hw66gjckfz",
-              "question": "Qual é a forma de cobrança do AWS Lambda?",
-              "answer": "Baseada no número de solicitações e no tempo de execução do código.",
-              "tags": [
-                "cobrança",
-                "preço",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw66s8kcle": {
-              "id": "card_k8hw66s8kcle",
-              "question": "O que é um VPC e como ele se relaciona ao AWS Lambda?",
-              "answer": "Uma Virtual Private Cloud (VPC) permite que funções Lambda acessem recursos em uma rede privada.",
-              "tags": [
-                "VPC",
-                "rede",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw66cmqf9x": {
-              "id": "card_k8hw66cmqf9x",
-              "question": "Qual é o limite de memória que pode ser alocado para uma função Lambda?",
-              "answer": "De 128 MB a 10 GB.",
-              "tags": [
-                "memória",
-                "limite",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw6644ft35": {
-              "id": "card_k8hw6644ft35",
-              "question": "Como o AWS Lambda gerencia a escalabilidade?",
-              "answer": "Ele escala automaticamente em resposta ao número de solicitações recebidas.",
-              "tags": [
-                "escalabilidade",
-                "automático",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k8hw669tgi27": {
-              "id": "card_k8hw669tgi27",
-              "question": "O que é o AWS Lambda Layers?",
-              "answer": "Uma maneira de empacotar bibliotecas e dependências que podem ser compartilhadas entre funções Lambda.",
-              "tags": [
-                "Layers",
-                "bibliotecas",
-                "AWS"
-              ],
-              "category": "Lambda",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T02:35:22.782Z"
-            },
-            "card_k92gex371cwa": {
-              "id": "card_k92gex371cwa",
-              "question": "O que significa VPC em AWS?",
-              "answer": "VPC significa Virtual Private Cloud.",
-              "tags": [
-                "VPC",
                 "AWS",
-                "Nuvem"
+                "S3",
+                "tipos de armazenamento"
               ],
-              "category": "VPC",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:51:22.137Z"
+              "due": "2025-10-10T13:38:06.100Z"
             },
-            "card_k92gexsr37gu": {
-              "id": "card_k92gexsr37gu",
-              "question": "Qual é a principal função de uma VPC?",
-              "answer": "Isolar recursos da AWS em uma rede virtual privada.",
+            "card_kw65qsl5uug1": {
+              "id": "card_kw65qsl5uug1",
+              "question": "Qual é o principal benefício do Amazon S3?",
+              "answer": "A escalabilidade automática para armazenar e recuperar qualquer quantidade de dados.",
               "tags": [
-                "VPC",
-                "Isolamento",
-                "Recursos"
+                "AWS",
+                "S3",
+                "benefícios"
               ],
-              "category": "VPC",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:51:22.137Z"
+              "due": "2025-10-10T13:38:06.100Z"
             },
-            "card_k92gexhqt6an": {
-              "id": "card_k92gexhqt6an",
-              "question": "O que são sub-redes em uma VPC?",
-              "answer": "Sub-redes são divisões dentro de uma VPC que permitem organizar e controlar o tráfego de rede.",
+            "card_kw65qsoy9ioy": {
+              "id": "card_kw65qsoy9ioy",
+              "question": "O que é uma 'bucket' no Amazon S3?",
+              "answer": "É um contêiner que armazena objetos dentro do S3.",
               "tags": [
-                "Sub-redes",
-                "VPC",
-                "Rede"
+                "AWS",
+                "S3",
+                "bucket"
               ],
-              "category": "VPC",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:51:22.137Z"
+              "due": "2025-10-10T13:38:06.100Z"
             },
-            "card_k92gexkwxblp": {
-              "id": "card_k92gexkwxblp",
-              "question": "Como você controla o acesso à sua VPC?",
-              "answer": "Usando grupos de segurança e listas de controle de acesso (ACLs).",
+            "card_kw65qsf39ws3": {
+              "id": "card_kw65qsf39ws3",
+              "question": "Como o Amazon S3 garante a durabilidade dos dados?",
+              "answer": "Armazenando múltiplas cópias de objetos em várias zonas de disponibilidade.",
               "tags": [
-                "Controle de Acesso",
-                "VPC",
-                "Segurança"
+                "AWS",
+                "S3",
+                "durabilidade"
               ],
-              "category": "VPC",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:51:22.137Z"
+              "due": "2025-10-10T13:38:06.100Z"
             },
-            "card_k92gexto6gtz": {
-              "id": "card_k92gexto6gtz",
-              "question": "É possível conectar uma VPC a uma rede local?",
-              "answer": "Sim, através de uma VPN ou AWS Direct Connect.",
+            "card_kw65qstjumgt": {
+              "id": "card_kw65qstjumgt",
+              "question": "O que são políticas de bucket no S3?",
+              "answer": "Regras que definem permissões e controles de acesso a um bucket específico.",
               "tags": [
-                "Conexão",
-                "VPN",
-                "AWS Direct Connect"
+                "AWS",
+                "S3",
+                "políticas de bucket"
               ],
-              "category": "VPC",
+              "category": "S3",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T02:51:22.137Z"
+              "due": "2025-10-10T13:38:06.100Z"
+            },
+            "card_kw65qs3jxjq5": {
+              "id": "card_kw65qs3jxjq5",
+              "question": "O que é o Amazon S3 Transfer Acceleration?",
+              "answer": "Um recurso que acelera a transferência de arquivos para o S3 usando a rede global da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "transferência"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-10T13:38:06.100Z"
+            },
+            "card_kw65qsnq96d7": {
+              "id": "card_kw65qsnq96d7",
+              "question": "O que são objetos no Amazon S3?",
+              "answer": "São os arquivos armazenados no bucket, que podem incluir qualquer tipo de dado.",
+              "tags": [
+                "AWS",
+                "S3",
+                "objetos"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-10T13:38:06.100Z"
+            },
+            "card_kw65qsk95i90": {
+              "id": "card_kw65qsk95i90",
+              "question": "Qual é a capacidade máxima de um único objeto no S3?",
+              "answer": "Até 5 terabytes.",
+              "tags": [
+                "AWS",
+                "S3",
+                "capacidade"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-10T13:38:06.100Z"
+            },
+            "card_kw65qsprvj0j": {
+              "id": "card_kw65qsprvj0j",
+              "question": "O que é a versão de objetos no Amazon S3?",
+              "answer": "Um recurso que permite manter múltiplas versões de um objeto em um bucket.",
+              "tags": [
+                "AWS",
+                "S3",
+                "versão"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "due": "2025-10-10T13:38:06.100Z"
             }
-          },
-          "reviewedCount": 3
+          }
         }
       }
     }
