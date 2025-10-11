@@ -467,8 +467,10 @@
               "category": "S3",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-11T02:47:08.441Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-11T02:37:08.441Z"
             },
             "card_l39fd2wo9jx0": {
               "id": "card_l39fd2wo9jx0",
@@ -480,10 +482,12 @@
                 "objetos"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T02:37:11.615Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-11T02:37:11.615Z"
             },
             "card_l39fd2b57nap": {
               "id": "card_l39fd2b57nap",
@@ -495,10 +499,12 @@
                 "segurança"
               ],
               "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "due": "2025-10-15T02:37:14.205Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-11T02:37:14.205Z"
             },
             "card_l39fd2ssrkcq": {
               "id": "card_l39fd2ssrkcq",
@@ -606,7 +612,7 @@
               "due": "2025-10-10T16:56:35.846Z"
             }
           },
-          "reviewedCount": 0
+          "reviewedCount": 3
         }
       }
     }

@@ -138,9 +138,9 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
                 ) : (
                   <>
                     <span className="review-label">Como você foi ?</span>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 1)}>Mal</button>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Bem</button>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 5)}>Excelente</button>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 2)}>Mal</button>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 3)}>Bem</button>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Excelente</button>
                   </>
                 )
               ) : (

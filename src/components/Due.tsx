@@ -174,9 +174,9 @@ export function Due({ deck, userId, onSave, onDelete, onReviewed }: {
                   ) : (
                     <>
                       <span className="review-label">Como você foi ?</span>
-                      <button className="btn btn-grade" onClick={() => grade(1)}>Mal</button>
-                      <button className="btn btn-grade" onClick={() => grade(4)}>Bem</button>
-                      <button className="btn btn-grade" onClick={() => grade(5)}>Excelente</button>
+                      <button className="btn btn-grade" onClick={() => grade(2)}>Mal</button>
+                      <button className="btn btn-grade" onClick={() => grade(3)}>Bem</button>
+                      <button className="btn btn-grade" onClick={() => grade(4)}>Excelente</button>
                     </>
                   )
                 ) : (
