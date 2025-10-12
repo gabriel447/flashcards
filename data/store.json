@@ -451,165 +451,166 @@
     },
     "anon": {
       "decks": {
-        "deck_l39904sac2k8": {
-          "id": "deck_l39904sac2k8",
+        "deck_nulsl4bun95a": {
+          "id": "deck_nulsl4bun95a",
           "name": "AWS",
           "cards": {
-            "card_l39fd2jqog4r": {
-              "id": "card_l39fd2jqog4r",
-              "question": "O que é o Amazon S3?",
-              "answer": "Um serviço de armazenamento de objetos na nuvem da AWS.",
+            "card_num4eiuu8tqc": {
+              "id": "card_num4eiuu8tqc",
+              "question": "O que é o Amazon EC2?",
+              "answer": "Um serviço de computação em nuvem que fornece capacidade de computação escalável na AWS.",
               "tags": [
                 "AWS",
-                "S3",
-                "armazenamento"
+                "EC2",
+                "Computação"
               ],
-              "category": "S3",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.35,
-              "due": "2025-10-11T02:47:08.441Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-11T02:37:08.441Z"
-            },
-            "card_l39fd2wo9jx0": {
-              "id": "card_l39fd2wo9jx0",
-              "question": "Qual é a principal unidade de armazenamento no S3?",
-              "answer": "Objetos, que são armazenados em buckets.",
-              "tags": [
-                "AWS",
-                "S3",
-                "objetos"
-              ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 1,
               "interval": 1,
               "easeFactor": 2.5,
-              "due": "2025-10-12T02:37:11.615Z",
+              "due": "2025-10-13T15:17:54.523Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-11T02:37:11.615Z"
+              "lastReviewedAt": "2025-10-12T15:17:54.523Z"
             },
-            "card_l39fd2b57nap": {
-              "id": "card_l39fd2b57nap",
-              "question": "Como você pode controlar o acesso aos buckets do S3?",
-              "answer": "Usando políticas de bucket e listas de controle de acesso (ACLs).",
+            "card_num4eiwdg2r9": {
+              "id": "card_num4eiwdg2r9",
+              "question": "Quais são os tipos de instâncias no EC2?",
+              "answer": "As instâncias são categorizadas em tipos como Geral, Otimizada para Computação, Otimizada para Memória, entre outras.",
               "tags": [
                 "AWS",
-                "S3",
-                "segurança"
+                "EC2",
+                "Instâncias"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "due": "2025-10-15T02:37:14.205Z",
+              "due": "2025-10-16T15:17:58.133Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-11T02:37:14.205Z"
+              "lastReviewedAt": "2025-10-12T15:17:58.133Z"
             },
-            "card_l39fd2ssrkcq": {
-              "id": "card_l39fd2ssrkcq",
-              "question": "O que significa S3 em Amazon S3?",
-              "answer": "Simple Storage Service.",
+            "card_num4eimwi5xc": {
+              "id": "card_num4eimwi5xc",
+              "question": "O que são AMIs no EC2?",
+              "answer": "Amazon Machine Images (AMIs) são imagens pré-configuradas que contêm o sistema operacional e aplicativos necessários para iniciar uma instância.",
               "tags": [
                 "AWS",
-                "S3",
-                "definição"
+                "EC2",
+                "AMIs"
               ],
-              "category": "S3",
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "due": "2025-10-12T15:28:00.995Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:18:00.995Z"
+            },
+            "card_num4eilq5xaa": {
+              "id": "card_num4eilq5xaa",
+              "question": "O que é um Elastic IP?",
+              "answer": "Um endereço IP estático projetado para computação em nuvem, que pode ser associado a instâncias EC2.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "Elastic IP"
+              ],
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd2y94es0": {
-              "id": "card_l39fd2y94es0",
-              "question": "O que é um bucket no Amazon S3?",
-              "answer": "Um contêiner para armazenar objetos no S3.",
+            "card_num4ei9qvu71": {
+              "id": "card_num4ei9qvu71",
+              "question": "Qual é a função do Auto Scaling no EC2?",
+              "answer": "Permite ajustar automaticamente o número de instâncias EC2 em resposta à demanda.",
               "tags": [
                 "AWS",
-                "S3",
-                "bucket"
+                "EC2",
+                "Auto Scaling"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd26ulk2m": {
-              "id": "card_l39fd26ulk2m",
-              "question": "Qual é o limite de tamanho de um único objeto no S3?",
-              "answer": "Até 5 TB.",
+            "card_num4eiwp4e2q": {
+              "id": "card_num4eiwp4e2q",
+              "question": "O que é um Security Group no EC2?",
+              "answer": "Um recurso de segurança que atua como um firewall virtual para controlar o tráfego de entrada e saída das instâncias EC2.",
               "tags": [
                 "AWS",
-                "S3",
-                "limites"
+                "EC2",
+                "Security Group"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd2rcszpw": {
-              "id": "card_l39fd2rcszpw",
-              "question": "Qual protocolo é usado para acessar o Amazon S3?",
-              "answer": "HTTP/HTTPS.",
+            "card_num4eitbq732": {
+              "id": "card_num4eitbq732",
+              "question": "Como você pode acessar uma instância EC2?",
+              "answer": "Através de SSH para instâncias Linux e RDP para instâncias Windows.",
               "tags": [
                 "AWS",
-                "S3",
-                "protocolo"
+                "EC2",
+                "Acesso"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd20egtxo": {
-              "id": "card_l39fd20egtxo",
-              "question": "Como o S3 garante a durabilidade dos dados?",
-              "answer": "Armazenando múltiplas cópias dos dados em diferentes locais.",
+            "card_num4eidy4ln8": {
+              "id": "card_num4eidy4ln8",
+              "question": "O que é o EC2 Spot Instances?",
+              "answer": "Instâncias EC2 que permitem comprar capacidade de computação não utilizada a preços reduzidos.",
               "tags": [
                 "AWS",
-                "S3",
-                "durabilidade"
+                "EC2",
+                "Spot Instances"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd20506nz": {
-              "id": "card_l39fd20506nz",
-              "question": "O que são versões de objetos no S3?",
-              "answer": "Uma funcionalidade que permite manter múltiplas versões de um objeto.",
+            "card_num4ei1aa3sn": {
+              "id": "card_num4ei1aa3sn",
+              "question": "O que são tags no EC2?",
+              "answer": "Etiquetas que você pode usar para organizar e gerenciar suas instâncias e recursos EC2.",
               "tags": [
                 "AWS",
-                "S3",
-                "versões"
+                "EC2",
+                "Tags"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             },
-            "card_l39fd22k9tou": {
-              "id": "card_l39fd22k9tou",
-              "question": "Como os custos do Amazon S3 são calculados?",
-              "answer": "Com base no armazenamento, solicitações e transferências de dados.",
+            "card_num4eixzvvic": {
+              "id": "card_num4eixzvvic",
+              "question": "Qual é a diferença entre instâncias On-Demand e Reserved no EC2?",
+              "answer": "On-Demand permite pagamento por uso, enquanto Reserved oferece um desconto para compromisso de uso por um período fixo.",
               "tags": [
                 "AWS",
-                "S3",
-                "custos"
+                "EC2",
+                "On-Demand",
+                "Reserved"
               ],
-              "category": "S3",
+              "category": "EC2",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-10T16:56:35.846Z"
+              "due": "2025-10-12T15:17:50.154Z"
             }
           },
           "reviewedCount": 3

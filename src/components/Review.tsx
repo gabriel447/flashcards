@@ -10,14 +10,18 @@ type Props = {
   userId: string;
   decks: Record<string, Deck>;
   onCardUpdated: (deckId: string, card: Card, reviewedCount?: number) => void;
+  selectedDeckId?: string; // opcional: quando presente, revisa somente este deck
 };
 
-export function Review({ userId, decks, onCardUpdated }: Props) {
+export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) {
   const now = Date.now();
   // Inicializa a fila de cards devidos e mantém estável durante a sessão
   const initialQueue = useMemo(() => {
     const items: Array<{ deckId: string; card: Card }> = [];
-    Object.values(decks).forEach(deck => {
+    const deckList = selectedDeckId && decks[selectedDeckId]
+      ? [decks[selectedDeckId]]
+      : Object.values(decks);
+    deckList.forEach(deck => {
       Object.values(deck.cards || {}).forEach(card => {
         if (card.due && new Date(card.due).getTime() <= now) {
           items.push({ deckId: deck.id, card });
@@ -25,7 +29,7 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
       });
     });
     return items;
-  }, [decks]);
+  }, [decks, selectedDeckId]);
   const [queue, setQueue] = useState(initialQueue);
   // Índice ativo para detectar último card
   const [activeIndex, setActiveIndex] = useState(0);
@@ -72,11 +76,16 @@ export function Review({ userId, decks, onCardUpdated }: Props) {
     }
   };
 
-  if (queue.length === 0) return <p className="empty-state">Sem cards agora. Volte mais tarde!</p>;
+  if (queue.length === 0) {
+    const title = selectedDeckId && decks[selectedDeckId]?.name
+      ? `Sem cards para revisar em "${decks[selectedDeckId].name}" agora.`
+      : 'Sem cards agora. Volte mais tarde!';
+    return <p className="empty-state">{title}</p>;
+  }
 
   return (
     <section className="due-container">
-      <h2>Revisão Espaçada</h2>
+      <h2>{selectedDeckId && decks[selectedDeckId]?.name ? `Revisar — ${decks[selectedDeckId].name}` : 'Revisão Espaçada'}</h2>
       <Swiper
         className={`due-swiper ${canAdvance ? 'can-advance' : ''}`}
         spaceBetween={16}

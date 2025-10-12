@@ -4,11 +4,11 @@ import { Generator } from './components/Generator.tsx';
 import { DeckManager } from './components/DeckManager.tsx';
 import { Stats } from './components/Stats.tsx';
 import { Review } from './components/Review.tsx';
-import { Due } from './components/Due.tsx';
+// Unificado: usamos apenas Review para revisão global ou por deck
 import { api } from './lib/api';
 import type { Deck, Card } from './types.ts';
 
-type View = 'gerar' | 'decks' | 'devidos' | 'stats';
+type View = 'gerar' | 'decks' | 'revisar' | 'stats';
 
 function App() {
   const [userId] = useState<string>('anon');
@@ -43,7 +43,7 @@ function App() {
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>
           Decks{deckCount > 0 ? ` (${deckCount})` : ''}
         </button>
-        <button className={view === 'devidos' ? 'active' : ''} onClick={() => setView('devidos')} disabled={busy}>
+        <button className={view === 'revisar' ? 'active' : ''} onClick={() => setView('revisar')} disabled={busy}>
           Revisar{totalDue > 0 ? ` (${totalDue})` : ''}
         </button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
@@ -63,61 +63,31 @@ function App() {
               userId={userId}
               decks={decks}
               onUpdateDecks={setDecks}
-              onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('devidos'); }}
+              onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('revisar'); }}
               reviewedCounts={reviewedCounts}
             />
           )}
-          {view === 'devidos' && (
-            selectedDeckId && decks[selectedDeckId] ? (
-              <Due
-                deck={decks[selectedDeckId]}
-                userId={userId}
-                onSave={(card: Card) => setDecks(prev => ({
+          {view === 'revisar' && (
+            <Review
+              userId={userId}
+              decks={decks}
+              selectedDeckId={selectedDeckId}
+              onCardUpdated={(deckId: string, card: Card, reviewedCount?: number) => {
+                setDecks(prev => ({
                   ...prev,
-                  [selectedDeckId]: { ...decks[selectedDeckId], cards: { ...decks[selectedDeckId].cards, [card.id]: card } },
-                }))}
-                onDelete={(cardId: string) => {
-                  const next = { ...decks };
-                  delete next[selectedDeckId].cards[cardId];
-                  setDecks(next);
-                }}
-                onReviewed={(card: Card, reviewedCount?: number) => {
-                  setDecks(prev => ({
-                    ...prev,
-                    [selectedDeckId]: {
-                      ...decks[selectedDeckId],
-                      reviewedCount: reviewedCount ?? ((decks[selectedDeckId].reviewedCount || 0) + 1),
-                      cards: { ...decks[selectedDeckId].cards, [card.id]: card },
-                    },
-                  }));
-                  // Guarda apenas o delta da sessão para evitar contagem dupla
-                  setReviewedCounts(prev => ({
-                    ...prev,
-                    [selectedDeckId]: (prev[selectedDeckId] || 0) + 1,
-                  }));
-                }}
-              />
-            ) : (
-              <Review
-                userId={userId}
-                decks={decks}
-                onCardUpdated={(deckId: string, card: Card, reviewedCount?: number) => {
-                  setDecks(prev => ({
-                    ...prev,
-                    [deckId]: {
-                      ...prev[deckId],
-                      reviewedCount: reviewedCount ?? ((prev[deckId]?.reviewedCount || 0) + 1),
-                      cards: { ...prev[deckId].cards, [card.id]: card },
-                    },
-                  }));
-                  // Guarda apenas o delta da sessão
-                  setReviewedCounts(prev => ({
-                    ...prev,
-                    [deckId]: (prev[deckId] || 0) + 1,
-                  }));
-                }}
-              />
-            )
+                  [deckId]: {
+                    ...prev[deckId],
+                    reviewedCount: reviewedCount ?? ((prev[deckId]?.reviewedCount || 0) + 1),
+                    cards: { ...prev[deckId].cards, [card.id]: card },
+                  },
+                }));
+                // Guarda apenas o delta da sessão
+                setReviewedCounts(prev => ({
+                  ...prev,
+                  [deckId]: (prev[deckId] || 0) + 1,
+                }));
+              }}
+            />
           )}
           {view === 'stats' && (
             <Stats decks={decks} reviewedCounts={reviewedCounts} />
