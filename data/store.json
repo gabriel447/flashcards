@@ -451,169 +451,182 @@
     },
     "anon": {
       "decks": {
-        "deck_nulsl4bun95a": {
-          "id": "deck_nulsl4bun95a",
+        "deck_nvyp5rwh4dk7": {
+          "id": "deck_nvyp5rwh4dk7",
           "name": "AWS",
           "cards": {
-            "card_num4eiuu8tqc": {
-              "id": "card_num4eiuu8tqc",
-              "question": "O que é o Amazon EC2?",
-              "answer": "Um serviço de computação em nuvem que fornece capacidade de computação escalável na AWS.",
+            "card_nvz1d96q8hr7": {
+              "id": "card_nvz1d96q8hr7",
+              "question": "O que significa VPC na AWS?",
+              "answer": "VPC significa Virtual Private Cloud.",
               "tags": [
+                "VPC",
                 "AWS",
-                "EC2",
-                "Computação"
+                "Nuvem"
               ],
-              "category": "EC2",
-              "repetitions": 1,
-              "interval": 1,
-              "easeFactor": 2.5,
-              "due": "2025-10-13T15:17:54.523Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-12T15:17:54.523Z"
-            },
-            "card_num4eiwdg2r9": {
-              "id": "card_num4eiwdg2r9",
-              "question": "Quais são os tipos de instâncias no EC2?",
-              "answer": "As instâncias são categorizadas em tipos como Geral, Otimizada para Computação, Otimizada para Memória, entre outras.",
-              "tags": [
-                "AWS",
-                "EC2",
-                "Instâncias"
-              ],
-              "category": "EC2",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "due": "2025-10-16T15:17:58.133Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-12T15:17:58.133Z"
-            },
-            "card_num4eimwi5xc": {
-              "id": "card_num4eimwi5xc",
-              "question": "O que são AMIs no EC2?",
-              "answer": "Amazon Machine Images (AMIs) são imagens pré-configuradas que contêm o sistema operacional e aplicativos necessários para iniciar uma instância.",
-              "tags": [
-                "AWS",
-                "EC2",
-                "AMIs"
-              ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.35,
-              "due": "2025-10-12T15:28:00.995Z",
+              "due": "2025-10-12T16:06:18.081Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-12T15:18:00.995Z"
+              "lastReviewedAt": "2025-10-12T15:56:18.081Z"
             },
-            "card_num4eilq5xaa": {
-              "id": "card_num4eilq5xaa",
-              "question": "O que é um Elastic IP?",
-              "answer": "Um endereço IP estático projetado para computação em nuvem, que pode ser associado a instâncias EC2.",
+            "card_nvz1d9lr89al": {
+              "id": "card_nvz1d9lr89al",
+              "question": "Qual é a principal função de uma VPC?",
+              "answer": "Isolar recursos da AWS em uma rede virtual privada.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Elastic IP"
+                "VPC",
+                "Rede",
+                "Isolamento"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:21.390Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:21.390Z"
             },
-            "card_num4ei9qvu71": {
-              "id": "card_num4ei9qvu71",
-              "question": "Qual é a função do Auto Scaling no EC2?",
-              "answer": "Permite ajustar automaticamente o número de instâncias EC2 em resposta à demanda.",
+            "card_nvz1d9l4n7ol": {
+              "id": "card_nvz1d9l4n7ol",
+              "question": "O que são sub-redes em uma VPC?",
+              "answer": "Sub-redes são divisões dentro de uma VPC que podem conter recursos da AWS.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Auto Scaling"
+                "Sub-redes",
+                "VPC",
+                "AWS"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:23.515Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:23.515Z"
             },
-            "card_num4eiwp4e2q": {
-              "id": "card_num4eiwp4e2q",
-              "question": "O que é um Security Group no EC2?",
-              "answer": "Um recurso de segurança que atua como um firewall virtual para controlar o tráfego de entrada e saída das instâncias EC2.",
+            "card_nvz1d93xe3hs": {
+              "id": "card_nvz1d93xe3hs",
+              "question": "O que é um Gateway de Internet em uma VPC?",
+              "answer": "Um Gateway de Internet permite que recursos na VPC se comuniquem com a Internet.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Security Group"
+                "Gateway de Internet",
+                "VPC",
+                "Conectividade"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:25.573Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:25.573Z"
             },
-            "card_num4eitbq732": {
-              "id": "card_num4eitbq732",
-              "question": "Como você pode acessar uma instância EC2?",
-              "answer": "Através de SSH para instâncias Linux e RDP para instâncias Windows.",
+            "card_nvz1d9yctvek": {
+              "id": "card_nvz1d9yctvek",
+              "question": "Qual é a diferença entre uma VPC pública e uma VPC privada?",
+              "answer": "Uma VPC pública tem acesso à Internet, enquanto uma VPC privada não tem.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Acesso"
+                "VPC Pública",
+                "VPC Privada",
+                "Diferença"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:28.140Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:28.140Z"
             },
-            "card_num4eidy4ln8": {
-              "id": "card_num4eidy4ln8",
-              "question": "O que é o EC2 Spot Instances?",
-              "answer": "Instâncias EC2 que permitem comprar capacidade de computação não utilizada a preços reduzidos.",
+            "card_nvz1d9hn5cq9": {
+              "id": "card_nvz1d9hn5cq9",
+              "question": "O que são tabelas de roteamento em uma VPC?",
+              "answer": "Tabelas de roteamento controlam o tráfego de rede dentro da VPC.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Spot Instances"
+                "Tabelas de Roteamento",
+                "VPC",
+                "Tráfego"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:30.308Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:30.308Z"
             },
-            "card_num4ei1aa3sn": {
-              "id": "card_num4ei1aa3sn",
-              "question": "O que são tags no EC2?",
-              "answer": "Etiquetas que você pode usar para organizar e gerenciar suas instâncias e recursos EC2.",
+            "card_nvz1d9i01dnv": {
+              "id": "card_nvz1d9i01dnv",
+              "question": "Para que serve uma ACL (Access Control List) em uma VPC?",
+              "answer": "Uma ACL controla o tráfego de entrada e saída em sub-redes específicas.",
               "tags": [
-                "AWS",
-                "EC2",
-                "Tags"
+                "ACL",
+                "Controle de Acesso",
+                "VPC"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:32.540Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:32.540Z"
             },
-            "card_num4eixzvvic": {
-              "id": "card_num4eixzvvic",
-              "question": "Qual é a diferença entre instâncias On-Demand e Reserved no EC2?",
-              "answer": "On-Demand permite pagamento por uso, enquanto Reserved oferece um desconto para compromisso de uso por um período fixo.",
+            "card_nvz1d90ce3b8": {
+              "id": "card_nvz1d90ce3b8",
+              "question": "Como a AWS garante a segurança em uma VPC?",
+              "answer": "A AWS oferece grupos de segurança, ACLs e criptografia de dados.",
               "tags": [
-                "AWS",
-                "EC2",
-                "On-Demand",
-                "Reserved"
+                "Segurança",
+                "VPC",
+                "AWS"
               ],
-              "category": "EC2",
+              "category": "VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "due": "2025-10-12T15:17:50.154Z"
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:34.630Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:34.630Z"
+            },
+            "card_nvz1d9g8qgb8": {
+              "id": "card_nvz1d9g8qgb8",
+              "question": "O que é um Endpoint de VPC?",
+              "answer": "Um Endpoint permite acesso a serviços da AWS sem usar um Gateway de Internet.",
+              "tags": [
+                "Endpoint",
+                "VPC",
+                "Serviços"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:36.569Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:36.569Z"
+            },
+            "card_nvz1d99ywf23": {
+              "id": "card_nvz1d99ywf23",
+              "question": "É possível conectar uma VPC a outra VPC?",
+              "answer": "Sim, usando o recurso de peering de VPC.",
+              "tags": [
+                "Peering",
+                "VPC",
+                "Conexão"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "due": "2025-10-12T16:06:38.647Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T15:56:38.647Z"
             }
           },
-          "reviewedCount": 3
+          "reviewedCount": 10
         }
       }
     }

@@ -45,7 +45,6 @@
 .container { max-width: 980px; margin: 0 auto; padding: 1rem; }
 .header { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem; z-index: 10; }
 .header h1 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #111827; }
-.authbar { display: flex; gap: 0.5rem; align-items: center; }
 .tabs { display: flex; gap: 0.5rem; margin: 1rem 0; justify-content: center; }
 /* transformar abas em botões */
 .tabs button {
