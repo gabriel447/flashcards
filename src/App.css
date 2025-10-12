@@ -1,10 +1,9 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 5.5rem 1rem 2rem; /* espaço para header fixo */
+  padding: 5.5rem 1rem 2rem;
   text-align: left;
 }
-
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,7 +16,6 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
 @keyframes logo-spin {
   from {
     transform: rotate(0deg);
@@ -26,27 +24,21 @@
     transform: rotate(360deg);
   }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
-
 .card {
   padding: 2em;
 }
-
 .read-the-docs {
   color: #888;
 }
-
-/* App custom styles */
 .container { max-width: 980px; margin: 0 auto; padding: 1rem; }
 .header { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem; z-index: 10; }
 .header h1 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #111827; }
 .tabs { display: flex; gap: 0.5rem; margin: 1rem 0; justify-content: center; }
-/* transformar abas em botões */
 .tabs button {
   border: 1px solid #e5e7eb;
   background: #f8fafc;
@@ -95,14 +87,9 @@
 .review-card { border: none; border-radius: 0; padding: 0; min-height: 0; text-align: left; background: transparent; margin-top: 0.75rem; position: relative; }
 .import-label { display: inline-flex; align-items: center; gap: 0.5rem; }
 .import-label input { margin-left: 0; }
-
-/* Toolbar tweaks */
 .toolbar { flex-wrap: nowrap; }
 .toolbar .input { flex: 1; }
-/* Espaçamento extra entre a barra e a lista de decks */
 .decks-section .toolbar { margin-bottom: 2.5rem; }
-
-/* DeckManager category grouping and tile view */
 .category { margin: 1rem 0; }
 .badge {
   background: #eef2ff;
@@ -118,8 +105,6 @@
 .tile { border: 1px solid #e5e7eb; border-radius: 8px; padding: 0.75rem; background: #fff; text-align: left; }
 .tile h4 { margin: 0 0 0.5rem 0; font-size: 14px; }
 .tile-actions { justify-content: flex-end; }
-
-/* Badge de assunto nos cards de revisão */
 .subject-badge {
   position: absolute;
   top: 12px;
@@ -128,15 +113,11 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
   pointer-events: none;
 }
-
-/* Chip buttons for deck selection */
 .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; border-radius: 999px; padding: 0.35rem 0.75rem; font-weight: 600; cursor: pointer; }
 .chip:hover { background: #f3f4f6; }
 .chip.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
 .chip:disabled { opacity: 0.6; cursor: not-allowed; }
-
-/* Buttons */
 .btn { border: 1px solid #e5e7eb; background: #f8fafc; color: #0f172a; border-radius: 10px; padding: 0.6rem 1rem; font-weight: 600; }
 .btn:hover { background: #eef2f7; }
 .btn-sm { padding: 0.45rem 0.75rem; font-size: 0.95rem; }
@@ -148,44 +129,27 @@
 .btn-danger:hover { background: #dc2626; border-color: #dc2626; }
 .btn-outline { background: transparent; border-color: #cbd5e1; color: #0f172a; }
 .btn-grade { min-width: 36px; padding: 0.35rem 0.5rem; }
-/* Disabled button state */
 .btn:disabled { background: #e5e7eb; border-color: #e5e7eb; color: #6b7280; cursor: not-allowed; opacity: 0.8; }
-/* Keep primary look when disabled/loading */
 .btn-primary:disabled { background: #d1d5db; border-color: #cbd5e1; color: #111827; opacity: 0.7; }
-
-/* Simple spinner */
 .spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #93c5fd; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/* Alerts */
 .alert { border-radius: 8px; padding: 0.75rem; border: 1px solid transparent; text-align: left; }
 .alert.success { background: #dcfce7; border-color: #86efac; color: #14532d; }
 .alert.compact { padding: 0.4rem 0.6rem; font-size: 0.85rem; max-width: 360px; }
 .form-actions .alert { margin-top: 0.5rem; }
-
-/* Stats list */
 .stats-list { list-style: none; padding-left: 0; margin: 0; }
 .stats-list li { padding: 2px 0; }
-
-/* Stats cards */
 .stats-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 0.5rem; }
 .stat-card { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 10px; padding: 0.75rem; text-align: left; }
 .stat-card .label { display: block; font-size: 0.8rem; color: #6b7280; margin-bottom: 0.25rem; }
 .stat-card .value { font-size: 1.4rem; font-weight: 700; color: #111827; }
-
-/* Review label and empty state */
 .review-label { color: #2563eb; font-weight: 600; display: inline-block; margin-right: 0.5rem; }
 .empty-state { color: #6b7280; text-align: center; }
-
-/* Icon buttons */
 .icon-btn { display: inline-flex; align-items: center; justify-content: center; gap: 0.25rem; border: 1px solid #e5e7eb; background: #f8fafc; color: #0f172a; border-radius: 8px; padding: 0.4rem; width: 34px; height: 34px; }
 .icon-btn:hover { background: #eef2f7; }
 .icon-btn.danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
 .icon-btn.danger:hover { background: #dc2626; border-color: #dc2626; }
-
-/* Dark scheme adjustments */
 @media (prefers-color-scheme: dark) {
-  /* Keep deck cards white with shadow also in dark theme */
   .deck-header:hover { background: transparent; }
   .deck-header strong, .deck-name, .chevron { color: #111827; }
   .btn { border-color: #1f2937; background: #111827; color: #e5e7eb; }
@@ -201,7 +165,6 @@
   .btn:disabled { background: #1f2937; border-color: #1f2937; color: #9ca3af; opacity: 0.8; }
   .btn-primary:disabled { background: #d1d5db; border-color: #cbd5e1; color: #111827; opacity: 0.7; }
   .input:disabled { background: #eef2f7; color: #6b7280; border-color: #e5e7eb; cursor: not-allowed; }
-  /* abas como botões no tema escuro */
   .tabs button { border-color: #1f2937; background: #111827; color: #e5e7eb; }
   .tabs button:hover { background: #0b1220; }
   .tabs button.active { background: #3b82f6; border-color: #3b82f6; color: #ffffff; }
@@ -215,38 +178,23 @@
   .review-card .review-label { color: #60a5fa; }
   .empty-state { color: #9ca3af; }
 }
-/* Devidos layout & carousel */
 .due-container { max-width: 980px; margin: 0 auto; }
 .due-swiper { padding: 1.5rem 0; min-height: 60vh; }
 .due-swiper .swiper-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; }
 .due-swiper .review-card { width: 100%; max-width: 380px; margin: 0 auto; }
-/* Swiper UI polish */
 .due-swiper .swiper-pagination { display: none; }
-/* Navegação controlada: esconder esquerda e só habilitar direita após avaliação */
 .due-swiper .swiper-button-prev { display: none !important; }
-/* Esconder completamente a seta direita até liberar */
 .due-swiper .swiper-button-next { display: none !important; color: #3b82f6; }
 .due-swiper.can-advance .swiper-button-next { display: flex !important; opacity: 1; pointer-events: auto; }
-
-/* Flip card interaction */
 .flip-card { perspective: 1000px; cursor: pointer; }
 .flip-card-inner { position: relative; width: 100%; min-height: 460px; transform-style: preserve-3d; transition: transform 0.6s ease; }
 .flip-card-inner.no-transition { transition: none !important; }
 .flip-card.flipped .flip-card-inner { transform: rotateY(180deg); }
 .flip-card-front, .flip-card-back { position: absolute; inset: 0; backface-visibility: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; padding: 1.25rem; background: #ffffff; border: 1px solid #e5e7eb; border-radius: 24px; box-shadow: 0 16px 40px rgba(0,0,0,0.12); }
 .flip-card-back { transform: rotateY(180deg); }
-
-/* Grade row outside card */
 .grade-row { display: flex; gap: 0.5rem; align-items: center; justify-content: center; margin-top: 2.5rem; width: 100%; max-width: 380px; margin-left: auto; margin-right: auto; min-height: 44px; }
-
-/* Ensure readable text inside flip card faces (light theme) */
 .flip-card-front h3, .flip-card-front p, .flip-card-back h3, .flip-card-back p { color: #0f172a; }
-
-/* Mantemos as faces do flip com fundo branco também no tema escuro */
-
-/* Decks section button colors (scoped) */
 .decks-section .btn-primary { background: #111827; border-color: #1f2937; color: #e5e7eb; }
-/* Hover do "Criar deck" igual ao do "Importar JSON" */
 .decks-section .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
 .decks-section .btn-secondary { background: #e5e7eb; border-color: #cbd5e1; color: #111827; }
 .decks-section .btn-secondary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
@@ -254,8 +202,6 @@
 .decks-section .icon-btn:hover { background: transparent; }
 .decks-section .icon-btn.danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
 .decks-section .icon-btn.danger:hover { background: #dc2626; border-color: #dc2626; }
-
-/* Decks section button colors (dark, scoped) */
 @media (prefers-color-scheme: dark) {
   .decks-section .btn-primary { background: #111827; border-color: #1f2937; color: #e5e7eb; }
   .decks-section .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }

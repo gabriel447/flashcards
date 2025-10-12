@@ -4,7 +4,6 @@ import { Generator } from './components/Generator.tsx';
 import { DeckManager } from './components/DeckManager.tsx';
 import { Stats } from './components/Stats.tsx';
 import { Review } from './components/Review.tsx';
-// Unificado: usamos apenas Review para revisão global ou por deck
 import { api } from './lib/api';
 import type { Deck, Card } from './types.ts';
 

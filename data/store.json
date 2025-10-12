@@ -465,12 +465,12 @@
                 "Nuvem"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:06.845Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:06.845Z"
+              "due": "2025-10-13T18:21:48.742Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:21:48.742Z"
             },
             "card_nvz1d9lr89al": {
               "id": "card_nvz1d9lr89al",
@@ -482,12 +482,12 @@
                 "Isolamento"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:09.515Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:09.515Z"
+              "due": "2025-10-13T18:21:52.432Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:21:52.432Z"
             },
             "card_nvz1d9l4n7ol": {
               "id": "card_nvz1d9l4n7ol",
@@ -499,12 +499,12 @@
                 "AWS"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:11.766Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:11.766Z"
+              "due": "2025-10-13T18:21:54.443Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:21:54.443Z"
             },
             "card_nvz1d93xe3hs": {
               "id": "card_nvz1d93xe3hs",
@@ -516,12 +516,12 @@
                 "Conectividade"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:13.533Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:13.533Z"
+              "due": "2025-10-13T18:21:56.319Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:21:56.319Z"
             },
             "card_nvz1d9yctvek": {
               "id": "card_nvz1d9yctvek",
@@ -533,12 +533,12 @@
                 "Diferença"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:15.504Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:15.504Z"
+              "due": "2025-10-13T18:21:58.196Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:21:58.196Z"
             },
             "card_nvz1d9hn5cq9": {
               "id": "card_nvz1d9hn5cq9",
@@ -550,12 +550,12 @@
                 "Tráfego"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:18.341Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:18.341Z"
+              "due": "2025-10-13T18:22:00.620Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:22:00.620Z"
             },
             "card_nvz1d9i01dnv": {
               "id": "card_nvz1d9i01dnv",
@@ -567,12 +567,12 @@
                 "VPC"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:20.223Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:20.223Z"
+              "due": "2025-10-13T18:22:03.301Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:22:03.301Z"
             },
             "card_nvz1d90ce3b8": {
               "id": "card_nvz1d90ce3b8",
@@ -584,12 +584,12 @@
                 "AWS"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:21.984Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:21.984Z"
+              "due": "2025-10-13T18:22:05.157Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:22:05.157Z"
             },
             "card_nvz1d9g8qgb8": {
               "id": "card_nvz1d9g8qgb8",
@@ -601,12 +601,12 @@
                 "Serviços"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:24.079Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:24.079Z"
+              "due": "2025-10-13T18:22:10.012Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:22:10.012Z"
             },
             "card_nvz1d99ywf23": {
               "id": "card_nvz1d99ywf23",
@@ -618,15 +618,15 @@
                 "Conexão"
               ],
               "category": "VPC",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.2,
-              "due": "2025-10-12T16:18:25.953Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-12T16:08:25.953Z"
+              "due": "2025-10-13T18:22:12.328Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-12T18:22:12.328Z"
             }
           },
-          "reviewedCount": 20
+          "reviewedCount": 30
         }
       }
     }

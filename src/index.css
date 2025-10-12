@@ -46,14 +46,13 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: transparent; /* manter visual limpo, sem borda colorida */
+  border-color: transparent;
 }
 button:focus,
 button:focus-visible {
-  outline: none; /* remove contorno laranja do foco */
+  outline: none;
 }
 
-/* light theme only */
 button {
   background-color: #f9f9f9;
 }

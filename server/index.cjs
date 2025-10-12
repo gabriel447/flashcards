@@ -1,8 +1,6 @@
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
-const fs = require('fs');
-const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 
@@ -14,7 +12,6 @@ const app = express();
 app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'], credentials: false }));
 app.use(bodyParser.json());
 
-// Lazy import OpenAI SDK only if API key is present
 let openaiClient = null;
 if (process.env.OPENAI_API_KEY) {
   try {
@@ -25,7 +22,6 @@ if (process.env.OPENAI_API_KEY) {
   }
 }
 
-// Helpers
 function getUserStore(userId) {
   const store = loadStore();
   ensureUser(store, userId);
@@ -36,7 +32,6 @@ function persist(store) {
   saveStore(store);
 }
 
-// Auth (simplificado)
 app.post('/api/auth/login', (req, res) => {
   const { username } = req.body || {};
   if (!username || typeof username !== 'string') {
@@ -44,20 +39,16 @@ app.post('/api/auth/login', (req, res) => {
   }
   const userId = username.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
   const store = getUserStore(userId);
-  // Cria usuário se não existir
   ensureUser(store, userId);
   persist(store);
   res.json({ userId });
 });
 
-// Decks básicos
 app.get('/api/decks', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
   const store = getUserStore(userId);
   const decks = store.users[userId].decks || {};
-  // garantir reviewedCount em todos os decks (migração leve)
-  // se ausente ou zerado, tenta calcular pelo somatório de reviews dos cards
   let updated = false;
   Object.values(decks).forEach(d => {
     const cardsArr = Object.values(d.cards || {});
@@ -142,7 +133,6 @@ app.post('/api/review', (req, res) => {
   res.json({ card: updated, reviewedCount: deck.reviewedCount });
 });
 
-// Deletar card
 app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   const { userId } = req.query;
   const { deckId, cardId } = req.params;
@@ -156,7 +146,6 @@ app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   res.json({ ok: true });
 });
 
-// Deletar deck
 app.delete('/api/decks/:deckId', (req, res) => {
   const { userId } = req.query;
   const { deckId } = req.params;
@@ -168,7 +157,6 @@ app.delete('/api/decks/:deckId', (req, res) => {
   res.json({ ok: true });
 });
 
-// Exportar deck específico
 app.get('/api/decks/:deckId/export', (req, res) => {
   const { userId } = req.query;
   const { deckId } = req.params;
@@ -179,7 +167,6 @@ app.get('/api/decks/:deckId/export', (req, res) => {
   res.json({ deck });
 });
 
-// Import/Export
 app.get('/api/export', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
@@ -197,7 +184,6 @@ app.post('/api/import', (req, res) => {
   res.json({ ok: true });
 });
 
-// Geração via IA (com fallback)
 app.post('/api/generate', async (req, res) => {
   const { userId, deckId, deckName, category, count } = req.body || {};
   if (!userId || !count) {
@@ -258,7 +244,6 @@ app.post('/api/generate', async (req, res) => {
   }
 
   persist(store);
-  // garantir reviewedCount no deck criado
   store.users[userId].decks[targetDeckId].reviewedCount = store.users[userId].decks[targetDeckId].reviewedCount || 0;
   res.json({ deck: store.users[userId].decks[targetDeckId] });
 });
