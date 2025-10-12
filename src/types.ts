@@ -10,6 +10,7 @@ export type Card = {
   due: string;
   reviews?: number;
   lastReviewedAt?: string;
+  gradeLog?: Array<{ ts: string; grade: number }>;
 };
 
 export type Deck = {

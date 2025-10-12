@@ -127,6 +127,9 @@ app.post('/api/review', (req, res) => {
   if (!deck || !card) return res.status(404).json({ error: 'Card não encontrado' });
 
   const updated = scheduleReview(card, grade);
+  const nowIso = new Date().toISOString();
+  const prevLog = Array.isArray(card.gradeLog) ? card.gradeLog : [];
+  updated.gradeLog = [...prevLog, { ts: nowIso, grade: Number(grade) }];
   deck.cards[cardId] = updated;
   deck.reviewedCount = (deck.reviewedCount || 0) + 1;
   persist(store);

@@ -1752,12 +1752,12 @@
                 "Configuração"
               ],
               "category": "AWS Deploying & Managing Infrastructure at Scale",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 1.9000000000000004,
-              "due": "2025-10-12T21:42:58.313Z",
-              "reviews": 4,
-              "lastReviewedAt": "2025-10-12T21:32:58.313Z"
+              "due": "2025-10-13T22:09:35.957Z",
+              "reviews": 5,
+              "lastReviewedAt": "2025-10-12T22:09:35.957Z"
             },
             "card_o2ywyojrdnl2": {
               "id": "card_o2ywyojrdnl2",
@@ -2086,10 +2086,10 @@
               "category": "AWS Cloud Integration",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 1.9000000000000004,
-              "due": "2025-10-12T21:43:45.280Z",
-              "reviews": 4,
-              "lastReviewedAt": "2025-10-12T21:33:45.280Z"
+              "easeFactor": 1.6000000000000005,
+              "due": "2025-10-12T23:05:49.340Z",
+              "reviews": 6,
+              "lastReviewedAt": "2025-10-12T22:55:49.340Z"
             },
             "card_o2zzj17d8zn3": {
               "id": "card_o2zzj17d8zn3",
@@ -2354,12 +2354,12 @@
                 "VPC"
               ],
               "category": "Amazon VPC",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 1.9000000000000004,
-              "due": "2025-10-12T21:44:09.654Z",
-              "reviews": 4,
-              "lastReviewedAt": "2025-10-12T21:34:09.654Z"
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 1.7500000000000004,
+              "due": "2025-10-13T22:56:15.558Z",
+              "reviews": 6,
+              "lastReviewedAt": "2025-10-12T22:56:15.558Z"
             },
             "card_o30zgzku0ate": {
               "id": "card_o30zgzku0ate",
@@ -2690,12 +2690,12 @@
                 "Processamento de Linguagem Natural"
               ],
               "category": "AWS Machine Learning",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 1.9000000000000004,
-              "due": "2025-10-12T21:44:18.795Z",
-              "reviews": 4,
-              "lastReviewedAt": "2025-10-12T21:34:18.795Z"
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 1.7500000000000004,
+              "due": "2025-10-13T22:56:45.949Z",
+              "reviews": 6,
+              "lastReviewedAt": "2025-10-12T22:56:45.949Z"
             },
             "card_o31z3r9ihhwr": {
               "id": "card_o31z3r9ihhwr",
@@ -3124,7 +3124,7 @@
               "lastReviewedAt": "2025-10-12T20:04:12.655Z"
             }
           },
-          "reviewedCount": 228
+          "reviewedCount": 235
         }
       }
     }
