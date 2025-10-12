@@ -1754,10 +1754,10 @@
               "category": "AWS Deploying & Managing Infrastructure at Scale",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.0500000000000003,
-              "due": "2025-10-12T20:23:33.783Z",
-              "reviews": 3,
-              "lastReviewedAt": "2025-10-12T20:13:33.783Z"
+              "easeFactor": 1.9000000000000004,
+              "due": "2025-10-12T21:42:58.313Z",
+              "reviews": 4,
+              "lastReviewedAt": "2025-10-12T21:32:58.313Z"
             },
             "card_o2ywyojrdnl2": {
               "id": "card_o2ywyojrdnl2",
@@ -1988,12 +1988,12 @@
                 "Kinesis"
               ],
               "category": "AWS Cloud Integration",
-              "repetitions": 0,
-              "interval": 0,
+              "repetitions": 1,
+              "interval": 1,
               "easeFactor": 2.0500000000000003,
-              "due": "2025-10-12T20:24:42.703Z",
-              "reviews": 3,
-              "lastReviewedAt": "2025-10-12T20:14:42.703Z"
+              "due": "2025-10-13T21:33:25.365Z",
+              "reviews": 4,
+              "lastReviewedAt": "2025-10-12T21:33:25.365Z"
             },
             "card_o2zzj18ca6fl": {
               "id": "card_o2zzj18ca6fl",
@@ -2086,10 +2086,10 @@
               "category": "AWS Cloud Integration",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.0500000000000003,
-              "due": "2025-10-12T20:26:00.764Z",
-              "reviews": 3,
-              "lastReviewedAt": "2025-10-12T20:16:00.764Z"
+              "easeFactor": 1.9000000000000004,
+              "due": "2025-10-12T21:43:45.280Z",
+              "reviews": 4,
+              "lastReviewedAt": "2025-10-12T21:33:45.280Z"
             },
             "card_o2zzj17d8zn3": {
               "id": "card_o2zzj17d8zn3",
@@ -2356,10 +2356,10 @@
               "category": "Amazon VPC",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.0500000000000003,
-              "due": "2025-10-12T20:27:10.852Z",
-              "reviews": 3,
-              "lastReviewedAt": "2025-10-12T20:17:10.852Z"
+              "easeFactor": 1.9000000000000004,
+              "due": "2025-10-12T21:44:09.654Z",
+              "reviews": 4,
+              "lastReviewedAt": "2025-10-12T21:34:09.654Z"
             },
             "card_o30zgzku0ate": {
               "id": "card_o30zgzku0ate",
@@ -2692,10 +2692,10 @@
               "category": "AWS Machine Learning",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.0500000000000003,
-              "due": "2025-10-12T20:29:07.486Z",
-              "reviews": 3,
-              "lastReviewedAt": "2025-10-12T20:19:07.486Z"
+              "easeFactor": 1.9000000000000004,
+              "due": "2025-10-12T21:44:18.795Z",
+              "reviews": 4,
+              "lastReviewedAt": "2025-10-12T21:34:18.795Z"
             },
             "card_o31z3r9ihhwr": {
               "id": "card_o31z3r9ihhwr",
@@ -3124,7 +3124,7 @@
               "lastReviewedAt": "2025-10-12T20:04:12.655Z"
             }
           },
-          "reviewedCount": 223
+          "reviewedCount": 228
         }
       }
     }
