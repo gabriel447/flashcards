@@ -1,6 +1,6 @@
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { api } from '../lib/api';
-import type { Deck, Card } from '../types';
+import type { Deck } from '../types';
 import { TrashIcon, DownloadIcon } from './icons';
 
 type Props = {
@@ -8,13 +8,11 @@ type Props = {
   decks: Record<string, Deck>;
   onUpdateDecks: (decks: Record<string, Deck>) => void;
   onOpenDeckDue?: (deckId: string) => void;
-  reviewedCounts?: Record<string, number>;
 };
 
-export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, reviewedCounts }: Props) {
+export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   const [newDeckName, setNewDeckName] = useState('');
   const [importing, setImporting] = useState(false);
-  const [editingCardId, setEditingCardId] = useState<string>('');
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const createDeck = async () => {
@@ -25,23 +23,7 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
     setNewDeckName('');
   };
 
-  const saveCard = async (deckId: string, card: Card) => {
-    await api.put(`/decks/${deckId}/cards/${card.id}`, { userId, card });
-    onUpdateDecks({
-      ...decks,
-      [deckId]: { ...decks[deckId], cards: { ...decks[deckId].cards, [card.id]: card } },
-    });
-    setEditingCardId('');
-  };
-
-  const deleteCard = async (deckId: string, cardId: string) => {
-    const ok = window.confirm('Tem certeza que deseja deletar este card?');
-    if (!ok) return;
-    await api.delete(`/decks/${deckId}/cards/${cardId}`, { params: { userId } });
-    const next = { ...decks };
-    delete next[deckId].cards[cardId];
-    onUpdateDecks(next);
-  };
+  // Removidos edições e exclusões de card inline para simplificar o fluxo
 
   const deleteDeck = async (deckId: string) => {
     const ok = window.confirm('Tem certeza que deseja deletar este deck? Isso removerá todos os cards.');
@@ -120,10 +102,6 @@ export function DeckManager({ userId, decks, onUpdateDecks, onOpenDeckDue, revie
                 <div className="row">
                   {(() => {
                     const total = Object.keys(deck.cards || {}).length;
-                    const persistedReviewed = typeof (deck as any)?.reviewedCount === 'number'
-                      ? (deck as any).reviewedCount
-                      : Object.values(deck.cards || {}).reduce((acc, c) => acc + (c.reviews || c.repetitions || 0), 0);
-                    const reviewed = persistedReviewed;
                     return (
                       <div className="deck-stats">
                         <span className="badge muted">{total} cards</span>

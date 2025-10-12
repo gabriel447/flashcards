@@ -2,10 +2,9 @@ import type { Deck } from '../types';
 
 type Props = {
   decks: Record<string, Deck>;
-  reviewedCounts?: Record<string, number>;
 };
 
-export function Stats({ decks, reviewedCounts }: Props) {
+export function Stats({ decks }: Props) {
   const total = Object.values(decks).reduce((acc, d) => acc + Object.keys(d.cards || {}).length, 0);
   const persistedReviewedTotal = Object.values(decks).reduce((acc, d) => {
     const deckCount = typeof d.reviewedCount === 'number'

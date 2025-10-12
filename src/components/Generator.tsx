@@ -10,7 +10,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
   const [category, setCategory] = useState('');
   const [count, setCount] = useState(10);
   const [loading, setLoading] = useState(false);
-  const [successMsg, setSuccessMsg] = useState('');
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
 
@@ -34,7 +33,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
       const deck = res.data.deck as Deck;
       onDeckCreated(deck);
       window.alert('Cards gerados com sucesso!');
-      setSuccessMsg('');
       setCategory('');
     } finally {
       setLoading(false);

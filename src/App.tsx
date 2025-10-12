@@ -16,7 +16,6 @@ function App() {
   const [decks, setDecks] = useState<Record<string, Deck>>({});
   const [busy, setBusy] = useState(false);
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
-  const [reviewedCounts, setReviewedCounts] = useState<Record<string, number>>({});
   const deckCount = useMemo(() => Object.keys(decks).length, [decks]);
   const totalDue = useMemo(() => {
     const now = Date.now();
@@ -35,6 +34,13 @@ function App() {
 
   // revisão por deck está dentro do DeckManager; removemos a aba de revisão geral
 
+  // Reseta o deck selecionado quando o usuário sai da tela de revisão
+  useEffect(() => {
+    if (view !== 'revisar' && selectedDeckId) {
+      setSelectedDeckId('');
+    }
+  }, [view]);
+
   return (
     <div className="container">
       <header className="header"><h1>Flashcards Inteligentes</h1></header>
@@ -43,7 +49,7 @@ function App() {
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>
           Decks{deckCount > 0 ? ` (${deckCount})` : ''}
         </button>
-        <button className={view === 'revisar' ? 'active' : ''} onClick={() => setView('revisar')} disabled={busy}>
+        <button className={view === 'revisar' ? 'active' : ''} onClick={() => { setSelectedDeckId(''); setView('revisar'); }} disabled={busy}>
           Revisar{totalDue > 0 ? ` (${totalDue})` : ''}
         </button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
@@ -64,7 +70,6 @@ function App() {
               decks={decks}
               onUpdateDecks={setDecks}
               onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('revisar'); }}
-              reviewedCounts={reviewedCounts}
             />
           )}
           {view === 'revisar' && (
@@ -81,16 +86,11 @@ function App() {
                     cards: { ...prev[deckId].cards, [card.id]: card },
                   },
                 }));
-                // Guarda apenas o delta da sessão
-                setReviewedCounts(prev => ({
-                  ...prev,
-                  [deckId]: (prev[deckId] || 0) + 1,
-                }));
               }}
             />
           )}
           {view === 'stats' && (
-            <Stats decks={decks} reviewedCounts={reviewedCounts} />
+            <Stats decks={decks} />
           )}
       </main>
     </div>
