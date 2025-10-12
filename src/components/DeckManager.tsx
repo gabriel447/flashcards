@@ -148,26 +148,32 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
               {openDecks[deck.id] && (
                 <div className="accordion-content">
                   <h4 style={{ margin: '0.5rem 0' }}>Categorias</h4>
-                  {getCategories(deck).map(({ category, count }) => (
-                    <div key={category} className="category-row">
-                      <div className="row" style={{ justifyContent: 'space-between', width: '100%' }}>
-                        <div className="row">
-                          <span className="badge info">{category}</span>
-                          <span className="badge muted">{count} cards</span>
-                        </div>
-                        <div className="row">
-                          <button
-                            className="icon-btn danger"
-                            title="Deletar categoria"
-                            aria-label="Deletar categoria"
-                            onClick={(e) => { e.stopPropagation(); deleteCategory(deck.id, category); }}
-                          >
-                            <TrashIcon />
-                          </button>
+                  {(() => {
+                    const categories = getCategories(deck);
+                    if (categories.length === 0) {
+                      return <p className="empty-state">Nenhuma categoria ainda.</p>;
+                    }
+                    return categories.map(({ category, count }) => (
+                      <div key={category} className="category-row">
+                        <div className="row" style={{ justifyContent: 'space-between', width: '100%' }}>
+                          <div className="row">
+                            <span className="badge info">{category}</span>
+                            <span className="badge muted">{count} cards</span>
+                          </div>
+                          <div className="row">
+                            <button
+                              className="icon-btn danger"
+                              title="Deletar categoria"
+                              aria-label="Deletar categoria"
+                              onClick={(e) => { e.stopPropagation(); deleteCategory(deck.id, category); }}
+                            >
+                              <TrashIcon />
+                            </button>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ));
+                  })()}
                 </div>
               )}
             </div>
