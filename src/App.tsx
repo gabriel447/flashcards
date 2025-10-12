@@ -31,9 +31,7 @@ function App() {
     }).catch(() => {});
   }, [userId]);
 
-  // revisão por deck está dentro do DeckManager; removemos a aba de revisão geral
 
-  // Reseta o deck selecionado quando o usuário sai da tela de revisão
   useEffect(() => {
     if (view !== 'revisar' && selectedDeckId) {
       setSelectedDeckId('');
