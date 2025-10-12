@@ -44,7 +44,8 @@ function scheduleReview(card, grade) {
     due.setDate(due.getDate() + interval);
   }
 
-  return { ...card, repetitions, interval, easeFactor, due: due.toISOString(), reviews, lastReviewedAt };
+  const dueIso = due.toISOString();
+  return { ...card, repetitions, interval, easeFactor, due: dueIso, nextReviewAt: dueIso, reviews, lastReviewedAt };
 }
 
 module.exports = { scheduleReview };

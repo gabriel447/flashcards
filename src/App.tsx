@@ -20,8 +20,11 @@ function App() {
   const totalReview = useMemo(() => {
     const now = nowTick;
     return Object.values(decks).reduce((acc, deck) => {
-      const dueInDeck = Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now).length;
-      return acc + dueInDeck;
+      const reviewableInDeck = Object.values(deck.cards || {}).filter(c => {
+        const ts = c.nextReviewAt || c.due;
+        return ts && new Date(ts).getTime() <= now;
+      }).length;
+      return acc + reviewableInDeck;
     }, 0);
   }, [decks, nowTick]);
 

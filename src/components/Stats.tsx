@@ -32,14 +32,17 @@ export function Stats({ decks }: Props) {
   const catBad: Record<string, number> = {};
   const catGood: Record<string, number> = {};
   const catExcellent: Record<string, number> = {};
-  let nextDueMs: number = Infinity;
+  let nextReviewMs: number = Infinity;
+  let hasReviewNow = false;
 
   const nowMs = Date.now() + tick; // força re-render e atualização de tempos relativos
   allDecks.forEach(d => {
     Object.values(d.cards || {}).forEach(c => {
-      // Próxima revisão: pegar menor due futura
-      const dueTs = c.due ? new Date(c.due).getTime() : Infinity;
-      if (dueTs > nowMs && dueTs < nextDueMs) nextDueMs = dueTs;
+      // Próxima revisão: pegar menor próxima revisão futura
+      const ts = c.nextReviewAt || c.due;
+      const nextReviewTs = ts ? new Date(ts).getTime() : Infinity;
+      if (nextReviewTs <= nowMs) hasReviewNow = true;
+      else if (nextReviewTs > nowMs && nextReviewTs < nextReviewMs) nextReviewMs = nextReviewTs;
 
       const logs = Array.isArray(c.gradeLog) ? c.gradeLog : [];
       logs.forEach(({ ts, grade }) => {
@@ -103,10 +106,10 @@ export function Stats({ decks }: Props) {
           <span className="label">Total de revisões</span>
           <span className="value">{reviewedTotal}</span>
         </div>
-        <div className="stat-card">
-          <span className="label">Próxima revisão</span>
-          <span className="value">{formatEta(nextDueMs)}</span>
-        </div>
+          <div className="stat-card">
+            <span className="label">Próxima revisão</span>
+            <span className="value">{hasReviewNow ? 'agora' : formatEta(nextReviewMs)}</span>
+          </div>
         {/* Linha 3 */}
           <div className="stat-card">
             <span className="label">Pior categoria (Mal)</span>

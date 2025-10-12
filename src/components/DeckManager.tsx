@@ -182,4 +182,4 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   );
 }
 
-// Deck inline review removed; decks now navigate to the Devidos view
+// Revisão inline removida; decks agora navegam para a tela de Revisão

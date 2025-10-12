@@ -94,6 +94,7 @@ app.post('/api/decks/:deckId/cards', (req, res) => {
     interval: 0,
     easeFactor: 2.5,
     due: new Date().toISOString(),
+    nextReviewAt: new Date().toISOString(),
   };
   persist(store);
   res.json({ card: deck.cards[cardId] });
@@ -263,6 +264,7 @@ app.post('/api/generate', async (req, res) => {
       interval: 0,
       easeFactor: 2.5,
       due: new Date().toISOString(),
+      nextReviewAt: new Date().toISOString(),
     };
   }
 

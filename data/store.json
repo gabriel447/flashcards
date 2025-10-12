@@ -2086,10 +2086,10 @@
               "category": "AWS Cloud Integration",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 1.6000000000000005,
-              "due": "2025-10-12T23:05:49.340Z",
-              "reviews": 6,
-              "lastReviewedAt": "2025-10-12T22:55:49.340Z"
+              "easeFactor": 1.4500000000000006,
+              "due": "2025-10-12T23:18:00.855Z",
+              "reviews": 7,
+              "lastReviewedAt": "2025-10-12T23:08:00.855Z"
             },
             "card_o2zzj17d8zn3": {
               "id": "card_o2zzj17d8zn3",
@@ -3124,7 +3124,7 @@
               "lastReviewedAt": "2025-10-12T20:04:12.655Z"
             }
           },
-          "reviewedCount": 235
+          "reviewedCount": 236
         }
       }
     }
