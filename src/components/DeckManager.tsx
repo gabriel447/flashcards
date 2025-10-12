@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 import { TrashIcon, DownloadIcon, ChevronDownIcon } from './icons';
@@ -24,8 +24,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     setNewDeckName('');
   };
 
-  // Removidos edições e exclusões de card inline para simplificar o fluxo
-
   const deleteDeck = async (deckId: string) => {
     const ok = window.confirm('Tem certeza que deseja deletar este deck? Isso removerá todos os cards.');
     if (!ok) return;
@@ -33,7 +31,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     const next = { ...decks };
     delete next[deckId];
     onUpdateDecks(next);
-    // if current deck is open elsewhere, no action needed here
   };
 
   const importDecks = async (file: File) => {
@@ -42,7 +39,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
       const text = await file.text();
       const data = JSON.parse(text);
       await api.post('/import', { userId, data });
-      // Atualiza visual após import (reconsulta decks)
       const res = await api.get('/decks', { params: { userId } });
       onUpdateDecks(res.data.decks || {});
     } catch (e) {
@@ -181,5 +177,3 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     </section>
   );
 }
-
-// Revisão inline removida; decks agora navegam para a tela de Revisão

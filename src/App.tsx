@@ -21,7 +21,7 @@ function App() {
     const now = nowTick;
     return Object.values(decks).reduce((acc, deck) => {
       const reviewableInDeck = Object.values(deck.cards || {}).filter(c => {
-        const ts = c.nextReviewAt || c.due;
+        const ts = c.nextReviewAt;
         return ts && new Date(ts).getTime() <= now;
       }).length;
       return acc + reviewableInDeck;

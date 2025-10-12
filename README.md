@@ -49,7 +49,7 @@ Backend: `http://localhost:4000/`
 ## Fluxo de revisão (agendamento)
 - Notas 0–2: reforço rápido em minutos (ex.: 5/10/30), mantendo `interval = 0` dias
 - Notas 3–5: SM-2 clássico (dias), ajustando `easeFactor` e `interval`
-- Cada revisão atualiza `repetitions`, `interval`, `easeFactor`, `due`, `reviews` e `lastReviewedAt`
+ - Cada revisão atualiza `repetitions`, `interval`, `easeFactor`, `nextReviewAt`, `reviews` e `lastReviewedAt`
 
 ## Endpoints principais (backend)
 - `POST /api/auth/login` — autenticação simples; retorna `{ userId }`
@@ -65,6 +65,8 @@ Backend: `http://localhost:4000/`
 - `POST /api/import` — importa dados completos do usuário (`{ userId, data }`)
 - `POST /api/generate` — gera cards (usa OpenAI se `OPENAI_API_KEY` existir; caso contrário, fallback local)
 
+Observação: o backend normaliza dados automaticamente para usar somente `nextReviewAt` (remove `due`) tanto ao iniciar quanto após `POST /api/import`.
+
 ## Estrutura do projeto
 ```
 server/
@@ -74,7 +76,7 @@ server/
     store.cjs        # persistência em JSON
 src/
   App.tsx            # app principal
-  components/        # UI (Due, Review, DeckManager, Stats, etc.)
+  components/        # UI (Review, DeckManager, Stats, Generator, etc.)
 data/store.json      # dados persistidos por usuário
 ```
 

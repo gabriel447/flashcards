@@ -32,6 +32,32 @@ function persist(store) {
   saveStore(store);
 }
 
+// Normalização: remover 'due' e garantir 'nextReviewAt'
+function normalizeUserDecks(store, userId) {
+  const decks = (store.users[userId] && store.users[userId].decks) || {};
+  let updated = false;
+  Object.values(decks).forEach(d => {
+    Object.values(d.cards || {}).forEach(c => {
+      if (!c.nextReviewAt && c.due) { c.nextReviewAt = c.due; updated = true; }
+      if (c.due) { delete c.due; updated = true; }
+    });
+  });
+  return updated;
+}
+
+function normalizeAllUsers() {
+  const store = loadStore();
+  let changed = false;
+  Object.keys(store.users || {}).forEach(uid => {
+    if (normalizeUserDecks(store, uid)) changed = true;
+  });
+  if (changed) persist(store);
+}
+
+// Executa normalização ao iniciar o servidor
+normalizeAllUsers();
+
+// Autentica usuário simples e retorna userId
 app.post('/api/auth/login', (req, res) => {
   const { username } = req.body || {};
   if (!username || typeof username !== 'string') {
@@ -44,12 +70,27 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ userId });
 });
 
+// Lista decks do usuário e normaliza dados/contadores
 app.get('/api/decks', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
   const store = getUserStore(userId);
   const decks = store.users[userId].decks || {};
   let updated = false;
+
+  Object.values(decks).forEach(d => {
+    Object.values(d.cards || {}).forEach(c => {
+      if (!c.nextReviewAt && c.due) {
+        c.nextReviewAt = c.due;
+        updated = true;
+      }
+      if (c.due) {
+        delete c.due;
+        updated = true;
+      }
+    });
+  });
+
   Object.values(decks).forEach(d => {
     const cardsArr = Object.values(d.cards || {});
     const sumReviews = cardsArr.reduce((acc, c) => acc + (c.reviews || 0), 0);
@@ -67,6 +108,7 @@ app.get('/api/decks', (req, res) => {
   res.json({ decks });
 });
 
+// Cria um novo deck
 app.post('/api/decks', (req, res) => {
   const { userId, name } = req.body || {};
   if (!userId || !name) return res.status(400).json({ error: 'userId e name obrigatórios' });
@@ -77,6 +119,7 @@ app.post('/api/decks', (req, res) => {
   res.json({ deck: store.users[userId].decks[deckId] });
 });
 
+// Cria card no deck
 app.post('/api/decks/:deckId/cards', (req, res) => {
   const { userId, card } = req.body || {};
   const { deckId } = req.params;
@@ -93,13 +136,13 @@ app.post('/api/decks/:deckId/cards', (req, res) => {
     repetitions: 0,
     interval: 0,
     easeFactor: 2.5,
-    due: new Date().toISOString(),
     nextReviewAt: new Date().toISOString(),
   };
   persist(store);
   res.json({ card: deck.cards[cardId] });
 });
 
+// Atualiza um card
 app.put('/api/decks/:deckId/cards/:cardId', (req, res) => {
   const { userId, card } = req.body || {};
   const { deckId, cardId } = req.params;
@@ -116,7 +159,7 @@ app.put('/api/decks/:deckId/cards/:cardId', (req, res) => {
   res.json({ card: c });
 });
 
-// Revisão espaçada
+// Registra revisão (SM-2) e agenda próxima
 app.post('/api/review', (req, res) => {
   const { userId, deckId, cardId, grade } = req.body || {};
   if (!userId || !deckId || !cardId || grade === undefined) {
@@ -137,6 +180,7 @@ app.post('/api/review', (req, res) => {
   res.json({ card: updated, reviewedCount: deck.reviewedCount });
 });
 
+// Remove card do deck
 app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   const { userId } = req.query;
   const { deckId, cardId } = req.params;
@@ -150,7 +194,7 @@ app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   res.json({ ok: true });
 });
 
-// Excluir uma categoria inteira (e todos os cards associados) de um deck
+// Remove todos os cards da categoria
 app.delete('/api/decks/:deckId/categories/:category', (req, res) => {
   const { userId } = req.query;
   const { deckId, category } = req.params;
@@ -170,6 +214,7 @@ app.delete('/api/decks/:deckId/categories/:category', (req, res) => {
   res.json({ ok: true, deck });
 });
 
+// Remove um deck inteiro
 app.delete('/api/decks/:deckId', (req, res) => {
   const { userId } = req.query;
   const { deckId } = req.params;
@@ -181,6 +226,7 @@ app.delete('/api/decks/:deckId', (req, res) => {
   res.json({ ok: true });
 });
 
+// Exporta um deck específico
 app.get('/api/decks/:deckId/export', (req, res) => {
   const { userId } = req.query;
   const { deckId } = req.params;
@@ -191,6 +237,7 @@ app.get('/api/decks/:deckId/export', (req, res) => {
   res.json({ deck });
 });
 
+// Exporta todos os dados do usuário
 app.get('/api/export', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
@@ -199,15 +246,19 @@ app.get('/api/export', (req, res) => {
   res.json({ data });
 });
 
+// Importa dados do usuário e normaliza nextReviewAt
 app.post('/api/import', (req, res) => {
   const { userId, data } = req.body || {};
   if (!userId || !data) return res.status(400).json({ error: 'userId e data obrigatórios' });
   const store = getUserStore(userId);
   store.users[userId] = data;
+  // Normaliza dados importados (remove 'due', garante 'nextReviewAt')
+  normalizeUserDecks(store, userId);
   persist(store);
   res.json({ ok: true });
 });
 
+// Gera cards para um deck (OpenAI ou fallback)
 app.post('/api/generate', async (req, res) => {
   const { userId, deckId, deckName, category, count } = req.body || {};
   if (!userId || !count) {
@@ -263,7 +314,6 @@ app.post('/api/generate', async (req, res) => {
       repetitions: 0,
       interval: 0,
       easeFactor: 2.5,
-      due: new Date().toISOString(),
       nextReviewAt: new Date().toISOString(),
     };
   }

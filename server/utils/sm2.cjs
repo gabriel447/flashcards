@@ -14,11 +14,11 @@ function scheduleReview(card, grade) {
   else if (q === 1) easeFactor -= 0.2;
 
   if (easeFactor < 1.3) easeFactor = 1.3;
-  let due = new Date(now.getTime());
+  let nextReviewDate = new Date(now.getTime());
   
   if (q <= 2) {
     const mins = minutesMap[q] ?? 10;
-    due = new Date(now.getTime() + mins * 60 * 1000);
+    nextReviewDate = new Date(now.getTime() + mins * 60 * 1000);
     repetitions = 0;
     interval = 0;
   } else {
@@ -40,12 +40,12 @@ function scheduleReview(card, grade) {
       }
     }
     repetitions += 1;
-    due = new Date();
-    due.setDate(due.getDate() + interval);
+    nextReviewDate = new Date();
+    nextReviewDate.setDate(nextReviewDate.getDate() + interval);
   }
 
-  const dueIso = due.toISOString();
-  return { ...card, repetitions, interval, easeFactor, due: dueIso, nextReviewAt: dueIso, reviews, lastReviewedAt };
+  const nextIso = nextReviewDate.toISOString();
+  return { ...card, repetitions, interval, easeFactor, nextReviewAt: nextIso, reviews, lastReviewedAt };
 }
 
 module.exports = { scheduleReview };

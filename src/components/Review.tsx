@@ -22,7 +22,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
       : Object.values(decks);
     deckList.forEach(deck => {
       Object.values(deck.cards || {}).forEach(card => {
-        const ts = card.nextReviewAt || card.due;
+        const ts = card.nextReviewAt;
         if (ts && new Date(ts).getTime() <= now) {
           items.push({ deckId: deck.id, card });
         }
@@ -48,7 +48,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     const newItems: Array<{ deckId: string; card: Card }> = [];
     deckList.forEach(deck => {
       Object.values(deck.cards || {}).forEach(card => {
-        const ts = card.nextReviewAt || card.due;
+        const ts = card.nextReviewAt;
         const nextReviewTs = ts ? new Date(ts).getTime() : Infinity;
         if (nextReviewTs <= nowTs && !existingIds.has(card.id)) {
           newItems.push({ deckId: deck.id, card });
@@ -72,7 +72,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     try {
       const res = await api.post('/review', { userId, deckId, cardId, grade: q });
       onCardUpdated(deckId, res.data.card as Card, res.data.reviewedCount as number | undefined);
-      const ts = (res.data.card as Card)?.nextReviewAt || (res.data.card as Card)?.due;
+      const ts = (res.data.card as Card)?.nextReviewAt;
       if (ts) {
         const diffMs = Math.max(0, new Date(ts).getTime() - Date.now());
         const mins = Math.round(diffMs / 60000);

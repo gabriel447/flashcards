@@ -35,11 +35,10 @@ export function Stats({ decks }: Props) {
   let nextReviewMs: number = Infinity;
   let hasReviewNow = false;
 
-  const nowMs = Date.now() + tick; // força re-render e atualização de tempos relativos
+  const nowMs = Date.now() + tick;
   allDecks.forEach(d => {
     Object.values(d.cards || {}).forEach(c => {
-      // Próxima revisão: pegar menor próxima revisão futura
-      const ts = c.nextReviewAt || c.due;
+      const ts = c.nextReviewAt;
       const nextReviewTs = ts ? new Date(ts).getTime() : Infinity;
       if (nextReviewTs <= nowMs) hasReviewNow = true;
       else if (nextReviewTs > nowMs && nextReviewTs < nextReviewMs) nextReviewMs = nextReviewTs;
@@ -70,7 +69,7 @@ export function Stats({ decks }: Props) {
   const topExcellent = top(catExcellent);
 
   const formatEta = (ms: number) => {
-    if (!isFinite(ms)) return '—';
+    if (!isFinite(ms)) return 'Sem dados';
     const diff = Math.max(0, ms - nowMs);
     const mins = Math.round(diff / 60000);
     const hours = Math.round(diff / 3600000);
