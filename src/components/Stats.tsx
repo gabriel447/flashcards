@@ -69,7 +69,7 @@ export function Stats({ decks }: Props) {
   const topExcellent = top(catExcellent);
 
   const formatEta = (ms: number) => {
-    if (!isFinite(ms)) return 'Sem dados';
+    if (!isFinite(ms)) return 'Nenhuma';
     const diff = Math.max(0, ms - nowMs);
     const mins = Math.round(diff / 60000);
     const hours = Math.round(diff / 3600000);

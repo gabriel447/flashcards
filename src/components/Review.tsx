@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -38,6 +38,17 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   const [noTransition, setNoTransition] = useState(false);
   const [hasRated, setHasRated] = useState(false);
   const [nextReviewLabel, setNextReviewLabel] = useState('');
+
+  // Sincroniza fila quando os decks/seleção mudarem
+  useEffect(() => {
+    setQueue(initialQueue);
+    setActiveIndex(0);
+    setShowEndSlide(false);
+    setShowAnswer(false);
+    setCanAdvance(false);
+    setHasRated(false);
+    setNextReviewLabel('');
+  }, [initialQueue]);
 
   const appendNewlyReviewCards = () => {
     const existingIds = new Set(queue.map(q => q.card.id));

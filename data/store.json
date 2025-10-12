@@ -468,7 +468,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6st2jge": {
               "id": "card_obyzj6st2jge",
@@ -483,7 +483,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6gbaj5t": {
               "id": "card_obyzj6gbaj5t",
@@ -498,7 +498,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6lab1ki": {
               "id": "card_obyzj6lab1ki",
@@ -513,7 +513,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6hpyw9e": {
               "id": "card_obyzj6hpyw9e",
@@ -528,7 +528,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6ee8sue": {
               "id": "card_obyzj6ee8sue",
@@ -543,7 +543,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj6xcgkc6": {
               "id": "card_obyzj6xcgkc6",
@@ -558,7 +558,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj69tqp8h": {
               "id": "card_obyzj69tqp8h",
@@ -573,7 +573,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.842Z"
+              "nextReviewAt": "2025-10-12T23:23:43.842Z"
             },
             "card_obyzj7mddup3": {
               "id": "card_obyzj7mddup3",
@@ -588,7 +588,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.843Z"
+              "nextReviewAt": "2025-10-12T23:23:43.843Z"
             },
             "card_obyzj72q9adt": {
               "id": "card_obyzj72q9adt",
@@ -603,7 +603,7 @@
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.5,
-              "due": "2025-10-12T23:23:43.843Z"
+              "nextReviewAt": "2025-10-12T23:23:43.843Z"
             }
           },
           "reviewedCount": 0
