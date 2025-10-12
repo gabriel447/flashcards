@@ -39,7 +39,6 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   const [hasRated, setHasRated] = useState(false);
   const [nextReviewLabel, setNextReviewLabel] = useState('');
 
-  // Sincroniza fila quando os decks/seleção mudarem
   useEffect(() => {
     setQueue(initialQueue);
     setActiveIndex(0);
@@ -48,7 +47,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     setCanAdvance(false);
     setHasRated(false);
     setNextReviewLabel('');
-  }, [initialQueue]);
+  }, [selectedDeckId]);
 
   const appendNewlyReviewCards = () => {
     const existingIds = new Set(queue.map(q => q.card.id));
@@ -67,7 +66,6 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
       });
     });
     if (newItems.length > 0) {
-      setShowEndSlide(false);
       setQueue(prev => [...prev, ...newItems]);
       return true;
     }
@@ -115,7 +113,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         spaceBetween={16}
         slidesPerView={1}
         modules={[Navigation]}
-        navigation
+        navigation={canAdvance}
         allowTouchMove={false}
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
@@ -186,7 +184,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         ))}
         {showEndSlide && (
           <SwiperSlide key="end-slide">
-            <div style={{ height: 1 }} />
+            <div style={{ height: '0px' }} />
           </SwiperSlide>
         )}
       </Swiper>

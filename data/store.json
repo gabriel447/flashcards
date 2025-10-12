@@ -450,7 +450,245 @@
       "decks": {}
     },
     "anon": {
-      "decks": {}
+      "decks": {
+        "deck_ocjcei4s4w0w": {
+          "id": "deck_ocjcei4s4w0w",
+          "name": "AWS",
+          "cards": {
+            "card_ocjn9qloiu50": {
+              "id": "card_ocjn9qloiu50",
+              "question": "O que é AWS Lambda?",
+              "answer": "Um serviço de computação que permite executar código sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Computação Serverless"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:07.067Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:07.067Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:07.067Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9q4t51ws": {
+              "id": "card_ocjn9q4t51ws",
+              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
+              "answer": "Python, Node.js, Java, Ruby, C#, Go, entre outras.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Linguagens"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:10.389Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:10.389Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:10.389Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qvuvnwa": {
+              "id": "card_ocjn9qvuvnwa",
+              "question": "Qual o principal benefício de usar AWS Lambda?",
+              "answer": "Otimização de custos através do pagamento apenas pelo tempo de execução do código.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Custo"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:13.461Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:13.461Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:13.461Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qbflc5f": {
+              "id": "card_ocjn9qbflc5f",
+              "question": "O que é o limite de tempo de execução do AWS Lambda?",
+              "answer": "O tempo máximo de execução de uma função Lambda é de 15 minutos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Limite"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:16.254Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:16.254Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:16.254Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9q5b6ekf": {
+              "id": "card_ocjn9q5b6ekf",
+              "question": "Como o AWS Lambda é acionado?",
+              "answer": "Pode ser acionado por eventos de outros serviços AWS, como S3, DynamoDB, ou API Gateway.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Eventos"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:18.000Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:18.000Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:18.000Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qeo4x7q": {
+              "id": "card_ocjn9qeo4x7q",
+              "question": "O que são 'layers' no AWS Lambda?",
+              "answer": "Camadas que permitem compartilhar bibliotecas e outros recursos entre funções Lambda.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Layers"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:19.961Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:19.961Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:19.961Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qlrgu6o": {
+              "id": "card_ocjn9qlrgu6o",
+              "question": "Quais são os limites de memória para funções Lambda?",
+              "answer": "As funções podem ser configuradas para usar entre 128 MB e 10 GB de memória.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Memória"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:21.887Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:21.887Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:21.887Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qnjuxen": {
+              "id": "card_ocjn9qnjuxen",
+              "question": "O que é 'concurrency' no AWS Lambda?",
+              "answer": "O número de instâncias de uma função Lambda que podem ser executadas simultaneamente.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Concorrência"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:23.811Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:23.811Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:23.811Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qimwa0h": {
+              "id": "card_ocjn9qimwa0h",
+              "question": "Como monitorar funções Lambda?",
+              "answer": "Utilizando o Amazon CloudWatch para visualizar logs e métricas de desempenho.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Monitoramento"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:25.650Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:25.650Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:25.650Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_ocjn9qykt7cc": {
+              "id": "card_ocjn9qykt7cc",
+              "question": "O que é o AWS Lambda@Edge?",
+              "answer": "Uma extensão do AWS Lambda que permite executar código em locais de borda da AWS.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Edge"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-12T23:50:27.459Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-12T23:40:27.459Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-12T23:40:27.459Z",
+                  "grade": 2
+                }
+              ]
+            }
+          },
+          "reviewedCount": 10
+        }
+      }
     }
   }
 }
