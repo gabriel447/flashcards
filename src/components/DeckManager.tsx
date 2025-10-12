@@ -7,7 +7,7 @@ type Props = {
   userId: string;
   decks: Record<string, Deck>;
   onUpdateDecks: (decks: Record<string, Deck>) => void;
-  onOpenDeckDue?: (deckId: string) => void;
+  onOpenDeckReview?: (deckId: string) => void;
 };
 
 export function DeckManager({ userId, decks, onUpdateDecks }: Props) {

@@ -15,14 +15,15 @@ function App() {
   const [decks, setDecks] = useState<Record<string, Deck>>({});
   const [busy, setBusy] = useState(false);
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
+  const [nowTick, setNowTick] = useState<number>(Date.now());
   const deckCount = useMemo(() => Object.keys(decks).length, [decks]);
-  const totalDue = useMemo(() => {
-    const now = Date.now();
+  const totalReview = useMemo(() => {
+    const now = nowTick;
     return Object.values(decks).reduce((acc, deck) => {
       const dueInDeck = Object.values(deck.cards || {}).filter(c => c.due && new Date(c.due).getTime() <= now).length;
       return acc + dueInDeck;
     }, 0);
-  }, [decks]);
+  }, [decks, nowTick]);
 
   useEffect(() => {
     if (!userId) return;
@@ -30,6 +31,13 @@ function App() {
       setDecks(res.data.decks || {});
     }).catch(() => {});
   }, [userId]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setNowTick(Date.now());
+    }, 10000);
+    return () => clearInterval(id);
+  }, []);
 
 
   useEffect(() => {
@@ -47,7 +55,7 @@ function App() {
           Decks{deckCount > 0 ? ` (${deckCount})` : ''}
         </button>
         <button className={view === 'revisar' ? 'active' : ''} onClick={() => { setSelectedDeckId(''); setView('revisar'); }} disabled={busy}>
-          Revisar{totalDue > 0 ? ` (${totalDue})` : ''}
+          Revisar{totalReview > 0 ? ` (${totalReview})` : ''}
         </button>
         <button className={view === 'stats' ? 'active' : ''} onClick={() => setView('stats')} disabled={busy}>Estatísticas</button>
       </nav>
@@ -66,7 +74,7 @@ function App() {
               userId={userId}
               decks={decks}
               onUpdateDecks={setDecks}
-              onOpenDeckDue={(deckId) => { setSelectedDeckId(deckId); setView('revisar'); }}
+              onOpenDeckReview={(deckId) => { setSelectedDeckId(deckId); setView('revisar'); }}
             />
           )}
           {view === 'revisar' && (

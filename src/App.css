@@ -178,14 +178,14 @@
   .review-card .review-label { color: #60a5fa; }
   .empty-state { color: #9ca3af; }
 }
-.due-container { max-width: 980px; margin: 0 auto; }
-.due-swiper { padding: 1.5rem 0; min-height: 60vh; }
-.due-swiper .swiper-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; }
-.due-swiper .review-card { width: 100%; max-width: 380px; margin: 0 auto; }
-.due-swiper .swiper-pagination { display: none; }
-.due-swiper .swiper-button-prev { display: none !important; }
-.due-swiper .swiper-button-next { display: none !important; color: #3b82f6; }
-.due-swiper.can-advance .swiper-button-next { display: flex !important; opacity: 1; pointer-events: auto; }
+.review-container { max-width: 980px; margin: 0 auto; }
+.review-swiper { padding: 1.5rem 0; min-height: 60vh; }
+.review-swiper .swiper-slide { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 0.75rem; }
+.review-swiper .review-card { width: 100%; max-width: 380px; margin: 0 auto; }
+.review-swiper .swiper-pagination { display: none; }
+.review-swiper .swiper-button-prev { display: none !important; }
+.review-swiper .swiper-button-next { display: none !important; color: #3b82f6; }
+.review-swiper.can-advance .swiper-button-next { display: flex !important; opacity: 1; pointer-events: auto; }
 .flip-card { perspective: 1000px; cursor: pointer; }
 .flip-card-inner { position: relative; width: 100%; min-height: 460px; transform-style: preserve-3d; transition: transform 0.6s ease; }
 .flip-card-inner.no-transition { transition: none !important; }

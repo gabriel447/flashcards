@@ -36,9 +36,9 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   const [canAdvance, setCanAdvance] = useState(false);
   const [noTransition, setNoTransition] = useState(false);
   const [hasRated, setHasRated] = useState(false);
-  const [nextDueLabel, setNextDueLabel] = useState('');
+  const [nextReviewLabel, setNextReviewLabel] = useState('');
 
-  const appendNewlyDueCards = () => {
+  const appendNewlyReviewCards = () => {
     const existingIds = new Set(queue.map(q => q.card.id));
     const deckList = selectedDeckId && decks[selectedDeckId]
       ? [decks[selectedDeckId]]
@@ -80,7 +80,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         if (days >= 1) label = `${days} dia${days > 1 ? 's' : ''}`;
         else if (hours >= 1) label = `${hours} hora${hours > 1 ? 's' : ''}`;
         else label = `${Math.max(mins, 1)} minuto${mins > 1 ? 's' : ''}`;
-        setNextDueLabel(label);
+        setNextReviewLabel(label);
       }
     } catch (e) {
       console.error(e);
@@ -95,10 +95,10 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   }
 
   return (
-    <section className="due-container">
+    <section className="review-container">
       <h2>{selectedDeckId && decks[selectedDeckId]?.name ? `Revisar — ${decks[selectedDeckId].name}` : 'Revisão Espaçada'}</h2>
       <Swiper
-        className={`due-swiper ${canAdvance ? 'can-advance' : ''}`}
+        className={`review-swiper ${canAdvance ? 'can-advance' : ''}`}
         spaceBetween={16}
         slidesPerView={1}
         modules={[Navigation]}
@@ -107,7 +107,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
           if (showEndSlide && swiper.activeIndex === queue.length) {
-            const appended = appendNewlyDueCards();
+            const appended = appendNewlyReviewCards();
             if (!appended) {
               setShowEndSlide(false);
               setQueue([]);
@@ -118,9 +118,9 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
           setShowAnswer(false);
           setCanAdvance(false);
           setHasRated(false);
-          setNextDueLabel('');
+          setNextReviewLabel('');
           setTimeout(() => setNoTransition(false), 0);
-          appendNewlyDueCards();
+          appendNewlyReviewCards();
         }}
       >
         {queue.map(({ deckId, card }) => (
@@ -155,7 +155,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
                 hasRated ? (
                   <span className="review-label" style={{ color: '#1f6feb' }}>
                     Próxima revisão em{' '}
-                    <span style={{ color: '#000' }}>~ {nextDueLabel || 'breve'}</span>
+                    <span style={{ color: '#000' }}>~ {nextReviewLabel || 'breve'}</span>
                   </span>
                 ) : (
                   <>
