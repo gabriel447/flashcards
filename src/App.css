@@ -113,6 +113,8 @@
   box-shadow: 0 1px 2px rgba(0,0,0,0.08);
   pointer-events: none;
 }
+.accordion-content { margin-top: 0.5rem; border-top: 1px solid #e5e7eb; padding-top: 0.5rem; }
+.category-row { padding: 0.4rem 0; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; border-radius: 999px; padding: 0.35rem 0.75rem; font-weight: 600; cursor: pointer; }
 .chip:hover { background: #f3f4f6; }

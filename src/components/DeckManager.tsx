@@ -1,7 +1,7 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
-import { TrashIcon, DownloadIcon } from './icons';
+import { TrashIcon, DownloadIcon, ChevronDownIcon } from './icons';
 
 type Props = {
   userId: string;
@@ -14,6 +14,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   const [newDeckName, setNewDeckName] = useState('');
   const [importing, setImporting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const [openDecks, setOpenDecks] = useState<Record<string, boolean>>({});
 
   const createDeck = async () => {
     if (!newDeckName.trim()) return;
@@ -63,6 +64,27 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     URL.revokeObjectURL(url);
   };
 
+  const toggleDeck = (deckId: string) => {
+    setOpenDecks(prev => ({ ...prev, [deckId]: !prev[deckId] }));
+  };
+
+  const getCategories = (deck: Deck) => {
+    const map: Record<string, number> = {};
+    Object.values(deck.cards || {}).forEach(c => {
+      const cat = c.category || 'Sem categoria';
+      map[cat] = (map[cat] || 0) + 1;
+    });
+    return Object.entries(map).map(([category, count]) => ({ category, count }));
+  };
+
+  const deleteCategory = async (deckId: string, category: string) => {
+    const ok = window.confirm(`Deletar categoria "${category}" e todos os cards associados?`);
+    if (!ok) return;
+    await api.delete(`/decks/${deckId}/categories/${encodeURIComponent(category)}`, { params: { userId } });
+    const res = await api.get('/decks', { params: { userId } });
+    onUpdateDecks(res.data.decks || {});
+  };
+
   return (
     <section className="decks-section">
       <h2>Decks</h2>
@@ -96,7 +118,8 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
           {Object.values(decks).map(deck => (
             <div key={deck.id} className="deck">
               <div className="row" style={{ justifyContent: 'space-between' }}>
-                <div className="row deck-header">
+                <div className="row deck-header" onClick={() => toggleDeck(deck.id)} style={{ cursor: 'pointer' }}>
+                  <ChevronDownIcon className="chevron" style={{ transform: openDecks[deck.id] ? 'rotate(180deg)' : 'rotate(0deg)' }} />
                   <strong className="deck-name">{deck.name}</strong>
                 </div>
                 <div className="row">
@@ -126,6 +149,31 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
                   </button>
                 </div>
               </div>
+              {openDecks[deck.id] && (
+                <div className="accordion-content">
+                  <h4 style={{ margin: '0.5rem 0' }}>Categorias</h4>
+                  {getCategories(deck).map(({ category, count }) => (
+                    <div key={category} className="category-row">
+                      <div className="row" style={{ justifyContent: 'space-between', width: '100%' }}>
+                        <div className="row">
+                          <span className="badge info">{category}</span>
+                          <span className="badge muted">{count} cards</span>
+                        </div>
+                        <div className="row">
+                          <button
+                            className="icon-btn danger"
+                            title="Deletar categoria"
+                            aria-label="Deletar categoria"
+                            onClick={(e) => { e.stopPropagation(); deleteCategory(deck.id, category); }}
+                          >
+                            <TrashIcon />
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           ))}
         </div>

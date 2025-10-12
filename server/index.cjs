@@ -146,6 +146,26 @@ app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   res.json({ ok: true });
 });
 
+// Excluir uma categoria inteira (e todos os cards associados) de um deck
+app.delete('/api/decks/:deckId/categories/:category', (req, res) => {
+  const { userId } = req.query;
+  const { deckId, category } = req.params;
+  if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
+  const store = getUserStore(userId);
+  const deck = store.users[userId].decks[deckId];
+  if (!deck) return res.status(404).json({ error: 'Deck não encontrado' });
+  const target = decodeURIComponent(category);
+  const idsToDelete = Object.values(deck.cards || {})
+    .filter(c => (c.category || null) === target)
+    .map(c => c.id);
+  if (idsToDelete.length === 0) {
+    return res.json({ ok: true, deck });
+  }
+  idsToDelete.forEach(id => { delete deck.cards[id]; });
+  persist(store);
+  res.json({ ok: true, deck });
+});
+
 app.delete('/api/decks/:deckId', (req, res) => {
   const { userId } = req.query;
   const { deckId } = req.params;
