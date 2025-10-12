@@ -10,12 +10,11 @@ type Props = {
   userId: string;
   decks: Record<string, Deck>;
   onCardUpdated: (deckId: string, card: Card, reviewedCount?: number) => void;
-  selectedDeckId?: string; // opcional: quando presente, revisa somente este deck
+  selectedDeckId?: string;
 };
 
 export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) {
   const now = Date.now();
-  // Inicializa a fila de cards devidos e mantém estável durante a sessão
   const initialQueue = useMemo(() => {
     const items: Array<{ deckId: string; card: Card }> = [];
     const deckList = selectedDeckId && decks[selectedDeckId]
@@ -31,27 +30,40 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     return items;
   }, [decks, selectedDeckId]);
   const [queue, setQueue] = useState(initialQueue);
-  // Índice ativo para detectar último card
   const [activeIndex, setActiveIndex] = useState(0);
-  // Slide final para desaparecer carrossel somente ao avançar
   const [showEndSlide, setShowEndSlide] = useState(false);
-
-  // Controle de exibição da resposta (flip)
   const [showAnswer, setShowAnswer] = useState(false);
-  // Controle de liberação para avançar
   const [canAdvance, setCanAdvance] = useState(false);
-  // Evitar transição visual ao resetar na troca de slide
   const [noTransition, setNoTransition] = useState(false);
-  // Evitar reavaliação do mesmo card
   const [hasRated, setHasRated] = useState(false);
-  // Mostrar quando o card ficará disponível novamente após avaliar
   const [nextDueLabel, setNextDueLabel] = useState('');
 
+  const appendNewlyDueCards = () => {
+    const existingIds = new Set(queue.map(q => q.card.id));
+    const deckList = selectedDeckId && decks[selectedDeckId]
+      ? [decks[selectedDeckId]]
+      : Object.values(decks);
+    const nowTs = Date.now();
+    const newItems: Array<{ deckId: string; card: Card }> = [];
+    deckList.forEach(deck => {
+      Object.values(deck.cards || {}).forEach(card => {
+        const dueTs = card.due ? new Date(card.due).getTime() : Infinity;
+        if (dueTs <= nowTs && !existingIds.has(card.id)) {
+          newItems.push({ deckId: deck.id, card });
+        }
+      });
+    });
+    if (newItems.length > 0) {
+      setShowEndSlide(false);
+      setQueue(prev => [...prev, ...newItems]);
+      return true;
+    }
+    return false;
+  };
+
   const grade = async (deckId: string, cardId: string, q: number) => {
-    // Liberação otimista da navegação
     setCanAdvance(true);
     setHasRated(true);
-    // Se estamos no último card, prepara um slide final; só somemos ao avançar
     if (activeIndex === queue.length - 1) {
       setShowEndSlide(true);
     }
@@ -71,7 +83,6 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         setNextDueLabel(label);
       }
     } catch (e) {
-      // Em caso de erro, mantém liberação para não travar UX
       console.error(e);
     }
   };
@@ -95,19 +106,21 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         allowTouchMove={false}
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
-          // Se avançamos para o slide final, trocar para estado vazio
           if (showEndSlide && swiper.activeIndex === queue.length) {
-            setShowEndSlide(false);
-            setQueue([]);
+            const appended = appendNewlyDueCards();
+            if (!appended) {
+              setShowEndSlide(false);
+              setQueue([]);
+            }
             return;
           }
-          // resetar para pergunta sem transição para evitar flash da resposta
           setNoTransition(true);
           setShowAnswer(false);
           setCanAdvance(false);
           setHasRated(false);
           setNextDueLabel('');
           setTimeout(() => setNoTransition(false), 0);
+          appendNewlyDueCards();
         }}
       >
         {queue.map(({ deckId, card }) => (
@@ -135,7 +148,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
                   </div>
                 </div>
               </div>
-              {/* avaliação agora fora do card */}
+              {}
             </div>
               <div className="grade-row">
               {showAnswer ? (
