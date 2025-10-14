@@ -69,7 +69,7 @@ export function Stats({ decks }: Props) {
   const topExcellent = top(catExcellent);
 
   const formatEta = (ms: number) => {
-    if (!isFinite(ms)) return 'Nenhuma';
+    if (!isFinite(ms)) return 'Sem previsão';
     const diff = Math.max(0, ms - nowMs);
     const mins = Math.round(diff / 60000);
     const hours = Math.round(diff / 3600000);
@@ -111,16 +111,16 @@ export function Stats({ decks }: Props) {
           </div>
         {/* Linha 3 */}
           <div className="stat-card">
-            <span className="label">Pior categoria (Mal)</span>
-            <span className="value">{topBad.count > 0 ? `${topBad.category} (${topBad.count})` : 'Sem dados'}</span>
+            <span className="label">Categoria mais difícil</span>
+            <span className="value">{topBad.count > 0 ? topBad.category : 'Sem dados'}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Categoria com mais acertos (Bem)</span>
-            <span className="value">{topGood.count > 0 ? `${topGood.category} (${topGood.count})` : 'Sem dados'}</span>
+            <span className="label">Categoria com mais acertos</span>
+            <span className="value">{topGood.count > 0 ? topGood.category : 'Sem dados'}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Melhor categoria (Excelente)</span>
-            <span className="value">{topExcellent.count > 0 ? `${topExcellent.category} (${topExcellent.count})` : 'Sem dados'}</span>
+            <span className="label">Categoria destaque</span>
+            <span className="value">{topExcellent.count > 0 ? topExcellent.category : 'Sem dados'}</span>
           </div>
       </div>
     </section>

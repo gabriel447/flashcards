@@ -85,7 +85,10 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
     <section className="decks-section">
       <h2>Decks</h2>
       <div className="toolbar">
-        <input className="input" value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="Nome do novo deck" />
+        <label className="form-control" style={{ flex: 1 }}>
+          <span className="form-label">Nome do deck</span>
+          <input className="input" value={newDeckName} onChange={(e) => setNewDeckName(e.target.value)} placeholder="" />
+        </label>
         <button className="btn btn-primary btn-sm" onClick={createDeck}>Criar deck</button>
         <button
           className="btn btn-secondary btn-sm"
