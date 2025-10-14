@@ -64,6 +64,7 @@ Backend: `http://localhost:4000/`
 - `GET /api/export?userId=...` — exporta todos os dados do usuário
 - `POST /api/import` — importa dados completos do usuário (`{ userId, data }`)
 - `POST /api/generate` — gera cards (usa OpenAI se `OPENAI_API_KEY` existir; caso contrário, fallback local)
+- `POST /api/generate-from-pdf` — gera cards a partir de PDF. Prioriza um padrão de texto explícito (FC-*); mantém fallbacks (OCR/bullets) quando o padrão não existe.
 
 Observação: o backend normaliza dados automaticamente para usar somente `nextReviewAt` (remove `due`) tanto ao iniciar quanto após `POST /api/import`.
 
@@ -87,3 +88,37 @@ data/store.json      # dados persistidos por usuário
 ## Observações
 - Usuário padrão: `anon` (dados em `users.anon` no `store.json`).
 - Após revisar cards, os contadores em Decks/Estatísticas persistem mesmo em reload duro (Ctrl+Shift+R).
+
+## Padrão de PDF (FC-*) para geração determinística
+Para obter os melhores resultados ao enviar PDFs, utilize TEXTO PLANO dentro do PDF seguindo os marcadores `FC-*` abaixo. O backend lê esses marcadores diretamente do texto, sem depender de palavras como "Summary/Resumo".
+
+Linhas suportadas (uma por linha):
+- `FC-SCHEMA: 1.0` (opcional)
+- `FC-CATEGORY: <Categoria>` — inicia um bloco de itens da categoria
+- `FC-ITEM: <Nome do item>` — pode ser no formato `Nome: descrição` para embutir o essencial
+- `FC-INFO: <Informação essencial>` — complemente o item atual (pode repetir)
+- `FC-POINT: <Ponto-chave>` — ponto adicional sobre o item (pode repetir)
+- Opcional: `FC-BULLET: Título: descrição` — atalho equivalente a um item simples
+
+Exemplo de conteúdo (texto convertido para PDF):
+```
+FC-SCHEMA: 1.0
+FC-CATEGORY: AWS S3
+FC-ITEM: S3: armazenamento de objetos; 11 9s de durabilidade; classes Standard/IA/Glacier
+FC-INFO: políticas IAM e Bucket; SSE-S3; SSE-KMS
+FC-POINT: data transfer impacta custo
+FC-ITEM: S3 Lifecycle
+FC-INFO: transição entre classes; expiração de objetos
+FC-POINT: útil para arquivamento com Glacier
+
+FC-CATEGORY: AWS Lambda
+FC-ITEM: Lambda: compute serverless; triggers; limites de memória/tempo
+FC-POINT: billing por invocação e tempo
+```
+
+Recomendações:
+- Use PDFs com texto (exportado do editor), evite PDFs escaneados; OCR é apenas fallback.
+- Mantenha o conteúdo em PT-BR; evite links e cabeçalhos/rodapés.
+- Estruture 2–5 categorias, cada uma com 3–6 itens; adicione `FC-POINT` para pontos-chave.
+
+Com esse padrão, o app gera 1–2 cards por item e completa com os `FC-POINT` quando necessário.

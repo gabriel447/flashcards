@@ -776,6 +776,73 @@ function generateCardsFromBullets(bullets, category = 'Resumo', maxCount = 60) {
   return cards;
 }
 
+// Parser de padrão explícito "FC-*" dentro do texto extraído do PDF
+// Formato esperado (texto plano):
+// FC-SCHEMA: 1.0
+// FC-CATEGORY: <Categoria>
+// FC-ITEM: <Nome do item>
+// FC-INFO: <Informação essencial>
+// FC-POINT: <Ponto-chave>
+// (FC-BULLET: Título: descrição) opcional como atalho
+function parseFcStructuredText(text) {
+  const lines = String(text || '').replace(/\r/g, '').split(/\n+/).map(l => l.trim()).filter(Boolean);
+  const categories = [];
+  let currentCat = null;
+  let currentItem = null;
+
+  const pushItem = () => {
+    if (!currentItem) return;
+    const name = String(currentItem.name || currentItem.title || '').trim();
+    if (!name) { currentItem = null; return; }
+    const itemObj = { name };
+    if (currentItem.essential_info) itemObj.essential_info = sanitizeText(currentItem.essential_info);
+    if (Array.isArray(currentItem.key_points) && currentItem.key_points.length) itemObj.key_points = currentItem.key_points.map(sanitizeText).filter(Boolean);
+    if (!currentCat) {
+      currentCat = { category: 'Resumo', items: [] };
+      categories.push(currentCat);
+    }
+    currentCat.items.push(itemObj);
+    currentItem = null;
+  };
+
+  for (const raw of lines) {
+    const m = raw.match(/^FC-(SCHEMA|DECK|CATEGORY|ITEM|INFO|POINT|BULLET)\s*:\s*(.+)$/i);
+    if (!m) continue;
+    const key = m[1].toUpperCase();
+    const val = sanitizeText(String(m[2] || '').trim());
+    if (key === 'CATEGORY') {
+      pushItem();
+      currentCat = { category: val || 'Resumo', items: [] };
+      categories.push(currentCat);
+    } else if (key === 'ITEM') {
+      pushItem();
+      currentItem = { name: val, key_points: [] };
+      const mm = val.match(/^([^:—–\-]{1,120})\s*[:—–\-]\s*(.+)$/);
+      if (mm) {
+        currentItem.name = sanitizeText(mm[1]);
+        currentItem.essential_info = sanitizeText(mm[2]);
+      }
+    } else if (key === 'INFO') {
+      if (!currentItem) currentItem = { name: '', key_points: [] };
+      currentItem.essential_info = currentItem.essential_info ? `${currentItem.essential_info}; ${val}` : val;
+    } else if (key === 'POINT') {
+      if (!currentItem) currentItem = { name: '', key_points: [] };
+      currentItem.key_points = currentItem.key_points || [];
+      if (val) currentItem.key_points.push(val);
+    } else if (key === 'BULLET') {
+      const mm = val.match(/^([^:]{1,120})\s*:\s*(.+)$/);
+      const name = mm ? sanitizeText(mm[1]) : sanitizeText(val.split(/\s+/).slice(0, 3).join(' '));
+      const info = mm ? sanitizeText(mm[2]) : sanitizeText(val);
+      if (!currentCat) { currentCat = { category: 'Resumo', items: [] }; categories.push(currentCat); }
+      currentCat.items.push({ name, essential_info: info });
+    }
+  }
+
+  pushItem();
+  const cats = categories.filter(c => Array.isArray(c.items) && c.items.length);
+  return cats.length ? { categories: cats } : null;
+}
+
 // Geração a partir de PDF
 app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
   try {
@@ -804,11 +871,7 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
       await parser.destroy();
     }
     const summary = extractSummaryText(fullText);
-    let targeted = '';
-    try {
-      targeted = await extractPagesByKeywordFromPdf(dataBuffer, { keywords: ['summary', 'resumo', 'key points', 'review'], maxPages: 600, step: 1 });
-    } catch {}
-    let baseInput = targeted || summary || fullText;
+    let baseInput = summary || fullText;
     let limited = limitText(baseInput, 18000);
     // Se pouco texto foi extraído, tentar OCR nas primeiras páginas
     if (!limited || limited.length < 500) {
@@ -820,17 +883,19 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
     }
     const n = 40;
 
-    // Extrair cards diretamente das páginas de summary (cada linha vira 1 card)
-    const sectionTitleHint = extractSectionTitleFromText(targeted || '');
-    const bulletLines = extractBulletLines(targeted || limited || '');
-    let bulletCards = generateCardsFromBullets(bulletLines, sectionTitleHint, n);
-
+    // Tentar primeiro o padrão explícito FC-*
+    const fcCategoriesObj = parseFcStructuredText(limited || '');
     let cards = [];
+    if (fcCategoriesObj && Array.isArray(fcCategoriesObj.categories) && fcCategoriesObj.categories.length) {
+      const desired = Math.min(n, (fcCategoriesObj.categories || []).reduce((acc, c) => acc + (Array.isArray(c.items) ? c.items.length : 0) * 2, 0) || n);
+      cards = generateCardsFromCategories(fcCategoriesObj, desired);
+    }
+
     const targetDeckName = deckName || store.users[userId].decks[targetDeckId].name;
     let detailedSummary = '';
     let categoriesObj = null;
     let structuredSummary = null;
-    if (openaiClient && limited) {
+    if (!cards.length && openaiClient && limited) {
       // Etapa 1: Resumo detalhado
       try {
         const prompt1 = buildDetailedSummaryPrompt(targetDeckName, limited);
@@ -884,19 +949,17 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
       if (!cards.length) {
         cards = fallbackCardsOnePerItem(structuredSummary || { topics: [] }, desired);
       }
-      // Combinar com cards vindos de bullets de summary, priorizando bullets
-      let combined = (bulletCards && bulletCards.length) ? bulletCards.slice(0, n) : [];
-      if (combined.length < n) {
-        combined = combined.concat(cards).slice(0, n);
-      }
-      if (combined.length < n) {
-        const more = expandCardsFromCategories(categoriesObj, n - combined.length);
-        combined = combined.concat(more).slice(0, n);
-      }
-      cards = combined;
     } else {
-      structuredSummary = fallbackStructuredSummary(limited, 'Resumo');
-      cards = (bulletCards && bulletCards.length) ? bulletCards.slice(0, n) : fallbackCardsOnePerItem(structuredSummary, n);
+      if (!cards.length) {
+        // Fallback sem depender de keywords: usar bullets do texto ou estrutura básica
+        const bulletLines = extractBulletLines(limited || '');
+        const bulletCards = generateCardsFromBullets(bulletLines, 'Resumo', n);
+        if (bulletCards && bulletCards.length) cards = bulletCards.slice(0, n);
+        if (!cards.length) {
+          structuredSummary = fallbackStructuredSummary(limited, 'Resumo');
+          cards = fallbackCardsOnePerItem(structuredSummary, n);
+        }
+      }
     }
 
     if (!cards || cards.length === 0) {

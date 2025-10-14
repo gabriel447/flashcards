@@ -142,6 +142,10 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
               {pdfFile && (
                 <button type="button" className="link-btn small danger" onClick={() => setPdfFile(null)} disabled={loading}>Remover</button>
               )}
+              <div className="hint" style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#4b5563' }}>
+                Dica: para melhor resultado, use PDF em texto com o padrão FC-*.
+                Linhas aceitas: "FC-CATEGORY: &lt;Categoria&gt;", "FC-ITEM: &lt;Nome: descrição&gt;", "FC-INFO: &lt;essencial&gt;", "FC-POINT: &lt;ponto-chave&gt;".
+              </div>
             </div>
           )}
           <button
