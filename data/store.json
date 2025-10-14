@@ -790,11 +790,19 @@
               "category": "Databases & Analytics",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.5,
-              "nextReviewAt": "2025-10-14T20:41:16.712Z"
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T22:31:28.073Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T22:21:28.073Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T22:21:28.073Z",
+                  "grade": 2
+                }
+              ]
             }
           },
-          "reviewedCount": 12
+          "reviewedCount": 13
         }
       }
     }

@@ -111,16 +111,16 @@ export function Stats({ decks }: Props) {
           </div>
         {/* Linha 3 */}
           <div className="stat-card">
-            <span className="label">Categoria mais difícil</span>
-            <span className="value">{topBad.count > 0 ? topBad.category : 'Sem dados'}</span>
+            <span className="label">Total de difíceis</span>
+            <span className="value">{topBad.count}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Categoria com mais acertos</span>
-            <span className="value">{topGood.count > 0 ? topGood.category : 'Sem dados'}</span>
+            <span className="label">Total de acertos</span>
+            <span className="value">{topGood.count}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Categoria destaque</span>
-            <span className="value">{topExcellent.count > 0 ? topExcellent.category : 'Sem dados'}</span>
+            <span className="label">Total de destaques</span>
+            <span className="value">{topExcellent.count}</span>
           </div>
       </div>
     </section>
