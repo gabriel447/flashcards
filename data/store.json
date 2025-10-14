@@ -530,7 +530,2654 @@
         }
       },
       "reviewedCount": 0,
-      "decks": {}
+      "decks": {
+        "deck_qupf49a0e4ia": {
+          "id": "deck_qupf49a0e4ia",
+          "name": "AWS",
+          "cards": {
+            "card_qupf49xwmkqe": {
+              "id": "card_qupf49xwmkqe",
+              "question": "O que é o Amazon S3?",
+              "answer": "Um serviço de armazenamento de objetos na nuvem da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "armazenamento"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:26.749Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:26.749Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:26.749Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf497gf120": {
+              "id": "card_qupf497gf120",
+              "question": "Qual é o formato de dados suportado pelo Amazon S3?",
+              "answer": "Objetos que podem ser arquivos de qualquer tipo, como imagens, vídeos e documentos.",
+              "tags": [
+                "AWS",
+                "S3",
+                "objetos"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:30.231Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:30.231Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:30.231Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49y9pgse": {
+              "id": "card_qupf49y9pgse",
+              "question": "Qual é a durabilidade do Amazon S3?",
+              "answer": "99,999999999% (11 noves) para objetos armazenados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "durabilidade"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:32.340Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:32.340Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:32.340Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49w9acpq": {
+              "id": "card_qupf49w9acpq",
+              "question": "O que é um bucket no S3?",
+              "answer": "Uma unidade de armazenamento onde os objetos são armazenados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "bucket"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:34.889Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:34.889Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:34.889Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49mwflfr": {
+              "id": "card_qupf49mwflfr",
+              "question": "Como o S3 garante a segurança dos dados?",
+              "answer": "Utiliza criptografia em trânsito e em repouso, além de políticas de controle de acesso.",
+              "tags": [
+                "AWS",
+                "S3",
+                "segurança"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:37.556Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:37.556Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:37.556Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49xrayzl": {
+              "id": "card_qupf49xrayzl",
+              "question": "O que significa versionamento no S3?",
+              "answer": "Permite manter múltiplas versões de um objeto em um bucket.",
+              "tags": [
+                "AWS",
+                "S3",
+                "versionamento"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:39.714Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:39.714Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:39.714Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49pz03aw": {
+              "id": "card_qupf49pz03aw",
+              "question": "O que é o S3 Glacier?",
+              "answer": "Uma classe de armazenamento para arquivamento de dados a longo prazo no S3.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Glacier"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:41.809Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:41.809Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:41.809Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf498hczug": {
+              "id": "card_qupf498hczug",
+              "question": "Qual é o limite de tamanho para um único objeto no S3?",
+              "answer": "Até 5 terabytes.",
+              "tags": [
+                "AWS",
+                "S3",
+                "tamanho"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:44.024Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:44.024Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:44.024Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49cq83dg": {
+              "id": "card_qupf49cq83dg",
+              "question": "O que são políticas de bucket no S3?",
+              "answer": "Regras que definem permissões e acesso a um bucket específico.",
+              "tags": [
+                "AWS",
+                "S3",
+                "políticas"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:46.162Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:46.162Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:46.162Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf4974vjck": {
+              "id": "card_qupf4974vjck",
+              "question": "O que é o Amazon S3 Transfer Acceleration?",
+              "answer": "Um recurso que acelera o upload de arquivos para o S3 usando a rede da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "transferência"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:48.120Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:48.120Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:48.120Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_qupf49rzmy11": {
+              "id": "card_qupf49rzmy11",
+              "question": "O que é o Amazon EC2?",
+              "answer": "É um serviço que fornece capacidade de computação escalável na nuvem.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "computação"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.080Z"
+            },
+            "card_qupf496yrp3y": {
+              "id": "card_qupf496yrp3y",
+              "question": "Qual é a principal função do Amazon EC2?",
+              "answer": "Permitir que usuários executem máquinas virtuais na nuvem.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "função"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.080Z"
+            },
+            "card_qupf495053on": {
+              "id": "card_qupf495053on",
+              "question": "O que são instâncias no EC2?",
+              "answer": "São máquinas virtuais criadas a partir de um Amazon Machine Image (AMI).",
+              "tags": [
+                "AWS",
+                "instâncias",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf49ee2tkw": {
+              "id": "card_qupf49ee2tkw",
+              "question": "O que são AMIs?",
+              "answer": "Amazon Machine Images são modelos que contêm as configurações necessárias para iniciar instâncias.",
+              "tags": [
+                "AWS",
+                "AMIs",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf493umpbb": {
+              "id": "card_qupf493umpbb",
+              "question": "Qual é o propósito dos tipos de instância no EC2?",
+              "answer": "Oferecer diferentes combinações de CPU, memória e armazenamento para atender a diversas necessidades.",
+              "tags": [
+                "AWS",
+                "tipos de instância",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf49g9peyc": {
+              "id": "card_qupf49g9peyc",
+              "question": "O que é elasticidade no contexto do EC2?",
+              "answer": "A capacidade de aumentar ou diminuir a capacidade de computação automaticamente.",
+              "tags": [
+                "AWS",
+                "elasticidade",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf49j0wm4t": {
+              "id": "card_qupf49j0wm4t",
+              "question": "Como o EC2 cobra os usuários?",
+              "answer": "Por hora de uso ou segundo, dependendo do tipo de instância e do modelo de pagamento.",
+              "tags": [
+                "AWS",
+                "cobrança",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf4919knm4": {
+              "id": "card_qupf4919knm4",
+              "question": "O que são grupos de segurança no EC2?",
+              "answer": "São firewalls virtuais que controlam o tráfego de entrada e saída das instâncias.",
+              "tags": [
+                "AWS",
+                "grupos de segurança",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf49v8bxxh": {
+              "id": "card_qupf49v8bxxh",
+              "question": "Qual é a função do Elastic Load Balancing no EC2?",
+              "answer": "Distribuir automaticamente o tráfego de entrada entre várias instâncias.",
+              "tags": [
+                "AWS",
+                "Elastic Load Balancing",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf4a615ufi": {
+              "id": "card_qupf4a615ufi",
+              "question": "O que é o Amazon EC2 Auto Scaling?",
+              "answer": "Um serviço que ajusta automaticamente o número de instâncias com base na demanda.",
+              "tags": [
+                "AWS",
+                "Auto Scaling",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_qupf4a8lssef": {
+              "id": "card_qupf4a8lssef",
+              "question": "O que significa VPC na AWS?",
+              "answer": "VPC significa Virtual Private Cloud.",
+              "tags": [
+                "VPC",
+                "AWS",
+                "nuvem"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4a39v3vv": {
+              "id": "card_qupf4a39v3vv",
+              "question": "Qual é a função principal de uma VPC?",
+              "answer": "Isolar recursos em uma rede virtual privada na nuvem.",
+              "tags": [
+                "VPC",
+                "isolamento",
+                "rede"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4attfqvf": {
+              "id": "card_qupf4attfqvf",
+              "question": "Quantas VPCs você pode criar por região na AWS?",
+              "answer": "Você pode criar até 5 VPCs por região por padrão.",
+              "tags": [
+                "limites",
+                "VPC",
+                "região"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4a1xhr53": {
+              "id": "card_qupf4a1xhr53",
+              "question": "O que são sub-redes em uma VPC?",
+              "answer": "Sub-redes são divisões da VPC que permitem organizar e segmentar recursos.",
+              "tags": [
+                "sub-redes",
+                "VPC",
+                "organização"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4abq37ad": {
+              "id": "card_qupf4abq37ad",
+              "question": "O que são grupos de segurança em uma VPC?",
+              "answer": "Grupos de segurança atuam como firewalls virtuais para controlar o tráfego de entrada e saída.",
+              "tags": [
+                "grupos de segurança",
+                "firewall",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4asil5ia": {
+              "id": "card_qupf4asil5ia",
+              "question": "O que é uma tabela de rotas na VPC?",
+              "answer": "Uma tabela de rotas determina como o tráfego é direcionado dentro da VPC e para fora.",
+              "tags": [
+                "tabela de rotas",
+                "tráfego",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4a8fk01j": {
+              "id": "card_qupf4a8fk01j",
+              "question": "O que é um gateway da Internet em uma VPC?",
+              "answer": "Um gateway da Internet permite que instâncias na VPC se comuniquem com a Internet.",
+              "tags": [
+                "gateway",
+                "Internet",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4a7s6b3f": {
+              "id": "card_qupf4a7s6b3f",
+              "question": "O que é o peering de VPC?",
+              "answer": "Peering de VPC permite que duas VPCs se comuniquem entre si como se estivessem na mesma rede.",
+              "tags": [
+                "peering",
+                "VPC",
+                "conexão"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4adqrahj": {
+              "id": "card_qupf4adqrahj",
+              "question": "Qual é o propósito de uma VPC privada?",
+              "answer": "Uma VPC privada é usada para hospedar recursos que não precisam ser acessíveis da Internet.",
+              "tags": [
+                "VPC privada",
+                "recursos",
+                "acesso"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4audodyy": {
+              "id": "card_qupf4audodyy",
+              "question": "O que é um endpoint de VPC?",
+              "answer": "Um endpoint de VPC permite que você conecte sua VPC a serviços da AWS sem usar a Internet.",
+              "tags": [
+                "endpoint",
+                "VPC",
+                "serviços AWS"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_qupf4a2nz1tk": {
+              "id": "card_qupf4a2nz1tk",
+              "question": "O que é AWS Lambda?",
+              "answer": "Um serviço de computação que permite executar código sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Computação sem servidor"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4a6lo7zo": {
+              "id": "card_qupf4a6lo7zo",
+              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
+              "answer": "Python, Node.js, Java, Ruby, C#, Go, e PowerShell.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Linguagens de programação"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4a7qh2v1": {
+              "id": "card_qupf4a7qh2v1",
+              "question": "Qual é o principal benefício do AWS Lambda?",
+              "answer": "Pagar apenas pelo tempo de execução do código, sem custos quando não está em uso.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Benefícios"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4a4hi4a1": {
+              "id": "card_qupf4a4hi4a1",
+              "question": "Como o AWS Lambda é acionado?",
+              "answer": "Por eventos de serviços da AWS, como S3, DynamoDB, SNS, e API Gateway.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Eventos"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4a57oqcw": {
+              "id": "card_qupf4a57oqcw",
+              "question": "Qual é o limite de tempo de execução para uma função Lambda?",
+              "answer": "Até 15 minutos por invocação.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Limites"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4aotozn9": {
+              "id": "card_qupf4aotozn9",
+              "question": "O que é uma função Lambda?",
+              "answer": "Um bloco de código que é executado em resposta a um evento.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Função"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4ahwakd5": {
+              "id": "card_qupf4ahwakd5",
+              "question": "Qual é o tamanho máximo do pacote de implantação de uma função Lambda?",
+              "answer": "O tamanho máximo é de 50 MB para o pacote de implantação zipado.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Tamanho"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4agh6d0b": {
+              "id": "card_qupf4agh6d0b",
+              "question": "O que é o AWS Lambda Layers?",
+              "answer": "Uma maneira de empacotar e compartilhar código e dependências entre funções Lambda.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Layers"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4al5aa44": {
+              "id": "card_qupf4al5aa44",
+              "question": "Como o AWS Lambda lida com escalabilidade?",
+              "answer": "Escala automaticamente em resposta ao número de eventos recebidos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Escalabilidade"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4a2zcmb5": {
+              "id": "card_qupf4a2zcmb5",
+              "question": "O que é a função de timeout no AWS Lambda?",
+              "answer": "É o tempo máximo que uma função Lambda pode executar antes de ser encerrada automaticamente.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Timeout"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_qupf4au413tp": {
+              "id": "card_qupf4au413tp",
+              "question": "O que é ELB na AWS?",
+              "answer": "Elastic Load Balancing, um serviço que distribui automaticamente o tráfego de entrada entre várias instâncias.",
+              "tags": [
+                "ELB",
+                "AWS",
+                "Load Balancer"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4axg00cv": {
+              "id": "card_qupf4axg00cv",
+              "question": "Quais são os tipos de Load Balancers disponíveis no ELB?",
+              "answer": "Application Load Balancer, Network Load Balancer e Classic Load Balancer.",
+              "tags": [
+                "ELB",
+                "Tipos",
+                "Load Balancer"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4ay68vn5": {
+              "id": "card_qupf4ay68vn5",
+              "question": "Qual é a principal função de um Auto Scaling Group (ASG)?",
+              "answer": "Gerenciar automaticamente a quantidade de instâncias EC2 em execução com base na demanda.",
+              "tags": [
+                "ASG",
+                "Auto Scaling",
+                "EC2"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4aju8iqh": {
+              "id": "card_qupf4aju8iqh",
+              "question": "Como o ELB melhora a disponibilidade de aplicações?",
+              "answer": "Distribuindo o tráfego de forma eficiente entre várias instâncias, evitando sobrecarga em uma única instância.",
+              "tags": [
+                "Disponibilidade",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4at9xybb": {
+              "id": "card_qupf4at9xybb",
+              "question": "O que é um Health Check no contexto do ELB?",
+              "answer": "Um mecanismo que verifica se as instâncias estão saudáveis e prontas para receber tráfego.",
+              "tags": [
+                "Health Check",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4at6jb43": {
+              "id": "card_qupf4at6jb43",
+              "question": "O que significa 'Scaling Up' em um ASG?",
+              "answer": "Aumentar o número de instâncias EC2 para atender à demanda de tráfego crescente.",
+              "tags": [
+                "Scaling Up",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4aen8rkv": {
+              "id": "card_qupf4aen8rkv",
+              "question": "O que é um Target Group no ELB?",
+              "answer": "Um grupo de instâncias que podem receber tráfego de um Load Balancer.",
+              "tags": [
+                "Target Group",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4a1yb3pd": {
+              "id": "card_qupf4a1yb3pd",
+              "question": "Qual é a diferença entre um Load Balancer de Aplicação e um Load Balancer de Rede?",
+              "answer": "O Load Balancer de Aplicação opera na camada 7, enquanto o Load Balancer de Rede opera na camada 4 do modelo OSI.",
+              "tags": [
+                "ALB",
+                "NLB",
+                "Camadas"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4a8hf541": {
+              "id": "card_qupf4a8hf541",
+              "question": "O que é 'Auto Scaling Policy'?",
+              "answer": "Condições definidas para escalar automaticamente a quantidade de instâncias de acordo com métricas específicas.",
+              "tags": [
+                "Auto Scaling Policy",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4a7xcl40": {
+              "id": "card_qupf4a7xcl40",
+              "question": "Como você pode garantir que um ASG mantenha sempre um número mínimo de instâncias?",
+              "answer": "Definindo uma política de escalonamento que especifique um número mínimo de instâncias desejadas.",
+              "tags": [
+                "Min Instâncias",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_qupf4ayv9oni": {
+              "id": "card_qupf4ayv9oni",
+              "question": "O que significa IAM na AWS?",
+              "answer": "IAM significa Identity and Access Management.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Identidade",
+                "Acesso"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4aa6brkr": {
+              "id": "card_qupf4aa6brkr",
+              "question": "Qual é a função do IAM na AWS?",
+              "answer": "Gerenciar usuários, grupos e permissões de acesso aos recursos da AWS.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Gerenciamento"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4athvw2p": {
+              "id": "card_qupf4athvw2p",
+              "question": "O que são políticas IAM?",
+              "answer": "Conjuntos de permissões que definem o que um usuário ou grupo pode fazer.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Políticas"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4a6houxo": {
+              "id": "card_qupf4a6houxo",
+              "question": "Qual é a diferença entre usuários e grupos no IAM?",
+              "answer": "Usuários são contas individuais, enquanto grupos são coleções de usuários.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Usuários",
+                "Grupos"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4ablb2q4": {
+              "id": "card_qupf4ablb2q4",
+              "question": "O que são roles (funções) no IAM?",
+              "answer": "Conjuntos de permissões que podem ser atribuídos a serviços da AWS.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Funções"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4aaic22d": {
+              "id": "card_qupf4aaic22d",
+              "question": "Como você pode autenticar um usuário no IAM?",
+              "answer": "Usando credenciais como senhas, chaves de acesso ou autenticação multifator.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Autenticação"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4ag3dekg": {
+              "id": "card_qupf4ag3dekg",
+              "question": "O que é a autenticação multifator (MFA) no IAM?",
+              "answer": "Um método que requer mais de uma forma de verificação para acesso.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "MFA"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4as580ue": {
+              "id": "card_qupf4as580ue",
+              "question": "O que é uma política baseada em identidade?",
+              "answer": "Uma política que é anexada a um usuário, grupo ou função para definir permissões.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Políticas",
+                "Identidade"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4ao1ti08": {
+              "id": "card_qupf4ao1ti08",
+              "question": "O que é uma política baseada em recursos?",
+              "answer": "Uma política que é anexada diretamente a um recurso da AWS para controlar acesso.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Políticas",
+                "Recursos"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4a3y1mj3": {
+              "id": "card_qupf4a3y1mj3",
+              "question": "Como você pode auditar o uso do IAM na AWS?",
+              "answer": "Usando AWS CloudTrail para registrar chamadas de API relacionadas ao IAM.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Auditoria",
+                "CloudTrail"
+              ],
+              "category": "IAM",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:36:53.513Z"
+            },
+            "card_qupf4afcojn2": {
+              "id": "card_qupf4afcojn2",
+              "question": "O que é Amazon RDS?",
+              "answer": "Um serviço gerenciado de banco de dados que facilita a configuração, operação e escalabilidade de bancos de dados relacionais na nuvem.",
+              "tags": [
+                "RDS",
+                "banco de dados",
+                "AWS"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aisozc0": {
+              "id": "card_qupf4aisozc0",
+              "question": "Quais são os bancos de dados suportados pelo Amazon RDS?",
+              "answer": "MySQL, PostgreSQL, MariaDB, Oracle, e SQL Server.",
+              "tags": [
+                "RDS",
+                "bancos de dados",
+                "suporte"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aayi4f7": {
+              "id": "card_qupf4aayi4f7",
+              "question": "O que é Amazon DynamoDB?",
+              "answer": "Um serviço de banco de dados NoSQL totalmente gerenciado que oferece desempenho rápido e previsível com escalabilidade automática.",
+              "tags": [
+                "DynamoDB",
+                "NoSQL",
+                "AWS"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aif9lbz": {
+              "id": "card_qupf4aif9lbz",
+              "question": "Qual é a principal característica do Amazon Aurora?",
+              "answer": "Compatibilidade com MySQL e PostgreSQL, com melhor desempenho e escalabilidade em relação a bancos de dados tradicionais.",
+              "tags": [
+                "Aurora",
+                "RDS",
+                "compatibilidade"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4ad8x6n5": {
+              "id": "card_qupf4ad8x6n5",
+              "question": "O que é Amazon Redshift?",
+              "answer": "Um serviço de armazém de dados totalmente gerenciado que permite realizar análises em grandes volumes de dados.",
+              "tags": [
+                "Redshift",
+                "data warehouse",
+                "análise"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aljnr99": {
+              "id": "card_qupf4aljnr99",
+              "question": "Qual é a diferença entre RDS e DynamoDB?",
+              "answer": "RDS é um serviço de banco de dados relacional, enquanto DynamoDB é um banco de dados NoSQL.",
+              "tags": [
+                "RDS",
+                "DynamoDB",
+                "diferença"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aklyx0w": {
+              "id": "card_qupf4aklyx0w",
+              "question": "O que é Amazon ElastiCache?",
+              "answer": "Um serviço que fornece caching em memória para aumentar a performance de aplicações.",
+              "tags": [
+                "ElastiCache",
+                "caching",
+                "performance"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4aj1pt8p": {
+              "id": "card_qupf4aj1pt8p",
+              "question": "Quais são os tipos de caching disponíveis no Amazon ElastiCache?",
+              "answer": "Redis e Memcached.",
+              "tags": [
+                "ElastiCache",
+                "tipos",
+                "caching"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4ads7ttu": {
+              "id": "card_qupf4ads7ttu",
+              "question": "O que é AWS Database Migration Service (DMS)?",
+              "answer": "Um serviço que ajuda a migrar bancos de dados para a nuvem com alta disponibilidade e sem tempo de inatividade.",
+              "tags": [
+                "DMS",
+                "migração",
+                "AWS"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4ail7q33": {
+              "id": "card_qupf4ail7q33",
+              "question": "Como o Amazon S3 pode ser usado junto com bancos de dados?",
+              "answer": "Para armazenar backups, dados não estruturados ou como parte de um fluxo de dados para análise.",
+              "tags": [
+                "S3",
+                "banco de dados",
+                "armazenamento"
+              ],
+              "category": "Databases",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:40:58.221Z"
+            },
+            "card_qupf4arlquta": {
+              "id": "card_qupf4arlquta",
+              "question": "O que é Amazon Athena?",
+              "answer": "Um serviço de consulta interativa que facilita a análise de dados no Amazon S3 usando SQL.",
+              "tags": [
+                "Athena",
+                "SQL",
+                "S3"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4acw23jr": {
+              "id": "card_qupf4acw23jr",
+              "question": "Qual é a função do Amazon Redshift?",
+              "answer": "Um serviço de data warehouse que permite análises rápidas de grandes volumes de dados.",
+              "tags": [
+                "Redshift",
+                "Data Warehouse",
+                "Analytics"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4ab3x7jh": {
+              "id": "card_qupf4ab3x7jh",
+              "question": "O que é o Amazon Kinesis?",
+              "answer": "Um serviço para coletar, processar e analisar dados em tempo real.",
+              "tags": [
+                "Kinesis",
+                "Tempo Real",
+                "Analytics"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4ajoyn12": {
+              "id": "card_qupf4ajoyn12",
+              "question": "Como o Amazon QuickSight é utilizado?",
+              "answer": "É um serviço de BI que permite criar visualizações interativas e dashboards a partir de dados.",
+              "tags": [
+                "QuickSight",
+                "BI",
+                "Visualização"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4aop7tog": {
+              "id": "card_qupf4aop7tog",
+              "question": "O que é o AWS Glue?",
+              "answer": "Um serviço de ETL que facilita a preparação de dados para análise.",
+              "tags": [
+                "Glue",
+                "ETL",
+                "Preparação de Dados"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4ajjw2tu": {
+              "id": "card_qupf4ajjw2tu",
+              "question": "Qual é o propósito do Amazon EMR?",
+              "answer": "Um serviço que facilita o processamento de grandes volumes de dados usando ferramentas como Apache Hadoop e Spark.",
+              "tags": [
+                "EMR",
+                "Hadoop",
+                "Spark"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4alg6yom": {
+              "id": "card_qupf4alg6yom",
+              "question": "O que é o Amazon SageMaker?",
+              "answer": "Um serviço que permite construir, treinar e implantar modelos de machine learning em larga escala.",
+              "tags": [
+                "SageMaker",
+                "Machine Learning",
+                "AI"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4avnuexl": {
+              "id": "card_qupf4avnuexl",
+              "question": "O que faz o AWS Data Pipeline?",
+              "answer": "Um serviço que ajuda a mover e processar dados de forma programada entre diferentes serviços da AWS.",
+              "tags": [
+                "Data Pipeline",
+                "Movimentação de Dados",
+                "Processamento"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4aq58jds": {
+              "id": "card_qupf4aq58jds",
+              "question": "Qual é a função do AWS Lake Formation?",
+              "answer": "Um serviço que facilita a criação de data lakes, permitindo a organização e segurança de dados.",
+              "tags": [
+                "Lake Formation",
+                "Data Lake",
+                "Segurança"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4abh9h33": {
+              "id": "card_qupf4abh9h33",
+              "question": "O que é o Amazon Managed Streaming for Kafka (MSK)?",
+              "answer": "Um serviço gerenciado que facilita a execução de aplicativos que usam Kafka para streaming de dados.",
+              "tags": [
+                "MSK",
+                "Kafka",
+                "Streaming"
+              ],
+              "category": "Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:26.325Z"
+            },
+            "card_qupf4aebr073": {
+              "id": "card_qupf4aebr073",
+              "question": "O que é Amazon ECS?",
+              "answer": "Amazon Elastic Container Service (ECS) é um serviço de gerenciamento de contêineres que suporta Docker.",
+              "tags": [
+                "ECS",
+                "Docker",
+                "Gerenciamento de Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4alsjnj2": {
+              "id": "card_qupf4alsjnj2",
+              "question": "Qual é a principal função do Amazon EKS?",
+              "answer": "Amazon Elastic Kubernetes Service (EKS) facilita a execução de Kubernetes na AWS.",
+              "tags": [
+                "EKS",
+                "Kubernetes",
+                "Orquestração"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4ajdp6qn": {
+              "id": "card_qupf4ajdp6qn",
+              "question": "O que é AWS Fargate?",
+              "answer": "AWS Fargate é um mecanismo de computação que permite executar contêineres sem gerenciar servidores.",
+              "tags": [
+                "Fargate",
+                "Computação",
+                "Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4a56dt33": {
+              "id": "card_qupf4a56dt33",
+              "question": "Quais são os benefícios do uso de contêineres?",
+              "answer": "Os contêineres oferecem portabilidade, escalabilidade e eficiência no uso de recursos.",
+              "tags": [
+                "Benefícios",
+                "Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4a37193g": {
+              "id": "card_qupf4a37193g",
+              "question": "O que é um registro de contêiner na AWS?",
+              "answer": "O Amazon ECR (Elastic Container Registry) é um serviço de registro para armazenar, gerenciar e implantar imagens de contêiner.",
+              "tags": [
+                "ECR",
+                "Registro",
+                "Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4am7zrph": {
+              "id": "card_qupf4am7zrph",
+              "question": "Como os contêineres se diferenciam das máquinas virtuais?",
+              "answer": "Contêineres compartilham o mesmo núcleo do sistema operacional, enquanto máquinas virtuais incluem um sistema operacional completo.",
+              "tags": [
+                "Contêineres",
+                "Máquinas Virtuais",
+                "Comparação"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4ameo1y5": {
+              "id": "card_qupf4ameo1y5",
+              "question": "O que é um serviço no Amazon ECS?",
+              "answer": "Um serviço no Amazon ECS é uma configuração que permite a execução e gerenciamento de tarefas de contêineres.",
+              "tags": [
+                "Serviço",
+                "ECS",
+                "Gerenciamento"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4a13bxp3": {
+              "id": "card_qupf4a13bxp3",
+              "question": "Qual é a função do AWS App Mesh?",
+              "answer": "AWS App Mesh é um serviço de malha de serviços que facilita a comunicação entre serviços em contêineres.",
+              "tags": [
+                "App Mesh",
+                "Comunicação",
+                "Serviços"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4alhon47": {
+              "id": "card_qupf4alhon47",
+              "question": "O que é uma tarefa no Amazon ECS?",
+              "answer": "Uma tarefa é a unidade básica de trabalho que contém um ou mais contêineres no Amazon ECS.",
+              "tags": [
+                "Tarefa",
+                "ECS",
+                "Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4a4l14zb": {
+              "id": "card_qupf4a4l14zb",
+              "question": "Como o AWS CloudFormation se relaciona com contêineres?",
+              "answer": "AWS CloudFormation permite modelar e provisionar recursos de contêineres de forma programática.",
+              "tags": [
+                "CloudFormation",
+                "Provisionamento",
+                "Contêineres"
+              ],
+              "category": "Containers",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:41:53.241Z"
+            },
+            "card_qupf4arhwmo5": {
+              "id": "card_qupf4arhwmo5",
+              "question": "O que é AWS Lambda?",
+              "answer": "Um serviço de computação que permite executar código sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Serverless"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.935Z"
+            },
+            "card_qupf4aiby3qm": {
+              "id": "card_qupf4aiby3qm",
+              "question": "Qual é a principal função do AWS SDK?",
+              "answer": "Facilitar a interação com os serviços da AWS através de linguagens de programação.",
+              "tags": [
+                "AWS",
+                "SDK",
+                "Desenvolvimento"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4a4d9pyk": {
+              "id": "card_qupf4a4d9pyk",
+              "question": "O que faz o Amazon API Gateway?",
+              "answer": "Permite criar, publicar e gerenciar APIs REST e WebSocket para aplicações.",
+              "tags": [
+                "AWS",
+                "API Gateway",
+                "APIs"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4aftz1by": {
+              "id": "card_qupf4aftz1by",
+              "question": "Para que serve o AWS CloudFormation?",
+              "answer": "Permite criar e gerenciar recursos da AWS usando arquivos de template.",
+              "tags": [
+                "AWS",
+                "CloudFormation",
+                "Infraestrutura como Código"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4a5biee8": {
+              "id": "card_qupf4a5biee8",
+              "question": "O que é o Amazon S3?",
+              "answer": "Um serviço de armazenamento de objetos na nuvem que oferece escalabilidade, disponibilidade e segurança.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Armazenamento"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4atzmutz": {
+              "id": "card_qupf4atzmutz",
+              "question": "Qual é a finalidade do AWS CodeDeploy?",
+              "answer": "Automatizar o processo de implantação de aplicações em serviços como EC2 e Lambda.",
+              "tags": [
+                "AWS",
+                "CodeDeploy",
+                "Implantação"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4ar7fii1": {
+              "id": "card_qupf4ar7fii1",
+              "question": "O que é o AWS Elastic Beanstalk?",
+              "answer": "Um serviço para implantar e escalar aplicações web de forma automática.",
+              "tags": [
+                "AWS",
+                "Elastic Beanstalk",
+                "PaaS"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4adylfy9": {
+              "id": "card_qupf4adylfy9",
+              "question": "Qual serviço da AWS é usado para gerenciar contêineres?",
+              "answer": "O Amazon ECS (Elastic Container Service) é usado para executar e gerenciar contêineres.",
+              "tags": [
+                "AWS",
+                "ECS",
+                "Contêineres"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4ajd64wo": {
+              "id": "card_qupf4ajd64wo",
+              "question": "O que é o AWS AppSync?",
+              "answer": "Um serviço para criar APIs GraphQL que conectam aplicações a dados de diferentes fontes.",
+              "tags": [
+                "AWS",
+                "AppSync",
+                "GraphQL"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4adxkf29": {
+              "id": "card_qupf4adxkf29",
+              "question": "O que faz o AWS CodePipeline?",
+              "answer": "Um serviço de integração e entrega contínua que automatiza o fluxo de trabalho de desenvolvimento.",
+              "tags": [
+                "AWS",
+                "CodePipeline",
+                "CI/CD"
+              ],
+              "category": "Developer Services",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:33.936Z"
+            },
+            "card_qupf4alstka8": {
+              "id": "card_qupf4alstka8",
+              "question": "O que é o Amazon CloudFront?",
+              "answer": "Um serviço de rede de entrega de conteúdo (CDN) que acelera a distribuição de dados, vídeos, aplicativos e APIs para clientes globalmente.",
+              "tags": [
+                "CDN",
+                "CloudFront",
+                "global"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:44.880Z"
+            },
+            "card_qupf4anem6js": {
+              "id": "card_qupf4anem6js",
+              "question": "Qual é a função do AWS Global Accelerator?",
+              "answer": "Melhorar a disponibilidade e o desempenho das aplicações globais, roteando o tráfego de usuários para a melhor região AWS.",
+              "tags": [
+                "Global Accelerator",
+                "rede",
+                "desempenho"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:44.880Z"
+            },
+            "card_qupf4af8efvk": {
+              "id": "card_qupf4af8efvk",
+              "question": "O que é o Amazon Route 53?",
+              "answer": "Um serviço de DNS escalável e altamente disponível que direciona o tráfego da internet para recursos em AWS e fora dela.",
+              "tags": [
+                "DNS",
+                "Route 53",
+                "global"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:44.880Z"
+            },
+            "card_qupf4aqey0pn": {
+              "id": "card_qupf4aqey0pn",
+              "question": "Como o AWS Lambda pode ser usado em aplicações globais?",
+              "answer": "Permite executar código em resposta a eventos sem provisionar ou gerenciar servidores, facilitando a criação de aplicações escaláveis globalmente.",
+              "tags": [
+                "Lambda",
+                "serverless",
+                "escalabilidade"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:44.880Z"
+            },
+            "card_qupf4asqihll": {
+              "id": "card_qupf4asqihll",
+              "question": "O que são as Local Zones da AWS?",
+              "answer": "Extensões da infraestrutura AWS que trazem os serviços mais próximos dos usuários finais, reduzindo a latência em áreas específicas.",
+              "tags": [
+                "Local Zones",
+                "latência",
+                "infraestrutura"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:42:44.880Z"
+            },
+            "card_qupf4a8vro2k": {
+              "id": "card_qupf4a8vro2k",
+              "question": "O que é o AWS Lambda?",
+              "answer": "Um serviço que permite executar código em resposta a eventos sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "serverless"
+              ],
+              "category": "Integration",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:04.761Z"
+            },
+            "card_qupf4a32jeyi": {
+              "id": "card_qupf4a32jeyi",
+              "question": "Qual o papel do AWS Step Functions?",
+              "answer": "Orquestração de microserviços, permitindo criar fluxos de trabalho complexos com múltiplas etapas.",
+              "tags": [
+                "AWS",
+                "Step Functions",
+                "orquestração"
+              ],
+              "category": "Integration",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:04.761Z"
+            },
+            "card_qupf4aj3y64o": {
+              "id": "card_qupf4aj3y64o",
+              "question": "O que é o Amazon SQS?",
+              "answer": "Um serviço de fila de mensagens que permite desacoplar e escalar microsserviços, aplicações e sistemas distribuídos.",
+              "tags": [
+                "AWS",
+                "SQS",
+                "mensageria"
+              ],
+              "category": "Integration",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:04.761Z"
+            },
+            "card_qupf4a1vsc0d": {
+              "id": "card_qupf4a1vsc0d",
+              "question": "Como o Amazon SNS é utilizado?",
+              "answer": "Para enviar notificações em tempo real através de mensagens, e-mail e SMS para múltiplos destinatários.",
+              "tags": [
+                "AWS",
+                "SNS",
+                "notificações"
+              ],
+              "category": "Integration",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:04.761Z"
+            },
+            "card_qupf4azy7lh5": {
+              "id": "card_qupf4azy7lh5",
+              "question": "Qual é a função do AWS API Gateway?",
+              "answer": "Criar, publicar, manter, monitorar e proteger APIs em qualquer escala.",
+              "tags": [
+                "AWS",
+                "API Gateway",
+                "APIs"
+              ],
+              "category": "Integration",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:04.761Z"
+            },
+            "card_qupf4akvy07v": {
+              "id": "card_qupf4akvy07v",
+              "question": "O que é o Amazon SageMaker?",
+              "answer": "É um serviço que permite criar, treinar e implantar modelos de machine learning em grande escala.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "SageMaker"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4awppj6z": {
+              "id": "card_qupf4awppj6z",
+              "question": "Qual é a função do Amazon Rekognition?",
+              "answer": "É um serviço que permite adicionar análises de imagem e vídeo às aplicações.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Rekognition"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4avzinbx": {
+              "id": "card_qupf4avzinbx",
+              "question": "O que é o Amazon Comprehend?",
+              "answer": "É um serviço de processamento de linguagem natural que utiliza machine learning para encontrar insights em textos.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Comprehend"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4a4foqu2": {
+              "id": "card_qupf4a4foqu2",
+              "question": "O que é o Amazon Polly?",
+              "answer": "Um serviço que transforma texto em fala usando machine learning.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Polly"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4ay7ezlw": {
+              "id": "card_qupf4ay7ezlw",
+              "question": "Como o Amazon Lex utiliza machine learning?",
+              "answer": "Ele permite construir interfaces de conversação em aplicações usando reconhecimento de fala e compreensão de linguagem.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Lex"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4ays0lj2": {
+              "id": "card_qupf4ays0lj2",
+              "question": "O que é o AWS DeepLens?",
+              "answer": "É uma câmera que permite executar modelos de deep learning localmente para análise de vídeo em tempo real.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "DeepLens"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4akfonac": {
+              "id": "card_qupf4akfonac",
+              "question": "Qual é a principal função do Amazon Forecast?",
+              "answer": "É um serviço que usa machine learning para prever resultados futuros com base em dados históricos.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Forecast"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4ad6p1q1": {
+              "id": "card_qupf4ad6p1q1",
+              "question": "O que é o Amazon Personalize?",
+              "answer": "Um serviço que permite criar recomendações personalizadas para usuários usando machine learning.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Personalize"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4a8eg6w4": {
+              "id": "card_qupf4a8eg6w4",
+              "question": "Qual é a função do AWS Glue no contexto de machine learning?",
+              "answer": "É um serviço de ETL que prepara dados para análise, facilitando o uso em modelos de machine learning.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Glue"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4avap62m": {
+              "id": "card_qupf4avap62m",
+              "question": "O que é o Amazon SageMaker Ground Truth?",
+              "answer": "Um serviço que facilita a anotação de dados para criar conjuntos de dados de treinamento para machine learning.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Ground Truth"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:43:52.376Z"
+            },
+            "card_qupf4aluyaly": {
+              "id": "card_qupf4aluyaly",
+              "question": "O que é o AWS Elastic Beanstalk?",
+              "answer": "É um serviço que facilita o deploy de aplicações web, gerenciando automaticamente a infraestrutura subjacente.",
+              "tags": [
+                "AWS",
+                "Elastic Beanstalk",
+                "Deployment"
+              ],
+              "category": "Deployment",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:44:38.736Z"
+            },
+            "card_qupf4ahbtaw8": {
+              "id": "card_qupf4ahbtaw8",
+              "question": "Qual é a principal função do AWS CloudFormation?",
+              "answer": "Permite criar e gerenciar recursos de AWS usando código como infraestrutura (IaC).",
+              "tags": [
+                "AWS",
+                "CloudFormation",
+                "Deployment"
+              ],
+              "category": "Deployment",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:44:38.736Z"
+            },
+            "card_qupf4afry9wk": {
+              "id": "card_qupf4afry9wk",
+              "question": "O que é o AWS CodeDeploy?",
+              "answer": "É um serviço que automatiza o deploy de código em instâncias do EC2, Lambda e em servidores locais.",
+              "tags": [
+                "AWS",
+                "CodeDeploy",
+                "Deployment"
+              ],
+              "category": "Deployment",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:44:38.736Z"
+            },
+            "card_qupf4ar99sb7": {
+              "id": "card_qupf4ar99sb7",
+              "question": "Qual a função do AWS OpsWorks?",
+              "answer": "É um serviço que gerencia a configuração de aplicações usando Chef ou Puppet.",
+              "tags": [
+                "AWS",
+                "OpsWorks",
+                "Deployment"
+              ],
+              "category": "Deployment",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:44:38.736Z"
+            },
+            "card_qupf4aqawlbr": {
+              "id": "card_qupf4aqawlbr",
+              "question": "O que é o AWS Lambda?",
+              "answer": "É um serviço de computação serverless que executa código em resposta a eventos sem necessidade de provisionar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Deployment"
+              ],
+              "category": "Deployment",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:44:38.736Z"
+            },
+            "card_qupf4awq7x5h": {
+              "id": "card_qupf4awq7x5h",
+              "question": "O que é o Amazon CloudWatch?",
+              "answer": "Um serviço de monitoramento que fornece dados e insights sobre recursos e aplicações na AWS.",
+              "tags": [
+                "CloudWatch",
+                "monitoramento",
+                "AWS"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4augrfot": {
+              "id": "card_qupf4augrfot",
+              "question": "Qual é a principal função dos alarmes do CloudWatch?",
+              "answer": "Notificar os usuários quando determinadas condições de métricas são atendidas.",
+              "tags": [
+                "alarm",
+                "CloudWatch",
+                "monitoramento"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4afva6bu": {
+              "id": "card_qupf4afva6bu",
+              "question": "Como o CloudTrail se relaciona com o monitoramento na AWS?",
+              "answer": "Ele registra as atividades da conta AWS, permitindo auditoria e rastreamento de ações.",
+              "tags": [
+                "CloudTrail",
+                "monitoramento",
+                "auditoria"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4acw86rj": {
+              "id": "card_qupf4acw86rj",
+              "question": "O que são métricas personalizadas no CloudWatch?",
+              "answer": "Métricas que você pode criar para monitorar dados específicos de suas aplicações ou serviços.",
+              "tags": [
+                "métricas",
+                "CloudWatch",
+                "personalizadas"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4aeemr5q": {
+              "id": "card_qupf4aeemr5q",
+              "question": "Quais tipos de eventos o AWS CloudTrail pode monitorar?",
+              "answer": "Eventos de API, que incluem operações de serviço da AWS realizadas na conta.",
+              "tags": [
+                "CloudTrail",
+                "eventos",
+                "monitoramento"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4aby3zsc": {
+              "id": "card_qupf4aby3zsc",
+              "question": "O que é o AWS X-Ray?",
+              "answer": "Um serviço que ajuda a analisar e depurar aplicações distribuídas, fornecendo visualizações de desempenho.",
+              "tags": [
+                "X-Ray",
+                "monitoramento",
+                "aplicações"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4a4gsauz": {
+              "id": "card_qupf4a4gsauz",
+              "question": "Como o Amazon SNS se integra ao CloudWatch?",
+              "answer": "SNS pode ser usado para enviar notificações quando os alarmes do CloudWatch são acionados.",
+              "tags": [
+                "SNS",
+                "CloudWatch",
+                "notificações"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4apy1gwk": {
+              "id": "card_qupf4apy1gwk",
+              "question": "Qual a importância do AWS Config no monitoramento?",
+              "answer": "Ele rastreia as configurações dos recursos da AWS e as mudanças ao longo do tempo.",
+              "tags": [
+                "AWS Config",
+                "monitoramento",
+                "configurações"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4aj6lopk": {
+              "id": "card_qupf4aj6lopk",
+              "question": "O que são dashboards no CloudWatch?",
+              "answer": "Interfaces visuais que agregam e exibem várias métricas e alarmes em um único local.",
+              "tags": [
+                "dashboards",
+                "CloudWatch",
+                "visualização"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4aaep402": {
+              "id": "card_qupf4aaep402",
+              "question": "Como o Amazon Inspector contribui para o monitoramento?",
+              "answer": "Ele avalia a segurança de suas aplicações em execução na AWS, identificando vulnerabilidades.",
+              "tags": [
+                "Inspector",
+                "segurança",
+                "monitoramento"
+              ],
+              "category": "Monitoring",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:45:36.305Z"
+            },
+            "card_qupf4anv8mnq": {
+              "id": "card_qupf4anv8mnq",
+              "question": "O que é o AWS Identity and Access Management (IAM)?",
+              "answer": "Um serviço que permite gerenciar o acesso a recursos da AWS de forma segura.",
+              "tags": [
+                "IAM",
+                "segurança"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4anaobrr": {
+              "id": "card_qupf4anaobrr",
+              "question": "Como você pode garantir a conformidade regulatória na AWS?",
+              "answer": "Utilizando serviços como AWS Config, AWS CloudTrail e AWS Artifact.",
+              "tags": [
+                "conformidade",
+                "regulatório"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4ahf2qb3": {
+              "id": "card_qupf4ahf2qb3",
+              "question": "O que é o AWS Key Management Service (KMS)?",
+              "answer": "Um serviço que facilita a criação e controle de chaves criptográficas para criptografar dados.",
+              "tags": [
+                "KMS",
+                "criptografia"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4arq8kdg": {
+              "id": "card_qupf4arq8kdg",
+              "question": "Qual é a função do AWS CloudTrail?",
+              "answer": "Registrar e monitorar a atividade da conta da AWS em tempo real.",
+              "tags": [
+                "CloudTrail",
+                "monitoramento"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4ahgt4wf": {
+              "id": "card_qupf4ahgt4wf",
+              "question": "O que é um VPC e como ele contribui para a segurança?",
+              "answer": "Uma Virtual Private Cloud (VPC) permite isolar recursos da AWS em uma rede privada, aumentando a segurança.",
+              "tags": [
+                "VPC",
+                "rede"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aplahvz": {
+              "id": "card_qupf4aplahvz",
+              "question": "O que são Security Groups na AWS?",
+              "answer": "Conjuntos de regras de firewall que controlam o tráfego de entrada e saída de instâncias EC2.",
+              "tags": [
+                "Security Groups",
+                "firewall"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aov7lne": {
+              "id": "card_qupf4aov7lne",
+              "question": "Como você pode proteger dados em repouso na AWS?",
+              "answer": "Usando criptografia com AWS KMS e S3 Server-Side Encryption.",
+              "tags": [
+                "criptografia",
+                "dados"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aa30e9x": {
+              "id": "card_qupf4aa30e9x",
+              "question": "O que é o AWS Security Hub?",
+              "answer": "Um serviço que fornece uma visão unificada da postura de segurança da sua conta AWS.",
+              "tags": [
+                "Security Hub",
+                "postura de segurança"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4a75fs24": {
+              "id": "card_qupf4a75fs24",
+              "question": "Qual é a importância do AWS Config?",
+              "answer": "Permite avaliar, auditar e monitorar as configurações dos recursos da AWS.",
+              "tags": [
+                "AWS Config",
+                "auditoria"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aip0fy7": {
+              "id": "card_qupf4aip0fy7",
+              "question": "O que é o AWS GuardDuty?",
+              "answer": "Um serviço de detecção de ameaças que monitora atividades suspeitas em contas e workloads.",
+              "tags": [
+                "GuardDuty",
+                "detecção de ameaças"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aimgpob": {
+              "id": "card_qupf4aimgpob",
+              "question": "Como as políticas de IAM ajudam na segurança?",
+              "answer": "Definem permissões de acesso granulares para usuários e grupos na AWS.",
+              "tags": [
+                "políticas",
+                "acesso"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4avukfci": {
+              "id": "card_qupf4avukfci",
+              "question": "O que é o AWS Artifact?",
+              "answer": "Um portal que fornece acesso a documentos de conformidade e relatórios da AWS.",
+              "tags": [
+                "Artifact",
+                "conformidade"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4arxa1kj": {
+              "id": "card_qupf4arxa1kj",
+              "question": "Como o AWS Shield protege aplicações?",
+              "answer": "Oferece proteção contra ataques DDoS em aplicações hospedadas na AWS.",
+              "tags": [
+                "AWS Shield",
+                "DDoS"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4a3bviny": {
+              "id": "card_qupf4a3bviny",
+              "question": "O que é o AWS WAF?",
+              "answer": "Um firewall de aplicativo web que ajuda a proteger aplicações da AWS contra ataques comuns.",
+              "tags": [
+                "WAF",
+                "firewall"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4annitzn": {
+              "id": "card_qupf4annitzn",
+              "question": "Qual é a função do Amazon Inspector?",
+              "answer": "Realiza avaliações de segurança em aplicações implantadas na AWS.",
+              "tags": [
+                "Inspector",
+                "avaliação de segurança"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4a1pfz5k": {
+              "id": "card_qupf4a1pfz5k",
+              "question": "Como funciona a criptografia de dados em trânsito na AWS?",
+              "answer": "Usando TLS (Transport Layer Security) para proteger dados durante a transferência.",
+              "tags": [
+                "criptografia",
+                "dados em trânsito"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4abp4ek5": {
+              "id": "card_qupf4abp4ek5",
+              "question": "O que é o Amazon Macie?",
+              "answer": "Um serviço que usa machine learning para descobrir, classificar e proteger dados sensíveis.",
+              "tags": [
+                "Macie",
+                "dados sensíveis"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4ar7dwpx": {
+              "id": "card_qupf4ar7dwpx",
+              "question": "Como o AWS SSO contribui para a segurança?",
+              "answer": "Oferece gerenciamento centralizado de acesso a múltiplas contas e aplicações AWS.",
+              "tags": [
+                "SSO",
+                "gerenciamento de acesso"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4amdskv1": {
+              "id": "card_qupf4amdskv1",
+              "question": "O que é a proteção de dados em S3?",
+              "answer": "Implementa criptografia e controles de acesso para proteger dados armazenados no S3.",
+              "tags": [
+                "S3",
+                "proteção de dados"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:12.199Z"
+            },
+            "card_qupf4aiov84b": {
+              "id": "card_qupf4aiov84b",
+              "question": "O que é o AWS Cost Explorer?",
+              "answer": "Uma ferramenta que permite visualizar, entender e gerenciar os custos e uso da AWS ao longo do tempo.",
+              "tags": [
+                "AWS",
+                "Cost Explorer",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a57zifm": {
+              "id": "card_qupf4a57zifm",
+              "question": "Como você pode receber alertas sobre gastos na AWS?",
+              "answer": "Através do AWS Budgets, que permite criar orçamentos e receber notificações quando os limites são atingidos.",
+              "tags": [
+                "AWS",
+                "Budgets",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a8xurzk": {
+              "id": "card_qupf4a8xurzk",
+              "question": "O que é o AWS Pricing Calculator?",
+              "answer": "Uma ferramenta que ajuda a estimar os custos de serviços da AWS com base no uso previsto.",
+              "tags": [
+                "AWS",
+                "Pricing Calculator",
+                "cost estimation"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4ao8m9vh": {
+              "id": "card_qupf4ao8m9vh",
+              "question": "O que são os Savings Plans da AWS?",
+              "answer": "Uma forma de economizar em serviços da AWS ao se comprometer a um gasto constante por um período específico.",
+              "tags": [
+                "AWS",
+                "Savings Plans",
+                "cost savings"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4ak378y2": {
+              "id": "card_qupf4ak378y2",
+              "question": "Qual é a função do AWS Cost and Usage Report?",
+              "answer": "Fornecer dados detalhados sobre uso e custos dos serviços da AWS em formatos utilizáveis.",
+              "tags": [
+                "AWS",
+                "Cost and Usage Report",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4aypozvo": {
+              "id": "card_qupf4aypozvo",
+              "question": "Como você pode monitorar os custos em tempo real na AWS?",
+              "answer": "Utilizando o AWS Cost Explorer e o AWS Budgets para acompanhar e analisar os gastos.",
+              "tags": [
+                "AWS",
+                "monitoring",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4aw4z2pd": {
+              "id": "card_qupf4aw4z2pd",
+              "question": "O que é o AWS Free Tier?",
+              "answer": "Um nível de uso gratuito que permite experimentar certos serviços da AWS sem custos por um período limitado.",
+              "tags": [
+                "AWS",
+                "Free Tier",
+                "cost management"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4ab2hprc": {
+              "id": "card_qupf4ab2hprc",
+              "question": "Qual é a importância do AWS Trusted Advisor?",
+              "answer": "Fornece recomendações sobre melhores práticas, incluindo otimização de custos e uso eficiente dos recursos.",
+              "tags": [
+                "AWS",
+                "Trusted Advisor",
+                "cost optimization"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a5w7zba": {
+              "id": "card_qupf4a5w7zba",
+              "question": "Como funciona o modelo de pagamento da AWS?",
+              "answer": "A AWS utiliza um modelo pay-as-you-go, onde você paga apenas pelos recursos que utiliza.",
+              "tags": [
+                "AWS",
+                "payment model",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4atwvj1g": {
+              "id": "card_qupf4atwvj1g",
+              "question": "O que é o AWS Budgets?",
+              "answer": "Uma ferramenta que permite estabelecer orçamentos e monitorar gastos em relação a esses orçamentos.",
+              "tags": [
+                "AWS",
+                "Budgets",
+                "cost control"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a1qvrpe": {
+              "id": "card_qupf4a1qvrpe",
+              "question": "Quais serviços são cobertos pelo AWS Cost Explorer?",
+              "answer": "Todos os serviços da AWS, permitindo análise detalhada de custos e utilização.",
+              "tags": [
+                "AWS",
+                "Cost Explorer",
+                "services"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4auqn40f": {
+              "id": "card_qupf4auqn40f",
+              "question": "O que é o AWS Marketplace?",
+              "answer": "Uma plataforma para encontrar, comprar e gerenciar software e serviços de terceiros que funcionam na AWS.",
+              "tags": [
+                "AWS",
+                "Marketplace",
+                "software"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a9auckd": {
+              "id": "card_qupf4a9auckd",
+              "question": "Como você pode estimar os custos de uma nova implementação na AWS?",
+              "answer": "Utilizando o AWS Pricing Calculator para calcular os custos baseados nas necessidades do projeto.",
+              "tags": [
+                "AWS",
+                "cost estimation",
+                "Pricing Calculator"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a2ehlxi": {
+              "id": "card_qupf4a2ehlxi",
+              "question": "O que são os créditos de uso da AWS?",
+              "answer": "Créditos que podem ser aplicados para reduzir custos em serviços da AWS, muitas vezes recebidos por meio de promoções.",
+              "tags": [
+                "AWS",
+                "credits",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4ai5yi9v": {
+              "id": "card_qupf4ai5yi9v",
+              "question": "Qual é a função do AWS Cost Allocation Tags?",
+              "answer": "Permitem categorizar e rastrear os custos de recursos específicos dentro da AWS.",
+              "tags": [
+                "AWS",
+                "Cost Allocation",
+                "tags"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4ahf7vt3": {
+              "id": "card_qupf4ahf7vt3",
+              "question": "O que é um relatório de custo da AWS?",
+              "answer": "Documentos que detalham os custos e o uso de serviços da AWS, geralmente gerados mensalmente.",
+              "tags": [
+                "AWS",
+                "cost report",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4amths9q": {
+              "id": "card_qupf4amths9q",
+              "question": "Como você pode reduzir custos na AWS?",
+              "answer": "Otimizando o uso de recursos, aplicando Savings Plans e utilizando instâncias reservadas.",
+              "tags": [
+                "AWS",
+                "cost reduction",
+                "optimization"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            },
+            "card_qupf4a23ax8p": {
+              "id": "card_qupf4a23ax8p",
+              "question": "O que é a fatura da AWS?",
+              "answer": "Um documento que detalha todos os custos acumulados durante um período de faturamento específico.",
+              "tags": [
+                "AWS",
+                "invoice",
+                "billing"
+              ],
+              "category": "Billing and Costing Tools",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:50:40.283Z"
+            }
+          },
+          "reviewedCount": 10
+        }
+      }
     }
   }
 }
