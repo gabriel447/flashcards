@@ -530,7 +530,130 @@
         }
       },
       "reviewedCount": 0,
-      "decks": {}
+      "decks": {
+        "deck_q2w6nj8qlfk9": {
+          "id": "deck_q2w6nj8qlfk9",
+          "name": "AWS",
+          "cards": {
+            "card_q2wd0oj6bxn1": {
+              "id": "card_q2wd0oj6bxn1",
+              "question": "O que é AWS Lambda?",
+              "answer": "AWS Lambda é um serviço de computação sem servidor que executa código em resposta a eventos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "computação sem servidor"
+              ],
+              "category": "Lambda",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T04:45:40.361Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T04:45:40.361Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T04:45:40.361Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_q2wd0oqy2l1m": {
+              "id": "card_q2wd0oqy2l1m",
+              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
+              "answer": "AWS Lambda suporta várias linguagens, incluindo Node.js, Python, Java, Ruby, Go e .NET.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "linguagens de programação"
+              ],
+              "category": "Lambda",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T04:45:43.046Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T04:45:43.046Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T04:45:43.046Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_q2wd0ochhhig": {
+              "id": "card_q2wd0ochhhig",
+              "question": "Como você paga pelo uso do AWS Lambda?",
+              "answer": "Você paga pelo tempo de execução do código e pela quantidade de solicitações, sem custo fixo.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "custo"
+              ],
+              "category": "Lambda",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T04:45:45.115Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T04:45:45.115Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T04:45:45.115Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_q2wd0ozha8nw": {
+              "id": "card_q2wd0ozha8nw",
+              "question": "O que são funções Lambda?",
+              "answer": "Funções Lambda são pequenos trechos de código que são executados em resposta a eventos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "funções"
+              ],
+              "category": "Lambda",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T04:45:47.031Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T04:45:47.031Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T04:45:47.031Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_q2wd0o8oy7kg": {
+              "id": "card_q2wd0o8oy7kg",
+              "question": "Qual é o tempo máximo de execução de uma função Lambda?",
+              "answer": "O tempo máximo de execução de uma função Lambda é de 15 minutos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "tempo de execução"
+              ],
+              "category": "Lambda",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T04:45:48.807Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T04:45:48.807Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T04:45:48.807Z",
+                  "grade": 3
+                }
+              ]
+            }
+          },
+          "reviewedCount": 5
+        }
+      }
     }
   }
 }
