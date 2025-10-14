@@ -42,6 +42,9 @@ function App() {
     return () => clearInterval(id);
   }, []);
 
+  useEffect(() => {
+    setNowTick(Date.now());
+  }, [decks]);
 
   useEffect(() => {
     if (view !== 'revisar' && selectedDeckId) {
