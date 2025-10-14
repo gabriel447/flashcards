@@ -21,6 +21,10 @@ export function Stats({ userId, decks }: Props) {
     return () => clearInterval(id);
   }, []);
   const [stats, setStats] = useState<UserStats>({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} });
+  const [reviewRange, setReviewRange] = useState<'hoje'|'ontem'|'semana'>('hoje');
+  const [gradeRangeBad, setGradeRangeBad] = useState<'hoje'|'ontem'|'semana'>('hoje');
+  const [gradeRangeGood, setGradeRangeGood] = useState<'hoje'|'ontem'|'semana'>('hoje');
+  const [gradeRangeExcellent, setGradeRangeExcellent] = useState<'hoje'|'ontem'|'semana'>('hoje');
   useEffect(() => {
     (async () => {
       try {
@@ -49,7 +53,14 @@ export function Stats({ userId, decks }: Props) {
   const m = now.getMonth();
   const dd = now.getDate();
   const dayKey = `${y}-${String(m + 1).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
-  const reviewsToday = (stats.byDay?.[dayKey] || 0);
+  const dayKeyOf = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const yesterdayKey = (() => { const d = new Date(); d.setDate(d.getDate() - 1); return dayKeyOf(d); })();
+  const last7Keys = (() => { const keys: string[] = []; for (let i = 0; i < 7; i++) { const d = new Date(); d.setDate(d.getDate() - i); keys.push(dayKeyOf(d)); } return keys; })();
+  const reviewsCount = reviewRange === 'hoje'
+    ? (stats.byDay?.[dayKey] || 0)
+    : reviewRange === 'ontem'
+      ? (stats.byDay?.[yesterdayKey] || 0)
+      : last7Keys.reduce((sum, k) => sum + (stats.byDay?.[k] || 0), 0);
   let nextReviewMs: number = Infinity;
   let hasReviewNow = false;
 
@@ -62,10 +73,20 @@ export function Stats({ userId, decks }: Props) {
       else if (nextReviewTs > nowMs && nextReviewTs < nextReviewMs) nextReviewMs = nextReviewTs;
     });
   });
-  const todayGrades = stats.gradeByDay?.[dayKey] || { bad: 0, good: 0, excellent: 0 };
-  const totalBad = todayGrades.bad;
-  const totalGood = todayGrades.good;
-  const totalExcellent = todayGrades.excellent;
+  const aggGradeCount = (range: 'hoje'|'ontem'|'semana', key: 'bad'|'good'|'excellent') => {
+    if (range === 'hoje') return (stats.gradeByDay?.[dayKey]?.[key] || 0);
+    if (range === 'ontem') return (stats.gradeByDay?.[yesterdayKey]?.[key] || 0);
+    return last7Keys.reduce((sum, k) => sum + (stats.gradeByDay?.[k]?.[key] || 0), 0);
+  };
+  const totalBad = aggGradeCount(gradeRangeBad, 'bad');
+  const totalGood = aggGradeCount(gradeRangeGood, 'good');
+  const totalExcellent = aggGradeCount(gradeRangeExcellent, 'excellent');
+  const labelSuffix = (range: 'hoje'|'ontem'|'semana') => range === 'hoje' ? 'de hoje' : (range === 'ontem' ? 'de ontem' : 'da semana');
+  const nextRange = (r: 'hoje'|'ontem'|'semana'): 'hoje'|'ontem'|'semana' => (r === 'hoje' ? 'ontem' : (r === 'ontem' ? 'semana' : 'hoje'));
+  const handleToggleReviews = () => setReviewRange(nextRange(reviewRange));
+  const handleToggleBad = () => setGradeRangeBad(nextRange(gradeRangeBad));
+  const handleToggleGood = () => setGradeRangeGood(nextRange(gradeRangeGood));
+  const handleToggleExcellent = () => setGradeRangeExcellent(nextRange(gradeRangeExcellent));
 
   const formatEta = (ms: number) => {
     if (!isFinite(ms)) return 'Sem previsão';
@@ -96,9 +117,9 @@ export function Stats({ userId, decks }: Props) {
           <span className="value">{totalCards}</span>
         </div>
         {/* Linha 2 */}
-        <div className="stat-card">
-          <span className="label">Revisões de hoje</span>
-          <span className="value">{reviewsToday}</span>
+        <div className="stat-card" onClick={handleToggleReviews} style={{ cursor: 'pointer' }} title="Clique para alternar período">
+          <span className="label">Revisões {labelSuffix(reviewRange)}</span>
+          <span className="value">{reviewsCount}</span>
         </div>
         <div className="stat-card">
           <span className="label">Total de revisões</span>
@@ -109,16 +130,16 @@ export function Stats({ userId, decks }: Props) {
             <span className="value">{hasReviewNow ? 'agora' : formatEta(nextReviewMs)}</span>
           </div>
         {/* Linha 3 */}
-          <div className="stat-card">
-            <span className="label">Difíceis de hoje</span>
+          <div className="stat-card" onClick={handleToggleBad} style={{ cursor: 'pointer' }} title="Clique para alternar período">
+            <span className="label">Difíceis {labelSuffix(gradeRangeBad)}</span>
             <span className="value">{totalBad}</span>
           </div>
-          <div className="stat-card">
-            <span className="label">Acertos de hoje</span>
+          <div className="stat-card" onClick={handleToggleGood} style={{ cursor: 'pointer' }} title="Clique para alternar período">
+            <span className="label">Acertos {labelSuffix(gradeRangeGood)}</span>
             <span className="value">{totalGood}</span>
           </div>
-          <div className="stat-card">
-            <span className="label">Destaques de hoje</span>
+          <div className="stat-card" onClick={handleToggleExcellent} style={{ cursor: 'pointer' }} title="Clique para alternar período">
+            <span className="label">Destaques {labelSuffix(gradeRangeExcellent)}</span>
             <span className="value">{totalExcellent}</span>
           </div>
       </div>
