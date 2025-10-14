@@ -32,7 +32,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   }, [decks, selectedDeckId]);
   const [queue, setQueue] = useState(initialQueue);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showEndSlide, setShowEndSlide] = useState(false);
+  // Mantemos navegação sem slide sentinela para evitar movimento no primeiro/último
   const [showAnswer, setShowAnswer] = useState(false);
   const [canAdvance, setCanAdvance] = useState(false);
   const [noTransition, setNoTransition] = useState(false);
@@ -42,7 +42,6 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   useEffect(() => {
     setQueue(initialQueue);
     setActiveIndex(0);
-    setShowEndSlide(false);
     setShowAnswer(false);
     setCanAdvance(false);
     setHasRated(false);
@@ -85,8 +84,9 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   const grade = async (deckId: string, cardId: string, q: number) => {
     setCanAdvance(true);
     setHasRated(true);
+    // Ao avaliar o último card, tentamos inserir novos vencidos sem adicionar slide extra
     if (activeIndex === queue.length - 1) {
-      setShowEndSlide(true);
+      appendNewlyReviewCards();
     }
     try {
       const res = await api.post('/review', { userId, deckId, cardId, grade: q });
@@ -115,6 +115,63 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     return <p className="empty-state">{title}</p>;
   }
 
+  // Caso especial: apenas um card — renderização estática sem Swiper para evitar qualquer movimento
+  if (queue.length === 1) {
+    const { deckId, card } = queue[0];
+    return (
+      <section className="review-container">
+        <h2>{selectedDeckId && decks[selectedDeckId]?.name ? `Revisar — ${decks[selectedDeckId].name}` : 'Revisão Espaçada'}</h2>
+        <div className={`review-swiper ${canAdvance ? 'can-advance' : ''}`}>
+          <div className="swiper-slide">
+            <div className="review-card">
+              <div
+                className={`flip-card ${showAnswer ? 'flipped' : ''}`}
+                onClick={() => { if (!showAnswer) setShowAnswer(true); }}
+                role="button"
+                aria-label={showAnswer ? 'Mostrar pergunta' : 'Mostrar resposta'}
+              >
+                <div className={`flip-card-inner ${noTransition ? 'no-transition' : ''}`}>
+                  <div className="flip-card-front">
+                    {(card.category || (card.tags && card.tags[0])) && (
+                      <span className="category-badge badge info" title="Categoria">
+                        {card.category || card.tags[0]}
+                      </span>
+                    )}
+                    <h3>Pergunta</h3>
+                    <p>{card.question}</p>
+                  </div>
+                  <div className="flip-card-back">
+                    <h3>Resposta</h3>
+                    <p>{card.answer}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grade-row">
+              {showAnswer ? (
+                hasRated ? (
+                  <span className="review-label" style={{ color: '#1f6feb' }}>
+                    Próxima revisão em{' '}
+                    <span style={{ color: '#000' }}>~ {nextReviewLabel || 'breve'}</span>
+                  </span>
+                ) : (
+                  <>
+                    <span className="review-label">Como você foi ?</span>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 2)}>Mal</button>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 3)}>Bem</button>
+                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Excelente</button>
+                  </>
+                )
+              ) : (
+                <span className="review-label">Clique para virar a carta</span>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section className="review-container">
       <h2>{selectedDeckId && decks[selectedDeckId]?.name ? `Revisar — ${decks[selectedDeckId].name}` : 'Revisão Espaçada'}</h2>
@@ -123,18 +180,14 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         spaceBetween={16}
         slidesPerView={1}
         modules={[Navigation]}
-        navigation={canAdvance}
+        navigation={true}
+        watchOverflow={true}
+        resistanceRatio={0}
         allowTouchMove={false}
+        allowSlidePrev={false}
+        allowSlideNext={canAdvance && activeIndex < (queue.length - 1)}
         onSlideChange={(swiper) => {
           setActiveIndex(swiper.activeIndex);
-          if (showEndSlide && swiper.activeIndex === queue.length) {
-            const appended = appendNewlyReviewCards();
-            if (!appended) {
-              setShowEndSlide(false);
-              setQueue([]);
-            }
-            return;
-          }
           setNoTransition(true);
           setShowAnswer(false);
           setCanAdvance(false);
@@ -192,11 +245,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
               </div>
           </SwiperSlide>
         ))}
-        {showEndSlide && (
-          <SwiperSlide key="end-slide">
-            <div style={{ height: '460px' }} />
-          </SwiperSlide>
-        )}
+        {/* Removido slide sentinela para evitar bounce no primeiro/último */}
       </Swiper>
     </section>
   );

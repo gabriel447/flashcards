@@ -279,15 +279,16 @@ app.post('/api/generate', async (req, res) => {
     store.users[userId].decks[targetDeckId] = { id: targetDeckId, name: deckName, cards: {} };
   }
 
+  const deckTitle = deckName || store.users[userId].decks[targetDeckId].name;
   let cards = [];
   if (openaiClient) {
     try {
-      const prompt = buildPrompt(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
+      const prompt = buildPrompt(deckTitle, category, effectiveCount, subject);
       const completion = await openaiClient.chat.completions.create({
         model: 'gpt-4o-mini',
         temperature: 0.7,
         messages: [
-          { role: 'system', content: 'Você é um gerador de flashcards. Responda em JSON válido.' },
+          { role: 'system', content: 'Você é um gerador de flashcards. Responda em JSON válido. Escreva perguntas e respostas em português do Brasil (pt-BR).' },
           { role: 'user', content: prompt },
         ],
         response_format: { type: 'json_object' },
@@ -297,10 +298,33 @@ app.post('/api/generate', async (req, res) => {
       cards = parsed.cards || [];
     } catch (e) {
       console.warn('Falha ao usar OpenAI, aplicando fallback:', e.message);
-      cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
+      cards = fallbackGenerate(deckTitle, category, effectiveCount, subject);
     }
   } else {
-    cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
+    cards = fallbackGenerate(deckTitle, category, effectiveCount, subject);
+  }
+
+  // Enforce assunto específico: se não aparecer na pergunta ou resposta, usa fallback
+  if (isSubjectMode) {
+    const topic = String(subject).trim().toLowerCase();
+    const hasTopicStrict = Array.isArray(cards) && cards.every(c =>
+      (typeof c?.question === 'string' && c.question.toLowerCase().includes(topic)) &&
+      (typeof c?.answer === 'string' && c.answer.toLowerCase().includes(topic))
+    );
+    if (!hasTopicStrict) {
+      cards = fallbackGenerate(deckTitle, category, effectiveCount, subject);
+    } else {
+      // Ajusta tags para incluir contexto e assunto
+      cards = cards.map(c => ({
+        ...c,
+        tags: Array.from(new Set([
+          ...(Array.isArray(c.tags) ? c.tags : []),
+          ...(deckTitle ? [String(deckTitle).toLowerCase()] : []),
+          ...(category ? [String(category).toLowerCase()] : []),
+          topic,
+        ])),
+      }));
+    }
   }
 
   for (const card of cards) {
@@ -324,31 +348,58 @@ app.post('/api/generate', async (req, res) => {
 });
 
 function buildPrompt(deckName, category, count, subject) {
-  const catPart = category ? `Categoria (tema): ${category}.` : '';
-  const subjPart = subject ? `Assunto específico: ${subject}. Foque APENAS nisso e gere exatamente 1 flashcard.` : '';
+  const context = [deckName, category].filter(Boolean).join(' — ');
   const qty = subject ? 1 : count;
-  return `Gere ${qty} flashcards em JSON com o formato {"cards":[{"question":"...","answer":"...","tags":["..."],"category":"..."}]}. Deck: ${deckName}. ${catPart} ${subjPart} Perguntas objetivas e respostas concisas.`;
+  const base = `Gere ${qty} flashcards em JSON com o formato {"cards":[{"question":"...","answer":"...","tags":["..."],"category":"..."}]}.
+Deck: ${deckName}.${category ? ` Categoria (tema): ${category}.` : ''}`;
+  if (subject) {
+    const s = String(subject).trim();
+    return `${base}
+Assunto específico: ${s}. Foque exclusivamente neste assunto. NÃO mude para outros serviços ou temas.
+Se o assunto for, por exemplo, Neptune, NÃO gere sobre RDS.
+Inclua tags relacionadas a "${deckName}" e "${category}" e ao assunto.
+IMPORTANTE: a pergunta e a resposta DEVEM conter literalmente a palavra "${s}".
+Idioma: escreva todas as perguntas e respostas exclusivamente em português do Brasil (pt-BR). Evite inglês; mantenha nomes próprios em inglês quando necessário, mas explique sempre em português.
+Gere exatamente 1 flashcard com pergunta objetiva e resposta concisa, mantendo a categoria enviada.`;
+  }
+  return `${base}
+Sem assunto específico. Gere ${qty} flashcards variados dentro da categoria informada, com perguntas objetivas e respostas concisas.
+Idioma: escreva todas as perguntas e respostas exclusivamente em português do Brasil (pt-BR). Evite inglês; mantenha nomes próprios em inglês quando necessário, mas explique sempre em português.`;
 }
 
 function fallbackGenerate(deckName, category, count, subject) {
   const items = [];
+  const ctxParts = [deckName, category].filter(Boolean);
+  const context = ctxParts.length ? ctxParts.join(' — ') : '';
+
   if (subject && subject.trim().length > 0) {
     const topic = subject.trim();
     items.push({
-      question: `Explique de forma objetiva: ${topic}`,
-      answer: `Resposta concisa e direta sobre "${topic}", cobrindo definição e uso essencial.`,
-      tags: [topic.toLowerCase()],
+      question: context ? `No contexto de ${context}, explique de forma objetiva: ${topic}` : `Explique de forma objetiva: ${topic}`,
+      answer: context
+        ? `Resposta concisa e direta, em português, sobre "${topic}", considerando o contexto de ${context}.`
+        : `Resposta concisa e direta, em português, sobre "${topic}", cobrindo definição e uso essencial.`,
+      tags: [
+        ...(deckName ? [String(deckName).toLowerCase()] : []),
+        ...(category ? [String(category).toLowerCase()] : []),
+        topic.toLowerCase(),
+      ],
       category: category || null,
     });
     return items;
   }
+
   const n = Math.min(Number(count) || 10, 50);
-  const topic = (category || deckName || 'Assunto').trim();
+  const base = context || (category || deckName || 'Assunto').trim();
+  const baseTags = [
+    ...(deckName ? [String(deckName).toLowerCase()] : []),
+    ...(category ? [String(category).toLowerCase()] : []),
+  ];
   for (let i = 1; i <= n; i++) {
     items.push({
-      question: `Explique: ${topic} — ponto ${i}`,
-      answer: `Resumo objetivo e direto sobre "${topic}" (ponto ${i}).`,
-      tags: [topic.toLowerCase()],
+      question: `Explique: ${base} — ponto ${i}`,
+      answer: `Resumo objetivo e direto, em português, sobre "${base}" (ponto ${i}).`,
+      tags: [...baseTags, String(base).toLowerCase()],
       category: category || null,
     });
   }
