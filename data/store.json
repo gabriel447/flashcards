@@ -530,7 +530,330 @@
         }
       },
       "reviewedCount": 0,
-      "decks": {}
+      "decks": {
+        "deck_qy173e17tdfp": {
+          "id": "deck_qy173e17tdfp",
+          "name": "AWS",
+          "cards": {
+            "card_qy1itjaur4gs": {
+              "id": "card_qy1itjaur4gs",
+              "question": "O que é Amazon RDS?",
+              "answer": "Um serviço gerenciado de banco de dados que facilita a configuração, operação e escalabilidade de bancos de dados relacionais na nuvem.",
+              "tags": [
+                "RDS",
+                "banco de dados",
+                "relacional"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:17:16.893Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:17:16.893Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:17:16.893Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itj1njc4c": {
+              "id": "card_qy1itj1njc4c",
+              "question": "Quais são os tipos de bancos de dados suportados pelo Amazon RDS?",
+              "answer": "MySQL, PostgreSQL, MariaDB, Oracle e SQL Server.",
+              "tags": [
+                "RDS",
+                "tipos de banco de dados"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:17:20.494Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:17:20.494Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:17:20.494Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjxotgxz": {
+              "id": "card_qy1itjxotgxz",
+              "question": "O que é Amazon DynamoDB?",
+              "answer": "Um serviço de banco de dados NoSQL totalmente gerenciado que oferece desempenho rápido e previsível com escalabilidade automática.",
+              "tags": [
+                "DynamoDB",
+                "NoSQL"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:17:22.963Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:17:22.963Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:17:22.963Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjsml02j": {
+              "id": "card_qy1itjsml02j",
+              "question": "Qual é a principal característica do Amazon Redshift?",
+              "answer": "É um data warehouse totalmente gerenciado que permite executar consultas analíticas em grandes volumes de dados.",
+              "tags": [
+                "Redshift",
+                "data warehouse"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:17:34.435Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:17:34.435Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:17:34.435Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjleggjn": {
+              "id": "card_qy1itjleggjn",
+              "question": "Como o Amazon S3 pode ser usado em análises de dados?",
+              "answer": "Como um armazenamento escalável e durável para armazenar grandes conjuntos de dados que podem ser analisados por serviços como Amazon Athena e Amazon Redshift.",
+              "tags": [
+                "S3",
+                "análise de dados"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:17:59.063Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:17:59.063Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:17:59.063Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjjca9cl": {
+              "id": "card_qy1itjjca9cl",
+              "question": "O que é Amazon Athena?",
+              "answer": "Um serviço de consulta interativa que permite analisar dados diretamente no Amazon S3 usando SQL.",
+              "tags": [
+                "Athena",
+                "SQL",
+                "análise"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:02.856Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:02.856Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:02.856Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjgg7ex8": {
+              "id": "card_qy1itjgg7ex8",
+              "question": "O que é AWS Glue?",
+              "answer": "Um serviço de ETL (Extração, Transformação e Carga) que facilita a preparação dos dados para análise.",
+              "tags": [
+                "Glue",
+                "ETL"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:06.895Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:06.895Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:06.895Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjcws7im": {
+              "id": "card_qy1itjcws7im",
+              "question": "Qual é a função do Amazon ElastiCache?",
+              "answer": "Oferecer um serviço de cache em memória para melhorar a performance de aplicações, suportando Redis e Memcached.",
+              "tags": [
+                "ElastiCache",
+                "cache"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:16.606Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:16.606Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:16.606Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjg45law": {
+              "id": "card_qy1itjg45law",
+              "question": "O que é Amazon Aurora?",
+              "answer": "Um banco de dados relacional compatível com MySQL e PostgreSQL que é até cinco vezes mais rápido que bancos de dados tradicionais.",
+              "tags": [
+                "Aurora",
+                "relacional"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:20.691Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:20.691Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:20.691Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjdq36a2": {
+              "id": "card_qy1itjdq36a2",
+              "question": "O que é o Amazon QuickSight?",
+              "answer": "Um serviço de business intelligence que permite criar visualizações e dashboards interativos a partir de dados.",
+              "tags": [
+                "QuickSight",
+                "BI"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:26.744Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:26.744Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:26.744Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itj54r5wk": {
+              "id": "card_qy1itj54r5wk",
+              "question": "Qual a diferença entre RDS e DynamoDB?",
+              "answer": "RDS é um banco de dados relacional, enquanto DynamoDB é um banco de dados NoSQL, adequado para diferentes tipos de aplicativos.",
+              "tags": [
+                "RDS",
+                "DynamoDB",
+                "diferença"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:18:33.156Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:18:33.156Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:18:33.157Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjk9t7yb": {
+              "id": "card_qy1itjk9t7yb",
+              "question": "O que é o Amazon Kinesis?",
+              "answer": "Um serviço para coletar, processar e analisar dados em tempo real.",
+              "tags": [
+                "Kinesis",
+                "tempo real"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.2,
+              "nextReviewAt": "2025-10-14T19:39:45.714Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-14T19:29:45.714Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:19:01.725Z",
+                  "grade": 2
+                },
+                {
+                  "ts": "2025-10-14T19:29:45.714Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_qy1itji3behm": {
+              "id": "card_qy1itji3behm",
+              "question": "O que é Data Lake no contexto da AWS?",
+              "answer": "Um repositório centralizado que permite armazenar dados em seu formato bruto, facilitando a análise e o processamento.",
+              "tags": [
+                "Data Lake",
+                "armazenamento"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T19:26:05.382Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:26:05.382Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:26:05.382Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_qy1itjvxebwb": {
+              "id": "card_qy1itjvxebwb",
+              "question": "Qual é a função do AWS Data Pipeline?",
+              "answer": "Permitir a automação do movimento e processamento de dados em diferentes serviços da AWS.",
+              "tags": [
+                "Data Pipeline",
+                "automação"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T19:39:56.253Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:29:56.253Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:29:56.253Z",
+                  "grade": 2
+                }
+              ]
+            }
+          },
+          "reviewedCount": 15
+        }
+      }
     }
   }
 }

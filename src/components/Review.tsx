@@ -50,6 +50,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   }, [selectedDeckId]);
 
   const appendNewlyReviewCards = () => {
+    // Identifica itens já presentes na fila por ocorrência (id + tamanho de gradeLog)
     const existingKeys = new Set(
       queue.map(q => `${q.card.id}-${(Array.isArray(q.card.gradeLog) ? q.card.gradeLog.length : 0)}`)
     );
@@ -69,6 +70,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
       });
     });
     if (newItems.length > 0) {
+      // Preferência: vencidos aparecem como próximos (logo após o atual)
       setQueue(prev => {
         const insertAt = Math.min(prev.length, activeIndex + 1);
         const head = prev.slice(0, insertAt);
@@ -142,8 +144,8 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
           appendNewlyReviewCards();
         }}
       >
-        {queue.map(({ deckId, card }, idx) => (
-          <SwiperSlide key={`${card.id}-${(Array.isArray(card.gradeLog) ? card.gradeLog.length : 0)}-${idx}`}>
+        {queue.map(({ deckId, card }) => (
+          <SwiperSlide key={`${deckId}-${card.id}-${(Array.isArray(card.gradeLog) ? card.gradeLog.length : 0)}`}>
             <div className="review-card">
               <div
                 className={`flip-card ${showAnswer ? 'flipped' : ''}`}
@@ -192,7 +194,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         ))}
         {showEndSlide && (
           <SwiperSlide key="end-slide">
-            <div style={{ height: '0px' }} />
+            <div style={{ height: '460px' }} />
           </SwiperSlide>
         )}
       </Swiper>
