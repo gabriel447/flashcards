@@ -236,7 +236,18 @@ app.get('/api/decks/:deckId/export', (req, res) => {
   const store = getUserStore(userId);
   const deck = store.users[userId].decks[deckId];
   if (!deck) return res.status(404).json({ error: 'Deck não encontrado' });
-  res.json({ deck });
+
+  const cardsObj = {};
+  Object.values(deck.cards || {}).forEach(c => {
+    cardsObj[c.id] = {
+      question: c.question || '',
+      answer: c.answer || '',
+      tags: Array.isArray(c.tags) ? c.tags : [],
+      category: c.category ?? null,
+    };
+  });
+  const sanitized = { name: deck.name, cards: cardsObj };
+  res.json({ deck: sanitized });
 });
 
 // Importa um deck específico
@@ -246,7 +257,6 @@ app.post('/api/import', (req, res) => {
     return res.status(400).json({ error: 'userId e data obrigatórios' });
   }
 
-  // Espera exatamente o mesmo formato que o export: um objeto de deck
   const { name, cards } = data;
   if (!name || !cards || typeof cards !== 'object') {
     return res.status(400).json({ error: 'Formato inválido: forneça o JSON de deck exportado' });
@@ -258,7 +268,7 @@ app.post('/api/import', (req, res) => {
     id: newDeckId,
     name,
     cards: {},
-    reviewedCount: Number(data.reviewedCount) || 0,
+    reviewedCount: 0,
   };
 
   for (const srcCard of Object.values(cards)) {
@@ -269,13 +279,10 @@ app.post('/api/import', (req, res) => {
       answer: srcCard.answer || '',
       tags: Array.isArray(srcCard.tags) ? srcCard.tags : [],
       category: srcCard.category ?? null,
-      repetitions: Number(srcCard.repetitions) || 0,
-      interval: Number(srcCard.interval) || 0,
-      easeFactor: typeof srcCard.easeFactor === 'number' ? srcCard.easeFactor : 2.5,
-      nextReviewAt: srcCard.nextReviewAt || new Date().toISOString(),
-      reviews: typeof srcCard.reviews === 'number' ? srcCard.reviews : undefined,
-      lastReviewedAt: srcCard.lastReviewedAt || undefined,
-      gradeLog: Array.isArray(srcCard.gradeLog) ? srcCard.gradeLog : undefined,
+      repetitions: 0,
+      interval: 0,
+      easeFactor: 2.5,
+      nextReviewAt: new Date().toISOString(),
     };
   }
 
