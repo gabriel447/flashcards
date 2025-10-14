@@ -245,7 +245,7 @@
   .review-card .review-label { color: #60a5fa; }
   .empty-state { color: #9ca3af; }
 }
-.review-container { max-width: 980px; margin: 0 auto; }
+.review-container { max-width: 980px; margin: 0; }
 .review-container h2 { text-align: left; }
 .review-swiper { padding: 1.5rem 0; min-height: 520px; }
 .review-swiper { position: relative; }
