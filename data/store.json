@@ -530,7 +530,18 @@
         }
       },
       "reviewedCount": 0,
-      "decks": {}
+      "decks": {},
+      "stats": {
+        "totalReviews": 5,
+        "byDay": {
+          "2025-10-14": 5
+        },
+        "gradeTotals": {
+          "bad": 3,
+          "good": 1,
+          "excellent": 1
+        }
+      }
     }
   }
 }

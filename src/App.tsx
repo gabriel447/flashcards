@@ -103,7 +103,7 @@ function App() {
             />
           )}
           {view === 'stats' && (
-            <Stats decks={decks} />
+            <Stats userId={userId} decks={decks} />
           )}
       </main>
     </div>

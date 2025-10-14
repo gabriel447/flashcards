@@ -1,19 +1,40 @@
 import { useEffect, useState } from 'react';
+import { api } from '../lib/api';
 import type { Deck } from '../types';
 
 type Props = {
+  userId: string;
   decks: Record<string, Deck>;
 };
 
-export function Stats({ decks }: Props) {
+type UserStats = {
+  totalReviews: number;
+  byDay?: Record<string, number>;
+  gradeTotals: { bad: number; good: number; excellent: number };
+};
+
+export function Stats({ userId, decks }: Props) {
   const [tick, setTick] = useState(0);
   useEffect(() => {
     const id = setInterval(() => setTick(t => t + 1), 10000);
     return () => clearInterval(id);
   }, []);
+  const [stats, setStats] = useState<UserStats>({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } });
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await api.get('/stats', { params: { userId } });
+        const s: UserStats = res.data?.stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } };
+        setStats(s);
+      } catch (e) {
+        console.error(e);
+      }
+    })();
+  }, [userId, decks]);
   const allDecks = Object.values(decks);
   const totalCards = allDecks.reduce((acc, d) => acc + Object.keys(d.cards || {}).length, 0);
-  const reviewedTotal = allDecks.reduce((acc, d) => acc + (typeof d.reviewedCount === 'number' ? d.reviewedCount : 0), 0);
+  // Use contadores persistentes para total de revisões
+  const reviewedTotal = stats.totalReviews || 0;
 
   const categorySet = new Set<string>();
   allDecks.forEach(d => {
@@ -28,10 +49,9 @@ export function Stats({ decks }: Props) {
   const m = now.getMonth();
   const dd = now.getDate();
 
-  let reviewsToday = 0;
-  const catBad: Record<string, number> = {};
-  const catGood: Record<string, number> = {};
-  const catExcellent: Record<string, number> = {};
+  // Contadores independentes
+  const dayKey = `${y}-${String(m + 1).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
+  const reviewsToday = (stats.byDay?.[dayKey] || 0);
   let nextReviewMs: number = Infinity;
   let hasReviewNow = false;
 
@@ -42,31 +62,11 @@ export function Stats({ decks }: Props) {
       const nextReviewTs = ts ? new Date(ts).getTime() : Infinity;
       if (nextReviewTs <= nowMs) hasReviewNow = true;
       else if (nextReviewTs > nowMs && nextReviewTs < nextReviewMs) nextReviewMs = nextReviewTs;
-
-      const logs = Array.isArray(c.gradeLog) ? c.gradeLog : [];
-      logs.forEach(({ ts, grade }) => {
-        const t = new Date(ts);
-        if (t.getFullYear() === y && t.getMonth() === m && t.getDate() === dd) {
-          reviewsToday += 1;
-        }
-        const cat = c.category || 'Sem categoria';
-        if (grade === 2) catBad[cat] = (catBad[cat] || 0) + 1;
-        else if (grade === 3) catGood[cat] = (catGood[cat] || 0) + 1;
-        else if (grade === 4) catExcellent[cat] = (catExcellent[cat] || 0) + 1;
-      });
     });
   });
-
-  const top = (map: Record<string, number>) => {
-    const entries = Object.entries(map);
-    if (entries.length === 0) return { category: '', count: 0 };
-    entries.sort((a, b) => b[1] - a[1]);
-    return { category: entries[0][0], count: entries[0][1] };
-  };
-
-  const topBad = top(catBad);
-  const topGood = top(catGood);
-  const topExcellent = top(catExcellent);
+  const totalBad = stats.gradeTotals?.bad || 0;
+  const totalGood = stats.gradeTotals?.good || 0;
+  const totalExcellent = stats.gradeTotals?.excellent || 0;
 
   const formatEta = (ms: number) => {
     if (!isFinite(ms)) return 'Sem previsão';
@@ -112,15 +112,15 @@ export function Stats({ decks }: Props) {
         {/* Linha 3 */}
           <div className="stat-card">
             <span className="label">Total de difíceis</span>
-            <span className="value">{topBad.count}</span>
+            <span className="value">{totalBad}</span>
           </div>
           <div className="stat-card">
             <span className="label">Total de acertos</span>
-            <span className="value">{topGood.count}</span>
+            <span className="value">{totalGood}</span>
           </div>
           <div className="stat-card">
             <span className="label">Total de destaques</span>
-            <span className="value">{topExcellent.count}</span>
+            <span className="value">{totalExcellent}</span>
           </div>
       </div>
     </section>

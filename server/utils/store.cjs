@@ -28,9 +28,28 @@ function saveStore(store) {
 
 function ensureUser(store, userId) {
   if (!store.users[userId]) {
-    store.users[userId] = { decks: {} };
+    store.users[userId] = { decks: {}, stats: {} };
   } else if (!store.users[userId].decks || typeof store.users[userId].decks !== 'object') {
     store.users[userId].decks = {};
+  }
+  // Ensure persistent stats object independent of decks/cards
+  if (!store.users[userId].stats || typeof store.users[userId].stats !== 'object') {
+    store.users[userId].stats = {
+      totalReviews: 0,
+      byDay: {},
+      gradeTotals: { bad: 0, good: 0, excellent: 0 },
+    };
+  } else {
+    const stats = store.users[userId].stats;
+    stats.totalReviews = typeof stats.totalReviews === 'number' ? stats.totalReviews : 0;
+    stats.byDay = stats.byDay && typeof stats.byDay === 'object' ? stats.byDay : {};
+    stats.gradeTotals = stats.gradeTotals && typeof stats.gradeTotals === 'object'
+      ? {
+          bad: Number(stats.gradeTotals.bad) || 0,
+          good: Number(stats.gradeTotals.good) || 0,
+          excellent: Number(stats.gradeTotals.excellent) || 0,
+        }
+      : { bad: 0, good: 0, excellent: 0 };
   }
 }
 

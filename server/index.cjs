@@ -45,6 +45,15 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ userId });
 });
 
+// Obtém estatísticas persistentes do usuário
+app.get('/api/stats', (req, res) => {
+  const { userId } = req.query;
+  if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
+  const store = getUserStore(userId);
+  const stats = store.users[userId].stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } };
+  res.json({ stats });
+});
+
 // Lista decks do usuário
 app.get('/api/decks', (req, res) => {
   const { userId } = req.query;
@@ -151,6 +160,24 @@ app.post('/api/review', (req, res) => {
   updated.gradeLog = [...prevLog, { ts: nowIso, grade: Number(grade) }];
   deck.cards[cardId] = updated;
   deck.reviewedCount = (deck.reviewedCount || 0) + 1;
+
+  // Atualiza estatísticas independentes do usuário
+  try {
+    const stats = store.users[userId].stats || (store.users[userId].stats = {
+      totalReviews: 0,
+      byDay: {},
+      gradeTotals: { bad: 0, good: 0, excellent: 0 },
+    });
+    stats.totalReviews = (stats.totalReviews || 0) + 1;
+    const dayKey = nowIso.slice(0, 10); // YYYY-MM-DD
+    stats.byDay[dayKey] = (stats.byDay[dayKey] || 0) + 1;
+    const g = Number(grade);
+    if (g === 2) stats.gradeTotals.bad = (stats.gradeTotals.bad || 0) + 1;
+    else if (g === 3) stats.gradeTotals.good = (stats.gradeTotals.good || 0) + 1;
+    else if (g === 4) stats.gradeTotals.excellent = (stats.gradeTotals.excellent || 0) + 1;
+  } catch (e) {
+    console.warn('Falha ao atualizar estatísticas do usuário:', e.message);
+  }
   persist(store);
   res.json({ card: updated, reviewedCount: deck.reviewedCount });
 });
