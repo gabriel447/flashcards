@@ -9,7 +9,7 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [deckName, setDeckName] = useState('');
   const [category, setCategory] = useState('');
-  const [count, setCount] = useState(10);
+  const [count, setCount] = useState(5);
   const [loading, setLoading] = useState(false);
   const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
