@@ -50,7 +50,9 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   }, [selectedDeckId]);
 
   const appendNewlyReviewCards = () => {
-    const existingIds = new Set(queue.map(q => q.card.id));
+    const existingKeys = new Set(
+      queue.map(q => `${q.card.id}-${(Array.isArray(q.card.gradeLog) ? q.card.gradeLog.length : 0)}`)
+    );
     const deckList = selectedDeckId && decks[selectedDeckId]
       ? [decks[selectedDeckId]]
       : Object.values(decks);
@@ -60,13 +62,19 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
       Object.values(deck.cards || {}).forEach(card => {
         const ts = card.nextReviewAt;
         const nextReviewTs = ts ? new Date(ts).getTime() : Infinity;
-        if (nextReviewTs <= nowTs && !existingIds.has(card.id)) {
+        const key = `${card.id}-${(Array.isArray(card.gradeLog) ? card.gradeLog.length : 0)}`;
+        if (nextReviewTs <= nowTs && !existingKeys.has(key)) {
           newItems.push({ deckId: deck.id, card });
         }
       });
     });
     if (newItems.length > 0) {
-      setQueue(prev => [...prev, ...newItems]);
+      setQueue(prev => {
+        const insertAt = Math.min(prev.length, activeIndex + 1);
+        const head = prev.slice(0, insertAt);
+        const tail = prev.slice(insertAt);
+        return [...head, ...newItems, ...tail];
+      });
       return true;
     }
     return false;
@@ -134,8 +142,8 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
           appendNewlyReviewCards();
         }}
       >
-        {queue.map(({ deckId, card }) => (
-          <SwiperSlide key={card.id}>
+        {queue.map(({ deckId, card }, idx) => (
+          <SwiperSlide key={`${card.id}-${(Array.isArray(card.gradeLog) ? card.gradeLog.length : 0)}-${idx}`}>
             <div className="review-card">
               <div
                 className={`flip-card ${showAnswer ? 'flipped' : ''}`}
