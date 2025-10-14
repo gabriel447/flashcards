@@ -160,7 +160,8 @@
 .panel-header .toggle { margin-left: auto; }
 .deck-select { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 .hint { margin-top: 6px; color: #808e9b; }
-.panel.loading, .panel.loading * { cursor: progress !important; }
+.panel.loading, .panel.loading * { /* removido cursor global */ }
+.global-loading, .global-loading * { cursor: progress !important; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; border-radius: 999px; padding: 0.35rem 0.75rem; font-weight: 600; cursor: pointer; }
 .chip:hover { background: #f3f4f6; }
@@ -180,12 +181,21 @@
 .btn-grade { min-width: 36px; padding: 0.35rem 0.5rem; }
 .btn:disabled { background: #e5e7eb; border-color: #e5e7eb; color: #6b7280; cursor: not-allowed; opacity: 0.8; }
 .btn-primary:disabled { background: #d1d5db; border-color: #cbd5e1; color: #111827; opacity: 0.7; }
-.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #93c5fd; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 8px; vertical-align: middle; }
+.spinner { display: inline-block; width: 14px; height: 14px; border: 2px solid #111827; border-top-color: transparent; border-radius: 50%; animation: spin 0.6s linear infinite; margin-right: 8px; vertical-align: middle; }
 @keyframes spin { to { transform: rotate(360deg); } }
-.alert { border-radius: 8px; padding: 0.75rem; border: 1px solid transparent; text-align: left; }
-.alert.success { background: #dcfce7; border-color: #86efac; color: #14532d; }
-.alert.error { background: #fdeaea; border-color: #f5c6c6; color: #8f2d2d; }
+.alert { border-radius: 8px; padding: 0.75rem; border: 1px solid transparent; text-align: left; display: flex; align-items: center; gap: 0.5rem; margin: 0.75rem 0; }
+.alert::before { display: inline-block; font-weight: 700; }
+.alert.success { background: #d1e7dd; border-color: #badbcc; color: #0f5132; }
+.alert.success::before { content: '✓'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #198754; color: #ffffff; font-size: 12px; }
+.alert.error { background: #f8d7da; border-color: #f5c2c7; color: #842029; }
+.alert.error::before { content: '✖'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #dc3545; color: #ffffff; font-size: 12px; }
+.alert.warning { background: #fff3cd; border-color: #ffecb5; color: #664d03; }
+.alert.warning::before { content: '⚠'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #d29a20; color: #ffffff; font-size: 12px; }
+.alert.info { background: #fff8e1; border-color: #ffe5a1; color: #7a5c0a; }
+.alert.info::before { content: '⚠'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #d29a20; color: #ffffff; font-size: 12px; }
 .alert.compact { padding: 0.4rem 0.6rem; font-size: 0.85rem; max-width: 360px; }
+.alert.auto-hide { animation: fadeout 0.6s ease forwards; animation-delay: 4s; }
+@keyframes fadeout { to { opacity: 0; transform: translateY(-2px); } }
 .form-actions .alert { margin-top: 0.5rem; }
 .stats-list { list-style: none; padding-left: 0; margin: 0; }
 .stats-list li { padding: 2px 0; }
@@ -209,6 +219,9 @@
   .btn-secondary:hover { background: #2b3442; }
   .btn-outline { background: transparent; border-color: #374151; color: #e5e7eb; }
   .alert.success { background: #064e3b; border-color: #10b981; color: #d1fae5; }
+  .alert.error { background: #3f1d1d; border-color: #ef4444; color: #fee2e2; }
+  .alert.warning { background: #3a2512; border-color: #f59e0b; color: #fde68a; }
+  .alert.info { background: #3a2e0f; border-color: #facc15; color: #fef3c7; }
   .alert.compact { padding: 0.4rem 0.6rem; font-size: 0.85rem; max-width: 360px; }
   .icon-btn { border-color: #1f2937; background: #111827; color: #e5e7eb; }
   .icon-btn:hover { background: #0b1220; }

@@ -450,7 +450,839 @@
       "decks": {}
     },
     "anon": {
-      "decks": {}
+      "decks": {
+        "deck_psuy5xsvmtkt": {
+          "id": "deck_psuy5xsvmtkt",
+          "name": "AWS",
+          "cards": {
+            "card_psv95muuifc3": {
+              "id": "card_psv95muuifc3",
+              "question": "O que é o Amazon S3?",
+              "answer": "Um serviço de armazenamento de objetos na nuvem da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "armazenamento"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:26.749Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:26.749Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:26.749Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95mfrl218": {
+              "id": "card_psv95mfrl218",
+              "question": "Qual é o formato de dados suportado pelo Amazon S3?",
+              "answer": "Objetos que podem ser arquivos de qualquer tipo, como imagens, vídeos e documentos.",
+              "tags": [
+                "AWS",
+                "S3",
+                "objetos"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:30.231Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:30.231Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:30.231Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95mvghqhk": {
+              "id": "card_psv95mvghqhk",
+              "question": "Qual é a durabilidade do Amazon S3?",
+              "answer": "99,999999999% (11 noves) para objetos armazenados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "durabilidade"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:32.340Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:32.340Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:32.340Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95m9gydyv": {
+              "id": "card_psv95m9gydyv",
+              "question": "O que é um bucket no S3?",
+              "answer": "Uma unidade de armazenamento onde os objetos são armazenados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "bucket"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:34.889Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:34.889Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:34.889Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95m5601ts": {
+              "id": "card_psv95m5601ts",
+              "question": "Como o S3 garante a segurança dos dados?",
+              "answer": "Utiliza criptografia em trânsito e em repouso, além de políticas de controle de acesso.",
+              "tags": [
+                "AWS",
+                "S3",
+                "segurança"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:37.556Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:37.556Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:37.556Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95m58vaiz": {
+              "id": "card_psv95m58vaiz",
+              "question": "O que significa versionamento no S3?",
+              "answer": "Permite manter múltiplas versões de um objeto em um bucket.",
+              "tags": [
+                "AWS",
+                "S3",
+                "versionamento"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:39.714Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:39.714Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:39.714Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95mcbcuc1": {
+              "id": "card_psv95mcbcuc1",
+              "question": "O que é o S3 Glacier?",
+              "answer": "Uma classe de armazenamento para arquivamento de dados a longo prazo no S3.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Glacier"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:41.809Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:41.809Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:41.809Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95mbin7iw": {
+              "id": "card_psv95mbin7iw",
+              "question": "Qual é o limite de tamanho para um único objeto no S3?",
+              "answer": "Até 5 terabytes.",
+              "tags": [
+                "AWS",
+                "S3",
+                "tamanho"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:44.024Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:44.024Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:44.024Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95m9t5xvu": {
+              "id": "card_psv95m9t5xvu",
+              "question": "O que são políticas de bucket no S3?",
+              "answer": "Regras que definem permissões e acesso a um bucket específico.",
+              "tags": [
+                "AWS",
+                "S3",
+                "políticas"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:46.162Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:46.162Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:46.162Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psv95m1vz9dx": {
+              "id": "card_psv95m1vz9dx",
+              "question": "O que é o Amazon S3 Transfer Acceleration?",
+              "answer": "Um recurso que acelera o upload de arquivos para o S3 usando a rede da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "transferência"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-15T00:05:48.120Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T00:05:48.120Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T00:05:48.120Z",
+                  "grade": 3
+                }
+              ]
+            },
+            "card_psxkagr15c4z": {
+              "id": "card_psxkagr15c4z",
+              "question": "O que é o Amazon EC2?",
+              "answer": "É um serviço que fornece capacidade de computação escalável na nuvem.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "computação"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.080Z"
+            },
+            "card_psxkag9ha69j": {
+              "id": "card_psxkag9ha69j",
+              "question": "Qual é a principal função do Amazon EC2?",
+              "answer": "Permitir que usuários executem máquinas virtuais na nuvem.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "função"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.080Z"
+            },
+            "card_psxkagu4e7yh": {
+              "id": "card_psxkagu4e7yh",
+              "question": "O que são instâncias no EC2?",
+              "answer": "São máquinas virtuais criadas a partir de um Amazon Machine Image (AMI).",
+              "tags": [
+                "AWS",
+                "instâncias",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkah1yh4ja": {
+              "id": "card_psxkah1yh4ja",
+              "question": "O que são AMIs?",
+              "answer": "Amazon Machine Images são modelos que contêm as configurações necessárias para iniciar instâncias.",
+              "tags": [
+                "AWS",
+                "AMIs",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkaht8civ1": {
+              "id": "card_psxkaht8civ1",
+              "question": "Qual é o propósito dos tipos de instância no EC2?",
+              "answer": "Oferecer diferentes combinações de CPU, memória e armazenamento para atender a diversas necessidades.",
+              "tags": [
+                "AWS",
+                "tipos de instância",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkahhu0cox": {
+              "id": "card_psxkahhu0cox",
+              "question": "O que é elasticidade no contexto do EC2?",
+              "answer": "A capacidade de aumentar ou diminuir a capacidade de computação automaticamente.",
+              "tags": [
+                "AWS",
+                "elasticidade",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkahmr2l60": {
+              "id": "card_psxkahmr2l60",
+              "question": "Como o EC2 cobra os usuários?",
+              "answer": "Por hora de uso ou segundo, dependendo do tipo de instância e do modelo de pagamento.",
+              "tags": [
+                "AWS",
+                "cobrança",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkah2a15gx": {
+              "id": "card_psxkah2a15gx",
+              "question": "O que são grupos de segurança no EC2?",
+              "answer": "São firewalls virtuais que controlam o tráfego de entrada e saída das instâncias.",
+              "tags": [
+                "AWS",
+                "grupos de segurança",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkahmwemo8": {
+              "id": "card_psxkahmwemo8",
+              "question": "Qual é a função do Elastic Load Balancing no EC2?",
+              "answer": "Distribuir automaticamente o tráfego de entrada entre várias instâncias.",
+              "tags": [
+                "AWS",
+                "Elastic Load Balancing",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_psxkahlorsb3": {
+              "id": "card_psxkahlorsb3",
+              "question": "O que é o Amazon EC2 Auto Scaling?",
+              "answer": "Um serviço que ajusta automaticamente o número de instâncias com base na demanda.",
+              "tags": [
+                "AWS",
+                "Auto Scaling",
+                "EC2"
+              ],
+              "category": "EC2",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:06:17.081Z"
+            },
+            "card_pt20mi64nddd": {
+              "id": "card_pt20mi64nddd",
+              "question": "O que significa VPC na AWS?",
+              "answer": "VPC significa Virtual Private Cloud.",
+              "tags": [
+                "VPC",
+                "AWS",
+                "nuvem"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20miep48dq": {
+              "id": "card_pt20miep48dq",
+              "question": "Qual é a função principal de uma VPC?",
+              "answer": "Isolar recursos em uma rede virtual privada na nuvem.",
+              "tags": [
+                "VPC",
+                "isolamento",
+                "rede"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mir90c2k": {
+              "id": "card_pt20mir90c2k",
+              "question": "Quantas VPCs você pode criar por região na AWS?",
+              "answer": "Você pode criar até 5 VPCs por região por padrão.",
+              "tags": [
+                "limites",
+                "VPC",
+                "região"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20min9448r": {
+              "id": "card_pt20min9448r",
+              "question": "O que são sub-redes em uma VPC?",
+              "answer": "Sub-redes são divisões da VPC que permitem organizar e segmentar recursos.",
+              "tags": [
+                "sub-redes",
+                "VPC",
+                "organização"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mitmfv6t": {
+              "id": "card_pt20mitmfv6t",
+              "question": "O que são grupos de segurança em uma VPC?",
+              "answer": "Grupos de segurança atuam como firewalls virtuais para controlar o tráfego de entrada e saída.",
+              "tags": [
+                "grupos de segurança",
+                "firewall",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mi95zweq": {
+              "id": "card_pt20mi95zweq",
+              "question": "O que é uma tabela de rotas na VPC?",
+              "answer": "Uma tabela de rotas determina como o tráfego é direcionado dentro da VPC e para fora.",
+              "tags": [
+                "tabela de rotas",
+                "tráfego",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mie45ssc": {
+              "id": "card_pt20mie45ssc",
+              "question": "O que é um gateway da Internet em uma VPC?",
+              "answer": "Um gateway da Internet permite que instâncias na VPC se comuniquem com a Internet.",
+              "tags": [
+                "gateway",
+                "Internet",
+                "VPC"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20miw1fq5z": {
+              "id": "card_pt20miw1fq5z",
+              "question": "O que é o peering de VPC?",
+              "answer": "Peering de VPC permite que duas VPCs se comuniquem entre si como se estivessem na mesma rede.",
+              "tags": [
+                "peering",
+                "VPC",
+                "conexão"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mipztus0": {
+              "id": "card_pt20mipztus0",
+              "question": "Qual é o propósito de uma VPC privada?",
+              "answer": "Uma VPC privada é usada para hospedar recursos que não precisam ser acessíveis da Internet.",
+              "tags": [
+                "VPC privada",
+                "recursos",
+                "acesso"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt20mifp368v": {
+              "id": "card_pt20mifp368v",
+              "question": "O que é um endpoint de VPC?",
+              "answer": "Um endpoint de VPC permite que você conecte sua VPC a serviços da AWS sem usar a Internet.",
+              "tags": [
+                "endpoint",
+                "VPC",
+                "serviços AWS"
+              ],
+              "category": "VPC",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:09:44.874Z"
+            },
+            "card_pt5xtkm8r02e": {
+              "id": "card_pt5xtkm8r02e",
+              "question": "O que é AWS Lambda?",
+              "answer": "Um serviço de computação que permite executar código sem provisionar ou gerenciar servidores.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Computação sem servidor"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtk3egmiw": {
+              "id": "card_pt5xtk3egmiw",
+              "question": "Quais linguagens de programação são suportadas pelo AWS Lambda?",
+              "answer": "Python, Node.js, Java, Ruby, C#, Go, e PowerShell.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Linguagens de programação"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtkfwy9w5": {
+              "id": "card_pt5xtkfwy9w5",
+              "question": "Qual é o principal benefício do AWS Lambda?",
+              "answer": "Pagar apenas pelo tempo de execução do código, sem custos quando não está em uso.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Benefícios"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtkud3a5g": {
+              "id": "card_pt5xtkud3a5g",
+              "question": "Como o AWS Lambda é acionado?",
+              "answer": "Por eventos de serviços da AWS, como S3, DynamoDB, SNS, e API Gateway.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Eventos"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtkdbxlxc": {
+              "id": "card_pt5xtkdbxlxc",
+              "question": "Qual é o limite de tempo de execução para uma função Lambda?",
+              "answer": "Até 15 minutos por invocação.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Limites"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtklsyv83": {
+              "id": "card_pt5xtklsyv83",
+              "question": "O que é uma função Lambda?",
+              "answer": "Um bloco de código que é executado em resposta a um evento.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Função"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtk9m6kbq": {
+              "id": "card_pt5xtk9m6kbq",
+              "question": "Qual é o tamanho máximo do pacote de implantação de uma função Lambda?",
+              "answer": "O tamanho máximo é de 50 MB para o pacote de implantação zipado.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Tamanho"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtkt0fjot": {
+              "id": "card_pt5xtkt0fjot",
+              "question": "O que é o AWS Lambda Layers?",
+              "answer": "Uma maneira de empacotar e compartilhar código e dependências entre funções Lambda.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Layers"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtku0a4ya": {
+              "id": "card_pt5xtku0a4ya",
+              "question": "Como o AWS Lambda lida com escalabilidade?",
+              "answer": "Escala automaticamente em resposta ao número de eventos recebidos.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Escalabilidade"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pt5xtk974j34": {
+              "id": "card_pt5xtk974j34",
+              "question": "O que é a função de timeout no AWS Lambda?",
+              "answer": "É o tempo máximo que uma função Lambda pode executar antes de ser encerrada automaticamente.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Timeout"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:12:47.864Z"
+            },
+            "card_pta3xd8kd6q5": {
+              "id": "card_pta3xd8kd6q5",
+              "question": "O que é ELB na AWS?",
+              "answer": "Elastic Load Balancing, um serviço que distribui automaticamente o tráfego de entrada entre várias instâncias.",
+              "tags": [
+                "ELB",
+                "AWS",
+                "Load Balancer"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xd59vj8w": {
+              "id": "card_pta3xd59vj8w",
+              "question": "Quais são os tipos de Load Balancers disponíveis no ELB?",
+              "answer": "Application Load Balancer, Network Load Balancer e Classic Load Balancer.",
+              "tags": [
+                "ELB",
+                "Tipos",
+                "Load Balancer"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xd13l639": {
+              "id": "card_pta3xd13l639",
+              "question": "Qual é a principal função de um Auto Scaling Group (ASG)?",
+              "answer": "Gerenciar automaticamente a quantidade de instâncias EC2 em execução com base na demanda.",
+              "tags": [
+                "ASG",
+                "Auto Scaling",
+                "EC2"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xdpea9r5": {
+              "id": "card_pta3xdpea9r5",
+              "question": "Como o ELB melhora a disponibilidade de aplicações?",
+              "answer": "Distribuindo o tráfego de forma eficiente entre várias instâncias, evitando sobrecarga em uma única instância.",
+              "tags": [
+                "Disponibilidade",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xdmpxasr": {
+              "id": "card_pta3xdmpxasr",
+              "question": "O que é um Health Check no contexto do ELB?",
+              "answer": "Um mecanismo que verifica se as instâncias estão saudáveis e prontas para receber tráfego.",
+              "tags": [
+                "Health Check",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xdktaws0": {
+              "id": "card_pta3xdktaws0",
+              "question": "O que significa 'Scaling Up' em um ASG?",
+              "answer": "Aumentar o número de instâncias EC2 para atender à demanda de tráfego crescente.",
+              "tags": [
+                "Scaling Up",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xddbldip": {
+              "id": "card_pta3xddbldip",
+              "question": "O que é um Target Group no ELB?",
+              "answer": "Um grupo de instâncias que podem receber tráfego de um Load Balancer.",
+              "tags": [
+                "Target Group",
+                "ELB"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xd0ox0kz": {
+              "id": "card_pta3xd0ox0kz",
+              "question": "Qual é a diferença entre um Load Balancer de Aplicação e um Load Balancer de Rede?",
+              "answer": "O Load Balancer de Aplicação opera na camada 7, enquanto o Load Balancer de Rede opera na camada 4 do modelo OSI.",
+              "tags": [
+                "ALB",
+                "NLB",
+                "Camadas"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xd0ye1ca": {
+              "id": "card_pta3xd0ye1ca",
+              "question": "O que é 'Auto Scaling Policy'?",
+              "answer": "Condições definidas para escalar automaticamente a quantidade de instâncias de acordo com métricas específicas.",
+              "tags": [
+                "Auto Scaling Policy",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            },
+            "card_pta3xdf32fp6": {
+              "id": "card_pta3xdf32fp6",
+              "question": "Como você pode garantir que um ASG mantenha sempre um número mínimo de instâncias?",
+              "answer": "Definindo uma política de escalonamento que especifique um número mínimo de instâncias desejadas.",
+              "tags": [
+                "Min Instâncias",
+                "ASG"
+              ],
+              "category": "ELB & ASG",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T00:16:02.401Z"
+            }
+          },
+          "reviewedCount": 10
+        }
+      }
     }
   }
 }

@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { PdfIcon } from './icons';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
@@ -17,6 +17,12 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
   const pdfInputRef = useRef<HTMLInputElement | null>(null);
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
+
+  useEffect(() => {
+    if (!message) return;
+    const t = setTimeout(() => setMessage(null), 4600);
+    return () => clearTimeout(t);
+  }, [message]);
 
   const generate = async () => {
     const useExisting = Boolean(selectedDeckId);
@@ -71,7 +77,7 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
       const res = await api.post('/generate-from-pdf', form, { headers: { 'Content-Type': 'multipart/form-data' } });
       const deck = res.data.deck as Deck;
       onDeckCreated(deck);
-      setMessage({ type: 'success', text: 'Cards gerados a partir do PDF com sucesso!' });
+      setMessage({ type: 'success', text: 'Cards gerados com sucesso!' });
       setPdfFile(null);
     } catch (e: any) {
       const msg = e?.response?.data?.error || e?.message || 'Erro desconhecido';
@@ -90,7 +96,7 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
       <h2>Gerar Flashcards com IA</h2>
       <p className="subtitle">Escolha o modo e preencha os dados necessários.</p>
       {message && (
-        <div className={`alert ${message.type}`}>{message.text}</div>
+        <div className={`alert ${message.type} auto-hide`}>{message.text}</div>
       )}
       <div className={`panel ${loading ? 'loading' : ''}`}>
         <div className="panel-header">
@@ -177,11 +183,10 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
           onClick={() => (pdfMode ? generateFromPdf() : generate())}
           disabled={loading || !canSubmit}
         >
-          {loading ? (<span className="spinner" />) : 'Gerar'}
+          {loading && (<span className="spinner" />)}
+          {'Gerar'}
         </button>
-        {message && (
-          <div className={`alert compact ${message.type}`} style={{ marginTop: 10 }}>{message.text}</div>
-        )}
+        {/* Mensagem compacta removida para evitar redundância */}
       </div>
       </div>
     </section>
