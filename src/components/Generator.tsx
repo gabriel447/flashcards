@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { PdfIcon } from './icons';
+import { PdfIcon, CopyIcon } from './icons';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 
@@ -120,31 +120,54 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
           </div>
           )}
           {pdfMode && (
-            <div className="file-row">
-              <input
-                ref={pdfInputRef}
-                type="file"
-                accept="application/pdf,.pdf"
-                onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
-                disabled={loading}
-                style={{ display: 'none' }}
-              />
-              <button
-                type="button"
-                className="link-btn small"
-                onClick={() => pdfInputRef.current?.click()}
-                disabled={loading}
-              >
-                <PdfIcon size={14} className="pdf-icon" />
-                Selecionar PDF
-              </button>
-              <span className="file-name">{pdfFile ? pdfFile.name : 'Nenhum arquivo selecionado'}</span>
-              {pdfFile && (
-                <button type="button" className="link-btn small danger" onClick={() => setPdfFile(null)} disabled={loading}>Remover</button>
-              )}
-              <div className="hint" style={{ marginTop: '0.5rem', fontSize: '0.9rem', color: '#4b5563' }}>
-                Dica: para melhor resultado, use PDF em texto com o padrão FC-*.
-                Linhas aceitas: "FC-CATEGORY: &lt;Categoria&gt;", "FC-ITEM: &lt;Nome: descrição&gt;", "FC-INFO: &lt;essencial&gt;", "FC-POINT: &lt;ponto-chave&gt;".
+            <div className="pdf-header" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              {/* Dica acima do seletor de PDF */}
+              <div className="hint" style={{ fontSize: '0.92rem', color: '#4b5563', display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
+                <span>Dica: antes de enviar, gere o PDF com o prompt padrão (FC-*).</span>
+                <button
+                  type="button"
+                  className="link-btn small"
+                  onClick={async () => {
+                    try {
+                      const res = await fetch('/fc-prompt-ptbr.txt');
+                      const txt = await res.text();
+                      await navigator.clipboard.writeText(txt);
+                      setMessage({ type: 'success', text: 'Prompt copiado para a área de transferência.' });
+                    } catch (e) {
+                      setMessage({ type: 'error', text: 'Não foi possível copiar o prompt.' });
+                    }
+                  }}
+                  aria-label="Copiar prompt"
+                  disabled={loading}
+                  style={{ display: 'inline-flex', alignItems: 'center' }}
+                >
+                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+                    <CopyIcon size={14} /> Copiar prompt
+                  </span>
+                </button>
+              </div>
+              <div className="file-row">
+                <input
+                  ref={pdfInputRef}
+                  type="file"
+                  accept="application/pdf,.pdf"
+                  onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
+                  disabled={loading}
+                  style={{ display: 'none' }}
+                />
+                <button
+                  type="button"
+                  className="link-btn small"
+                  onClick={() => pdfInputRef.current?.click()}
+                  disabled={loading}
+                >
+                  <PdfIcon size={14} className="pdf-icon" />
+                  Selecionar PDF
+                </button>
+                <span className="file-name">{pdfFile ? pdfFile.name : 'Nenhum arquivo selecionado'}</span>
+                {pdfFile && (
+                  <button type="button" className="link-btn small danger" onClick={() => setPdfFile(null)} disabled={loading}>Remover</button>
+                )}
               </div>
             </div>
           )}
