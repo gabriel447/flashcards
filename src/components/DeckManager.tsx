@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 import { TrashIcon, DownloadIcon, ChevronDownIcon } from './icons';
+import { ConfirmModal } from './ConfirmModal';
 
 type Props = {
   userId: string;
@@ -15,6 +16,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   const [importing, setImporting] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [openDecks, setOpenDecks] = useState<Record<string, boolean>>({});
+  const [confirm, setConfirm] = useState<null | { type: 'deck' | 'category'; deckId: string; category?: string }>(null);
 
   const createDeck = async () => {
     if (!newDeckName.trim()) return;
@@ -25,8 +27,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   };
 
   const deleteDeck = async (deckId: string) => {
-    const ok = window.confirm('Tem certeza que deseja deletar este deck? Isso removerá todos os cards.');
-    if (!ok) return;
     await api.delete(`/decks/${deckId}`, { params: { userId } });
     const next = { ...decks };
     delete next[deckId];
@@ -74,8 +74,6 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
   };
 
   const deleteCategory = async (deckId: string, category: string) => {
-    const ok = window.confirm(`Deletar categoria "${category}" e todos os cards associados?`);
-    if (!ok) return;
     await api.delete(`/decks/${deckId}/categories/${encodeURIComponent(category)}`, { params: { userId } });
     const res = await api.get('/decks', { params: { userId } });
     onUpdateDecks(res.data.decks || {});
@@ -142,7 +140,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
                     className="icon-btn danger"
                     title="Deletar deck"
                     aria-label="Deletar deck"
-                    onClick={(e) => { e.stopPropagation(); deleteDeck(deck.id); }}
+                    onClick={(e) => { e.stopPropagation(); setConfirm({ type: 'deck', deckId: deck.id }); }}
                   >
                     <TrashIcon />
                   </button>
@@ -168,7 +166,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
                               className="icon-btn danger"
                               title="Deletar categoria"
                               aria-label="Deletar categoria"
-                              onClick={(e) => { e.stopPropagation(); deleteCategory(deck.id, category); }}
+                              onClick={(e) => { e.stopPropagation(); setConfirm({ type: 'category', deckId: deck.id, category }); }}
                             >
                               <TrashIcon />
                             </button>
@@ -182,6 +180,21 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
             </div>
           ))}
         </div>
+      )}
+      {confirm && (
+        <ConfirmModal
+          open={true}
+          title={confirm.type === 'deck' ? 'Confirmar exclusão de deck' : 'Confirmar exclusão de categoria'}
+          message={confirm.type === 'deck' ? 'Tem certeza que deseja deletar este deck?\nIsso removerá todos os cards.' : `Deletar categoria "${confirm.category}" e todos os cards associados?`}
+          confirmText="Deletar"
+          cancelText="Cancelar"
+          onConfirm={async () => {
+            if (confirm.type === 'deck') await deleteDeck(confirm.deckId);
+            else if (confirm.type === 'category' && confirm.category) await deleteCategory(confirm.deckId, confirm.category);
+            setConfirm(null);
+          }}
+          onCancel={() => setConfirm(null)}
+        />
       )}
     </section>
   );

@@ -4,14 +4,12 @@
   padding: 5.5rem 1rem 2rem;
   text-align: left;
 }
-
-/* Toggle switch for PDF mode */
 .toggle {
   position: relative;
   width: 56px;
   height: 30px;
   border-radius: 999px;
-  background: #9ca3af; /* gray */
+  background: #9ca3af;
   border: 1px solid #9ca3af;
   display: inline-flex;
   align-items: center;
@@ -160,7 +158,6 @@
 .panel-header .toggle { margin-left: auto; }
 .deck-select { display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap; }
 .hint { margin-top: 6px; color: #808e9b; }
-.panel.loading, .panel.loading * { /* removido cursor global */ }
 .global-loading, .global-loading * { cursor: progress !important; }
 .chip-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .chip { border: 1px solid #e5e7eb; background: #ffffff; color: #0f172a; border-radius: 999px; padding: 0.35rem 0.75rem; font-weight: 600; cursor: pointer; }
@@ -193,6 +190,11 @@
 .alert.warning::before { content: '⚠'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #d29a20; color: #ffffff; font-size: 12px; }
 .alert.info { background: #fff8e1; border-color: #ffe5a1; color: #7a5c0a; }
 .alert.info::before { content: '⚠'; display: inline-flex; align-items: center; justify-content: center; width: 20px; height: 20px; border-radius: 999px; background: #d29a20; color: #ffffff; font-size: 12px; }
+.modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.35); display: flex; align-items: center; justify-content: center; z-index: 1000; }
+.modal-box { background: #ffffff; border: 1px solid #e5e7eb; border-radius: 12px; box-shadow: 0 16px 40px rgba(0,0,0,0.16); width: 92%; max-width: 420px; padding: 1rem; }
+.modal-title { margin: 0 0 0.5rem 0; font-size: 1.1rem; color: #111827; }
+.modal-message { margin: 0.25rem 0 0.75rem 0; color: #374151; white-space: pre-line; }
+.modal-actions { display: flex; gap: 0.5rem; justify-content: flex-end; }
 .alert.compact { padding: 0.4rem 0.6rem; font-size: 0.85rem; max-width: 360px; }
 .alert.auto-hide { animation: fadeout 0.6s ease forwards; animation-delay: 4s; }
 @keyframes fadeout { to { opacity: 0; transform: translateY(-2px); } }
@@ -215,6 +217,8 @@
   .btn { border-color: #1f2937; background: #111827; color: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
   .btn:hover { background: #0b1220; }
   .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
+  .btn-danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
+  .btn-danger:hover { background: #dc2626; border-color: #dc2626; }
   .btn-secondary { background: #374151; border-color: #374151; color: #e5e7eb; }
   .btn-secondary:hover { background: #2b3442; }
   .btn-outline { background: transparent; border-color: #374151; color: #e5e7eb; }
