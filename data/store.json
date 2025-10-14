@@ -531,278 +531,202 @@
       },
       "reviewedCount": 0,
       "decks": {
-        "deck_r118v8qlfwvj": {
-          "id": "deck_r118v8qlfwvj",
+        "deck_r5ml0j7jjzfu": {
+          "id": "deck_r5ml0j7jjzfu",
           "name": "AWS",
           "cards": {
-            "card_r11knjurjlu3": {
-              "id": "card_r11knjurjlu3",
-              "question": "O que é Amazon RDS?",
-              "answer": "Amazon RDS (Relational Database Service) é um serviço gerenciado que facilita a configuração, operação e escalabilidade de bancos de dados relacionais na nuvem.",
+            "card_r5mrdo22sc3o": {
+              "id": "card_r5mrdo22sc3o",
+              "question": "O que é o Amazon CloudFront?",
+              "answer": "É um serviço de distribuição de conteúdo (CDN) que acelera a entrega de sites e aplicativos.",
               "tags": [
-                "RDS",
-                "banco de dados",
-                "serviço gerenciado"
+                "CDN",
+                "Amazon",
+                "CloudFront"
               ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:21.277Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:21.277Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:21.277Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjhy8f9y": {
-              "id": "card_r11knjhy8f9y",
-              "question": "Qual a principal vantagem de usar Amazon DynamoDB?",
-              "answer": "A principal vantagem do Amazon DynamoDB é sua capacidade de escalar automaticamente para lidar com grandes volumes de dados e alta taxa de requisições, mantendo baixa latência.",
-              "tags": [
-                "DynamoDB",
-                "NoSQL",
-                "escalabilidade"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:23.328Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:23.328Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:23.328Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knj8amc85": {
-              "id": "card_r11knj8amc85",
-              "question": "O que é Amazon Redshift?",
-              "answer": "Amazon Redshift é um serviço de data warehouse que permite realizar análises de grandes volumes de dados com alta velocidade e eficiência.",
-              "tags": [
-                "Redshift",
-                "data warehouse",
-                "análise de dados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:25.240Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:25.240Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:25.240Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjazqg2c": {
-              "id": "card_r11knjazqg2c",
-              "question": "Como o Amazon S3 se relaciona com bancos de dados?",
-              "answer": "O Amazon S3 (Simple Storage Service) é usado para armazenar dados não estruturados, que podem ser integrados a bancos de dados para análises e relatórios.",
-              "tags": [
-                "S3",
-                "armazenamento",
-                "dados não estruturados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:27.183Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:27.183Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:27.183Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjxq3utd": {
-              "id": "card_r11knjxq3utd",
-              "question": "O que é Amazon Aurora?",
-              "answer": "Amazon Aurora é um banco de dados relacional compatível com MySQL e PostgreSQL que oferece desempenho superior e alta disponibilidade.",
-              "tags": [
-                "Aurora",
-                "banco de dados",
-                "MySQL",
-                "PostgreSQL"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:29.404Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:29.404Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:29.404Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knji7zvpp": {
-              "id": "card_r11knji7zvpp",
-              "question": "Quais são os tipos de instâncias disponíveis no Amazon RDS?",
-              "answer": "O Amazon RDS oferece tipos de instâncias como Standard, Memory Optimized e Burstable, cada uma adequada a diferentes cargas de trabalho.",
-              "tags": [
-                "RDS",
-                "instâncias",
-                "tipos de instâncias"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:31.727Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:31.727Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:31.727Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knj21uhmb": {
-              "id": "card_r11knj21uhmb",
-              "question": "O que é o AWS Glue?",
-              "answer": "AWS Glue é um serviço de ETL (Extração, Transformação e Carga) que facilita a preparação de dados para análise, automatizando tarefas de movimentação e transformação.",
-              "tags": [
-                "Glue",
-                "ETL",
-                "preparação de dados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:33.492Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:33.492Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:33.492Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjgmwgfc": {
-              "id": "card_r11knjgmwgfc",
-              "question": "O que é Amazon ElastiCache?",
-              "answer": "Amazon ElastiCache é um serviço que fornece cache em memória para aumentar a performance de aplicativos, suportando Redis e Memcached.",
-              "tags": [
-                "ElastiCache",
-                "cache em memória",
-                "performance"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:41:36.014Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:41:36.014Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:36.014Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjiqi34y": {
-              "id": "card_r11knjiqi34y",
-              "question": "Como os dados são armazenados no Amazon DynamoDB?",
-              "answer": "No Amazon DynamoDB, os dados são armazenados em tabelas que permitem acesso rápido e escalável, utilizando chaves primárias e índices secundários.",
-              "tags": [
-                "DynamoDB",
-                "armazenamento",
-                "tabelas"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.5,
-              "nextReviewAt": "2025-10-18T21:09:51.954Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-14T21:09:51.954Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:38.740Z",
-                  "grade": 2
-                },
-                {
-                  "ts": "2025-10-14T21:09:51.954Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11knjpj9tkz": {
-              "id": "card_r11knjpj9tkz",
-              "question": "O que é Amazon QuickSight?",
-              "answer": "Amazon QuickSight é um serviço de BI (Business Intelligence) que permite a visualização e análise de dados, facilitando a criação de dashboards interativos.",
-              "tags": [
-                "QuickSight",
-                "BI",
-                "visualização de dados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.5,
-              "nextReviewAt": "2025-10-18T21:09:54.715Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-14T21:09:54.715Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:41:42.175Z",
-                  "grade": 2
-                },
-                {
-                  "ts": "2025-10-14T21:09:54.715Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r11rxku2e24p": {
-              "id": "card_r11rxku2e24p",
-              "question": "O que é o Amazon Neptune?",
-              "answer": "O Amazon Neptune é um serviço de banco de dados gráfico totalmente gerenciado que facilita a criação e o gerenciamento de aplicações que usam grafos, permitindo consultas eficientes em dados altamente conectados.",
-              "tags": [
-                "AWS",
-                "Databases & Analytics",
-                "Neptune",
-                "banco de dados gráfico",
-                "aws",
-                "databases & analytics",
-                "neptune"
-              ],
-              "category": "Databases & Analytics",
+              "category": "Global Applications",
               "repetitions": 0,
               "interval": 0,
               "easeFactor": 2.35,
-              "nextReviewAt": "2025-10-14T22:31:28.073Z",
+              "nextReviewAt": "2025-10-14T22:59:37.312Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T22:21:28.073Z",
+              "lastReviewedAt": "2025-10-14T22:49:37.312Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T22:21:28.073Z",
+                  "ts": "2025-10-14T22:49:37.312Z",
                   "grade": 2
                 }
               ]
+            },
+            "card_r5mrdpg73q9u": {
+              "id": "card_r5mrdpg73q9u",
+              "question": "Qual a finalidade do AWS Global Accelerator?",
+              "answer": "Melhorar a disponibilidade e a performance de aplicações globais, direcionando o tráfego para endpoints saudáveis.",
+              "tags": [
+                "Global Accelerator",
+                "performance",
+                "disponibilidade"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T22:59:39.701Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T22:49:39.701Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T22:49:39.701Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_r5mrdp2yeclv": {
+              "id": "card_r5mrdp2yeclv",
+              "question": "O que é o AWS Route 53?",
+              "answer": "É um serviço de DNS que oferece registro de domínio e roteamento de tráfego para aplicações na AWS.",
+              "tags": [
+                "DNS",
+                "Route 53",
+                "roteamento"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T22:59:41.922Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T22:49:41.922Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T22:49:41.922Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_r5mrdp6na3tj": {
+              "id": "card_r5mrdp6na3tj",
+              "question": "Quais são os principais benefícios do uso do AWS Global Infrastructure?",
+              "answer": "Oferece baixa latência, alta disponibilidade e redundância geográfica para aplicações.",
+              "tags": [
+                "infraestrutura",
+                "latência",
+                "disponibilidade"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T22:59:44.078Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T22:49:44.078Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T22:49:44.078Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_r5mrdpgzkalb": {
+              "id": "card_r5mrdpgzkalb",
+              "question": "O que é o Amazon Aurora Global Database?",
+              "answer": "É uma versão do banco de dados Aurora que permite replicação em múltiplas regiões com baixa latência.",
+              "tags": [
+                "Aurora",
+                "banco de dados",
+                "replicação"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T22:59:46.684Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T22:49:46.684Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T22:49:46.684Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_r5mrdphwrpid": {
+              "id": "card_r5mrdphwrpid",
+              "question": "Como o AWS Lambda pode ser utilizado em aplicações globais?",
+              "answer": "Permite executar código sem provisionar servidores, respondendo a eventos em qualquer região.",
+              "tags": [
+                "Lambda",
+                "serverless",
+                "eventos"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T22:49:34.237Z"
+            },
+            "card_r5mrdpnzt4sf": {
+              "id": "card_r5mrdpnzt4sf",
+              "question": "Qual é o papel do Amazon S3 em aplicações globais?",
+              "answer": "Armazenar e recuperar qualquer quantidade de dados de forma escalável e segura em qualquer lugar do mundo.",
+              "tags": [
+                "S3",
+                "armazenamento",
+                "segurança"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T22:49:34.237Z"
+            },
+            "card_r5mrdphoslya": {
+              "id": "card_r5mrdphoslya",
+              "question": "O que é o AWS AppSync?",
+              "answer": "É um serviço que facilita a criação de APIs GraphQL para aplicativos móveis e web, integrando dados de várias fontes.",
+              "tags": [
+                "AppSync",
+                "APIs",
+                "GraphQL"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T22:49:34.237Z"
+            },
+            "card_r5mrdppjbmh7": {
+              "id": "card_r5mrdppjbmh7",
+              "question": "Como o AWS Direct Connect pode beneficiar aplicações globais?",
+              "answer": "Fornece uma conexão dedicada e privada entre sua rede local e a AWS, melhorando a performance e segurança.",
+              "tags": [
+                "Direct Connect",
+                "conexão",
+                "segurança"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T22:49:34.237Z"
+            },
+            "card_r5mrdpbvlcy3": {
+              "id": "card_r5mrdpbvlcy3",
+              "question": "Qual é a função do Amazon Elastic Load Balancing?",
+              "answer": "Distribuir automaticamente o tráfego de entrada entre várias instâncias de aplicação para garantir alta disponibilidade.",
+              "tags": [
+                "Elastic Load Balancing",
+                "distribuição",
+                "alta disponibilidade"
+              ],
+              "category": "Global Applications",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T22:49:34.237Z"
             }
           },
-          "reviewedCount": 13
+          "reviewedCount": 5
         }
       }
     }
