@@ -450,7 +450,312 @@
       "decks": {}
     },
     "anon": {
-      "decks": {}
+      "decks": {
+        "deck_q25mphpsdit5": {
+          "id": "deck_q25mphpsdit5",
+          "name": "AWS",
+          "cards": {
+            "card_q2axxxzjyq3k": {
+              "id": "card_q2axxxzjyq3k",
+              "question": "O que é o Amazon S3?",
+              "answer": "Um serviço de armazenamento de objetos na nuvem da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "armazenamento"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxw0t01w": {
+              "id": "card_q2axxxw0t01w",
+              "question": "Qual é o principal uso do Amazon S3?",
+              "answer": "Armazenar e recuperar qualquer quantidade de dados a qualquer momento.",
+              "tags": [
+                "AWS",
+                "S3",
+                "uso"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxx565he": {
+              "id": "card_q2axxxx565he",
+              "question": "O que são 'buckets' no S3?",
+              "answer": "Contêineres para armazenar objetos no Amazon S3.",
+              "tags": [
+                "AWS",
+                "S3",
+                "buckets"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxoqk4vx": {
+              "id": "card_q2axxxoqk4vx",
+              "question": "Como é a estrutura de nomenclatura de um bucket S3?",
+              "answer": "Deve ser única globalmente e seguir as regras de DNS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "nomenclatura"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxitztzv": {
+              "id": "card_q2axxxitztzv",
+              "question": "O que são objetos no Amazon S3?",
+              "answer": "Dados armazenados em um bucket, consistindo em um arquivo e metadados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "objetos"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxweh717": {
+              "id": "card_q2axxxweh717",
+              "question": "Qual a capacidade de armazenamento do Amazon S3?",
+              "answer": "Praticamente ilimitada, permitindo armazenar quantidades massivas de dados.",
+              "tags": [
+                "AWS",
+                "S3",
+                "capacidade"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxx6n7xc2": {
+              "id": "card_q2axxx6n7xc2",
+              "question": "Quais são as classes de armazenamento do S3?",
+              "answer": "Standard, Intelligent-Tiering, Standard-IA, One Zone-IA, Glacier, entre outras.",
+              "tags": [
+                "AWS",
+                "S3",
+                "classes"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxplmgv3": {
+              "id": "card_q2axxxplmgv3",
+              "question": "O que é versionamento no Amazon S3?",
+              "answer": "A capacidade de manter várias versões de um objeto em um bucket.",
+              "tags": [
+                "AWS",
+                "S3",
+                "versionamento"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxw661tp": {
+              "id": "card_q2axxxw661tp",
+              "question": "Como o S3 garante a segurança dos dados?",
+              "answer": "Através de criptografia, controle de acesso e políticas de bucket.",
+              "tags": [
+                "AWS",
+                "S3",
+                "segurança"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            },
+            "card_q2axxxfkaq90": {
+              "id": "card_q2axxxfkaq90",
+              "question": "O que é o Amazon S3 Transfer Acceleration?",
+              "answer": "Uma funcionalidade que acelera a transferência de arquivos para o S3 usando a rede da AWS.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Transfer Acceleration"
+              ],
+              "category": "S3",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:37.845Z"
+            }
+          },
+          "reviewedCount": 1
+        },
+        "deck_q29u2uubj1lc": {
+          "id": "deck_q29u2uubj1lc",
+          "name": "Design Patterns",
+          "cards": {
+            "card_q2a6miczw3a7": {
+              "id": "card_q2a6miczw3a7",
+              "question": "O que é o padrão Singleton?",
+              "answer": "Um padrão de design que garante que uma classe tenha apenas uma instância e fornece um ponto de acesso global a ela.",
+              "tags": [
+                "Singleton",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6miz40iff": {
+              "id": "card_q2a6miz40iff",
+              "question": "Qual é o propósito do padrão Factory Method?",
+              "answer": "Definir uma interface para criar um objeto, mas permitir que as subclasses decidam qual classe instanciar.",
+              "tags": [
+                "Factory Method",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mihcu5pt": {
+              "id": "card_q2a6mihcu5pt",
+              "question": "O que é o padrão Abstract Factory?",
+              "answer": "Um padrão que fornece uma interface para criar famílias de objetos relacionados sem especificar suas classes concretas.",
+              "tags": [
+                "Abstract Factory",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mif9a8ag": {
+              "id": "card_q2a6mif9a8ag",
+              "question": "Quando usar o padrão Builder?",
+              "answer": "Quando um objeto precisa ser criado com diferentes representações ou quando seu processo de construção é complexo.",
+              "tags": [
+                "Builder",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mivj7n5y": {
+              "id": "card_q2a6mivj7n5y",
+              "question": "O que é o padrão Prototype?",
+              "answer": "Um padrão que permite copiar objetos existentes sem tornar o código dependente de suas classes concretas.",
+              "tags": [
+                "Prototype",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6milxl16b": {
+              "id": "card_q2a6milxl16b",
+              "question": "Qual é a principal vantagem do padrão Singleton?",
+              "answer": "Controlar o acesso a um recurso compartilhado e garantir que somente uma instância do objeto seja criada.",
+              "tags": [
+                "Singleton",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mirjqzt9": {
+              "id": "card_q2a6mirjqzt9",
+              "question": "Como o padrão Factory Method melhora a flexibilidade?",
+              "answer": "Permite que o código cliente trabalhe com interfaces em vez de classes concretas, facilitando a adição de novas classes.",
+              "tags": [
+                "Factory Method",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mixih9hk": {
+              "id": "card_q2a6mixih9hk",
+              "question": "Quais problemas o padrão Abstract Factory resolve?",
+              "answer": "Facilita a criação de objetos que pertencem a famílias de classes relacionadas, garantindo consistência entre eles.",
+              "tags": [
+                "Abstract Factory",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mia8hdi1": {
+              "id": "card_q2a6mia8hdi1",
+              "question": "Quais são os principais componentes do padrão Builder?",
+              "answer": "O construtor, o diretor e o produto, que colaboram para a criação do objeto complexo.",
+              "tags": [
+                "Builder",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            },
+            "card_q2a6mii2l3ly": {
+              "id": "card_q2a6mii2l3ly",
+              "question": "Como o padrão Prototype facilita a criação de novos objetos?",
+              "answer": "Permite criar novos objetos através da clonagem de um objeto existente, evitando a necessidade de instanciar diretamente.",
+              "tags": [
+                "Prototype",
+                "Criacionais"
+              ],
+              "category": "Criacionais",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T04:28:02.442Z"
+            }
+          },
+          "reviewedCount": 0
+        }
+      }
     }
   }
 }

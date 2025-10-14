@@ -32,31 +32,6 @@ function persist(store) {
   saveStore(store);
 }
 
-// Normalização
-function normalizeUserDecks(store, userId) {
-  const decks = (store.users[userId] && store.users[userId].decks) || {};
-  let updated = false;
-  Object.values(decks).forEach(d => {
-    Object.values(d.cards || {}).forEach(c => {
-      if (!c.nextReviewAt && c.due) { c.nextReviewAt = c.due; updated = true; }
-      if (c.due) { delete c.due; updated = true; }
-    });
-  });
-  return updated;
-}
-
-function normalizeAllUsers() {
-  const store = loadStore();
-  let changed = false;
-  Object.keys(store.users || {}).forEach(uid => {
-    if (normalizeUserDecks(store, uid)) changed = true;
-  });
-  if (changed) persist(store);
-}
-
-// Executa normalização ao iniciar o servidor
-normalizeAllUsers();
-
 // Autentica usuário simples e retorna userId
 app.post('/api/auth/login', (req, res) => {
   const { username } = req.body || {};
@@ -70,7 +45,7 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ userId });
 });
 
-// Lista decks do usuário e normaliza dados/contadores
+// Lista decks do usuário
 app.get('/api/decks', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
@@ -80,12 +55,7 @@ app.get('/api/decks', (req, res) => {
 
   Object.values(decks).forEach(d => {
     Object.values(d.cards || {}).forEach(c => {
-      if (!c.nextReviewAt && c.due) {
-        c.nextReviewAt = c.due;
-        updated = true;
-      }
-      if (c.due) {
-        delete c.due;
+      if (!c.nextReviewAt) {
         updated = true;
       }
     });
@@ -252,8 +222,7 @@ app.post('/api/import', (req, res) => {
   if (!userId || !data) return res.status(400).json({ error: 'userId e data obrigatórios' });
   const store = getUserStore(userId);
   store.users[userId] = data;
-  // Normaliza dados importados (remove 'due', garante 'nextReviewAt')
-  normalizeUserDecks(store, userId);
+
   persist(store);
   res.json({ ok: true });
 });
