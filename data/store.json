@@ -450,6 +450,86 @@
       "decks": {}
     },
     "anon": {
+      "id": "deck_q2eomyz36gik",
+      "name": "AWS",
+      "cards": {
+        "card_q2euetilzyp5": {
+          "id": "card_q2euetilzyp5",
+          "question": "O que é o Amazon S3?",
+          "answer": "O Amazon S3 (Simple Storage Service) é um serviço de armazenamento de objetos na nuvem que oferece escalabilidade, disponibilidade e segurança.",
+          "tags": [
+            "AWS",
+            "S3",
+            "armazenamento"
+          ],
+          "category": "S3",
+          "repetitions": 0,
+          "interval": 0,
+          "easeFactor": 2.5,
+          "nextReviewAt": "2025-10-14T04:31:39.893Z"
+        },
+        "card_q2euet7ojjiy": {
+          "id": "card_q2euet7ojjiy",
+          "question": "Quais são os principais tipos de armazenamento do Amazon S3?",
+          "answer": "Os principais tipos de armazenamento são S3 Standard, S3 Intelligent-Tiering, S3 Standard-IA (Infrequent Access) e S3 Glacier.",
+          "tags": [
+            "AWS",
+            "S3",
+            "tipos de armazenamento"
+          ],
+          "category": "S3",
+          "repetitions": 0,
+          "interval": 0,
+          "easeFactor": 2.5,
+          "nextReviewAt": "2025-10-14T04:31:39.893Z"
+        },
+        "card_q2euet92eupr": {
+          "id": "card_q2euet92eupr",
+          "question": "O que são buckets no Amazon S3?",
+          "answer": "Buckets são recipientes que armazenam objetos no Amazon S3. Cada bucket possui um nome único globalmente.",
+          "tags": [
+            "AWS",
+            "S3",
+            "buckets"
+          ],
+          "category": "S3",
+          "repetitions": 0,
+          "interval": 0,
+          "easeFactor": 2.5,
+          "nextReviewAt": "2025-10-14T04:31:39.893Z"
+        },
+        "card_q2euet6orv7s": {
+          "id": "card_q2euet6orv7s",
+          "question": "Como o Amazon S3 garante a segurança dos dados?",
+          "answer": "O Amazon S3 oferece criptografia em repouso e em trânsito, controle de acesso granular e políticas de bucket para proteger os dados.",
+          "tags": [
+            "AWS",
+            "S3",
+            "segurança"
+          ],
+          "category": "S3",
+          "repetitions": 0,
+          "interval": 0,
+          "easeFactor": 2.5,
+          "nextReviewAt": "2025-10-14T04:31:39.893Z"
+        },
+        "card_q2euet8xegnx": {
+          "id": "card_q2euet8xegnx",
+          "question": "O que é o versionamento no Amazon S3?",
+          "answer": "O versionamento é um recurso que permite manter várias versões de um objeto em um bucket, facilitando a recuperação de versões anteriores.",
+          "tags": [
+            "AWS",
+            "S3",
+            "versionamento"
+          ],
+          "category": "S3",
+          "repetitions": 0,
+          "interval": 0,
+          "easeFactor": 2.5,
+          "nextReviewAt": "2025-10-14T04:31:39.893Z"
+        }
+      },
+      "reviewedCount": 0,
       "decks": {}
     }
   }

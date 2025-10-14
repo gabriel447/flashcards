@@ -29,6 +29,8 @@ function saveStore(store) {
 function ensureUser(store, userId) {
   if (!store.users[userId]) {
     store.users[userId] = { decks: {} };
+  } else if (!store.users[userId].decks || typeof store.users[userId].decks !== 'object') {
+    store.users[userId].decks = {};
   }
 }
 

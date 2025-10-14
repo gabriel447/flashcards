@@ -83,6 +83,11 @@ app.post('/api/decks', (req, res) => {
   const { userId, name } = req.body || {};
   if (!userId || !name) return res.status(400).json({ error: 'userId e name obrigatórios' });
   const store = getUserStore(userId);
+  // Garante estrutura do usuário
+  if (!store.users[userId]) store.users[userId] = { decks: {} };
+  if (!store.users[userId].decks || typeof store.users[userId].decks !== 'object') {
+    store.users[userId].decks = {};
+  }
   const deckId = makeId('deck');
   store.users[userId].decks[deckId] = { id: deckId, name, cards: {}, reviewedCount: 0 };
   persist(store);
@@ -207,24 +212,48 @@ app.get('/api/decks/:deckId/export', (req, res) => {
   res.json({ deck });
 });
 
-// Exporta todos os dados do usuário
-app.get('/api/export', (req, res) => {
-  const { userId } = req.query;
-  if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
-  const store = getUserStore(userId);
-  const data = store.users[userId];
-  res.json({ data });
-});
-
-// Importa dados do usuário e normaliza nextReviewAt
+// Importa um deck específico
 app.post('/api/import', (req, res) => {
   const { userId, data } = req.body || {};
-  if (!userId || !data) return res.status(400).json({ error: 'userId e data obrigatórios' });
+  if (!userId || !data || typeof data !== 'object') {
+    return res.status(400).json({ error: 'userId e data obrigatórios' });
+  }
+
+  // Espera exatamente o mesmo formato que o export: um objeto de deck
+  const { name, cards } = data;
+  if (!name || !cards || typeof cards !== 'object') {
+    return res.status(400).json({ error: 'Formato inválido: forneça o JSON de deck exportado' });
+  }
+
   const store = getUserStore(userId);
-  store.users[userId] = data;
+  const newDeckId = makeId('deck');
+  store.users[userId].decks[newDeckId] = {
+    id: newDeckId,
+    name,
+    cards: {},
+    reviewedCount: Number(data.reviewedCount) || 0,
+  };
+
+  for (const srcCard of Object.values(cards)) {
+    const newCardId = makeId('card');
+    store.users[userId].decks[newDeckId].cards[newCardId] = {
+      id: newCardId,
+      question: srcCard.question || '',
+      answer: srcCard.answer || '',
+      tags: Array.isArray(srcCard.tags) ? srcCard.tags : [],
+      category: srcCard.category ?? null,
+      repetitions: Number(srcCard.repetitions) || 0,
+      interval: Number(srcCard.interval) || 0,
+      easeFactor: typeof srcCard.easeFactor === 'number' ? srcCard.easeFactor : 2.5,
+      nextReviewAt: srcCard.nextReviewAt || new Date().toISOString(),
+      reviews: typeof srcCard.reviews === 'number' ? srcCard.reviews : undefined,
+      lastReviewedAt: srcCard.lastReviewedAt || undefined,
+      gradeLog: Array.isArray(srcCard.gradeLog) ? srcCard.gradeLog : undefined,
+    };
+  }
 
   persist(store);
-  res.json({ ok: true });
+  res.json({ ok: true, deck: store.users[userId].decks[newDeckId] });
 });
 
 // Gera cards para um deck (OpenAI ou fallback)
