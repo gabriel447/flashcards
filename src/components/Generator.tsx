@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { PdfIcon, CopyIcon } from './icons';
+import { PdfIcon } from './icons';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 
@@ -121,31 +121,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
           )}
           {pdfMode && (
             <div className="pdf-header" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              {/* Dica acima do seletor de PDF */}
-              <div className="hint" style={{ fontSize: '0.92rem', color: '#4b5563', display: 'flex', alignItems: 'baseline', gap: '0.5rem', flexWrap: 'wrap' }}>
-                <span>Dica: antes de enviar, gere o PDF com o prompt padrão (FC-*).</span>
-                <button
-                  type="button"
-                  className="link-btn small"
-                  onClick={async () => {
-                    try {
-                      const res = await fetch('/fc-prompt-ptbr.txt');
-                      const txt = await res.text();
-                      await navigator.clipboard.writeText(txt);
-                      setMessage({ type: 'success', text: 'Prompt copiado para a área de transferência.' });
-                    } catch (e) {
-                      setMessage({ type: 'error', text: 'Não foi possível copiar o prompt.' });
-                    }
-                  }}
-                  aria-label="Copiar prompt"
-                  disabled={loading}
-                  style={{ display: 'inline-flex', alignItems: 'center' }}
-                >
-                  <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
-                    <CopyIcon size={14} /> Copiar prompt
-                  </span>
-                </button>
-              </div>
               <div className="file-row">
                 <input
                   ref={pdfInputRef}
