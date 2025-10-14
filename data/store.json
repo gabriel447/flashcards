@@ -531,499 +531,270 @@
       },
       "reviewedCount": 0,
       "decks": {
-        "deck_r0bi2iicjtkd": {
-          "id": "deck_r0bi2iicjtkd",
+        "deck_r118v8qlfwvj": {
+          "id": "deck_r118v8qlfwvj",
           "name": "AWS",
           "cards": {
-            "card_r0bqxkzamnmb": {
-              "id": "card_r0bqxkzamnmb",
-              "question": "O que significa S3 em AWS?",
-              "answer": "Simple Storage Service",
+            "card_r11knjurjlu3": {
+              "id": "card_r11knjurjlu3",
+              "question": "O que é Amazon RDS?",
+              "answer": "Amazon RDS (Relational Database Service) é um serviço gerenciado que facilita a configuração, operação e escalabilidade de bancos de dados relacionais na nuvem.",
               "tags": [
-                "AWS",
-                "S3",
-                "Armazenamento"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:09.647Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:09.647Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:09.647Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxkahvs0u": {
-              "id": "card_r0bqxkahvs0u",
-              "question": "Qual é o principal propósito do Amazon S3?",
-              "answer": "Armazenar e recuperar qualquer quantidade de dados na nuvem.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Armazenamento"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:13.468Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:13.468Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:13.468Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxk5mgxh3": {
-              "id": "card_r0bqxk5mgxh3",
-              "question": "O que são 'buckets' no Amazon S3?",
-              "answer": "São contêineres para armazenar objetos no S3.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Buckets"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:16.810Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:16.810Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:16.810Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxkkf1bf5": {
-              "id": "card_r0bqxkkf1bf5",
-              "question": "Qual é o limite de objetos que você pode armazenar em um bucket do S3?",
-              "answer": "Não há limite para o número de objetos em um bucket.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Limites"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:20.459Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:20.459Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:20.459Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxkudty66": {
-              "id": "card_r0bqxkudty66",
-              "question": "O que é a política de bucket no Amazon S3?",
-              "answer": "Um conjunto de regras que controla o acesso aos objetos dentro de um bucket.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Políticas"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:24.269Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:24.269Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:24.269Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxlmpkiuh": {
-              "id": "card_r0bqxlmpkiuh",
-              "question": "O que são 'objetos' no Amazon S3?",
-              "answer": "São arquivos armazenados, que consistem em dados e metadados.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Objetos"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:29.467Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:29.467Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:29.467Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxlnou7kz": {
-              "id": "card_r0bqxlnou7kz",
-              "question": "Qual é o protocolo usado para acessar o Amazon S3?",
-              "answer": "HTTP/HTTPS.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Protocolo"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:33.009Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:33.009Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:33.009Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxlc5ypnq": {
-              "id": "card_r0bqxlc5ypnq",
-              "question": "O que é o armazenamento em camadas no S3?",
-              "answer": "Uma funcionalidade que permite otimizar custos usando diferentes classes de armazenamento.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Armazenamento"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:36.396Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:36.396Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:36.396Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxlch87s2": {
-              "id": "card_r0bqxlch87s2",
-              "question": "O que significa a classe de armazenamento S3 Standard?",
-              "answer": "Destinada a dados acessados com frequência e oferece alta durabilidade.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Classes"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:41.360Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:41.360Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:41.360Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0bqxlza2ti1": {
-              "id": "card_r0bqxlza2ti1",
-              "question": "O que é o versionamento no Amazon S3?",
-              "answer": "Uma funcionalidade que permite manter várias versões de um objeto em um bucket.",
-              "tags": [
-                "AWS",
-                "S3",
-                "Versionamento"
-              ],
-              "category": "S3",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:21:47.594Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:21:47.594Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:21:47.594Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0dsw61gnllp": {
-              "id": "card_r0dsw61gnllp",
-              "question": "O que é o Amazon RDS?",
-              "answer": "Um serviço gerenciado de banco de dados relacional que facilita a configuração, operação e escalabilidade de bancos de dados na nuvem.",
-              "tags": [
-                "AWS",
                 "RDS",
-                "banco de dados"
+                "banco de dados",
+                "serviço gerenciado"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:22:51.960Z",
+              "nextReviewAt": "2025-10-18T20:41:21.277Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:22:51.960Z",
+              "lastReviewedAt": "2025-10-14T20:41:21.277Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:22:51.960Z",
+                  "ts": "2025-10-14T20:41:21.277Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6eldf3a": {
-              "id": "card_r0dsw6eldf3a",
-              "question": "Qual é a principal vantagem do Amazon DynamoDB?",
-              "answer": "É um banco de dados NoSQL totalmente gerenciado que oferece alta disponibilidade e escalabilidade automática.",
+            "card_r11knjhy8f9y": {
+              "id": "card_r11knjhy8f9y",
+              "question": "Qual a principal vantagem de usar Amazon DynamoDB?",
+              "answer": "A principal vantagem do Amazon DynamoDB é sua capacidade de escalar automaticamente para lidar com grandes volumes de dados e alta taxa de requisições, mantendo baixa latência.",
               "tags": [
-                "AWS",
                 "DynamoDB",
-                "NoSQL"
+                "NoSQL",
+                "escalabilidade"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:22:55.342Z",
+              "nextReviewAt": "2025-10-18T20:41:23.328Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:22:55.342Z",
+              "lastReviewedAt": "2025-10-14T20:41:23.328Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:22:55.342Z",
+                  "ts": "2025-10-14T20:41:23.328Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6fg23em": {
-              "id": "card_r0dsw6fg23em",
-              "question": "O que é o Amazon Redshift?",
-              "answer": "Um serviço de data warehouse que permite realizar análises de grandes volumes de dados utilizando SQL.",
+            "card_r11knj8amc85": {
+              "id": "card_r11knj8amc85",
+              "question": "O que é Amazon Redshift?",
+              "answer": "Amazon Redshift é um serviço de data warehouse que permite realizar análises de grandes volumes de dados com alta velocidade e eficiência.",
               "tags": [
-                "AWS",
                 "Redshift",
-                "data warehouse"
+                "data warehouse",
+                "análise de dados"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:22:57.699Z",
+              "nextReviewAt": "2025-10-18T20:41:25.240Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:22:57.699Z",
+              "lastReviewedAt": "2025-10-14T20:41:25.240Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:22:57.699Z",
+                  "ts": "2025-10-14T20:41:25.240Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6k8bz4n": {
-              "id": "card_r0dsw6k8bz4n",
-              "question": "Qual é a função do Amazon Aurora?",
-              "answer": "Um banco de dados relacional compatível com MySQL e PostgreSQL que oferece desempenho e disponibilidade superiores.",
+            "card_r11knjazqg2c": {
+              "id": "card_r11knjazqg2c",
+              "question": "Como o Amazon S3 se relaciona com bancos de dados?",
+              "answer": "O Amazon S3 (Simple Storage Service) é usado para armazenar dados não estruturados, que podem ser integrados a bancos de dados para análises e relatórios.",
               "tags": [
-                "AWS",
-                "Aurora",
-                "banco de dados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:00.009Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:00.009Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:23:00.009Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0dsw67xd03a": {
-              "id": "card_r0dsw67xd03a",
-              "question": "O que é o Amazon S3 e como é usado em análises?",
-              "answer": "Um serviço de armazenamento de objetos que pode ser usado para armazenar grandes volumes de dados para análises e processamento posterior.",
-              "tags": [
-                "AWS",
                 "S3",
-                "armazenamento"
+                "armazenamento",
+                "dados não estruturados"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:05.033Z",
+              "nextReviewAt": "2025-10-18T20:41:27.183Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:05.033Z",
+              "lastReviewedAt": "2025-10-14T20:41:27.183Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:23:05.033Z",
+                  "ts": "2025-10-14T20:41:27.183Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6i5gpfg": {
-              "id": "card_r0dsw6i5gpfg",
+            "card_r11knjxq3utd": {
+              "id": "card_r11knjxq3utd",
+              "question": "O que é Amazon Aurora?",
+              "answer": "Amazon Aurora é um banco de dados relacional compatível com MySQL e PostgreSQL que oferece desempenho superior e alta disponibilidade.",
+              "tags": [
+                "Aurora",
+                "banco de dados",
+                "MySQL",
+                "PostgreSQL"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T20:41:29.404Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T20:41:29.404Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T20:41:29.404Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_r11knji7zvpp": {
+              "id": "card_r11knji7zvpp",
+              "question": "Quais são os tipos de instâncias disponíveis no Amazon RDS?",
+              "answer": "O Amazon RDS oferece tipos de instâncias como Standard, Memory Optimized e Burstable, cada uma adequada a diferentes cargas de trabalho.",
+              "tags": [
+                "RDS",
+                "instâncias",
+                "tipos de instâncias"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-18T20:41:31.727Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T20:41:31.727Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T20:41:31.727Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_r11knj21uhmb": {
+              "id": "card_r11knj21uhmb",
               "question": "O que é o AWS Glue?",
-              "answer": "Um serviço de ETL (extração, transformação e carga) que facilita a preparação de dados para análise.",
+              "answer": "AWS Glue é um serviço de ETL (Extração, Transformação e Carga) que facilita a preparação de dados para análise, automatizando tarefas de movimentação e transformação.",
               "tags": [
-                "AWS",
                 "Glue",
-                "ETL"
+                "ETL",
+                "preparação de dados"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:07.754Z",
+              "nextReviewAt": "2025-10-18T20:41:33.492Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:07.754Z",
+              "lastReviewedAt": "2025-10-14T20:41:33.492Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:23:07.754Z",
+                  "ts": "2025-10-14T20:41:33.492Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw662j7cm": {
-              "id": "card_r0dsw662j7cm",
-              "question": "Como o Amazon ElastiCache melhora o desempenho das aplicações?",
-              "answer": "Fornecendo caching em memória para aumentar a velocidade de acesso a dados frequentemente utilizados.",
+            "card_r11knjgmwgfc": {
+              "id": "card_r11knjgmwgfc",
+              "question": "O que é Amazon ElastiCache?",
+              "answer": "Amazon ElastiCache é um serviço que fornece cache em memória para aumentar a performance de aplicativos, suportando Redis e Memcached.",
               "tags": [
-                "AWS",
                 "ElastiCache",
+                "cache em memória",
                 "performance"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
               "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:10.337Z",
+              "nextReviewAt": "2025-10-18T20:41:36.014Z",
               "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:10.337Z",
+              "lastReviewedAt": "2025-10-14T20:41:36.014Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:23:10.337Z",
+                  "ts": "2025-10-14T20:41:36.014Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6sya70k": {
-              "id": "card_r0dsw6sya70k",
-              "question": "O que é o Amazon QuickSight?",
-              "answer": "Um serviço de BI (Business Intelligence) que permite a criação de dashboards e visualizações de dados interativas.",
+            "card_r11knjiqi34y": {
+              "id": "card_r11knjiqi34y",
+              "question": "Como os dados são armazenados no Amazon DynamoDB?",
+              "answer": "No Amazon DynamoDB, os dados são armazenados em tabelas que permitem acesso rápido e escalável, utilizando chaves primárias e índices secundários.",
               "tags": [
-                "AWS",
+                "DynamoDB",
+                "armazenamento",
+                "tabelas"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-18T21:09:51.954Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-14T21:09:51.954Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T20:41:38.740Z",
+                  "grade": 2
+                },
+                {
+                  "ts": "2025-10-14T21:09:51.954Z",
+                  "grade": 4
+                }
+              ]
+            },
+            "card_r11knjpj9tkz": {
+              "id": "card_r11knjpj9tkz",
+              "question": "O que é Amazon QuickSight?",
+              "answer": "Amazon QuickSight é um serviço de BI (Business Intelligence) que permite a visualização e análise de dados, facilitando a criação de dashboards interativos.",
+              "tags": [
                 "QuickSight",
-                "BI"
+                "BI",
+                "visualização de dados"
               ],
               "category": "Databases & Analytics",
               "repetitions": 1,
               "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:13.359Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:13.359Z",
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-18T21:09:54.715Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-14T21:09:54.715Z",
               "gradeLog": [
                 {
-                  "ts": "2025-10-14T20:23:13.359Z",
+                  "ts": "2025-10-14T20:41:42.175Z",
+                  "grade": 2
+                },
+                {
+                  "ts": "2025-10-14T21:09:54.715Z",
                   "grade": 4
                 }
               ]
             },
-            "card_r0dsw6f4pvxw": {
-              "id": "card_r0dsw6f4pvxw",
-              "question": "O que é o Amazon Kinesis?",
-              "answer": "Um serviço que permite coletar, processar e analisar dados em tempo real.",
-              "tags": [
-                "AWS",
-                "Kinesis",
-                "tempo real"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:16.549Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:16.548Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:23:16.549Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0dsw6utd4hj": {
-              "id": "card_r0dsw6utd4hj",
-              "question": "Qual é a função do AWS Data Pipeline?",
-              "answer": "Um serviço que permite mover e processar dados entre diferentes serviços da AWS e fontes de dados.",
-              "tags": [
-                "AWS",
-                "Data Pipeline",
-                "processamento de dados"
-              ],
-              "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:19.748Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:19.748Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:23:19.748Z",
-                  "grade": 4
-                }
-              ]
-            },
-            "card_r0e19xyhn1kn": {
-              "id": "card_r0e19xyhn1kn",
+            "card_r11rxku2e24p": {
+              "id": "card_r11rxku2e24p",
               "question": "O que é o Amazon Neptune?",
-              "answer": "O Amazon Neptune é um serviço de banco de dados gráfico gerenciado pela AWS que suporta modelos de dados de grafos, como o Property Graph e o RDF.",
+              "answer": "O Amazon Neptune é um serviço de banco de dados gráfico totalmente gerenciado que facilita a criação e o gerenciamento de aplicações que usam grafos, permitindo consultas eficientes em dados altamente conectados.",
               "tags": [
                 "AWS",
                 "Databases & Analytics",
                 "Neptune",
-                "Graph Database",
+                "banco de dados gráfico",
                 "aws",
                 "databases & analytics",
                 "neptune"
               ],
               "category": "Databases & Analytics",
-              "repetitions": 1,
-              "interval": 4,
-              "easeFactor": 2.65,
-              "nextReviewAt": "2025-10-18T20:23:24.270Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T20:23:24.270Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-14T20:23:24.270Z",
-                  "grade": 4
-                }
-              ]
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T20:41:16.712Z"
             }
           },
-          "reviewedCount": 21
+          "reviewedCount": 12
         }
       }
     }

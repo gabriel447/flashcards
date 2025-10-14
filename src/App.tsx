@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
 import './App.css';
+import 'swiper/css';
+import 'swiper/css/navigation';
 import { Generator } from './components/Generator.tsx';
 import { DeckManager } from './components/DeckManager.tsx';
 import { Stats } from './components/Stats.tsx';
