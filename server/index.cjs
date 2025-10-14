@@ -8,14 +8,14 @@ const { scheduleReview } = require('./utils/sm2.cjs');
 const { loadStore, saveStore, ensureUser, makeId } = require('./utils/store.cjs');
 const multer = require('multer');
 const upload = multer();
-// pdf-parse v2.x: usa classe PDFParse em CJS
+
 let PDFParseClass = null;
 try {
   ({ PDFParse: PDFParseClass } = require('pdf-parse'));
 } catch (e) {
   console.error('Falha ao carregar pdf-parse:', e);
 }
-// Suporte opcional a OCR de páginas do PDF
+
 let createCanvas = null;
 try { ({ createCanvas } = require('canvas')); } catch (e) { /* opcional */ }
 
@@ -361,6 +361,23 @@ function limitText(text, maxChars = 15000) {
   return trimmed.length > maxChars ? trimmed.slice(0, maxChars) : trimmed;
 }
 
+// Variante que preserva quebras de linha, essencial para o parser FC-*
+function limitTextPreserveLines(text, maxChars = 18000) {
+  if (!text) return '';
+  // Normaliza espaços e remove \r, mantendo \n
+  const normalized = String(text || '')
+    .replace(/\r/g, '')
+    .replace(/[ \t]+/g, ' ');
+  const clipped = normalized.length > maxChars ? normalized.slice(0, maxChars) : normalized;
+  // Trim por linha e recompõe mantendo \n
+  return clipped
+    .split(/\n+/)
+    .map(l => l.trim())
+    .filter(Boolean)
+    .join('\n')
+    .trim();
+}
+
 // Extrai blocos de resumo/summary e bullets para foco de memorização
 function extractSummaryText(docText) {
   if (!docText) return '';
@@ -401,7 +418,7 @@ function extractSummaryText(docText) {
 function fallbackFromSummary(summaryText, n) {
   const items = [];
   const bullets = (summaryText || '').split(/\n+/).map(s => s.trim()).filter(Boolean);
-  const target = Math.min(n, 50);
+  const target = Number.isFinite(n) ? Math.min(n, bullets.length) : bullets.length;
   for (let i = 0; i < bullets.length && items.length < target; i++) {
     const topic = bullets[i].replace(/^[•\-\*\u2022]\s*/, '').replace(/^\d+[\.)]\s*/, '').trim();
     if (!topic) continue;
@@ -478,6 +495,7 @@ function buildOneCardPerItemPrompt(deckName, categoriesJson) {
 // Fallback simplificado: 1 card por item
 function fallbackCardsOnePerItem(summaryObj, maxCount = 30) {
   const cards = [];
+  const unlimited = !Number.isFinite(maxCount);
   for (const topic of summaryObj?.topics || []) {
     for (const item of topic.items || []) {
       const title = String(item.title || item.name || '').trim();
@@ -488,7 +506,7 @@ function fallbackCardsOnePerItem(summaryObj, maxCount = 30) {
       const answer = essential || points.slice(0, 3).join('; ');
       const tags = [topic.category || 'Resumo', title].filter(Boolean);
       cards.push({ question, answer, tags, category: topic.category || null });
-      if (cards.length >= maxCount) return cards;
+      if (!unlimited && cards.length >= maxCount) return cards;
     }
   }
   return cards;
@@ -507,6 +525,7 @@ function sanitizeText(s) {
 // Gera 1 card por item categorizado de forma determinística
 function generateCardsFromCategories(categoriesObj, maxCount = 30) {
   const cards = [];
+  const unlimited = !Number.isFinite(maxCount);
   const cats = Array.isArray(categoriesObj?.categories) ? categoriesObj.categories : [];
   for (const cat of cats) {
     const items = Array.isArray(cat.items) ? cat.items : [];
@@ -518,11 +537,11 @@ function generateCardsFromCategories(categoriesObj, maxCount = 30) {
       const q1 = `O que é ${name}?`;
       const a1 = info || `Definição e papel de ${name}.`;
       cards.push({ question: q1, answer: a1, tags, category: cat.category || null });
-      if (cards.length >= maxCount) return cards;
+      if (!unlimited && cards.length >= maxCount) return cards;
       const q2 = `Para que serve ${name}?`;
       const a2 = info || `Principais casos de uso de ${name}.`;
       cards.push({ question: q2, answer: a2, tags, category: cat.category || null });
-      if (cards.length >= maxCount) return cards;
+      if (!unlimited && cards.length >= maxCount) return cards;
     }
   }
   return cards;
@@ -531,6 +550,7 @@ function generateCardsFromCategories(categoriesObj, maxCount = 30) {
 // Expansão: gerar cards extras a partir de key_points
 function expandCardsFromCategories(categoriesObj, remaining) {
   const extras = [];
+  const unlimited = !Number.isFinite(remaining);
   const cats = Array.isArray(categoriesObj?.categories) ? categoriesObj.categories : [];
   for (const cat of cats) {
     const items = Array.isArray(cat.items) ? cat.items : [];
@@ -544,7 +564,7 @@ function expandCardsFromCategories(categoriesObj, remaining) {
         const answer = kp;
         const tags = [String(cat.category || 'Resumo'), name];
         extras.push({ question, answer, tags, category: cat.category || null });
-        if (extras.length >= remaining) return extras;
+        if (!unlimited && extras.length >= remaining) return extras;
       }
     }
   }
@@ -574,6 +594,7 @@ function fallbackStructuredSummary(text, defaultCategory = 'Geral') {
 // Fallback: gera cards a partir do resumo estruturado
 function fallbackCardsFromStructured(summaryObj, desired = 20) {
   const cards = [];
+  const unlimited = !Number.isFinite(desired);
   for (const topic of summaryObj.topics || []) {
     for (const item of topic.items || []) {
       const baseTag = [topic.category, item.title].filter(Boolean).map(t => String(t));
@@ -583,7 +604,7 @@ function fallbackCardsFromStructured(summaryObj, desired = 20) {
         const question = `Qual é o ponto-chave sobre ${item.title}?`;
         const answer = short;
         cards.push({ question, answer, tags: baseTag });
-        if (cards.length >= desired) return cards;
+        if (!unlimited && cards.length >= desired) return cards;
       }
     }
   }
@@ -753,6 +774,7 @@ function extractBulletLines(text) {
 // Gera cards a partir de bullets do summary: usa "Título: descrição" quando disponível
 function generateCardsFromBullets(bullets, category = 'Resumo', maxCount = 60) {
   const cards = [];
+  const unlimited = !Number.isFinite(maxCount);
   for (const line of bullets) {
     const m = line.match(/^([^:]{1,80}):\s*(.+)$/);
     let title = '';
@@ -771,7 +793,7 @@ function generateCardsFromBullets(bullets, category = 'Resumo', maxCount = 60) {
     const answer = limitText(desc, 280);
     const tags = [String(category || 'Resumo'), title];
     cards.push({ question, answer, tags, category });
-    if (cards.length >= maxCount) break;
+    if (!unlimited && cards.length >= maxCount) break;
   }
   return cards;
 }
@@ -870,26 +892,32 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
       fullText = textResult?.text || '';
       await parser.destroy();
     }
-    const summary = extractSummaryText(fullText);
-    let baseInput = summary || fullText;
-    let limited = limitText(baseInput, 18000);
-    // Se pouco texto foi extraído, tentar OCR nas primeiras páginas
-    if (!limited || limited.length < 500) {
-      const ocrText = await extractOcrFromPdf(dataBuffer, { maxPages: 12, scale: 2 });
-      if (ocrText) {
-        const ocrSummary = extractSummaryText(ocrText);
-        limited = limitText(`${limited}\n\n${ocrSummary || ocrText}`, 18000);
-      }
+  const summary = extractSummaryText(fullText);
+  const hasFcMarkers = /(^|\n)\s*FC-[A-Z]+\s*:/m.test(fullText);
+  let baseInput = hasFcMarkers ? fullText : (summary || fullText);
+  // Não recortar quando há padrão FC-* para não perder itens
+  let limited = hasFcMarkers ? baseInput : limitTextPreserveLines(baseInput, 18000);
+  // Se pouco texto foi extraído, tentar OCR nas primeiras páginas
+  if (!hasFcMarkers && (!limited || limited.length < 500)) {
+    const ocrText = await extractOcrFromPdf(dataBuffer, { maxPages: 12, scale: 2 });
+    if (ocrText) {
+      const ocrSummary = extractSummaryText(ocrText);
+      limited = limitTextPreserveLines(`${limited}\n\n${ocrSummary || ocrText}`, 18000);
     }
-    const n = 40;
+  }
+  const n = Number.POSITIVE_INFINITY;
 
     // Tentar primeiro o padrão explícito FC-*
     const fcCategoriesObj = parseFcStructuredText(limited || '');
     let cards = [];
-    if (fcCategoriesObj && Array.isArray(fcCategoriesObj.categories) && fcCategoriesObj.categories.length) {
-      const desired = Math.min(n, (fcCategoriesObj.categories || []).reduce((acc, c) => acc + (Array.isArray(c.items) ? c.items.length : 0) * 2, 0) || n);
-      cards = generateCardsFromCategories(fcCategoriesObj, desired);
-    }
+  if (fcCategoriesObj && Array.isArray(fcCategoriesObj.categories) && fcCategoriesObj.categories.length) {
+    const totalItems = (fcCategoriesObj.categories || []).reduce((acc, c) => acc + (Array.isArray(c.items) ? c.items.length : 0), 0);
+    const desired = totalItems * 2; // 2 cards por item
+    cards = generateCardsFromCategories(fcCategoriesObj, desired);
+    // Gerar extras a partir de key_points (ilimitado)
+    const extras = expandCardsFromCategories(fcCategoriesObj, Number.POSITIVE_INFINITY);
+    if (extras && extras.length) cards = cards.concat(extras);
+  }
 
     const targetDeckName = deckName || store.users[userId].decks[targetDeckId].name;
     let detailedSummary = '';
@@ -943,9 +971,11 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
         })) };
       }
 
-      const desired = Math.min(n, (categoriesObj.categories || []).reduce((acc, c) => acc + (c.items?.length || 0), 0) || n);
-      // Etapa 3: gerar 1 card por item (determinístico)
+      const desired = (categoriesObj.categories || []).reduce((acc, c) => acc + (c.items?.length || 0), 0);
+      // Etapa 3: gerar 1 card por item (determinístico) e extras pelas key_points
       cards = generateCardsFromCategories(categoriesObj, desired);
+      const extras = expandCardsFromCategories(categoriesObj, Number.POSITIVE_INFINITY);
+      if (extras && extras.length) cards = cards.concat(extras);
       if (!cards.length) {
         cards = fallbackCardsOnePerItem(structuredSummary || { topics: [] }, desired);
       }
@@ -953,25 +983,22 @@ app.post('/api/generate-from-pdf', upload.single('pdf'), async (req, res) => {
       if (!cards.length) {
         // Fallback sem depender de keywords: usar bullets do texto ou estrutura básica
         const bulletLines = extractBulletLines(limited || '');
-        const bulletCards = generateCardsFromBullets(bulletLines, 'Resumo', n);
-        if (bulletCards && bulletCards.length) cards = bulletCards.slice(0, n);
-        if (!cards.length) {
-          structuredSummary = fallbackStructuredSummary(limited, 'Resumo');
-          cards = fallbackCardsOnePerItem(structuredSummary, n);
-        }
+      const bulletCards = generateCardsFromBullets(bulletLines, 'Resumo', Number.POSITIVE_INFINITY);
+      if (bulletCards && bulletCards.length) cards = bulletCards;
+      if (!cards.length) {
+        structuredSummary = fallbackStructuredSummary(limited, 'Resumo');
+        cards = fallbackCardsOnePerItem(structuredSummary, Number.POSITIVE_INFINITY);
       }
     }
+  }
 
-    if (!cards || cards.length === 0) {
-      const fill = fallbackFromSummary(limited, n);
-      if (!fill.length) return res.status(400).json({ error: 'Não foi possível gerar cards do PDF' });
-      cards = fill;
-    }
+  if (!cards || cards.length === 0) {
+    const fill = fallbackFromSummary(limited, Number.POSITIVE_INFINITY);
+    if (!fill.length) return res.status(400).json({ error: 'Não foi possível gerar cards do PDF' });
+    cards = fill;
+  }
 
-    if (cards.length < n) {
-      const fillMore = fallbackFromSummary(limited, n - cards.length);
-      cards = cards.concat(fillMore).slice(0, n);
-    }
+  // Nenhum preenchimento adicional necessário em modo ilimitado
 
     // Sanitizar e normalizar perguntas/respostas
     cards = (cards || []).map(c => ({

@@ -3096,6 +3096,1692 @@
             }
           },
           "reviewedCount": 10
+        },
+        "deck_pzc3hqpim0xo": {
+          "id": "deck_pzc3hqpim0xo",
+          "name": "AWS 2",
+          "cards": {
+            "card_pzc3jfxr6b13": {
+              "id": "card_pzc3jfxr6b13",
+              "question": "O que é Modelos de Implantação da Nuvem?",
+              "answer": "Formas de usar os serviços em nuvem; Descrevem como os recursos da nuvem são implantados e quem tem acesso a",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelos de Implantação da Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfkny5f3": {
+              "id": "card_pzc3jfkny5f3",
+              "question": "Para que serve Modelos de Implantação da Nuvem?",
+              "answer": "Formas de usar os serviços em nuvem; Descrevem como os recursos da nuvem são implantados e quem tem acesso a",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelos de Implantação da Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfm6ls55": {
+              "id": "card_pzc3jfm6ls55",
+              "question": "O que é Tipos de Computação em Nuvem?",
+              "answer": "IaaS, PaaS e SaaS; Categorizam o nível de gerenciamento e controle sobre os serviços de TI na",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Tipos de Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfgy95y3": {
+              "id": "card_pzc3jfgy95y3",
+              "question": "Para que serve Tipos de Computação em Nuvem?",
+              "answer": "IaaS, PaaS e SaaS; Categorizam o nível de gerenciamento e controle sobre os serviços de TI na",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Tipos de Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfewf0oh": {
+              "id": "card_pzc3jfewf0oh",
+              "question": "O que é 6 Vantagens da Computação em Nuvem?",
+              "answer": "São os principais benefícios que a nuvem oferece em comparação com a TI",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfbdjiw2": {
+              "id": "card_pzc3jfbdjiw2",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "São os principais benefícios que a nuvem oferece em comparação com a TI",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfhxx17l": {
+              "id": "card_pzc3jfhxx17l",
+              "question": "O que é Infraestrutura Global da AWS?",
+              "answer": "Regiões, Zonas de Disponibilidade e Pontos de; A AWS possui uma infraestrutura física distribuída globalmente para garantir alta",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Infraestrutura Global da AWS"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf3jqzdl": {
+              "id": "card_pzc3jf3jqzdl",
+              "question": "Para que serve Infraestrutura Global da AWS?",
+              "answer": "Regiões, Zonas de Disponibilidade e Pontos de; A AWS possui uma infraestrutura física distribuída globalmente para garantir alta",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Infraestrutura Global da AWS"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfsgf6k7": {
+              "id": "card_pzc3jfsgf6k7",
+              "question": "O que é Modelo de Responsabilidade Compartilhada?",
+              "answer": "Define as responsabilidades de segurança entre a AWS e o cliente.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelo de Responsabilidade Compartilhada"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf8lvk53": {
+              "id": "card_pzc3jf8lvk53",
+              "question": "Para que serve Modelo de Responsabilidade Compartilhada?",
+              "answer": "Define as responsabilidades de segurança entre a AWS e o cliente.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelo de Responsabilidade Compartilhada"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfvtwqtp": {
+              "id": "card_pzc3jfvtwqtp",
+              "question": "O que é Amazon EC2 (Elastic Compute Cloud)?",
+              "answer": "Servidores virtuais na nuvem; É um serviço de IaaS que permite alugar máquinas virtuais para executar",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon EC2 (Elastic Compute Cloud)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf1qm83e": {
+              "id": "card_pzc3jf1qm83e",
+              "question": "Para que serve Amazon EC2 (Elastic Compute Cloud)?",
+              "answer": "Servidores virtuais na nuvem; É um serviço de IaaS que permite alugar máquinas virtuais para executar",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon EC2 (Elastic Compute Cloud)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfpshd9b": {
+              "id": "card_pzc3jfpshd9b",
+              "question": "O que é Opções de Compra de EC2?",
+              "answer": "A AWS oferece diferentes modelos de preços para instâncias EC2, adequados a",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf5rikg3": {
+              "id": "card_pzc3jf5rikg3",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "A AWS oferece diferentes modelos de preços para instâncias EC2, adequados a",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf403y5h": {
+              "id": "card_pzc3jf403y5h",
+              "question": "O que é Amazon S3 (Simple Storage Service)?",
+              "answer": "Armazenamento de objetos; Um serviço de armazenamento de objetos que oferece escalabilidade,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf3kktzd": {
+              "id": "card_pzc3jf3kktzd",
+              "question": "Para que serve Amazon S3 (Simple Storage Service)?",
+              "answer": "Armazenamento de objetos; Um serviço de armazenamento de objetos que oferece escalabilidade,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfhul1kw": {
+              "id": "card_pzc3jfhul1kw",
+              "question": "O que é Classes de Armazenamento do S3?",
+              "answer": "O S3 oferece diferentes classes de armazenamento otimizadas para diferentes",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfxv09kq": {
+              "id": "card_pzc3jfxv09kq",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "O S3 oferece diferentes classes de armazenamento otimizadas para diferentes",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfzgz9aa": {
+              "id": "card_pzc3jfzgz9aa",
+              "question": "O que é Amazon RDS e Amazon Aurora?",
+              "answer": "RDS (Relational Database Service) é um serviço gerenciado para bancos de",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon RDS e Amazon Aurora"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfqvxw7h": {
+              "id": "card_pzc3jfqvxw7h",
+              "question": "Para que serve Amazon RDS e Amazon Aurora?",
+              "answer": "RDS (Relational Database Service) é um serviço gerenciado para bancos de",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon RDS e Amazon Aurora"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf8xww1p": {
+              "id": "card_pzc3jf8xww1p",
+              "question": "O que é Amazon DynamoDB?",
+              "answer": "É um banco de dados NoSQL (chave-valor e documento) totalmente gerenciado,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon DynamoDB"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfyrmmfm": {
+              "id": "card_pzc3jfyrmmfm",
+              "question": "Para que serve Amazon DynamoDB?",
+              "answer": "É um banco de dados NoSQL (chave-valor e documento) totalmente gerenciado,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon DynamoDB"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfd7nven": {
+              "id": "card_pzc3jfd7nven",
+              "question": "O que é ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "O ELB distribui o tráfego de entrada entre várias instâncias EC2, enquanto o ASG",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfkq5sbu": {
+              "id": "card_pzc3jfkq5sbu",
+              "question": "Para que serve ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "O ELB distribui o tráfego de entrada entre várias instâncias EC2, enquanto o ASG",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfbk88xp": {
+              "id": "card_pzc3jfbk88xp",
+              "question": "O que é AWS IAM (Identity and Access Management)?",
+              "answer": "É um serviço global que permite gerenciar o acesso aos serviços e recursos da",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf3j6s30": {
+              "id": "card_pzc3jf3j6s30",
+              "question": "Para que serve AWS IAM (Identity and Access Management)?",
+              "answer": "É um serviço global que permite gerenciar o acesso aos serviços e recursos da",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfb686r0": {
+              "id": "card_pzc3jfb686r0",
+              "question": "O que é Amazon CloudWatch?",
+              "answer": "É o serviço de monitoramento e observabilidade para recursos e aplicações da",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfs5g944": {
+              "id": "card_pzc3jfs5g944",
+              "question": "Para que serve Amazon CloudWatch?",
+              "answer": "É o serviço de monitoramento e observabilidade para recursos e aplicações da",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfnhi8ix": {
+              "id": "card_pzc3jfnhi8ix",
+              "question": "O que é AWS CloudTrail?",
+              "answer": "Registra todas as chamadas de API feitas na sua conta AWS, fornecendo um",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS CloudTrail"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfrmqv6k": {
+              "id": "card_pzc3jfrmqv6k",
+              "question": "Para que serve AWS CloudTrail?",
+              "answer": "Registra todas as chamadas de API feitas na sua conta AWS, fornecendo um",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS CloudTrail"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf2scbcz": {
+              "id": "card_pzc3jf2scbcz",
+              "question": "O que é AWS Shield e AWS WAF?",
+              "answer": "São serviços de segurança que protegem aplicações contra ataques DDoS e",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS Shield e AWS WAF"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfuf3vyn": {
+              "id": "card_pzc3jfuf3vyn",
+              "question": "Para que serve AWS Shield e AWS WAF?",
+              "answer": "São serviços de segurança que protegem aplicações contra ataques DDoS e",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS Shield e AWS WAF"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jff5stqj": {
+              "id": "card_pzc3jff5stqj",
+              "question": "O que é AWS Organizations?",
+              "answer": "É um serviço de gerenciamento de contas que permite consolidar várias contas",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Organizations"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf9vbero": {
+              "id": "card_pzc3jf9vbero",
+              "question": "Para que serve AWS Organizations?",
+              "answer": "É um serviço de gerenciamento de contas que permite consolidar várias contas",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Organizations"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfs9k6dj": {
+              "id": "card_pzc3jfs9k6dj",
+              "question": "O que é AWS CloudFormation?",
+              "answer": "Permite modelar e provisionar recursos da AWS e de terceiros usando",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS CloudFormation"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfg7jy71": {
+              "id": "card_pzc3jfg7jy71",
+              "question": "Para que serve AWS CloudFormation?",
+              "answer": "Permite modelar e provisionar recursos da AWS e de terceiros usando",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS CloudFormation"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfflhkwr": {
+              "id": "card_pzc3jfflhkwr",
+              "question": "O que é AWS Trusted Advisor?",
+              "answer": "É uma ferramenta online que fornece recomendações em tempo real para ajudar",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Trusted Advisor"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf5hlja3": {
+              "id": "card_pzc3jf5hlja3",
+              "question": "Para que serve AWS Trusted Advisor?",
+              "answer": "É uma ferramenta online que fornece recomendações em tempo real para ajudar",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Trusted Advisor"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfbzen7z": {
+              "id": "card_pzc3jfbzen7z",
+              "question": "O que é Planos de Suporte da AWS?",
+              "answer": "A AWS oferece diferentes níveis de suporte para atender a diversas",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfj61xv7": {
+              "id": "card_pzc3jfj61xv7",
+              "question": "Para que serve Planos de Suporte da AWS?",
+              "answer": "A AWS oferece diferentes níveis de suporte para atender a diversas",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfx7icjr": {
+              "id": "card_pzc3jfx7icjr",
+              "question": "O que é AWS Well?",
+              "answer": "Architected Framework; Consiste em um conjunto de princípios e melhores práticas para projetar e operar",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfwsqf80": {
+              "id": "card_pzc3jfwsqf80",
+              "question": "Para que serve AWS Well?",
+              "answer": "Architected Framework; Consiste em um conjunto de princípios e melhores práticas para projetar e operar",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfgbl96o": {
+              "id": "card_pzc3jfgbl96o",
+              "question": "Para que serve Modelos de Implantação da Nuvem?",
+              "answer": "Nuvem Privada é usada por uma única organização e não é exposta ao público,",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelos de Implantação da Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfk2s1is": {
+              "id": "card_pzc3jfk2s1is",
+              "question": "Para que serve Modelos de Implantação da Nuvem?",
+              "answer": "Nuvem Pública é quando os recursos são de propriedade e operados por um",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelos de Implantação da Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf6k9iiq": {
+              "id": "card_pzc3jf6k9iiq",
+              "question": "Para que serve Modelos de Implantação da Nuvem?",
+              "answer": "Nuvem Híbrida é uma combinação de nuvem privada (on-premises) e pública,",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelos de Implantação da Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfjz09tv": {
+              "id": "card_pzc3jfjz09tv",
+              "question": "Para que serve Tipos de Computação em Nuvem?",
+              "answer": "IaaS (Infrastructure as a Service) oferece os blocos de construção fundamentais",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Tipos de Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfxehfys": {
+              "id": "card_pzc3jfxehfys",
+              "question": "Para que serve Tipos de Computação em Nuvem?",
+              "answer": "PaaS (Platform as a Service) remove a necessidade de gerenciar a",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Tipos de Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfsm8lgk": {
+              "id": "card_pzc3jfsm8lgk",
+              "question": "Para que serve Tipos de Computação em Nuvem?",
+              "answer": "SaaS (Software as a Service) é um produto completo, executado e gerenciado",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Tipos de Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfn0og7i": {
+              "id": "card_pzc3jfn0og7i",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Trocar despesas de capital (CAPEX) por despesas operacionais (OPEX),",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfwv6gsd": {
+              "id": "card_pzc3jfwv6gsd",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Beneficiar-se de economias de escala massivas, resultando em preços mais",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf61ilmj": {
+              "id": "card_pzc3jf61ilmj",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Parar de adivinhar a capacidade, escalando os recursos com base no uso real.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfdiobpr": {
+              "id": "card_pzc3jfdiobpr",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Aumentar a velocidade e a agilidade, provisionando recursos em minutos.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfcvymll": {
+              "id": "card_pzc3jfcvymll",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Parar de gastar dinheiro com a execução e manutenção de data centers.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfzruj1e": {
+              "id": "card_pzc3jfzruj1e",
+              "question": "Para que serve 6 Vantagens da Computação em Nuvem?",
+              "answer": "Tornar-se global em minutos, aproveitando a infraestrutura global da AWS.",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "6 Vantagens da Computação em Nuvem"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf11umgd": {
+              "id": "card_pzc3jf11umgd",
+              "question": "Para que serve Infraestrutura Global da AWS?",
+              "answer": "Uma Região é uma área geográfica física no mundo onde há um cluster de data",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Infraestrutura Global da AWS"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfdgin5w": {
+              "id": "card_pzc3jfdgin5w",
+              "question": "Para que serve Infraestrutura Global da AWS?",
+              "answer": "Uma Zona de Disponibilidade (AZ) consiste em um ou mais data centers",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Infraestrutura Global da AWS"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf566sur": {
+              "id": "card_pzc3jf566sur",
+              "question": "Para que serve Infraestrutura Global da AWS?",
+              "answer": "Pontos de Presença (Edge Locations) são locais onde o conteúdo é entregue",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Infraestrutura Global da AWS"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfzzm4c8": {
+              "id": "card_pzc3jfzzm4c8",
+              "question": "Para que serve Modelo de Responsabilidade Compartilhada?",
+              "answer": "A AWS é responsável pela segurança DA nuvem, o que inclui hardware,",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelo de Responsabilidade Compartilhada"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf9y9sti": {
+              "id": "card_pzc3jf9y9sti",
+              "question": "Para que serve Modelo de Responsabilidade Compartilhada?",
+              "answer": "O cliente é responsável pela segurança NA nuvem, incluindo dados do cliente,",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelo de Responsabilidade Compartilhada"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf2i5npt": {
+              "id": "card_pzc3jf2i5npt",
+              "question": "Para que serve Modelo de Responsabilidade Compartilhada?",
+              "answer": "Controles compartilhados incluem gerenciamento de patches e de configuração,",
+              "tags": [
+                "Fundamentos da Nuvem e Infraestrutura Global",
+                "Modelo de Responsabilidade Compartilhada"
+              ],
+              "category": "Fundamentos da Nuvem e Infraestrutura Global",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfhf4x4z": {
+              "id": "card_pzc3jfhf4x4z",
+              "question": "Para que serve Amazon EC2 (Elastic Compute Cloud)?",
+              "answer": "As opções de configuração incluem Sistema Operacional (Linux, Windows,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon EC2 (Elastic Compute Cloud)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfn8iqbs": {
+              "id": "card_pzc3jfn8iqbs",
+              "question": "Para que serve Amazon EC2 (Elastic Compute Cloud)?",
+              "answer": "O EC2 User Data é um script que executa comandos de inicialização",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon EC2 (Elastic Compute Cloud)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfqqkbhe": {
+              "id": "card_pzc3jfqqkbhe",
+              "question": "Para que serve Amazon EC2 (Elastic Compute Cloud)?",
+              "answer": "Os tipos de instância são otimizados para diferentes casos de uso: Propósito",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon EC2 (Elastic Compute Cloud)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfp07izt": {
+              "id": "card_pzc3jfp07izt",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "On-Demand: Pague pelo que usar, por segundo, sem compromisso a longo",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf3ojik2": {
+              "id": "card_pzc3jf3ojik2",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "Instâncias Reservadas: Oferecem até 72% de desconto em comparação com",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfwh29ig": {
+              "id": "card_pzc3jfwh29ig",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "Savings Plans: Oferecem descontos em troca de um compromisso de uso",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jffoxzpk": {
+              "id": "card_pzc3jffoxzpk",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "Spot Instances: Oferecem até 90% de desconto, mas podem ser interrompidas a",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jff8yq14": {
+              "id": "card_pzc3jff8yq14",
+              "question": "Para que serve Opções de Compra de EC2?",
+              "answer": "Dedicated Hosts: Um servidor físico totalmente dedicado ao seu uso, útil para",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Opções de Compra de EC2"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf1ewqc0": {
+              "id": "card_pzc3jf1ewqc0",
+              "question": "Para que serve Amazon S3 (Simple Storage Service)?",
+              "answer": "Os dados são armazenados como objetos dentro de \"buckets\". Nomes de",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfusl1ea": {
+              "id": "card_pzc3jfusl1ea",
+              "question": "Para que serve Amazon S3 (Simple Storage Service)?",
+              "answer": "O tamanho máximo de um objeto é de 5TB. Para uploads maiores que 5GB,",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf7lrd55": {
+              "id": "card_pzc3jf7lrd55",
+              "question": "Para que serve Amazon S3 (Simple Storage Service)?",
+              "answer": "O versionamento pode ser habilitado no nível do bucket para proteger contra",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf0p6zlw": {
+              "id": "card_pzc3jf0p6zlw",
+              "question": "Para que serve Amazon S3 (Simple Storage Service)?",
+              "answer": "O S3 pode ser usado para hospedar sites estáticos.",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon S3 (Simple Storage Service)"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jftnesn1": {
+              "id": "card_pzc3jftnesn1",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "S3 Standard: Para dados acessados com frequência, oferece baixa latência e",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfljy535": {
+              "id": "card_pzc3jfljy535",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "S3 Standard-IA (Infrequent Access): Para dados acessados com menos",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf6q9ae6": {
+              "id": "card_pzc3jf6q9ae6",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "S3 One Zone-IA: Similar ao Standard-IA, mas armazena dados em uma única",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf1r9ftg": {
+              "id": "card_pzc3jf1r9ftg",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "S3 Glacier (Instant, Flexible, Deep Archive): Classes de armazenamento de",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf2jc157": {
+              "id": "card_pzc3jf2jc157",
+              "question": "Para que serve Classes de Armazenamento do S3?",
+              "answer": "S3 Intelligent-Tiering: Move objetos automaticamente entre as camadas de",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Classes de Armazenamento do S3"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfdusytb": {
+              "id": "card_pzc3jfdusytb",
+              "question": "Para que serve Amazon RDS e Amazon Aurora?",
+              "answer": "O RDS gerencia tarefas como provisionamento, patching de SO, backups e",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon RDS e Amazon Aurora"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfw075x0": {
+              "id": "card_pzc3jfw075x0",
+              "question": "Para que serve Amazon RDS e Amazon Aurora?",
+              "answer": "O Aurora é otimizado para a nuvem AWS, oferecendo desempenho superior (até",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon RDS e Amazon Aurora"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf4ynqh7": {
+              "id": "card_pzc3jf4ynqh7",
+              "question": "Para que serve Amazon RDS e Amazon Aurora?",
+              "answer": "RDS suporta Multi-AZ para alta disponibilidade e Read Replicas para escalar a",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon RDS e Amazon Aurora"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jflzpuy6": {
+              "id": "card_pzc3jflzpuy6",
+              "question": "Para que serve Amazon DynamoDB?",
+              "answer": "Oferece desempenho rápido e consistente com latência de milissegundos de um",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon DynamoDB"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jflj7vl7": {
+              "id": "card_pzc3jflj7vl7",
+              "question": "Para que serve Amazon DynamoDB?",
+              "answer": "Escala para cargas de trabalho massivas, com milhões de requisições por",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon DynamoDB"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf5nx9x0": {
+              "id": "card_pzc3jf5nx9x0",
+              "question": "Para que serve Amazon DynamoDB?",
+              "answer": "Possui um cache em memória opcional chamado DAX (DynamoDB Accelerator)",
+              "tags": [
+                "Computação, Armazenamento e Banco de Dados",
+                "Amazon DynamoDB"
+              ],
+              "category": "Computação, Armazenamento e Banco de Dados",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfi7rke0": {
+              "id": "card_pzc3jfi7rke0",
+              "question": "Para que serve ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "O ELB aumenta a tolerância a falhas e a disponibilidade da aplicação, expondo",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfz6cliw": {
+              "id": "card_pzc3jfz6cliw",
+              "question": "Para que serve ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "Existem diferentes tipos de Load Balancers, como Application Load Balancer",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfzqgmk8": {
+              "id": "card_pzc3jfzqgmk8",
+              "question": "Para que serve ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "O ASG permite escalar horizontalmente (scale-out) para lidar com picos de",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfuoy2pe": {
+              "id": "card_pzc3jfuoy2pe",
+              "question": "Para que serve ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)?",
+              "answer": "O ASG pode substituir automaticamente instâncias EC2 consideradas não",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "ELB (Elastic Load Balancing) e ASG (Auto Scaling Group)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfl2kurx": {
+              "id": "card_pzc3jfl2kurx",
+              "question": "Para que serve AWS IAM (Identity and Access Management)?",
+              "answer": "O usuário-raiz (root account) deve ser protegido e não utilizado para tarefas",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf4h0qmp": {
+              "id": "card_pzc3jf4h0qmp",
+              "question": "Para que serve AWS IAM (Identity and Access Management)?",
+              "answer": "Usuários podem ser organizados em grupos, e as permissões são definidas por",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfdge980": {
+              "id": "card_pzc3jfdge980",
+              "question": "Para que serve AWS IAM (Identity and Access Management)?",
+              "answer": "O princípio do menor privilégio deve ser aplicado: conceda apenas as",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf3gb369": {
+              "id": "card_pzc3jf3gb369",
+              "question": "Para que serve AWS IAM (Identity and Access Management)?",
+              "answer": "A Autenticação Multi-Fator (MFA) deve ser habilitada para proteger as contas.",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS IAM (Identity and Access Management)"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jf7e5zr4": {
+              "id": "card_pzc3jf7e5zr4",
+              "question": "Para que serve Amazon CloudWatch?",
+              "answer": "Coleta métricas (como utilização de CPU do EC2), que podem ser visualizadas",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jfs9y8y3": {
+              "id": "card_pzc3jfs9y8y3",
+              "question": "Para que serve Amazon CloudWatch?",
+              "answer": "Permite criar alarmes que notificam ou executam ações (como escalar um ASG)",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.907Z"
+            },
+            "card_pzc3jflmulqu": {
+              "id": "card_pzc3jflmulqu",
+              "question": "Para que serve Amazon CloudWatch?",
+              "answer": "O CloudWatch Logs centraliza a coleta de logs de serviços como EC2, Lambda",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgl86xlh": {
+              "id": "card_pzc3jgl86xlh",
+              "question": "Para que serve Amazon CloudWatch?",
+              "answer": "O EventBridge (anteriormente CloudWatch Events) permite reagir a eventos nos",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "Amazon CloudWatch"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jguxggxs": {
+              "id": "card_pzc3jguxggxs",
+              "question": "Para que serve AWS CloudTrail?",
+              "answer": "Está habilitado por padrão em todas as contas AWS.",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS CloudTrail"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgukfiui": {
+              "id": "card_pzc3jgukfiui",
+              "question": "Para que serve AWS CloudTrail?",
+              "answer": "Os logs podem ser enviados para o CloudWatch Logs ou para um bucket S3",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS CloudTrail"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgf8o0os": {
+              "id": "card_pzc3jgf8o0os",
+              "question": "Para que serve AWS CloudTrail?",
+              "answer": "Se um recurso for excluído, o CloudTrail é o primeiro lugar a ser investigado",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS CloudTrail"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgaarkyf": {
+              "id": "card_pzc3jgaarkyf",
+              "question": "Para que serve AWS Shield e AWS WAF?",
+              "answer": "O AWS Shield Standard é gratuito e protege contra os ataques DDoS mais",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS Shield e AWS WAF"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgu0kjvz": {
+              "id": "card_pzc3jgu0kjvz",
+              "question": "Para que serve AWS Shield e AWS WAF?",
+              "answer": "O AWS Shield Advanced é um serviço pago que oferece proteção adicional e",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS Shield e AWS WAF"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgl17t94": {
+              "id": "card_pzc3jgl17t94",
+              "question": "Para que serve AWS Shield e AWS WAF?",
+              "answer": "O AWS WAF (Web Application Firewall) protege aplicações web (camada 7)",
+              "tags": [
+                "Redes, Segurança e Monitoramento",
+                "AWS Shield e AWS WAF"
+              ],
+              "category": "Redes, Segurança e Monitoramento",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgho20zm": {
+              "id": "card_pzc3jgho20zm",
+              "question": "Para que serve AWS Organizations?",
+              "answer": "Oferece faturamento consolidado (Consolidated Billing), permitindo um único",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Organizations"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg3iy4jv": {
+              "id": "card_pzc3jg3iy4jv",
+              "question": "Para que serve AWS Organizations?",
+              "answer": "Permite o uso de Políticas de Controle de Serviço (SCPs) para restringir as",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Organizations"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgtze244": {
+              "id": "card_pzc3jgtze244",
+              "question": "Para que serve AWS Organizations?",
+              "answer": "As contas podem ser organizadas em Unidades Organizacionais (OUs) para",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Organizations"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgw788ic": {
+              "id": "card_pzc3jgw788ic",
+              "question": "Para que serve AWS CloudFormation?",
+              "answer": "Os modelos podem ser escritos em YAML ou JSON.",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS CloudFormation"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg24uv6z": {
+              "id": "card_pzc3jg24uv6z",
+              "question": "Para que serve AWS CloudFormation?",
+              "answer": "Automatiza a criação, atualização e exclusão de pilhas (stacks) de recursos de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS CloudFormation"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgce1mqj": {
+              "id": "card_pzc3jgce1mqj",
+              "question": "Para que serve AWS CloudFormation?",
+              "answer": "Ajuda a padronizar componentes de infraestrutura e replicar ambientes em",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS CloudFormation"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgf342j4": {
+              "id": "card_pzc3jgf342j4",
+              "question": "Para que serve AWS Trusted Advisor?",
+              "answer": "Analisa a conta em seis categorias: otimização de custos, desempenho,",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Trusted Advisor"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgo5sgbe": {
+              "id": "card_pzc3jgo5sgbe",
+              "question": "Para que serve AWS Trusted Advisor?",
+              "answer": "O plano de suporte Basic (gratuito) inclui 7 verificações principais.",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Trusted Advisor"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgf9fxgx": {
+              "id": "card_pzc3jgf9fxgx",
+              "question": "Para que serve AWS Trusted Advisor?",
+              "answer": "Os planos de suporte Business e Enterprise têm acesso ao conjunto completo",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Trusted Advisor"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jglvkc2t": {
+              "id": "card_pzc3jglvkc2t",
+              "question": "Para que serve Planos de Suporte da AWS?",
+              "answer": "Basic: Gratuito, inclui acesso ao atendimento ao cliente, documentação, fóruns e",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg5dlejn": {
+              "id": "card_pzc3jg5dlejn",
+              "question": "Para que serve Planos de Suporte da AWS?",
+              "answer": "Developer: Acesso por e-mail a engenheiros de suporte durante o horário",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg6n7tzh": {
+              "id": "card_pzc3jg6n7tzh",
+              "question": "Para que serve Planos de Suporte da AWS?",
+              "answer": "Business: Acesso 24/7 por telefone, e-mail e chat, com tempo de resposta de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jghvad05": {
+              "id": "card_pzc3jghvad05",
+              "question": "Para que serve Planos de Suporte da AWS?",
+              "answer": "Enterprise: Inclui todos os benefícios do Business, além de um Gerente de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "Planos de Suporte da AWS"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg2wsfmm": {
+              "id": "card_pzc3jg2wsfmm",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 1Excelência Operacional: Foca na execução e monitoramento de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jg96eoll": {
+              "id": "card_pzc3jg96eoll",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 2Segurança: Foca na proteção de informações, sistemas e ativos.",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jghffsdp": {
+              "id": "card_pzc3jghffsdp",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 3Confiabilidade: Foca na capacidade do sistema de se recuperar de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgzkhshm": {
+              "id": "card_pzc3jgzkhshm",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 4Eficiência de Performance: Foca no uso eficiente dos recursos de",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgkxffq1": {
+              "id": "card_pzc3jgkxffq1",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 5Otimização de Custos: Foca em evitar custos desnecessários.",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            },
+            "card_pzc3jgwxjznt": {
+              "id": "card_pzc3jgwxjznt",
+              "question": "Para que serve AWS Well?",
+              "answer": "Pilar 6Sustentabilidade: Foca em minimizar os impactos ambientais da",
+              "tags": [
+                "Gestão, Governança e Suporte",
+                "AWS Well"
+              ],
+              "category": "Gestão, Governança e Suporte",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-14T03:05:32.908Z"
+            }
+          }
         }
       }
     }
