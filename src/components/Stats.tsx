@@ -11,6 +11,7 @@ type UserStats = {
   totalReviews: number;
   byDay?: Record<string, number>;
   gradeTotals: { bad: number; good: number; excellent: number };
+  gradeByDay?: Record<string, { bad: number; good: number; excellent: number }>;
 };
 
 export function Stats({ userId, decks }: Props) {
@@ -19,12 +20,12 @@ export function Stats({ userId, decks }: Props) {
     const id = setInterval(() => setTick(t => t + 1), 10000);
     return () => clearInterval(id);
   }, []);
-  const [stats, setStats] = useState<UserStats>({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } });
+  const [stats, setStats] = useState<UserStats>({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} });
   useEffect(() => {
     (async () => {
       try {
         const res = await api.get('/stats', { params: { userId } });
-        const s: UserStats = res.data?.stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } };
+        const s: UserStats = res.data?.stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} };
         setStats(s);
       } catch (e) {
         console.error(e);
@@ -33,7 +34,6 @@ export function Stats({ userId, decks }: Props) {
   }, [userId, decks]);
   const allDecks = Object.values(decks);
   const totalCards = allDecks.reduce((acc, d) => acc + Object.keys(d.cards || {}).length, 0);
-  // Use contadores persistentes para total de revisões
   const reviewedTotal = stats.totalReviews || 0;
 
   const categorySet = new Set<string>();
@@ -48,8 +48,6 @@ export function Stats({ userId, decks }: Props) {
   const y = now.getFullYear();
   const m = now.getMonth();
   const dd = now.getDate();
-
-  // Contadores independentes
   const dayKey = `${y}-${String(m + 1).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
   const reviewsToday = (stats.byDay?.[dayKey] || 0);
   let nextReviewMs: number = Infinity;
@@ -64,9 +62,10 @@ export function Stats({ userId, decks }: Props) {
       else if (nextReviewTs > nowMs && nextReviewTs < nextReviewMs) nextReviewMs = nextReviewTs;
     });
   });
-  const totalBad = stats.gradeTotals?.bad || 0;
-  const totalGood = stats.gradeTotals?.good || 0;
-  const totalExcellent = stats.gradeTotals?.excellent || 0;
+  const todayGrades = stats.gradeByDay?.[dayKey] || { bad: 0, good: 0, excellent: 0 };
+  const totalBad = todayGrades.bad;
+  const totalGood = todayGrades.good;
+  const totalExcellent = todayGrades.excellent;
 
   const formatEta = (ms: number) => {
     if (!isFinite(ms)) return 'Sem previsão';
@@ -111,15 +110,15 @@ export function Stats({ userId, decks }: Props) {
           </div>
         {/* Linha 3 */}
           <div className="stat-card">
-            <span className="label">Total de difíceis</span>
+            <span className="label">Difíceis de hoje</span>
             <span className="value">{totalBad}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Total de acertos</span>
+            <span className="label">Acertos de hoje</span>
             <span className="value">{totalGood}</span>
           </div>
           <div className="stat-card">
-            <span className="label">Total de destaques</span>
+            <span className="label">Destaques de hoje</span>
             <span className="value">{totalExcellent}</span>
           </div>
       </div>

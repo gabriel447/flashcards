@@ -160,13 +160,12 @@ app.post('/api/review', (req, res) => {
   updated.gradeLog = [...prevLog, { ts: nowIso, grade: Number(grade) }];
   deck.cards[cardId] = updated;
   deck.reviewedCount = (deck.reviewedCount || 0) + 1;
-
-  // Atualiza estatísticas independentes do usuário
   try {
     const stats = store.users[userId].stats || (store.users[userId].stats = {
       totalReviews: 0,
       byDay: {},
       gradeTotals: { bad: 0, good: 0, excellent: 0 },
+      gradeByDay: {},
     });
     stats.totalReviews = (stats.totalReviews || 0) + 1;
     const dayKey = nowIso.slice(0, 10); // YYYY-MM-DD
@@ -175,6 +174,10 @@ app.post('/api/review', (req, res) => {
     if (g === 2) stats.gradeTotals.bad = (stats.gradeTotals.bad || 0) + 1;
     else if (g === 3) stats.gradeTotals.good = (stats.gradeTotals.good || 0) + 1;
     else if (g === 4) stats.gradeTotals.excellent = (stats.gradeTotals.excellent || 0) + 1;
+    stats.gradeByDay[dayKey] = stats.gradeByDay[dayKey] || { bad: 0, good: 0, excellent: 0 };
+    if (g === 2) stats.gradeByDay[dayKey].bad += 1;
+    else if (g === 3) stats.gradeByDay[dayKey].good += 1;
+    else if (g === 4) stats.gradeByDay[dayKey].excellent += 1;
   } catch (e) {
     console.warn('Falha ao atualizar estatísticas do usuário:', e.message);
   }
@@ -337,8 +340,6 @@ app.post('/api/generate', async (req, res) => {
   } else {
     cards = fallbackGenerate(deckTitle, category, effectiveCount, subject);
   }
-
-  // Enforce assunto específico: se não aparecer na pergunta ou resposta, usa fallback
   if (isSubjectMode) {
     const topic = String(subject).trim().toLowerCase();
     const hasTopicStrict = Array.isArray(cards) && cards.every(c =>
@@ -348,7 +349,6 @@ app.post('/api/generate', async (req, res) => {
     if (!hasTopicStrict) {
       cards = fallbackGenerate(deckTitle, category, effectiveCount, subject);
     } else {
-      // Ajusta tags para incluir contexto e assunto
       cards = cards.map(c => ({
         ...c,
         tags: Array.from(new Set([

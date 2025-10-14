@@ -32,12 +32,12 @@ function ensureUser(store, userId) {
   } else if (!store.users[userId].decks || typeof store.users[userId].decks !== 'object') {
     store.users[userId].decks = {};
   }
-  // Ensure persistent stats object independent of decks/cards
   if (!store.users[userId].stats || typeof store.users[userId].stats !== 'object') {
     store.users[userId].stats = {
       totalReviews: 0,
       byDay: {},
       gradeTotals: { bad: 0, good: 0, excellent: 0 },
+      gradeByDay: {},
     };
   } else {
     const stats = store.users[userId].stats;
@@ -50,6 +50,7 @@ function ensureUser(store, userId) {
           excellent: Number(stats.gradeTotals.excellent) || 0,
         }
       : { bad: 0, good: 0, excellent: 0 };
+    stats.gradeByDay = stats.gradeByDay && typeof stats.gradeByDay === 'object' ? stats.gradeByDay : {};
   }
 }
 
