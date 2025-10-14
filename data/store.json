@@ -791,10 +791,10 @@
               "category": "Databases & Analytics",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.2,
-              "nextReviewAt": "2025-10-14T19:39:45.714Z",
-              "reviews": 2,
-              "lastReviewedAt": "2025-10-14T19:29:45.714Z",
+              "easeFactor": 2.0500000000000003,
+              "nextReviewAt": "2025-10-14T19:57:35.870Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-14T19:47:35.870Z",
               "gradeLog": [
                 {
                   "ts": "2025-10-14T19:19:01.725Z",
@@ -802,6 +802,10 @@
                 },
                 {
                   "ts": "2025-10-14T19:29:45.714Z",
+                  "grade": 2
+                },
+                {
+                  "ts": "2025-10-14T19:47:35.870Z",
                   "grade": 2
                 }
               ]
@@ -839,19 +843,46 @@
               "category": "Databases & Analytics",
               "repetitions": 0,
               "interval": 0,
-              "easeFactor": 2.35,
-              "nextReviewAt": "2025-10-14T19:39:56.253Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-14T19:29:56.253Z",
+              "easeFactor": 2.2,
+              "nextReviewAt": "2025-10-14T19:57:39.875Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-14T19:47:39.875Z",
               "gradeLog": [
                 {
                   "ts": "2025-10-14T19:29:56.253Z",
+                  "grade": 2
+                },
+                {
+                  "ts": "2025-10-14T19:47:39.875Z",
+                  "grade": 2
+                }
+              ]
+            },
+            "card_qz4m4idqfa21": {
+              "id": "card_qz4m4idqfa21",
+              "question": "Qual serviço da AWS é utilizado para bancos de dados relacionais gerenciados?",
+              "answer": "Amazon RDS",
+              "tags": [
+                "AWS",
+                "RDS",
+                "banco de dados"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.35,
+              "nextReviewAt": "2025-10-14T19:57:55.484Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-14T19:47:55.484Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-14T19:47:55.484Z",
                   "grade": 2
                 }
               ]
             }
           },
-          "reviewedCount": 15
+          "reviewedCount": 19
         }
       }
     }

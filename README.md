@@ -63,10 +63,9 @@ Backend: `http://localhost:4000/`
 - `GET /api/decks/:deckId/export?userId=...` — exporta apenas um deck
 - `GET /api/export?userId=...` — exporta todos os dados do usuário
 - `POST /api/import` — importa dados completos do usuário (`{ userId, data }`)
-- `POST /api/generate` — gera cards (usa OpenAI se `OPENAI_API_KEY` existir; caso contrário, fallback local)
-- `POST /api/generate-from-pdf` — gera cards a partir de PDF. Prioriza um padrão de texto explícito (FC-*); mantém fallbacks (OCR/bullets) quando o padrão não existe.
+ - `POST /api/generate` — gera cards (usa OpenAI se `OPENAI_API_KEY` existir; caso contrário, fallback local). Aceita `subject` opcional para gerar 1 card focado em um assunto específico dentro da categoria.
 
-Observação: o backend normaliza dados automaticamente para usar somente `nextReviewAt` (remove `due`) tanto ao iniciar quanto após `POST /api/import`.
+Observação: o backend normaliza dados automaticamente para usar somente `nextReviewAt` (remove `due`) tanto ao iniciar quanto após `POST /api/import`. O modo de PDF foi descontinuado.
 
 ## Estrutura do projeto
 ```

@@ -1,5 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
-import { PdfIcon } from './icons';
+import { useEffect, useMemo, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 
@@ -9,14 +8,24 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [deckName, setDeckName] = useState('');
   const [category, setCategory] = useState('');
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(10);
   const [loading, setLoading] = useState(false);
-  const [pdfFile, setPdfFile] = useState<File | null>(null);
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
-  const [pdfMode, setPdfMode] = useState<boolean>(false);
-  const pdfInputRef = useRef<HTMLInputElement | null>(null);
+  const [subjectMode, setSubjectMode] = useState<boolean>(false);
+  const [subject, setSubject] = useState('');
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
+  const deckCategoryOptions = useMemo(() => {
+    if (!selectedDeckId) return [] as { category: string; count: number }[];
+    const d = decks[selectedDeckId];
+    if (!d) return [] as { category: string; count: number }[];
+    const map = new Map<string, number>();
+    Object.values(d.cards || {}).forEach(c => {
+      const cat = c.category || 'Sem categoria';
+      map.set(cat, (map.get(cat) || 0) + 1);
+    });
+    return Array.from(map.entries()).map(([category, count]) => ({ category, count }));
+  }, [selectedDeckId, decks]);
 
   useEffect(() => {
     if (!message) return;
@@ -28,22 +37,32 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
     const useExisting = Boolean(selectedDeckId);
     const nameValid = deckName.trim();
     const catValid = category.trim();
+    const subjValid = subjectMode ? subject.trim() : '';
     if (!useExisting && !nameValid) {
       setMessage({ type: 'error', text: 'Informe o nome do deck ou selecione um existente.' });
       return;
     }
-    if (!catValid) {
+    if (!catValid && !subjectMode) {
       setMessage({ type: 'error', text: 'Informe a categoria para gerar os cards.' });
+      return;
+    }
+    if (subjectMode && !subjValid) {
+      setMessage({ type: 'error', text: 'Informe o assunto específico.' });
+      return;
+    }
+    if (subjectMode && !catValid) {
+      setMessage({ type: 'error', text: 'Informe a categoria para gerar no modo Assunto específico.' });
       return;
     }
     setLoading(true);
     onLoadingChange?.(true);
     try {
-      const body: any = {
-        userId,
-        count,
-        category: catValid,
-      };
+      const body: any = { userId, count: subjectMode ? 1 : count };
+      if (!subjectMode && catValid) body.category = catValid;
+      if (subjectMode) {
+        body.subject = subjValid;
+        body.category = catValid;
+      }
       if (useExisting) body.deckId = selectedDeckId;
       else body.deckName = nameValid;
       const res = await api.post('/generate', body);
@@ -51,56 +70,25 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
       onDeckCreated(deck);
       setMessage({ type: 'success', text: 'Cards gerados com sucesso!' });
       setCategory('');
+      setSubject('');
     } finally {
       setLoading(false);
       onLoadingChange?.(false);
     }
   };
-
-  const generateFromPdf = async () => {
-    const nameValid = deckName.trim();
-    if (!nameValid) {
-      setMessage({ type: 'error', text: 'Informe o nome do deck para criar um novo.' });
-      return;
-    }
-    if (!pdfFile) {
-      setMessage({ type: 'error', text: 'Selecione um arquivo PDF.' });
-      return;
-    }
-    setLoading(true);
-    onLoadingChange?.(true);
-    try {
-      const form = new FormData();
-      form.append('userId', userId);
-      form.append('deckName', nameValid);
-      form.append('pdf', pdfFile);
-      const res = await api.post('/generate-from-pdf', form, { headers: { 'Content-Type': 'multipart/form-data' } });
-      const deck = res.data.deck as Deck;
-      onDeckCreated(deck);
-      setMessage({ type: 'success', text: 'Cards gerados com sucesso!' });
-      setPdfFile(null);
-    } catch (e: any) {
-      const msg = e?.response?.data?.error || e?.message || 'Erro desconhecido';
-      setMessage({ type: 'error', text: `Falha ao processar PDF: ${msg}` });
-    } finally {
-      setLoading(false);
-      onLoadingChange?.(false);
-    }
-  };
-
-  const deckValid = pdfMode ? Boolean(deckName.trim()) : (Boolean(selectedDeckId) || Boolean(deckName.trim()));
-  const canSubmit = pdfMode ? (Boolean(pdfFile) && deckValid) : (Boolean(category.trim()) && deckValid);
+  const deckValid = Boolean(selectedDeckId) || Boolean(deckName.trim());
+  const catOk = subjectMode ? Boolean(category.trim()) : Boolean(category.trim());
+  const canSubmit = (catOk && deckValid && (!subjectMode || Boolean(subject.trim())));
 
   return (
     <section>
       <h2>Gerar Flashcards com IA</h2>
-      <p className="subtitle">Escolha o modo e preencha os dados necessários.</p>
+      <p className="subtitle">Escolha o deck, categoria e (opcional) assunto específico.</p>
       {message && (
         <div className={`alert ${message.type} auto-hide`}>{message.text}</div>
       )}
       <div className={`panel ${loading ? 'loading' : ''}`}>
         <div className="panel-header">
-          {!pdfMode && (
           <div className="deck-select">
             <span className="form-label" style={{ marginBottom: 0 }}>Selecionar deck</span>
             <div className="chip-group">
@@ -118,54 +106,65 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
               ))}
             </div>
           </div>
-          )}
-          {pdfMode && (
-            <div className="pdf-header" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-              <div className="file-row">
-                <input
-                  ref={pdfInputRef}
-                  type="file"
-                  accept="application/pdf,.pdf"
-                  onChange={(e) => setPdfFile(e.target.files?.[0] || null)}
-                  disabled={loading}
-                  style={{ display: 'none' }}
-                />
-                <button
-                  type="button"
-                  className="link-btn small"
-                  onClick={() => pdfInputRef.current?.click()}
-                  disabled={loading}
-                >
-                  <PdfIcon size={14} className="pdf-icon" />
-                  Selecionar PDF
-                </button>
-                <span className="file-name">{pdfFile ? pdfFile.name : 'Nenhum arquivo selecionado'}</span>
-                {pdfFile && (
-                  <button type="button" className="link-btn small danger" onClick={() => setPdfFile(null)} disabled={loading}>Remover</button>
-                )}
-              </div>
-            </div>
-          )}
           <button
             type="button"
-            className={`toggle ${pdfMode ? 'on' : ''}`}
-            onClick={() => setPdfMode(v => !v)}
+            className={`toggle ${subjectMode ? 'on' : ''}`}
+            onClick={() => setSubjectMode(v => !v)}
             disabled={loading}
-            aria-pressed={pdfMode}
-            aria-label="PDF"
+            aria-pressed={subjectMode}
+            aria-label="Assunto específico"
           >
             <span className="knob" />
           </button>
         </div>
       <div className="form-grid">
-        
-        {(!selectedDeckId || pdfMode) && (
+        {(!selectedDeckId) && (
           <label className="form-control">
             <span className="form-label">Nome do deck</span>
-            <input className="input" value={deckName} onChange={(e) => setDeckName(e.target.value)} disabled={loading} aria-invalid={!deckName.trim() && (!selectedDeckId || pdfMode)} />
+            <input className="input" value={deckName} onChange={(e) => setDeckName(e.target.value)} disabled={loading} aria-invalid={!deckName.trim() && (!selectedDeckId)} />
           </label>
         )}
-        {!pdfMode && (
+        {subjectMode ? (
+          selectedDeckId ? (
+            <>
+              <label className="form-control">
+                <span className="form-label">Categoria</span>
+                <div className="chip-group">
+                  {deckCategoryOptions.length > 0 ? (
+                    deckCategoryOptions.map(({ category: catName }) => (
+                      <button
+                        type="button"
+                        key={catName}
+                        className={`chip ${category === catName ? 'active' : ''}`}
+                        onClick={() => setCategory(catName)}
+                        disabled={loading}
+                      >
+                        {catName}
+                      </button>
+                    ))
+                  ) : (
+                    <span className="badge muted">Sem categorias</span>
+                  )}
+                </div>
+              </label>
+              <label className="form-control">
+                <span className="form-label">Assunto específico</span>
+                <input className="input" value={subject} onChange={(e) => setSubject(e.target.value)} disabled={loading} aria-invalid={subjectMode && !subject.trim()} />
+              </label>
+            </>
+          ) : (
+            <>
+              <label className="form-control">
+                <span className="form-label">Categoria</span>
+                <input className="input" value={category} onChange={(e) => setCategory(e.target.value)} disabled={loading} aria-invalid={!category.trim()} />
+              </label>
+              <label className="form-control">
+                <span className="form-label">Assunto específico</span>
+                <input className="input" value={subject} onChange={(e) => setSubject(e.target.value)} disabled={loading} aria-invalid={subjectMode && !subject.trim()} />
+              </label>
+            </>
+          )
+        ) : (
           <>
             <label className="form-control">
               <span className="form-label">Categoria</span>
@@ -177,12 +176,11 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
             </label>
           </>
         )}
-        {pdfMode && null}
       </div>
       <div className="form-actions">
         <button
           className="btn btn-primary btn-sm"
-          onClick={() => (pdfMode ? generateFromPdf() : generate())}
+          onClick={() => generate()}
           disabled={loading || !canSubmit}
         >
           {loading && (<span className="spinner" />)}

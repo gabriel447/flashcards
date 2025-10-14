@@ -258,8 +258,10 @@ app.post('/api/import', (req, res) => {
 
 // Gera cards para um deck (OpenAI ou fallback)
 app.post('/api/generate', async (req, res) => {
-  const { userId, deckId, deckName, category, count } = req.body || {};
-  if (!userId || !count) {
+  const { userId, deckId, deckName, category, count, subject } = req.body || {};
+  const isSubjectMode = typeof subject === 'string' && subject.trim().length > 0;
+  const effectiveCount = isSubjectMode ? 1 : count;
+  if (!userId || !effectiveCount) {
     return res.status(400).json({ error: 'userId e count obrigatórios' });
   }
 
@@ -280,7 +282,7 @@ app.post('/api/generate', async (req, res) => {
   let cards = [];
   if (openaiClient) {
     try {
-      const prompt = buildPrompt(deckName || store.users[userId].decks[targetDeckId].name, category, count);
+      const prompt = buildPrompt(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
       const completion = await openaiClient.chat.completions.create({
         model: 'gpt-4o-mini',
         temperature: 0.7,
@@ -295,10 +297,10 @@ app.post('/api/generate', async (req, res) => {
       cards = parsed.cards || [];
     } catch (e) {
       console.warn('Falha ao usar OpenAI, aplicando fallback:', e.message);
-      cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, count);
+      cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
     }
   } else {
-    cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, count);
+    cards = fallbackGenerate(deckName || store.users[userId].decks[targetDeckId].name, category, effectiveCount, subject);
   }
 
   for (const card of cards) {
@@ -321,13 +323,25 @@ app.post('/api/generate', async (req, res) => {
   res.json({ deck: store.users[userId].decks[targetDeckId] });
 });
 
-function buildPrompt(deckName, category, count) {
+function buildPrompt(deckName, category, count, subject) {
   const catPart = category ? `Categoria (tema): ${category}.` : '';
-  return `Gere ${count} flashcards em JSON com o formato {"cards":[{"question":"...","answer":"...","tags":["..."],"category":"..."}]}. Deck: ${deckName}. ${catPart} Perguntas objetivas e respostas concisas.`;
+  const subjPart = subject ? `Assunto específico: ${subject}. Foque APENAS nisso e gere exatamente 1 flashcard.` : '';
+  const qty = subject ? 1 : count;
+  return `Gere ${qty} flashcards em JSON com o formato {"cards":[{"question":"...","answer":"...","tags":["..."],"category":"..."}]}. Deck: ${deckName}. ${catPart} ${subjPart} Perguntas objetivas e respostas concisas.`;
 }
 
-function fallbackGenerate(deckName, category, count) {
+function fallbackGenerate(deckName, category, count, subject) {
   const items = [];
+  if (subject && subject.trim().length > 0) {
+    const topic = subject.trim();
+    items.push({
+      question: `Explique de forma objetiva: ${topic}`,
+      answer: `Resposta concisa e direta sobre "${topic}", cobrindo definição e uso essencial.`,
+      tags: [topic.toLowerCase()],
+      category: category || null,
+    });
+    return items;
+  }
   const n = Math.min(Number(count) || 10, 50);
   const topic = (category || deckName || 'Assunto').trim();
   for (let i = 1; i <= n; i++) {
