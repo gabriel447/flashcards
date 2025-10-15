@@ -88,6 +88,23 @@ export function Stats({ userId, decks }: Props) {
   const handleToggleGood = () => setGradeRangeGood(nextRange(gradeRangeGood));
   const handleToggleExcellent = () => setGradeRangeExcellent(nextRange(gradeRangeExcellent));
 
+  const handleResetStats = async () => {
+    try {
+      setStats({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} });
+      setReviewRange('hoje');
+      setGradeRangeBad('hoje');
+      setGradeRangeGood('hoje');
+      setGradeRangeExcellent('hoje');
+
+      await api.post('/stats/reset', { userId });
+      const res = await api.get('/stats', { params: { userId } });
+      const s: UserStats = res.data?.stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} };
+      setStats(s);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const formatEta = (ms: number) => {
     if (!isFinite(ms)) return 'Sem previsão';
     const diff = Math.max(0, ms - nowMs);
@@ -101,7 +118,10 @@ export function Stats({ userId, decks }: Props) {
 
   return (
     <section>
-      <h2>Estatísticas de Aprendizado</h2>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+        <h2 style={{ margin: 0 }}>Estatísticas de Aprendizado</h2>
+        <button className="btn btn-primary btn-sm" onClick={handleResetStats} title="Limpa contagens de revisões e notas">Limpar</button>
+      </div>
       <div className="stats-cards">
         {/* Linha 1 */}
         <div className="stat-card">
@@ -143,6 +163,7 @@ export function Stats({ userId, decks }: Props) {
             <span className="value">{totalExcellent}</span>
           </div>
       </div>
+      
     </section>
   );
 }

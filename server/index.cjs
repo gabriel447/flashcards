@@ -50,8 +50,24 @@ app.get('/api/stats', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
   const store = getUserStore(userId);
-  const stats = store.users[userId].stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 } };
+  const stats = store.users[userId].stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} };
   res.json({ stats });
+});
+
+// Reseta estatísticas persistentes do usuário (não altera decks, categorias, cards ou agendamento)
+app.post('/api/stats/reset', (req, res) => {
+  const { userId } = req.body || req.query || {};
+  if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
+  const store = getUserStore(userId);
+  if (!store.users[userId]) return res.status(404).json({ error: 'Usuário não encontrado' });
+  store.users[userId].stats = {
+    totalReviews: 0,
+    byDay: {},
+    gradeTotals: { bad: 0, good: 0, excellent: 0 },
+    gradeByDay: {},
+  };
+  persist(store);
+  res.json({ ok: true, stats: store.users[userId].stats });
 });
 
 // Lista decks do usuário
