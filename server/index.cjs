@@ -45,7 +45,7 @@ app.post('/api/auth/login', (req, res) => {
   res.json({ userId });
 });
 
-// Obtém estatísticas persistentes do usuário
+// Obtém estatísticas
 app.get('/api/stats', (req, res) => {
   const { userId } = req.query;
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
@@ -54,7 +54,7 @@ app.get('/api/stats', (req, res) => {
   res.json({ stats });
 });
 
-// Reseta estatísticas persistentes do usuário (não altera decks, categorias, cards ou agendamento)
+// Reseta estatísticas
 app.post('/api/stats/reset', (req, res) => {
   const { userId } = req.body || req.query || {};
   if (!userId) return res.status(400).json({ error: 'userId obrigatório' });
@@ -66,6 +66,8 @@ app.post('/api/stats/reset', (req, res) => {
     gradeTotals: { bad: 0, good: 0, excellent: 0 },
     gradeByDay: {},
   };
+  const userDecks = store.users[userId].decks || {};
+  Object.values(userDecks).forEach(d => { d.reviewedCount = 0; });
   persist(store);
   res.json({ ok: true, stats: store.users[userId].stats });
 });
@@ -108,7 +110,6 @@ app.post('/api/decks', (req, res) => {
   const { userId, name } = req.body || {};
   if (!userId || !name) return res.status(400).json({ error: 'userId e name obrigatórios' });
   const store = getUserStore(userId);
-  // Garante estrutura do usuário
   if (!store.users[userId]) store.users[userId] = { decks: {} };
   if (!store.users[userId].decks || typeof store.users[userId].decks !== 'object') {
     store.users[userId].decks = {};
@@ -406,8 +407,7 @@ Deck: ${deckName}.${category ? ` Categoria (tema): ${category}.` : ''}`;
     const s = String(subject).trim();
     return `${base}
 Assunto específico: ${s}. Foque exclusivamente neste assunto. NÃO mude para outros serviços ou temas.
-Se o assunto for, por exemplo, Neptune, NÃO gere sobre RDS.
-Inclua tags relacionadas a "${deckName}" e "${category}" e ao assunto.
+Inclua tags relacionadas a "${deckName}" e "${category}" ao assunto.
 IMPORTANTE: a pergunta e a resposta DEVEM conter literalmente a palavra "${s}".
 Idioma: escreva todas as perguntas e respostas exclusivamente em português do Brasil (pt-BR). Evite inglês; mantenha nomes próprios em inglês quando necessário, mas explique sempre em português.
 Gere exatamente 1 flashcard com pergunta objetiva e resposta concisa, mantendo a categoria enviada.`;

@@ -25,6 +25,7 @@ export function Stats({ userId, decks }: Props) {
   const [gradeRangeBad, setGradeRangeBad] = useState<'hoje'|'ontem'|'semana'>('hoje');
   const [gradeRangeGood, setGradeRangeGood] = useState<'hoje'|'ontem'|'semana'>('hoje');
   const [gradeRangeExcellent, setGradeRangeExcellent] = useState<'hoje'|'ontem'|'semana'>('hoje');
+  const [resetting, setResetting] = useState(false);
   useEffect(() => {
     (async () => {
       try {
@@ -90,18 +91,20 @@ export function Stats({ userId, decks }: Props) {
 
   const handleResetStats = async () => {
     try {
+      setResetting(true);
       setStats({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} });
       setReviewRange('hoje');
       setGradeRangeBad('hoje');
       setGradeRangeGood('hoje');
       setGradeRangeExcellent('hoje');
-
       await api.post('/stats/reset', { userId });
       const res = await api.get('/stats', { params: { userId } });
       const s: UserStats = res.data?.stats || { totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} };
       setStats(s);
     } catch (e) {
       console.error(e);
+    } finally {
+      setResetting(false);
     }
   };
 
@@ -120,7 +123,10 @@ export function Stats({ userId, decks }: Props) {
     <section>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
         <h2>Estatísticas de Aprendizado</h2>
-        <button className="btn btn-primary btn-sm" onClick={handleResetStats} title="Limpa contagens de revisões e notas">Limpar</button>
+        <button className="btn btn-primary btn-sm" onClick={handleResetStats} disabled={resetting} title="Limpa contagens de revisões e notas">
+          {resetting && (<span className="spinner" />)}
+          {'Limpar'}
+        </button>
       </div>
       <div className="stats-cards">
         {/* Linha 1 */}
