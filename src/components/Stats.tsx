@@ -48,15 +48,13 @@ export function Stats({ userId, decks }: Props) {
     });
   });
   const totalCategories = categorySet.size;
-
-  const now = new Date();
-  const y = now.getFullYear();
-  const m = now.getMonth();
-  const dd = now.getDate();
-  const dayKey = `${y}-${String(m + 1).padStart(2, '0')}-${String(dd).padStart(2, '0')}`;
-  const dayKeyOf = (d: Date) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-  const yesterdayKey = (() => { const d = new Date(); d.setDate(d.getDate() - 1); return dayKeyOf(d); })();
-  const last7Keys = (() => { const keys: string[] = []; for (let i = 0; i < 7; i++) { const d = new Date(); d.setDate(d.getDate() - i); keys.push(dayKeyOf(d)); } return keys; })();
+  const dayKeyUtc = (offsetDays: number = 0) => {
+    const d = new Date(Date.now() - offsetDays * 86400000);
+    return new Date(d).toISOString().slice(0, 10); // YYYY-MM-DD em UTC
+  };
+  const dayKey = dayKeyUtc(0);
+  const yesterdayKey = dayKeyUtc(1);
+  const last7Keys = (() => { const keys: string[] = []; for (let i = 0; i < 7; i++) keys.push(dayKeyUtc(i)); return keys; })();
   const reviewsCount = reviewRange === 'hoje'
     ? (stats.byDay?.[dayKey] || 0)
     : reviewRange === 'ontem'
