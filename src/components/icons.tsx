@@ -148,3 +148,36 @@ export function PdfIcon({ size = 18, className }: IconProps) {
     </svg>
   );
 }
+
+export function BroomIcon({ size = 20, className, style }: IconProps) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="#334155"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className={className}
+      style={style}
+    >
+      {/* Handle at diagonal */}
+      <path d="M20 3L9.5 13.5" />
+      {/* Broom head */}
+      <path d="M8.5 14.5c-3 1.5-5.5 1.4-6.3 1.2-.4-.1-.7-.6-.6-1 0-.5.5-.8.9-.8 3.2-.2 6.4-1.6 8.7-3.6l2.4 2.4c-1.5 1.5-2.6 4.2-2.8 7.2-.1 1-1.7.6-2.3.3-2.2-1.1-3.4-2.8-4.6-4.6" stroke="#f59e0b" />
+      {/* Bristle cuts */}
+      <path d="M6.8 15.6l1.8-2.4" stroke="#f59e0b" />
+      <path d="M5.4 16.2l1.5-2" stroke="#f59e0b" />
+      <path d="M4.2 16.8l1.2-1.6" stroke="#f59e0b" />
+      {/* Dust dots */}
+      <circle cx="12.5" cy="19" r="1.6" fill="#60a5fa" stroke="none" />
+      <circle cx="16" cy="21" r="1.2" fill="#93c5fd" stroke="none" />
+      <circle cx="19" cy="18" r="1" fill="#9ca3af" stroke="none" />
+      {/* Ferrule accent */}
+      <path d="M20 3L18.5 4.5" stroke="#3b82f6" />
+    </svg>
+  );
+}

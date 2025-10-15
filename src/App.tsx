@@ -3,6 +3,7 @@ import './App.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import { Generator } from './components/Generator.tsx';
+import { Login } from './components/Login.tsx';
 import { DeckManager } from './components/DeckManager.tsx';
 import { Stats } from './components/Stats.tsx';
 import { Review } from './components/Review.tsx';
@@ -12,7 +13,7 @@ import type { Deck, Card } from './types.ts';
 type View = 'gerar' | 'decks' | 'revisar' | 'stats';
 
 function App() {
-  const [userId] = useState<string>('anon');
+  const [userId, setUserId] = useState<string>(() => localStorage.getItem('userId') || '');
   const [view, setView] = useState<View>('gerar');
   const [decks, setDecks] = useState<Record<string, Deck>>({});
   const [busy, setBusy] = useState(false);
@@ -29,6 +30,20 @@ function App() {
       return acc + reviewableInDeck;
     }, 0);
   }, [decks, nowTick]);
+
+  // Captura retorno do OAuth via query e persiste
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const uid = params.get('userId');
+    const email = params.get('email');
+    if (uid) {
+      localStorage.setItem('userId', uid);
+      if (email) localStorage.setItem('userEmail', email);
+      setUserId(uid);
+      const cleanUrl = window.location.origin + window.location.pathname;
+      window.history.replaceState({}, document.title, cleanUrl);
+    }
+  }, []);
 
   useEffect(() => {
     if (!userId) return;
@@ -54,9 +69,35 @@ function App() {
     }
   }, [view]);
 
+  if (!userId) {
+    return (
+      <div className="container">
+        <main className="main" style={{ marginTop: '3rem' }}>
+          <Login />
+        </main>
+      </div>
+    );
+  }
+
   return (
     <div className="container">
-      <header className="header"><h1>Flashcards Inteligentes</h1></header>
+      <header className="header">
+        <div className="header-left">
+          <span className="user-email">
+            <span className="status-dot pulse" aria-label="online" />
+            {localStorage.getItem('userEmail') || userId}
+          </span>
+        </div>
+        <h1>Flashcards Inteligentes</h1>
+        <button
+          className="logout-btn"
+          onClick={() => {
+            localStorage.removeItem('userId');
+            localStorage.removeItem('userEmail');
+            setUserId('');
+          }}
+        >Sair</button>
+      </header>
       <nav className="tabs">
         <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>

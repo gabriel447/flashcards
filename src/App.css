@@ -4,6 +4,20 @@
   padding: 5.5rem 1rem 2rem;
   text-align: left;
 }
+
+/* Customizable theme variables (you can set exact brand colors) */
+:root {
+  /* Logout button colors (outline style) */
+  --logout-bg: transparent;
+  --logout-border: #ef4444;    /* vermelho */
+  --logout-text: #ef4444;      /* texto vermelho */
+  --logout-hover-bg: #ffe5e5;  /* leve fundo no hover */
+  --logout-hover-border: #dc2626; /* vermelho mais escuro no hover */
+  --logout-hover-text: #dc2626;
+
+  /* Header email color */
+  --header-email-color: #64748b; /* slate-500 mais discreto */
+}
 .toggle {
   position: relative;
   width: 56px;
@@ -72,9 +86,33 @@
   color: #888;
 }
 .container { max-width: 980px; margin: 0 auto; padding: 1rem; }
-.header { position: fixed; top: 0; left: 0; right: 0; display: flex; align-items: center; justify-content: center; background: #ffffff; border-bottom: 1px solid #e5e7eb; padding: 0.75rem 1rem; z-index: 10; }
-.header h1 { margin: 0; font-size: 1.5rem; font-weight: 700; color: #111827; }
-.tabs { display: flex; gap: 0.5rem; margin: 1rem 0; justify-content: center; }
+.header { position: fixed; top: 0; left: 0; right: 0; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 1rem; background: #ffffff; box-shadow: 0 10px 24px rgba(0,0,0,0.08); padding: 1rem 2rem; z-index: 10; }
+.header h1 { margin: 0; font-size: 2.2rem; font-weight: 400; color: #111827; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); pointer-events: none; font-family: 'Satisfy', 'Great Vibes', cursive; }
+.header-left { justify-self: start; }
+.user-email { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; color: var(--header-email-color); }
+.status-dot { width: 10px; height: 10px; border-radius: 9999px; background: #10b981; box-shadow: 0 0 0 2px rgba(16,185,129,0.2); position: relative; }
+@keyframes pulseDot { 0% { box-shadow: 0 0 0 2px rgba(16,185,129,0.3); } 50% { box-shadow: 0 0 0 6px rgba(16,185,129,0.15); } 100% { box-shadow: 0 0 0 2px rgba(16,185,129,0.3); } }
+.pulse { animation: pulseDot 1.6s ease-in-out infinite; }
+.logout-btn {
+  justify-self: end;
+  background: var(--logout-bg);
+  border: 1.5px solid var(--logout-border);
+  color: var(--logout-text);
+  border-radius: 12px;
+  padding: 0.5rem 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: none;
+  transition: background-color 160ms ease, color 160ms ease, border-color 160ms ease, box-shadow 160ms ease, transform 120ms ease;
+}
+.logout-btn:hover {
+  background: var(--logout-hover-bg);
+  border-color: var(--logout-hover-border);
+  color: var(--logout-hover-text);
+}
+.logout-btn:active { transform: translateY(1px); }
+.logout-btn:focus-visible { outline: 3px solid rgba(239,68,68,0.35); outline-offset: 2px; }
+.tabs { display: flex; gap: 0.5rem; margin: 3rem 0 1rem; justify-content: center; }
 .tabs button {
   border: 1px solid #e5e7eb;
   background: #f8fafc;
@@ -211,12 +249,29 @@
 .icon-btn:hover { background: #eef2f7; }
 .icon-btn.danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
 .icon-btn.danger:hover { background: #dc2626; border-color: #dc2626; }
+/* Broom sweep animation */
+.broom-icon { transform-origin: 70% 70%; transition: transform 160ms ease; }
+@keyframes sweepMotion {
+  0% { transform: rotate(0deg) translateX(0); }
+  25% { transform: rotate(-15deg) translateX(-4px); }
+  50% { transform: rotate(15deg) translateX(4px); }
+  75% { transform: rotate(-10deg) translateX(-3px); }
+  100% { transform: rotate(0deg) translateX(0); }
+}
+.broom-icon.sweeping { animation: sweepMotion 900ms ease-in-out infinite; }
+
+/* Transparent icon-only button */
+.clean-icon-btn { background: transparent; border: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+.clean-icon-btn:hover .broom-icon { transform: rotate(-6deg) translateX(1px); }
 @media (prefers-color-scheme: dark) {
   .deck-header:hover { background: transparent; }
   .deck-header strong, .deck-name, .chevron { color: #111827; }
   .btn { border-color: #1f2937; background: #111827; color: #e5e7eb; display: inline-flex; align-items: center; justify-content: center; line-height: 1; }
   .btn:hover { background: #0b1220; }
   .btn-primary:hover { background: #d1d5db; border-color: #cbd5e1; color: #111827; }
+  .user-email { color: var(--header-email-color); }
+  .logout-btn { background: var(--logout-bg); border-color: var(--logout-border); color: var(--logout-text); }
+  .logout-btn:hover { background: var(--logout-hover-bg); border-color: var(--logout-hover-border); color: var(--logout-hover-text); }
   .btn-danger { background: #ef4444; border-color: #ef4444; color: #ffffff; }
   .btn-danger:hover { background: #dc2626; border-color: #dc2626; }
   .btn-secondary { background: #374151; border-color: #374151; color: #e5e7eb; }

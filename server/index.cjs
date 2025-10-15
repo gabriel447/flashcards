@@ -9,7 +9,7 @@ const { loadStore, saveStore, ensureUser, makeId } = require('./utils/store.cjs'
 
 const PORT = process.env.PORT || 4000;
 const app = express();
-app.use(cors({ origin: ['http://localhost:5173', 'http://localhost:5174'], credentials: false }));
+app.use(cors({ origin: 'http://localhost:5173', credentials: false }));
 app.use(bodyParser.json());
 
 let openaiClient = null;
@@ -32,6 +32,25 @@ function persist(store) {
   saveStore(store);
 }
 
+// Verificação de ID Token do Google via endpoint público (sem dependências extras)
+async function verifyGoogleIdToken(idToken) {
+  try {
+    const resp = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`);
+    if (!resp.ok) return null;
+    const data = await resp.json();
+    // Opcionalmente validar aud contra GOOGLE_CLIENT_ID
+    const expectedAud = process.env.GOOGLE_CLIENT_ID;
+    if (expectedAud && data.aud && data.aud !== expectedAud) {
+      console.warn('Google ID Token aud mismatch');
+      return null;
+    }
+    return data; // contém email, sub, name, picture, email_verified
+  } catch (e) {
+    console.warn('Falha ao verificar ID Token Google:', e.message);
+    return null;
+  }
+}
+
 // Autentica usuário simples e retorna userId
 app.post('/api/auth/login', (req, res) => {
   const { username } = req.body || {};
@@ -43,6 +62,35 @@ app.post('/api/auth/login', (req, res) => {
   ensureUser(store, userId);
   persist(store);
   res.json({ userId });
+});
+
+// Autenticação via Google — usa email como userId
+app.post('/api/auth/google', async (req, res) => {
+  const { idToken, credential } = req.body || {};
+  const token = idToken || credential;
+  if (!token) return res.status(400).json({ error: 'idToken obrigatório' });
+  const data = await verifyGoogleIdToken(token);
+  if (!data || data.error_description) {
+    return res.status(401).json({ error: 'Token inválido' });
+  }
+  if (String(data.email_verified) !== 'true') {
+    return res.status(401).json({ error: 'Email não verificado' });
+  }
+  const email = (data.email || '').toLowerCase();
+  if (!email) return res.status(400).json({ error: 'Email ausente no token' });
+  const userId = email.replace(/[^a-z0-9]+/g, '-');
+  const store = getUserStore(userId);
+  ensureUser(store, userId);
+  // Salva perfil básico
+  store.users[userId].profile = {
+    email,
+    name: data.name || '',
+    picture: data.picture || '',
+    sub: data.sub || '',
+    provider: 'google',
+  };
+  persist(store);
+  res.json({ userId, email, name: data.name || '', picture: data.picture || '' });
 });
 
 // Obtém estatísticas
@@ -458,4 +506,92 @@ function fallbackGenerate(deckName, category, count, subject) {
 
 app.listen(PORT, () => {
   console.log(`API server running on http://localhost:${PORT}`);
+});
+function makeSlug(email) {
+  return String(email || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
+}
+
+function getCallbackUrl() {
+  return process.env.GOOGLE_REDIRECT_URI || `http://localhost:${PORT}/api/auth/google/callback`;
+}
+
+function buildGoogleAuthUrl(stateObj) {
+  const clientId = process.env.GOOGLE_CLIENT_ID;
+  const redirectUri = getCallbackUrl();
+  const state = Buffer.from(JSON.stringify(stateObj || {})).toString('base64url');
+  const params = new URLSearchParams({
+    client_id: clientId || '',
+    redirect_uri: redirectUri,
+    response_type: 'code',
+    scope: 'openid email profile',
+    include_granted_scopes: 'true',
+    access_type: 'offline',
+    prompt: 'consent',
+    state,
+  });
+  return `https://accounts.google.com/o/oauth2/v2/auth?${params.toString()}`;
+}
+
+// Início do OAuth: redireciona para Google
+app.get('/api/auth/google/start', (req, res) => {
+  const { redirect } = req.query || {};
+  const authUrl = buildGoogleAuthUrl({ redirect: redirect || `http://localhost:5173/` });
+  res.redirect(authUrl);
+});
+
+// Callback do OAuth: troca código por token e cria usuário
+app.get('/api/auth/google/callback', async (req, res) => {
+  const { code, state } = req.query || {};
+  if (!code) return res.status(400).send('code ausente');
+  let redirectTarget = `http://localhost:5173/`;
+  try {
+    if (state) {
+      const decoded = JSON.parse(Buffer.from(String(state), 'base64url').toString('utf8'));
+      if (decoded?.redirect) redirectTarget = decoded.redirect;
+    }
+  } catch {}
+  try {
+    const clientId = process.env.GOOGLE_CLIENT_ID;
+    const clientSecret = process.env.GOOGLE_CLIENT_SECRET;
+    const redirectUri = getCallbackUrl();
+    const tokenResp = await fetch('https://oauth2.googleapis.com/token', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: new URLSearchParams({
+        code: String(code),
+        client_id: clientId || '',
+        client_secret: clientSecret || '',
+        redirect_uri: redirectUri,
+        grant_type: 'authorization_code',
+      }),
+    });
+    if (!tokenResp.ok) {
+      const errText = await tokenResp.text();
+      return res.status(401).send(`Falha ao obter token: ${errText}`);
+    }
+    const tokenData = await tokenResp.json();
+    const idToken = tokenData.id_token;
+    const data = await verifyGoogleIdToken(idToken);
+    if (!data || data.error_description) return res.status(401).send('Token inválido');
+    if (String(data.email_verified) !== 'true') return res.status(401).send('Email não verificado');
+    const email = (data.email || '').toLowerCase();
+    const userId = makeSlug(email);
+    const store = getUserStore(userId);
+    ensureUser(store, userId);
+    store.users[userId].profile = {
+      email,
+      name: data.name || '',
+      picture: data.picture || '',
+      sub: data.sub || '',
+      provider: 'google',
+    };
+    persist(store);
+    const url = new URL(redirectTarget);
+    url.searchParams.set('userId', userId);
+    url.searchParams.set('email', email);
+    res.redirect(url.toString());
+  } catch (e) {
+    console.error(e);
+    res.status(500).send('Erro no callback OAuth');
+  }
 });

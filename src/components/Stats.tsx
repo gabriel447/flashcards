@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { api } from '../lib/api';
+import { BroomIcon } from './icons';
 import type { Deck } from '../types';
 
 type Props = {
@@ -26,6 +27,7 @@ export function Stats({ userId, decks }: Props) {
   const [gradeRangeGood, setGradeRangeGood] = useState<'hoje'|'ontem'|'semana'>('hoje');
   const [gradeRangeExcellent, setGradeRangeExcellent] = useState<'hoje'|'ontem'|'semana'>('hoje');
   const [resetting, setResetting] = useState(false);
+  const [sweeping, setSweeping] = useState(false);
   useEffect(() => {
     (async () => {
       try {
@@ -90,6 +92,7 @@ export function Stats({ userId, decks }: Props) {
   const handleResetStats = async () => {
     try {
       setResetting(true);
+      setSweeping(true);
       setStats({ totalReviews: 0, byDay: {}, gradeTotals: { bad: 0, good: 0, excellent: 0 }, gradeByDay: {} });
       setReviewRange('hoje');
       setGradeRangeBad('hoje');
@@ -103,6 +106,7 @@ export function Stats({ userId, decks }: Props) {
       console.error(e);
     } finally {
       setResetting(false);
+      setTimeout(() => setSweeping(false), 800);
     }
   };
 
@@ -121,9 +125,14 @@ export function Stats({ userId, decks }: Props) {
     <section>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
         <h2>Estatísticas de Aprendizado</h2>
-        <button className="btn btn-primary btn-sm" onClick={handleResetStats} disabled={resetting} title="Limpa contagens de revisões e notas">
-          {resetting && (<span className="spinner" />)}
-          {'Limpar'}
+        <button
+          className="clean-icon-btn"
+          onClick={handleResetStats}
+          disabled={resetting}
+          title="Limpar estatísticas"
+          aria-label="Limpar estatísticas"
+        >
+          <BroomIcon size={40} className={`broom-icon ${sweeping ? 'sweeping' : ''}`} />
         </button>
       </div>
       <div className="stats-cards">
