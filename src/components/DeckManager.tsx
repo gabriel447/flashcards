@@ -81,7 +81,7 @@ export function DeckManager({ userId, decks, onUpdateDecks }: Props) {
 
   return (
     <section className="decks-section">
-      <h2>Decks</h2>
+      <h2>Meus Decks</h2>
       <div className="toolbar">
         <label className="form-control" style={{ flex: 1 }}>
           <span className="form-label">Nome do deck</span>

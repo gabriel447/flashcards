@@ -119,7 +119,7 @@ export function Stats({ userId, decks }: Props) {
   return (
     <section>
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
-        <h2 style={{ margin: 0 }}>Estatísticas de Aprendizado</h2>
+        <h2>Estatísticas de Aprendizado</h2>
         <button className="btn btn-primary btn-sm" onClick={handleResetStats} title="Limpa contagens de revisões e notas">Limpar</button>
       </div>
       <div className="stats-cards">
