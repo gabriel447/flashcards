@@ -141,6 +141,18 @@ function App() {
                   },
                 }));
               }}
+              onCardDeleted={(deckId: string, cardId: string) => {
+                setDecks(prev => {
+                  const next = { ...prev } as Record<string, Deck>;
+                  const deck = next[deckId];
+                  if (deck) {
+                    const cards = { ...deck.cards } as Record<string, Card>;
+                    delete cards[cardId];
+                    next[deckId] = { ...deck, cards };
+                  }
+                  return next;
+                });
+              }}
             />
           )}
           {view === 'stats' && (

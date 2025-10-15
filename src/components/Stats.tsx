@@ -132,7 +132,7 @@ export function Stats({ userId, decks }: Props) {
           title="Limpar estatísticas"
           aria-label="Limpar estatísticas"
         >
-          <BroomIcon size={40} className={`broom-icon ${sweeping ? 'sweeping' : ''}`} />
+          <BroomIcon size={35} className={`broom-icon ${sweeping ? 'sweeping' : ''}`} />
         </button>
       </div>
       <div className="stats-cards">

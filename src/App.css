@@ -46,6 +46,11 @@
 .toggle.on .knob {
   transform: translateX(26px);
 }
+.toggle.small { width: 42px; height: 22px; padding: 3px; }
+.toggle.small .knob { width: 16px; height: 16px; transform: translateX(0); }
+.toggle.small.on .knob { transform: translateX(20px); }
+.toggle.on.red { background: #ef4444; border-color: #ef4444; }
+.toggle.on.red:focus-visible { outline: 2px solid #ef444455; }
 .toggle:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -161,6 +166,8 @@
 .card-edit { display: grid; gap: 0.6rem; padding-top: 0.75rem; align-content: center; min-height: 220px; }
 .card-edit input, .card-edit textarea { width: 100%; }
 .review-card { border: none; border-radius: 0; padding: 0; min-height: 0; text-align: left; background: transparent; margin-top: 0.75rem; position: relative; }
+/* Seletor de exclusão ao avançar */
+.delete-toggle { position: absolute; top: 12px; right: 12px; z-index: 5; }
 .import-label { display: inline-flex; align-items: center; gap: 0.5rem; }
 .import-label input { margin-left: 0; }
 .toolbar { flex-wrap: nowrap; }
@@ -261,7 +268,7 @@
 .broom-icon.sweeping { animation: sweepMotion 900ms ease-in-out infinite; }
 
 /* Transparent icon-only button */
-.clean-icon-btn { background: transparent; border: none; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
+.clean-icon-btn { background: transparent; border: none; width: 32px; height: 32px; display: inline-flex; align-items: center; justify-content: center; padding: 0; cursor: pointer; }
 .clean-icon-btn:hover .broom-icon { transform: rotate(-6deg) translateX(1px); }
 @media (prefers-color-scheme: dark) {
   .deck-header:hover { background: transparent; }

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
@@ -11,9 +11,10 @@ type Props = {
   decks: Record<string, Deck>;
   onCardUpdated: (deckId: string, card: Card, reviewedCount?: number) => void;
   selectedDeckId?: string;
+  onCardDeleted?: (deckId: string, cardId: string) => void;
 };
 
-export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) {
+export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDeleted }: Props) {
   const now = Date.now();
   const initialQueue = useMemo(() => {
     const items: Array<{ deckId: string; card: Card }> = [];
@@ -38,6 +39,11 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
   const [hasRated, setHasRated] = useState(false);
   const [nextReviewLabel, setNextReviewLabel] = useState('');
   const [insertEmptySentinel, setInsertEmptySentinel] = useState(false);
+  const [deleteOnAdvance, setDeleteOnAdvance] = useState(false);
+  const [showDeleteToggle, setShowDeleteToggle] = useState(false);
+  const deleteOnAdvanceRef = useRef(false);
+  const queueRef = useRef(queue);
+  const activeIndexRef = useRef(activeIndex);
 
   useEffect(() => {
     setQueue(initialQueue);
@@ -48,6 +54,26 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     setNextReviewLabel('');
     setInsertEmptySentinel(false);
   }, [selectedDeckId]);
+
+  useEffect(() => {
+    setShowDeleteToggle(Boolean(hasRated));
+  }, [hasRated]);
+
+  useEffect(() => { deleteOnAdvanceRef.current = deleteOnAdvance; }, [deleteOnAdvance]);
+  useEffect(() => { queueRef.current = queue; }, [queue]);
+  useEffect(() => { activeIndexRef.current = activeIndex; }, [activeIndex]);
+
+  useEffect(() => {
+    return () => {
+      if (deleteOnAdvanceRef.current) {
+        const idx = activeIndexRef.current;
+        const item = queueRef.current[idx];
+        if (item) {
+          void deleteCard(item.deckId, item.card.id);
+        }
+      }
+    };
+  }, []);
 
   const appendNewlyReviewCards = () => {
     const existingKeys = new Set(
@@ -109,6 +135,16 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     }
   };
 
+  const deleteCard = async (deckId: string, cardId: string) => {
+    try {
+      await api.delete(`/decks/${deckId}/cards/${cardId}`, { params: { userId } });
+      setQueue(prev => prev.filter(item => !(item.deckId === deckId && item.card.id === cardId)));
+      onCardDeleted?.(deckId, cardId);
+    } catch (e) {
+      console.error(e);
+    }
+  };
+
   const emptyTitle = selectedDeckId && decks[selectedDeckId]?.name
     ? `Sem cards para revisar em "${decks[selectedDeckId].name}" agora.`
     : 'Sem cards agora. Volte mais tarde!';
@@ -120,7 +156,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
     <section className="review-container">
       <h2>{selectedDeckId && decks[selectedDeckId]?.name ? `Revisar — ${decks[selectedDeckId].name}` : 'Revisão Espaçada'}</h2>
       <Swiper
-        className={`review-swiper ${canAdvance ? 'can-advance' : ''}`}
+        className={`review-swiper ${(canAdvance || deleteOnAdvance) ? 'can-advance' : ''}`}
         spaceBetween={16}
         slidesPerView={1}
         modules={[Navigation]}
@@ -129,14 +165,21 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
         resistanceRatio={0}
         allowTouchMove={false}
         allowSlidePrev={false}
-        allowSlideNext={canAdvance && activeIndex < (queue.length + (insertEmptySentinel ? 1 : 0) - 1)}
-        onSlideChange={(swiper) => {
+        allowSlideNext={(canAdvance || deleteOnAdvance) && activeIndex < (queue.length + (insertEmptySentinel ? 1 : 0) - 1)}
+        onSlideChange={async (swiper) => {
+          // Se marcado para excluir, remove o card que acabamos de deixar
+          if (deleteOnAdvance && activeIndex < queue.length) {
+            const prevItem = queue[activeIndex];
+            if (prevItem) await deleteCard(prevItem.deckId, prevItem.card.id);
+          }
           setActiveIndex(swiper.activeIndex);
           setNoTransition(true);
           setShowAnswer(false);
           setCanAdvance(false);
           setHasRated(false);
           setNextReviewLabel('');
+          setShowDeleteToggle(false);
+          setDeleteOnAdvance(false);
           setTimeout(() => setNoTransition(false), 0);
           if (insertEmptySentinel && swiper.activeIndex === queue.length) {
             setInsertEmptySentinel(false);
@@ -171,7 +214,18 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId }: Props) 
                   </div>
                 </div>
               </div>
-              {}
+              {showAnswer && showDeleteToggle && (
+                <button
+                  type="button"
+                  className={`toggle small delete-toggle ${deleteOnAdvance ? 'on red' : ''}`}
+                  onClick={() => setDeleteOnAdvance(v => { const nv = !v; if (nv) setCanAdvance(true); return nv; })}
+                  aria-pressed={deleteOnAdvance}
+                  aria-label="Excluir ao avançar"
+                  title="Excluir ao avançar"
+                >
+                  <span className="knob" />
+                </button>
+              )}
             </div>
               <div className="grade-row">
               {showAnswer ? (
