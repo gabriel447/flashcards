@@ -113,84 +113,16 @@
       }
     },
     "fullstackgabe-gmail-com": {
-      "decks": {
-        "deck_tupgwvsen9rr": {
-          "id": "deck_tupgwvsen9rr",
-          "name": "AWS",
-          "cards": {
-            "card_tuvotuyoxg93": {
-              "id": "card_tuvotuyoxg93",
-              "question": "O que é o ECS na AWS?",
-              "answer": "ECS, ou Elastic Container Service, é um serviço gerenciado da AWS que permite executar, parar e gerenciar contêineres Docker em um cluster.",
-              "tags": [
-                "AWS",
-                "ECS",
-                "Outros",
-                "aws",
-                "outros",
-                "ecs"
-              ],
-              "category": "Outros",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.35,
-              "nextReviewAt": "2025-10-16T20:22:38.077Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-16T20:12:38.077Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-16T20:12:38.077Z",
-                  "grade": 2
-                }
-              ]
-            },
-            "card_tux002gk977a": {
-              "id": "card_tux002gk977a",
-              "question": "O que é o AWS Batch e como ele facilita o gerenciamento de jobs em Batch?",
-              "answer": "O AWS Batch é um serviço que permite executar jobs em Batch na nuvem da AWS, facilitando a gestão, agendamento e execução de tarefas em lote de forma escalável e eficiente.",
-              "tags": [
-                "AWS",
-                "Outros",
-                "Batch",
-                "aws",
-                "outros",
-                "batch"
-              ],
-              "category": "Outros",
-              "repetitions": 0,
-              "interval": 0,
-              "easeFactor": 2.35,
-              "nextReviewAt": "2025-10-16T20:23:04.654Z",
-              "reviews": 1,
-              "lastReviewedAt": "2025-10-16T20:13:04.654Z",
-              "gradeLog": [
-                {
-                  "ts": "2025-10-16T20:13:04.654Z",
-                  "grade": 2
-                }
-              ]
-            }
-          },
-          "reviewedCount": 2
-        }
-      },
+      "decks": {},
       "stats": {
-        "totalReviews": 2,
-        "byDay": {
-          "2025-10-16": 2
-        },
+        "totalReviews": 0,
+        "byDay": {},
         "gradeTotals": {
-          "bad": 2,
+          "bad": 0,
           "good": 0,
           "excellent": 0
         },
-        "gradeByDay": {
-          "2025-10-16": {
-            "bad": 2,
-            "good": 0,
-            "excellent": 0
-          }
-        }
+        "gradeByDay": {}
       },
       "profile": {
         "email": "fullstackgabe@gmail.com",
