@@ -13,6 +13,7 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
   const [subjectMode, setSubjectMode] = useState<boolean>(false);
   const [subject, setSubject] = useState('');
+  const [customCategoryMode, setCustomCategoryMode] = useState(false);
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
   const deckCategoryOptions = useMemo(() => {
@@ -21,7 +22,8 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
     if (!d) return [] as { category: string; count: number }[];
     const map = new Map<string, number>();
     Object.values(d.cards || {}).forEach(c => {
-      const cat = c.category || 'Sem categoria';
+      const cat = (c.category || '').trim();
+      if (!cat) return;
       map.set(cat, (map.get(cat) || 0) + 1);
     });
     return Array.from(map.entries()).map(([category, count]) => ({ category, count }));
@@ -32,6 +34,10 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
     const t = setTimeout(() => setMessage(null), 4600);
     return () => clearTimeout(t);
   }, [message]);
+
+  useEffect(() => {
+    setCustomCategoryMode(false);
+  }, [selectedDeckId, subjectMode]);
 
   const generate = async () => {
     const useExisting = Boolean(selectedDeckId);
@@ -130,22 +136,41 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange }: Pro
               <label className="form-control">
                 <span className="form-label">Categoria</span>
                 <div className="chip-group">
-                  {deckCategoryOptions.length > 0 ? (
-                    deckCategoryOptions.map(({ category: catName }) => (
+                  <button
+                    type="button"
+                    className={`chip ${customCategoryMode ? 'active' : ''}`}
+                    onClick={() => { setCustomCategoryMode(true); setCategory(''); }}
+                    disabled={loading}
+                  >
+                    Criar nova
+                  </button>
+                  {deckCategoryOptions
+                    .filter(({ category: catName }) => catName.trim() !== 'Sem categoria')
+                    .map(({ category: catName }) => (
                       <button
                         type="button"
                         key={catName}
-                        className={`chip ${category === catName ? 'active' : ''}`}
-                        onClick={() => setCategory(catName)}
+                        className={`chip ${(!customCategoryMode && category === catName) ? 'active' : ''}`}
+                        onClick={() => { setCustomCategoryMode(false); setCategory(catName); }}
                         disabled={loading}
                       >
                         {catName}
                       </button>
-                    ))
-                  ) : (
-                    <span className="badge muted">Sem categorias</span>
-                  )}
+                    ))}
                 </div>
+                {customCategoryMode && (
+                  <div className="form-control" style={{ marginTop: 8 }}>
+                    <span className="form-label">Nome da categoria</span>
+                    <input
+                      className="input"
+                      placeholder=""
+                      value={category}
+                      onChange={(e) => setCategory(e.target.value)}
+                      disabled={loading}
+                      aria-invalid={!category.trim()}
+                    />
+                  </div>
+                )}
               </label>
               <label className="form-control">
                 <span className="form-label">Assunto específico</span>
