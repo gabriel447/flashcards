@@ -207,14 +207,36 @@ app.post('/api/review', (req, res) => {
   if (!deck || !card) return res.status(404).json({ error: 'Card não encontrado' });
 
   const updated = scheduleReview(card, grade);
+  card.repetitions = updated.repetitions;
+  card.interval = updated.interval;
+  card.easeFactor = updated.easeFactor;
+  card.nextReviewAt = updated.nextReviewAt;
+  card.reviews = updated.reviews;
+  card.lastReviewedAt = updated.lastReviewedAt;
+
   const nowIso = new Date().toISOString();
   const prevLog = Array.isArray(card.gradeLog) ? card.gradeLog : [];
   const newLog = [
     ...prevLog,
-    { grade, reviewedAt: nowIso },
+    { ts: nowIso, grade, reviewedAt: nowIso },
   ];
   card.gradeLog = newLog;
+
   deck.reviewedCount = Math.max(Number(deck.reviewedCount || 0) + 1, newLog.length);
+
+  const stats = store.users[userId].stats || {};
+  const dayKey = nowIso.slice(0, 10);
+  stats.totalReviews = Number(stats.totalReviews || 0) + 1;
+  stats.byDay = stats.byDay || {};
+  stats.byDay[dayKey] = Number(stats.byDay[dayKey] || 0) + 1;
+  const gradeKey = Number(grade) >= 4 ? 'excellent' : (Number(grade) === 3 ? 'good' : 'bad');
+  stats.gradeTotals = stats.gradeTotals || { bad: 0, good: 0, excellent: 0 };
+  stats.gradeTotals[gradeKey] = Number(stats.gradeTotals[gradeKey] || 0) + 1;
+  stats.gradeByDay = stats.gradeByDay || {};
+  if (!stats.gradeByDay[dayKey]) stats.gradeByDay[dayKey] = { bad: 0, good: 0, excellent: 0 };
+  stats.gradeByDay[dayKey][gradeKey] = Number(stats.gradeByDay[dayKey][gradeKey] || 0) + 1;
+  store.users[userId].stats = stats;
+
   persist(store);
   res.json({ card, reviewedCount: deck.reviewedCount });
 });
