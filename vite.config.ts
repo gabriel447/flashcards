@@ -4,9 +4,9 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
-  const origin = env.ORIGIN || 'http://localhost'
-  const backendPort = env.BACKEND_PORT || '4000'
-  const devPort = Number(env.FRONTEND_PORT || 5173)
+  const origin = env.ORIGIN
+  const backendPort = Number(env.BACKEND_PORT)
+  const frontendPort = Number(env.FRONTEND_PORT)
   return {
     plugins: [react()],
     define: {
@@ -14,11 +14,11 @@ export default defineConfig(({ mode }) => {
       BACKEND_PORT: JSON.stringify(backendPort),
     },
     server: {
-      port: devPort,
+      port: frontendPort,
       strictPort: true,
     },
     preview: {
-      port: devPort,
+      port: frontendPort,
       strictPort: true,
     },
   }

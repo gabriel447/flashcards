@@ -7,10 +7,10 @@ dotenv.config();
 const { scheduleReview } = require('./utils/sm2.cjs');
 const { loadStore, saveStore, ensureUser, makeId } = require('./utils/store.cjs');
 
-const ORIGIN = process.env.ORIGIN || 'http://localhost';
-const PORT = Number(process.env.BACKEND_PORT || process.env.PORT || 4000);
-const FRONTEND_PORT = process.env.FRONTEND_PORT || '5173';
-const APP_ORIGIN = process.env.APP_ORIGIN || `${ORIGIN}:${FRONTEND_PORT}`;
+const ORIGIN = process.env.ORIGIN;
+const PORT = Number(process.env.BACKEND_PORT);
+const FRONTEND_PORT = Number(process.env.FRONTEND_PORT);
+const APP_ORIGIN = `${ORIGIN}:${FRONTEND_PORT}`;
 const app = express();
 app.use(cors({ origin: APP_ORIGIN, credentials: false }));
 app.use(bodyParser.json());
