@@ -7,9 +7,12 @@ dotenv.config();
 const { scheduleReview } = require('./utils/sm2.cjs');
 const { loadStore, saveStore, ensureUser, makeId } = require('./utils/store.cjs');
 
-const PORT = process.env.PORT || 4000;
+const ORIGIN = process.env.ORIGIN || 'http://localhost';
+const PORT = Number(process.env.BACKEND_PORT || process.env.PORT || 4000);
+const FRONTEND_PORT = process.env.FRONTEND_PORT || '5173';
+const APP_ORIGIN = process.env.APP_ORIGIN || `${ORIGIN}:${FRONTEND_PORT}`;
 const app = express();
-app.use(cors({ origin: 'http://localhost:5173', credentials: false }));
+app.use(cors({ origin: APP_ORIGIN, credentials: false }));
 app.use(bodyParser.json());
 
 let openaiClient = null;
@@ -32,19 +35,17 @@ function persist(store) {
   saveStore(store);
 }
 
-// Verificação de ID Token do Google via endpoint público (sem dependências extras)
 async function verifyGoogleIdToken(idToken) {
   try {
     const resp = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`);
     if (!resp.ok) return null;
     const data = await resp.json();
-    // Opcionalmente validar aud contra GOOGLE_CLIENT_ID
     const expectedAud = process.env.GOOGLE_CLIENT_ID;
     if (expectedAud && data.aud && data.aud !== expectedAud) {
       console.warn('Google ID Token aud mismatch');
       return null;
     }
-    return data; // contém email, sub, name, picture, email_verified
+    return data;
   } catch (e) {
     console.warn('Falha ao verificar ID Token Google:', e.message);
     return null;
@@ -505,14 +506,14 @@ function fallbackGenerate(deckName, category, count, subject) {
 }
 
 app.listen(PORT, () => {
-  console.log(`API server running on http://localhost:${PORT}`);
+  console.log(`API server running on ${ORIGIN}:${PORT}`);
 });
 function makeSlug(email) {
   return String(email || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
 }
 
 function getCallbackUrl() {
-  return process.env.GOOGLE_REDIRECT_URI || `http://localhost:${PORT}/api/auth/google/callback`;
+  return process.env.GOOGLE_REDIRECT_URI;
 }
 
 function buildGoogleAuthUrl(stateObj) {
@@ -535,7 +536,7 @@ function buildGoogleAuthUrl(stateObj) {
 // Início do OAuth: redireciona para Google
 app.get('/api/auth/google/start', (req, res) => {
   const { redirect } = req.query || {};
-  const authUrl = buildGoogleAuthUrl({ redirect: redirect || `http://localhost:5173/` });
+  const authUrl = buildGoogleAuthUrl({ redirect: redirect || `${APP_ORIGIN}/` });
   res.redirect(authUrl);
 });
 
@@ -543,7 +544,7 @@ app.get('/api/auth/google/start', (req, res) => {
 app.get('/api/auth/google/callback', async (req, res) => {
   const { code, state } = req.query || {};
   if (!code) return res.status(400).send('code ausente');
-  let redirectTarget = `http://localhost:5173/`;
+  let redirectTarget = `${APP_ORIGIN}/`;
   try {
     if (state) {
       const decoded = JSON.parse(Buffer.from(String(state), 'base64url').toString('utf8'));
