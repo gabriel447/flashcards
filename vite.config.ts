@@ -5,20 +5,20 @@ import react from '@vitejs/plugin-react'
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '')
   const origin = env.ORIGIN
-  const backendPort = Number(env.BACKEND_PORT)
-  const frontendPort = Number(env.FRONTEND_PORT)
+  const port = Number(env.PORT)
+  const vitePort = Number(env.VITE_PORT)
   return {
     plugins: [react()],
     define: {
       ORIGIN: JSON.stringify(origin),
-      BACKEND_PORT: JSON.stringify(backendPort),
+      PORT: JSON.stringify(port),
     },
     server: {
-      port: frontendPort,
+      port: vitePort,
       strictPort: true,
     },
     preview: {
-      port: frontendPort,
+      port: vitePort,
       strictPort: true,
     },
   }

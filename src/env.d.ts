@@ -1,2 +1,2 @@
 declare const ORIGIN: string;
-declare const BACKEND_PORT: string;
+declare const PORT: string;

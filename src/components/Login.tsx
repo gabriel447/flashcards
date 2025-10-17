@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 export function Login() {
   const startUrl = useMemo(() => {
     const origin = window.location.origin;
-    const base = `${ORIGIN}:${BACKEND_PORT}/api`;
+    const base = `${ORIGIN}:${PORT}/api`;
     const url = new URL(`${base}/auth/google/start`);
     url.searchParams.set('redirect', origin);
     return url.toString();

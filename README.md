@@ -52,7 +52,9 @@ Backend: `http://localhost:4000/`
  - Cada revisão atualiza `repetitions`, `interval`, `easeFactor`, `nextReviewAt`, `reviews` e `lastReviewedAt`
 
 ## Endpoints principais (backend)
-- `POST /api/auth/login` — autenticação simples; retorna `{ userId }`
+- `POST /api/auth/google` — autenticação Google com ID Token; retorna `{ userId, email }`
+- `GET /api/auth/google/start` — inicia OAuth (redireciona para Google)
+- `GET /api/auth/google/callback` — callback OAuth (troca code por token)
 - `GET /api/decks?userId=...` — lista decks, garantindo `reviewedCount` migrado
 - `POST /api/decks` — cria deck (`{ userId, name }`)
 - `POST /api/decks/:deckId/cards` — cria card (`{ userId, card }`)

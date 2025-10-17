@@ -8,9 +8,9 @@ const { scheduleReview } = require('./utils/sm2.cjs');
 const { loadStore, saveStore, ensureUser, makeId } = require('./utils/store.cjs');
 
 const ORIGIN = process.env.ORIGIN;
-const PORT = Number(process.env.BACKEND_PORT);
-const FRONTEND_PORT = Number(process.env.FRONTEND_PORT);
-const APP_ORIGIN = `${ORIGIN}:${FRONTEND_PORT}`;
+const PORT = Number(process.env.PORT);
+const VITE_PORT = Number(process.env.VITE_PORT);
+const APP_ORIGIN = `${ORIGIN}:${VITE_PORT}`;
 const app = express();
 app.use(cors({ origin: APP_ORIGIN, credentials: false }));
 app.use(bodyParser.json());
@@ -52,19 +52,6 @@ async function verifyGoogleIdToken(idToken) {
   }
 }
 
-// Autentica usuário simples e retorna userId
-app.post('/api/auth/login', (req, res) => {
-  const { username } = req.body || {};
-  if (!username || typeof username !== 'string') {
-    return res.status(400).json({ error: 'username obrigatório' });
-  }
-  const userId = username.trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
-  const store = getUserStore(userId);
-  ensureUser(store, userId);
-  persist(store);
-  res.json({ userId });
-});
-
 // Autenticação via Google — usa email como userId
 app.post('/api/auth/google', async (req, res) => {
   const { idToken, credential } = req.body || {};
@@ -82,7 +69,6 @@ app.post('/api/auth/google', async (req, res) => {
   const userId = email.replace(/[^a-z0-9]+/g, '-');
   const store = getUserStore(userId);
   ensureUser(store, userId);
-  // Salva perfil básico
   store.users[userId].profile = {
     email,
     name: data.name || '',
@@ -223,35 +209,17 @@ app.post('/api/review', (req, res) => {
   const updated = scheduleReview(card, grade);
   const nowIso = new Date().toISOString();
   const prevLog = Array.isArray(card.gradeLog) ? card.gradeLog : [];
-  updated.gradeLog = [...prevLog, { ts: nowIso, grade: Number(grade) }];
-  deck.cards[cardId] = updated;
-  deck.reviewedCount = (deck.reviewedCount || 0) + 1;
-  try {
-    const stats = store.users[userId].stats || (store.users[userId].stats = {
-      totalReviews: 0,
-      byDay: {},
-      gradeTotals: { bad: 0, good: 0, excellent: 0 },
-      gradeByDay: {},
-    });
-    stats.totalReviews = (stats.totalReviews || 0) + 1;
-    const dayKey = nowIso.slice(0, 10); // YYYY-MM-DD
-    stats.byDay[dayKey] = (stats.byDay[dayKey] || 0) + 1;
-    const g = Number(grade);
-    if (g === 2) stats.gradeTotals.bad = (stats.gradeTotals.bad || 0) + 1;
-    else if (g === 3) stats.gradeTotals.good = (stats.gradeTotals.good || 0) + 1;
-    else if (g === 4) stats.gradeTotals.excellent = (stats.gradeTotals.excellent || 0) + 1;
-    stats.gradeByDay[dayKey] = stats.gradeByDay[dayKey] || { bad: 0, good: 0, excellent: 0 };
-    if (g === 2) stats.gradeByDay[dayKey].bad += 1;
-    else if (g === 3) stats.gradeByDay[dayKey].good += 1;
-    else if (g === 4) stats.gradeByDay[dayKey].excellent += 1;
-  } catch (e) {
-    console.warn('Falha ao atualizar estatísticas do usuário:', e.message);
-  }
+  const newLog = [
+    ...prevLog,
+    { grade, reviewedAt: nowIso },
+  ];
+  card.gradeLog = newLog;
+  deck.reviewedCount = Math.max(Number(deck.reviewedCount || 0) + 1, newLog.length);
   persist(store);
-  res.json({ card: updated, reviewedCount: deck.reviewedCount });
+  res.json({ card, reviewedCount: deck.reviewedCount });
 });
 
-// Remove card do deck
+// Remove um card
 app.delete('/api/decks/:deckId/cards/:cardId', (req, res) => {
   const { userId } = req.query;
   const { deckId, cardId } = req.params;
@@ -508,12 +476,9 @@ function fallbackGenerate(deckName, category, count, subject) {
 app.listen(PORT, () => {
   console.log(`API server running on ${ORIGIN}:${PORT}`);
 });
-function makeSlug(email) {
-  return String(email || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
-}
 
 function getCallbackUrl() {
-  return process.env.GOOGLE_REDIRECT_URI;
+  return `${ORIGIN}:${PORT}/api/auth/google/callback`;
 }
 
 function buildGoogleAuthUrl(stateObj) {
@@ -576,7 +541,7 @@ app.get('/api/auth/google/callback', async (req, res) => {
     if (!data || data.error_description) return res.status(401).send('Token inválido');
     if (String(data.email_verified) !== 'true') return res.status(401).send('Email não verificado');
     const email = (data.email || '').toLowerCase();
-    const userId = makeSlug(email);
+    const userId = String(email || '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-');
     const store = getUserStore(userId);
     ensureUser(store, userId);
     store.users[userId].profile = {
