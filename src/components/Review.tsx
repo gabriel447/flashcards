@@ -34,6 +34,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
   const [queue, setQueue] = useState(initialQueue);
   const [activeIndex, setActiveIndex] = useState(0);
   const [showAnswer, setShowAnswer] = useState(false);
+  const [lockedPrevIndex, setLockedPrevIndex] = useState<number | null>(null);
   const [canAdvance, setCanAdvance] = useState(false);
   const [noTransition, setNoTransition] = useState(false);
   const [hasRated, setHasRated] = useState(false);
@@ -174,6 +175,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
           }
           setActiveIndex(swiper.activeIndex);
           setNoTransition(true);
+          setLockedPrevIndex(showAnswer ? swiper.previousIndex : null);
           setShowAnswer(false);
           setCanAdvance(false);
           setHasRated(false);
@@ -188,15 +190,16 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
           }
           appendNewlyReviewCards();
         }}
+        onSlideChangeTransitionEnd={() => { setLockedPrevIndex(null); }}
       >
-        {queue.map(({ deckId, card }) => (
+        {queue.map(({ deckId, card }, idx) => (
           <SwiperSlide key={`${deckId}-${card.id}-${(Array.isArray(card.gradeLog) ? card.gradeLog.length : 0)}`}>
             <div className="review-card">
               <div
-                className={`flip-card ${showAnswer ? 'flipped' : ''}`}
-                onClick={() => { if (!showAnswer) setShowAnswer(true); }}
+                className={`flip-card ${(((idx === activeIndex) && showAnswer) || (lockedPrevIndex === idx)) ? 'flipped' : ''}`}
+                onClick={() => { if (idx === activeIndex && !showAnswer) setShowAnswer(true); }}
                 role="button"
-                aria-label={showAnswer ? 'Mostrar pergunta' : 'Mostrar resposta'}
+                aria-label={(((idx === activeIndex) && showAnswer) || (lockedPrevIndex === idx)) ? 'Mostrar pergunta' : 'Mostrar resposta'}
               >
                 <div className={`flip-card-inner ${noTransition ? 'no-transition' : ''}`}>
                   <div className="flip-card-front">
@@ -214,7 +217,7 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
                   </div>
                 </div>
               </div>
-              {showAnswer && showDeleteToggle && (
+              {showAnswer && showDeleteToggle && idx === activeIndex && (
                 <button
                   type="button"
                   className={`toggle small delete-toggle ${deleteOnAdvance ? 'on red' : ''}`}
@@ -228,23 +231,25 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
               )}
             </div>
               <div className="grade-row">
-              {showAnswer ? (
-                hasRated ? (
-                  <span className="review-label" style={{ color: '#1f6feb' }}>
-                    Próxima revisão em{' '}
-                    <span style={{ color: '#000' }}>~ {nextReviewLabel || 'breve'}</span>
-                  </span>
+              {idx === activeIndex ? (
+                showAnswer ? (
+                  hasRated ? (
+                    <span className="review-label" style={{ color: '#1f6feb' }}>
+                      Próxima revisão em{' '}
+                      <span style={{ color: '#000' }}>~ {nextReviewLabel || 'breve'}</span>
+                    </span>
+                  ) : (
+                    <>
+                      <span className="review-label">Como você foi ?</span>
+                      <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 2)}>Mal</button>
+                      <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 3)}>Bem</button>
+                      <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Excelente</button>
+                    </>
+                  )
                 ) : (
-                  <>
-                    <span className="review-label">Como você foi ?</span>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 2)}>Mal</button>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 3)}>Bem</button>
-                    <button className="btn btn-grade" onClick={() => grade(deckId, card.id, 4)}>Excelente</button>
-                  </>
+                  <span className="review-label">Clique para virar a carta</span>
                 )
-              ) : (
-                <span className="review-label">Clique para virar a carta</span>
-              )}
+              ) : null}
               </div>
           </SwiperSlide>
         ))}

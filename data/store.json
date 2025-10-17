@@ -115,14 +115,22 @@
     "fullstackgabe-gmail-com": {
       "decks": {},
       "stats": {
-        "totalReviews": 0,
-        "byDay": {},
+        "totalReviews": 15,
+        "byDay": {
+          "2025-10-17": 15
+        },
         "gradeTotals": {
           "bad": 0,
           "good": 0,
-          "excellent": 0
+          "excellent": 15
         },
-        "gradeByDay": {}
+        "gradeByDay": {
+          "2025-10-17": {
+            "bad": 0,
+            "good": 0,
+            "excellent": 15
+          }
+        }
       },
       "profile": {
         "email": "fullstackgabe@gmail.com",
