@@ -10,7 +10,7 @@ import { Review } from './components/Review.tsx';
 import { api } from './lib/api';
 import type { Deck, Card } from './types.ts';
 
-type View = 'gerar' | 'decks' | 'revisar' | 'stats';
+type View = 'gerar' | 'criar' | 'decks' | 'revisar' | 'stats';
 
 function App() {
   const [userId, setUserId] = useState<string>(() => localStorage.getItem('userId') || '');
@@ -100,6 +100,7 @@ function App() {
       </header>
       <nav className="tabs">
         <button className={view === 'gerar' ? 'active' : ''} onClick={() => setView('gerar')} disabled={busy}>Gerar</button>
+        <button className={view === 'criar' ? 'active' : ''} onClick={() => setView('criar')} disabled={busy}>Criar</button>
         <button className={view === 'decks' ? 'active' : ''} onClick={() => setView('decks')} disabled={busy}>
           Decks{deckCount > 0 ? ` (${deckCount})` : ''}
         </button>
@@ -116,6 +117,16 @@ function App() {
               decks={decks}
               onDeckCreated={(deck: Deck) => setDecks(prev => ({ ...prev, [deck.id]: deck }))}
               onLoadingChange={setBusy}
+            />
+          )}
+          {view === 'criar' && (
+            <Generator
+              userId={userId}
+              decks={decks}
+              onDeckCreated={(deck: Deck) => setDecks(prev => ({ ...prev, [deck.id]: deck }))}
+              onLoadingChange={setBusy}
+              initialShowManualForm
+              onlyManual
             />
           )}
           {view === 'decks' && (

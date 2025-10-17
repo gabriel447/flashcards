@@ -1,3 +1,17 @@
 {
-  "users": {}
+  "users": {
+    "fullstackgabe-gmail-com": {
+      "decks": {},
+      "stats": {
+        "totalReviews": 0,
+        "byDay": {},
+        "gradeTotals": {
+          "bad": 0,
+          "good": 0,
+          "excellent": 0
+        },
+        "gradeByDay": {}
+      }
+    }
+  }
 }
