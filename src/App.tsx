@@ -125,7 +125,6 @@ function App() {
               decks={decks}
               onDeckCreated={(deck: Deck) => setDecks(prev => ({ ...prev, [deck.id]: deck }))}
               onLoadingChange={setBusy}
-              initialShowManualForm
               onlyManual
             />
           )}

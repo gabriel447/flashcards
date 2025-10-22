@@ -2,9 +2,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { api } from '../lib/api';
 import type { Deck } from '../types';
 
-type Props = { userId: string; decks: Record<string, Deck>; onDeckCreated: (deck: Deck) => void; onLoadingChange?: (loading: boolean) => void; initialShowManualForm?: boolean; onlyManual?: boolean };
+type Props = { userId: string; decks: Record<string, Deck>; onDeckCreated: (deck: Deck) => void; onLoadingChange?: (loading: boolean) => void; onlyManual?: boolean };
 
-export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initialShowManualForm, onlyManual }: Props) {
+export function Generator({ userId, decks, onDeckCreated, onLoadingChange, onlyManual }: Props) {
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [deckName, setDeckName] = useState('');
   const [category, setCategory] = useState('');
@@ -16,7 +16,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initi
   const [customCategoryMode, setCustomCategoryMode] = useState(false);
   const [question, setQuestion] = useState('');
   const [answer, setAnswer] = useState('');
-  const [showManualForm, setShowManualForm] = useState(Boolean(initialShowManualForm));
 
   const deckOptions = useMemo(() => Object.values(decks), [decks]);
   const deckCategoryOptions = useMemo(() => {
@@ -113,7 +112,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initi
     try {
       let deckId = selectedDeckId;
       if (!useExisting) {
-        // cria deck
         const resDeck = await api.post('/decks', { userId, name: nameValid });
         const newDeck = resDeck.data.deck as Deck;
         deckId = newDeck.id;
@@ -121,7 +119,6 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initi
       }
       const body = { userId, card: { question: qValid, answer: aValid, category: catValid } };
       await api.post(`/decks/${deckId}/cards`, body);
-      // Atualiza o deck no estado trazendo do backend
       const resDecks = await api.get('/decks', { params: { userId } });
       const deckMap = resDecks.data.decks || {};
       const updatedDeck = deckMap[deckId];
@@ -137,9 +134,8 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initi
 
   const deckValid = Boolean(selectedDeckId) || Boolean(deckName.trim());
   const catOk = Boolean(category.trim());
-  const canSubmitGenerate = (catOk && deckValid && (!subjectMode || Boolean(subject.trim())));
+  const canSubmit = (catOk && deckValid && (!subjectMode || Boolean(subject.trim())));
   const canSubmitManual = (deckValid && catOk && Boolean(question.trim()) && Boolean(answer.trim()));
-  const canSubmit = canSubmitGenerate;
 
   return (
     <section>
@@ -270,17 +266,9 @@ export function Generator({ userId, decks, onDeckCreated, onLoadingChange, initi
             {loading && (<span className="spinner" />)}
             Gerar
           </button>
-          <button
-            className="btn btn-secondary btn-sm"
-            onClick={() => setShowManualForm(v => !v)}
-            disabled={loading}
-            style={{ marginLeft: 8 }}
-          >
-            Criar
-          </button>
         </div>
       )}
-      {(onlyManual || showManualForm) && (
+      {onlyManual && (
         <div className="manual-form">
           <div className="form-grid" style={{ marginTop: 12 }}>
             {(!selectedDeckId) && (
