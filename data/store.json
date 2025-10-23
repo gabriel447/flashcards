@@ -1,16 +1,1508 @@
 {
   "users": {
     "fullstackgabe-gmail-com": {
-      "decks": {},
+      "decks": {
+        "deck_2mo9y7h1l4rh": {
+          "id": "deck_2mo9y7h1l4rh",
+          "name": "AWS",
+          "cards": {
+            "card_2muzvc5njotx": {
+              "id": "card_2muzvc5njotx",
+              "question": "CloudFront",
+              "answer": "Global Content Delivery Network (CDN)",
+              "tags": [],
+              "category": "Global",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.65,
+              "nextReviewAt": "2025-10-26T23:37:25.371Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-22T23:37:25.371Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:37:25.371Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-22T23:37:25.371Z"
+                }
+              ]
+            },
+            "card_2mvv6yuv2sj4": {
+              "id": "card_2mvv6yuv2sj4",
+              "question": "O que é o Route 53 na AWS?",
+              "answer": "O Route 53 é um serviço de DNS da AWS que permite gerenciar nomes de domínio e direcionar o tráfego da Internet de forma eficiente.",
+              "tags": [
+                "AWS",
+                "Global",
+                "Route 53",
+                "aws",
+                "global",
+                "route 53"
+              ],
+              "category": "Global",
+              "repetitions": 1,
+              "interval": 1,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-23T23:38:13.325Z",
+              "reviews": 1,
+              "lastReviewedAt": "2025-10-22T23:38:13.325Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:38:13.325Z",
+                  "grade": 3,
+                  "reviewedAt": "2025-10-22T23:38:13.325Z"
+                }
+              ]
+            },
+            "card_2mwp2x9471ul": {
+              "id": "card_2mwp2x9471ul",
+              "question": "O que é o AWS WaveLength e como ele contribui para a baixa latência em aplicações?",
+              "answer": "O AWS WaveLength é um serviço que permite implantar aplicações em 5G com baixa latência, integrando a infraestrutura da AWS diretamente nas redes de telecomunicações.",
+              "tags": [
+                "AWS",
+                "Global",
+                "WaveLength",
+                "5G",
+                "aws",
+                "global",
+                "aws wavelength"
+              ],
+              "category": "Global",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:07:55.601Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:07:55.601Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:55:55.974Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:55:55.974Z"
+                },
+                {
+                  "ts": "2025-10-23T00:07:55.601Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:07:55.601Z"
+                }
+              ]
+            },
+            "card_2mwthlz63sgl": {
+              "id": "card_2mwthlz63sgl",
+              "question": "O que são as AWS Local Zones?",
+              "answer": "As AWS Local Zones são extensões da infraestrutura da AWS que trazem serviços de computação mais próximos dos usuários finais, permitindo latência ultra baixa e melhor desempenho para aplicações.",
+              "tags": [
+                "AWS",
+                "Global",
+                "Local Zones",
+                "aws",
+                "global",
+                "aws local zones"
+              ],
+              "category": "Global",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:20.079Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:20.079Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:55:59.279Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:55:59.279Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:20.079Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:20.079Z"
+                }
+              ]
+            },
+            "card_2my5d3njvcqo": {
+              "id": "card_2my5d3njvcqo",
+              "question": "O que é o AWS Batch e para que ele é utilizado?",
+              "answer": "O AWS Batch é um serviço que permite a execução de trabalhos em lote, gerenciando automaticamente a computação em nuvem para a execução de tarefas em Batch.",
+              "tags": [
+                "AWS",
+                "Other Compute",
+                "Batch",
+                "aws",
+                "other compute",
+                "batch"
+              ],
+              "category": "Other Compute",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.2,
+              "nextReviewAt": "2025-10-23T00:30:35.091Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:20:35.091Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:04.809Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:04.809Z"
+                },
+                {
+                  "ts": "2025-10-23T00:20:35.091Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-23T00:20:35.091Z"
+                }
+              ]
+            },
+            "card_2mymib0zjqyo": {
+              "id": "card_2mymib0zjqyo",
+              "question": "O que é Lambda Billing no AWS?",
+              "answer": "Lambda Billing refere-se ao modelo de cobrança da AWS para o serviço AWS Lambda, que é baseado no número de solicitações e no tempo de execução das funções.",
+              "tags": [
+                "AWS",
+                "Lambda",
+                "Billing",
+                "aws",
+                "lambda",
+                "lambda billing"
+              ],
+              "category": "Lambda",
+              "repetitions": 0,
+              "interval": 0,
+              "easeFactor": 2.0500000000000003,
+              "nextReviewAt": "2025-10-23T00:38:04.954Z",
+              "reviews": 3,
+              "lastReviewedAt": "2025-10-23T00:28:04.954Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:09.927Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:09.927Z"
+                },
+                {
+                  "ts": "2025-10-23T00:11:08.639Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-23T00:11:08.639Z"
+                },
+                {
+                  "ts": "2025-10-23T00:28:04.954Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-23T00:28:04.954Z"
+                }
+              ]
+            },
+            "card_2mz86quh8d7j": {
+              "id": "card_2mz86quh8d7j",
+              "question": "O que é o Timestream da AWS?",
+              "answer": "O Timestream é um banco de dados de séries temporais da AWS, projetado para armazenar e analisar dados que variam ao longo do tempo, oferecendo alta escalabilidade e desempenho.",
+              "tags": [
+                "AWS",
+                "Databases",
+                "Analytics",
+                "Timestream",
+                "aws",
+                "databases & analytics",
+                "timestream"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:21.483Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:21.483Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:11.989Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:11.989Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:21.483Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:21.483Z"
+                }
+              ]
+            },
+            "card_2mzjoxaryxbz": {
+              "id": "card_2mzjoxaryxbz",
+              "question": "O que é um Hadoop Cluster e como ele é utilizado na análise de dados?",
+              "answer": "Um Hadoop Cluster é um conjunto de computadores que trabalham juntos para processar grandes volumes de dados de forma distribuída. Ele é utilizado na análise de dados para armazenar e processar informações em larga escala, permitindo a execução de tarefas complexas de maneira eficiente.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Hadoop",
+                "Cluster",
+                "Análise de Dados",
+                "aws",
+                "databases & analytics",
+                "hadoop cluster"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:23.173Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:23.173Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:14.195Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:14.195Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:23.173Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:23.173Z"
+                }
+              ]
+            },
+            "card_2mzowpv8kkhi": {
+              "id": "card_2mzowpv8kkhi",
+              "question": "O que é um Data Warehouse na AWS?",
+              "answer": "Um Data Warehouse na AWS é uma solução de armazenamento de dados que permite consolidar e analisar grandes volumes de informações de maneira eficiente, facilitando a tomada de decisões estratégicas.",
+              "tags": [
+                "AWS",
+                "Databases",
+                "Analytics",
+                "Warehouse",
+                "aws",
+                "databases & analytics",
+                "warehouse"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:25.231Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:25.231Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:16.481Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:16.481Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:25.231Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:25.231Z"
+                }
+              ]
+            },
+            "card_2n02nnqphjqi": {
+              "id": "card_2n02nnqphjqi",
+              "question": "O que é o AWS Glue e qual é sua principal função?",
+              "answer": "O AWS Glue é um serviço de ETL (Extração, Transformação e Carga) que facilita a preparação de dados para análise, automatizando a descoberta, a catalogação e a transformação dos dados, utilizando 'Glue' para integrar diferentes fontes de dados.",
+              "tags": [
+                "AWS",
+                "Databases",
+                "Analytics",
+                "Glue",
+                "aws",
+                "databases & analytics",
+                "glue"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:27.562Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:27.562Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:18.675Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:18.675Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:27.562Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:27.562Z"
+                }
+              ]
+            },
+            "card_2n0826mf2ij6": {
+              "id": "card_2n0826mf2ij6",
+              "question": "O que é Database Migration na AWS?",
+              "answer": "Database Migration na AWS refere-se ao processo de mover dados de um banco de dados para outro, utilizando serviços como o AWS Database Migration Service (DMS) para facilitar a transferência e garantir a integridade dos dados.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Database Migration",
+                "aws",
+                "databases & analytics",
+                "database migration"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:29.663Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:29.663Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:20.944Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:20.944Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:29.663Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:29.663Z"
+                }
+              ]
+            },
+            "card_2n0cr01nxuu3": {
+              "id": "card_2n0cr01nxuu3",
+              "question": "O que é o AWS Neptune e para que ele é utilizado?",
+              "answer": "O AWS Neptune é um serviço de banco de dados gráfico gerenciado que facilita a construção e execução de aplicações que trabalham com conjuntos de dados altamente conectados, utilizando modelos de grafos como o Property Graph e o RDF.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Neptune",
+                "aws",
+                "databases & analytics",
+                "neptune"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:31.768Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:31.768Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:23.428Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:23.428Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:31.768Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:31.768Z"
+                }
+              ]
+            },
+            "card_2n0l97de0jgi": {
+              "id": "card_2n0l97de0jgi",
+              "question": "Quais são as Differences between Multi-AZ, Read Replicas, Multi-Region na AWS?",
+              "answer": "As Differences between Multi-AZ, Read Replicas, Multi-Region na AWS incluem: Multi-AZ proporciona alta disponibilidade e failover automático, Read Replicas são usadas para escalar leituras e melhorar desempenho, enquanto Multi-Region permite replicação de dados entre regiões diferentes para recuperação de desastres e baixa latência global.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "aws",
+                "databases & analytics",
+                "differences between multi-az, read replicas, multi-region"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:33.534Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:33.534Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:25.199Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:25.199Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:33.534Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:33.534Z"
+                }
+              ]
+            },
+            "card_2n0shp5hjmqb": {
+              "id": "card_2n0shp5hjmqb",
+              "question": "O que é o Athena na AWS?",
+              "answer": "O Athena é um serviço da AWS que permite analisar dados armazenados no Amazon S3 usando SQL, facilitando a consulta e a análise de grandes volumes de dados de forma rápida e econômica.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Athena",
+                "aws",
+                "databases & analytics",
+                "athena"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:35.716Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:35.716Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:27.289Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:27.289Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:35.716Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:35.716Z"
+                }
+              ]
+            },
+            "card_2n0zub25sgen": {
+              "id": "card_2n0zub25sgen",
+              "question": "O que é Amazon QLDB e qual é sua principal característica?",
+              "answer": "Amazon QLDB é um banco de dados de registro imutável que fornece uma trilha de auditoria completa e transparente das alterações de dados. Sua principal característica é garantir a integridade dos dados com um histórico de todas as transações.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Amazon QLDB",
+                "aws",
+                "databases & analytics",
+                "amazon qldb"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:37.807Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:37.807Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:29.205Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:29.205Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:37.807Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:37.807Z"
+                }
+              ]
+            },
+            "card_2n13yx8l8okg": {
+              "id": "card_2n13yx8l8okg",
+              "question": "O que é o Amazon DocumentDB e para que ele é utilizado?",
+              "answer": "O Amazon DocumentDB é um serviço de banco de dados gerenciado que é compatível com MongoDB, projetado para armazenar, consultar e indexar documentos JSON. Ele é utilizado para aplicações que requerem escalabilidade e alta disponibilidade para dados não estruturados.",
+              "tags": [
+                "AWS",
+                "Databases",
+                "Analytics",
+                "DocumentDB",
+                "aws",
+                "databases & analytics",
+                "documentdb"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:39.422Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:39.422Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:31.433Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:31.433Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:39.422Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:39.422Z"
+                }
+              ]
+            },
+            "card_2n18tgzv3q4v": {
+              "id": "card_2n18tgzv3q4v",
+              "question": "O que é Amazon Managed Blockchain e quais são suas principais funcionalidades?",
+              "answer": "Amazon Managed Blockchain é um serviço que facilita a criação e o gerenciamento de redes blockchain escaláveis. Ele oferece funcionalidades como a criação de redes com Hyperledger Fabric ou Ethereum, gerenciamento de identidade e permissões, além de escalabilidade automática.",
+              "tags": [
+                "AWS",
+                "Databases & Analytics",
+                "Blockchain",
+                "aws",
+                "databases & analytics",
+                "amazon managed blockchain"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:41.108Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:41.108Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:33.497Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:33.497Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:41.108Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:41.108Z"
+                }
+              ]
+            },
+            "card_2n1jcuns8jwh": {
+              "id": "card_2n1jcuns8jwh",
+              "question": "O que é o Storage Gateway da AWS?",
+              "answer": "O Storage Gateway é um serviço da AWS que conecta o armazenamento local a serviços de armazenamento em nuvem, permitindo que empresas integrem suas aplicações locais com o Amazon S3.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Storage Gateway",
+                "aws",
+                "s3",
+                "storage gateway"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:43.190Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:43.190Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:35.495Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:35.495Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:43.190Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:43.190Z"
+                }
+              ]
+            },
+            "card_2n1o1k7y56nm": {
+              "id": "card_2n1o1k7y56nm",
+              "question": "O que é o Snowball na AWS?",
+              "answer": "O Snowball é um dispositivo de transferência de dados da AWS que permite mover grandes quantidades de dados para o Amazon S3 de forma segura e eficiente.",
+              "tags": [
+                "AWS",
+                "S3",
+                "Snowball",
+                "aws",
+                "s3",
+                "snowball"
+              ],
+              "category": "S3",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:44.972Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:44.972Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:37.652Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:37.652Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:44.972Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:44.972Z"
+                }
+              ]
+            },
+            "card_2n2ve08w56b4": {
+              "id": "card_2n2ve08w56b4",
+              "question": "O que é o EC2 Instance Store na AWS?",
+              "answer": "O EC2 Instance Store é um tipo de armazenamento temporário que oferece volumes de armazenamento diretamente conectados a instâncias EC2, proporcionando alta performance para dados temporários.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "Instance Store",
+                "aws",
+                "ec2",
+                "ec2 instance store"
+              ],
+              "category": "EC2",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:48.032Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:48.032Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:39.755Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:39.755Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:48.032Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:48.032Z"
+                }
+              ]
+            },
+            "card_2n33p1n8sv5s": {
+              "id": "card_2n33p1n8sv5s",
+              "question": "O que é o FSx na AWS?",
+              "answer": "O FSx é um serviço da AWS que fornece sistemas de arquivos gerenciados, como FSx for Windows File Server e FSx for Lustre, permitindo armazenamento compartilhado e alta performance.",
+              "tags": [
+                "AWS",
+                "EC2",
+                "FSx",
+                "aws",
+                "ec2",
+                "fsx"
+              ],
+              "category": "EC2",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:50.111Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:50.111Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:41.660Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:41.660Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:50.111Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:50.111Z"
+                }
+              ]
+            },
+            "card_2n4ao40bl9v1": {
+              "id": "card_2n4ao40bl9v1",
+              "question": "O que é o Kendra na AWS?",
+              "answer": "O Kendra é um serviço de busca inteligente da AWS que utiliza machine learning para ajudar as empresas a encontrar informações relevantes dentro de seus dados.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Kendra",
+                "aws",
+                "machine learning",
+                "kendra"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:51.961Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:51.961Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:43.298Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:43.298Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:51.961Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:51.961Z"
+                }
+              ]
+            },
+            "card_2n4hvbl7znp8": {
+              "id": "card_2n4hvbl7znp8",
+              "question": "O que é o AWS Personalize e como ele pode ser utilizado?",
+              "answer": "O AWS Personalize é um serviço de Machine Learning que permite criar recomendações personalizadas para usuários, utilizando dados históricos de interações. Ele pode ser utilizado para melhorar a experiência do cliente em aplicações de e-commerce, streaming, entre outros.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Personalize",
+                "aws",
+                "machine learning",
+                "personalize"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:54.451Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:54.451Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:45.678Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:45.678Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:54.451Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:54.451Z"
+                }
+              ]
+            },
+            "card_2n4lhj3dotuc": {
+              "id": "card_2n4lhj3dotuc",
+              "question": "O que é o Amazon Textract e qual é sua principal função?",
+              "answer": "O Amazon Textract é um serviço da AWS que extrai texto e dados de documentos digitalizados, permitindo que você automatize a análise de informações em formulários e tabelas.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Textract",
+                "aws",
+                "machine learning",
+                "textract"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:56.306Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:56.306Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:47.461Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:47.461Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:56.306Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:56.306Z"
+                }
+              ]
+            },
+            "card_2n4utxq5vrcj": {
+              "id": "card_2n4utxq5vrcj",
+              "question": "O que é o Amazon Comprehend e para que ele é utilizado?",
+              "answer": "O Amazon Comprehend é um serviço de Machine Learning da AWS que permite a análise de textos para identificar sentimentos, tópicos e entidades, facilitando a compreensão de dados não estruturados.",
+              "tags": [
+                "AWS",
+                "Machine Learning",
+                "Comprehend",
+                "aws",
+                "machine learning",
+                "comprehend"
+              ],
+              "category": "Machine Learning",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:58.127Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:58.127Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:49.212Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:49.212Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:58.127Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:58.127Z"
+                }
+              ]
+            },
+            "card_2n5i10t0du20": {
+              "id": "card_2n5i10t0du20",
+              "question": "O que é o Amazon Detective e como ele ajuda na segurança da AWS?",
+              "answer": "O Amazon Detective é um serviço que facilita a análise de dados de segurança na AWS, permitindo que as equipes de segurança investiguem rapidamente atividades suspeitas e identifiquem a causa raiz de problemas de segurança.",
+              "tags": [
+                "AWS",
+                "Security",
+                "Compliance",
+                "Amazon Detective",
+                "aws",
+                "security & compliance",
+                "amazon detective"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:59.943Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:59.943Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:50.962Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:50.962Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:59.943Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:59.943Z"
+                }
+              ]
+            },
+            "card_2n5os3h17nhy": {
+              "id": "card_2n5os3h17nhy",
+              "question": "O que é considerado AWS Abuse e como a AWS lida com isso?",
+              "answer": "AWS Abuse refere-se a qualquer atividade maliciosa ou não autorizada que utiliza os serviços da AWS. A AWS lida com isso por meio de monitoramento, práticas de segurança e um processo de denúncia para proteger a integridade de sua infraestrutura.",
+              "tags": [
+                "AWS",
+                "Security",
+                "Compliance",
+                "aws",
+                "security & compliance",
+                "aws abuse"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:01.660Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:01.660Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:52.734Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:52.734Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:01.660Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:01.660Z"
+                }
+              ]
+            },
+            "card_2n5tlluevpn6": {
+              "id": "card_2n5tlluevpn6",
+              "question": "Quais são as principais responsabilidades associadas aos Root user privileges na AWS?",
+              "answer": "Os Root user privileges na AWS permitem acesso total a todos os recursos e serviços da conta, incluindo a capacidade de modificar configurações críticas e gerenciar usuários. É importante usar esses privilégios com cautela e somente quando necessário.",
+              "tags": [
+                "AWS",
+                "Security",
+                "Compliance",
+                "aws",
+                "security & compliance",
+                "root user privileges"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:03.506Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:03.506Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:54.721Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:54.721Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:03.506Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:03.506Z"
+                }
+              ]
+            },
+            "card_2n5zlvkpymoq": {
+              "id": "card_2n5zlvkpymoq",
+              "question": "O que é o IAM Access Analyzer na AWS?",
+              "answer": "O IAM Access Analyzer é uma ferramenta da AWS que ajuda a identificar e analisar permissões de acesso em seus recursos, permitindo que você verifique se as políticas de IAM (Identity and Access Management) concedem acesso não intencional a recursos da sua conta.",
+              "tags": [
+                "AWS",
+                "Security & Compliance",
+                "IAM Access Analyzer",
+                "aws",
+                "security & compliance",
+                "iam access analyzer"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:05.339Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:05.339Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:56.748Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:56.748Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:05.339Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:05.339Z"
+                }
+              ]
+            },
+            "card_2n64qjquu5in": {
+              "id": "card_2n64qjquu5in",
+              "question": "O que é o Firewall Manager na AWS?",
+              "answer": "O Firewall Manager na AWS é um serviço que permite gerenciar regras de firewall de forma centralizada, facilitando a aplicação de políticas de segurança em múltiplas contas e aplicações na nuvem.",
+              "tags": [
+                "AWS",
+                "Security & Compliance",
+                "Firewall Manager",
+                "aws",
+                "security & compliance",
+                "firewall manager"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:07.945Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:07.945Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:56:59.188Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:56:59.188Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:07.945Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:07.945Z"
+                }
+              ]
+            },
+            "card_2n68e3z886yl": {
+              "id": "card_2n68e3z886yl",
+              "question": "O que é a Configuração de Segurança no AWS Config?",
+              "answer": "A Configuração de Segurança no AWS Config permite monitorar e avaliar a conformidade das configurações dos recursos da AWS com as políticas de segurança definidas pela organização.",
+              "tags": [
+                "AWS",
+                "Security & Compliance",
+                "Config",
+                "aws",
+                "security & compliance",
+                "config"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:09.699Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:09.699Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:01.448Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:01.448Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:09.699Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:09.699Z"
+                }
+              ]
+            },
+            "card_2n6ihmo32d8d": {
+              "id": "card_2n6ihmo32d8d",
+              "question": "O que é o WAF na AWS e qual sua principal função?",
+              "answer": "O WAF (Web Application Firewall) na AWS é um serviço que protege aplicações web contra ataques comuns, como injeções de SQL e scripts entre sites, permitindo a criação de regras personalizadas para filtrar o tráfego.",
+              "tags": [
+                "AWS",
+                "Security & Compliance",
+                "WAF",
+                "aws",
+                "security & compliance",
+                "waf"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:12.089Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:12.089Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:03.745Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:03.745Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:12.089Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:12.089Z"
+                }
+              ]
+            },
+            "card_2n6uw74ahmo7": {
+              "id": "card_2n6uw74ahmo7",
+              "question": "O que é o Network Firewall na AWS?",
+              "answer": "O Network Firewall na AWS é um serviço gerenciado que fornece proteção contra ameaças para suas VPCs, permitindo configurar regras de segurança detalhadas e controle de tráfego de rede.",
+              "tags": [
+                "AWS",
+                "Security & Compliance",
+                "Network Firewall",
+                "aws",
+                "security & compliance",
+                "network firewall"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:14.167Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:14.167Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:05.730Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:05.730Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:14.167Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:14.167Z"
+                }
+              ]
+            },
+            "card_2n6z2xaq9tmw": {
+              "id": "card_2n6z2xaq9tmw",
+              "question": "O que é o AWS Shield e qual é sua principal função?",
+              "answer": "O AWS Shield é um serviço de proteção contra ataques DDoS (Distributed Denial of Service) que ajuda a proteger aplicações hospedadas na AWS, garantindo alta disponibilidade e segurança.",
+              "tags": [
+                "AWS",
+                "Security",
+                "Compliance",
+                "Shield",
+                "aws",
+                "security & compliance",
+                "shield"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:16.163Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:16.163Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:07.788Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:07.788Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:16.163Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:16.163Z"
+                }
+              ]
+            },
+            "card_2n780dif3dsn": {
+              "id": "card_2n780dif3dsn",
+              "question": "O que é o AWS Inspector e qual é sua função principal?",
+              "answer": "O AWS Inspector é um serviço que ajuda a melhorar a segurança e a conformidade das aplicações, identificando vulnerabilidades e avaliando a segurança dos recursos em nuvem.",
+              "tags": [
+                "AWS",
+                "Security",
+                "Compliance",
+                "Inspector",
+                "aws",
+                "security & compliance",
+                "inspector"
+              ],
+              "category": "Security & Compliance",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:09:18.045Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:09:18.045Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:09.805Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:09.805Z"
+                },
+                {
+                  "ts": "2025-10-23T00:09:18.045Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:09:18.045Z"
+                }
+              ]
+            },
+            "card_2n7l7fk88s7v": {
+              "id": "card_2n7l7fk88s7v",
+              "question": "O que é o CodeGuru da AWS?",
+              "answer": "O CodeGuru da AWS é uma ferramenta que utiliza aprendizado de máquina para ajudar a melhorar a qualidade do código e identificar problemas de desempenho em aplicações.",
+              "tags": [
+                "AWS",
+                "Monitoring",
+                "CodeGuru",
+                "aws",
+                "monitoring",
+                "codeguru"
+              ],
+              "category": "Monitoring",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:07:58.494Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:07:58.494Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:12.809Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:12.809Z"
+                },
+                {
+                  "ts": "2025-10-23T00:07:58.494Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:07:58.494Z"
+                }
+              ]
+            },
+            "card_2n81hdrt17da": {
+              "id": "card_2n81hdrt17da",
+              "question": "O que é o Kinesis na AWS?",
+              "answer": "O Kinesis é um serviço da AWS que permite a coleta, processamento e análise de dados em tempo real.",
+              "tags": [
+                "AWS",
+                "Integration",
+                "Kinesis",
+                "aws",
+                "integration",
+                "kinesis"
+              ],
+              "category": "Integration",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:01.616Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:01.616Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:15.234Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:15.234Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:01.616Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:01.616Z"
+                }
+              ]
+            },
+            "card_2n89m6o9t8ok": {
+              "id": "card_2n89m6o9t8ok",
+              "question": "O que é o Amazon MQ e para que ele é utilizado?",
+              "answer": "O Amazon MQ é um serviço gerenciado de message broker que facilita a transferência de mensagens entre aplicativos, permitindo a comunicação entre serviços de forma escalável e confiável.",
+              "tags": [
+                "AWS",
+                "Integration",
+                "Amazon MQ",
+                "aws",
+                "integration",
+                "amazon mq"
+              ],
+              "category": "Integration",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:03.765Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:03.765Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:17.716Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:17.716Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:03.765Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:03.765Z"
+                }
+              ]
+            },
+            "card_2n8scg2skjm6": {
+              "id": "card_2n8scg2skjm6",
+              "question": "O que é o Systems Manager da AWS?",
+              "answer": "O Systems Manager é um serviço da AWS que permite gerenciar e automatizar tarefas em instâncias do Amazon EC2 e outros recursos da AWS.",
+              "tags": [
+                "AWS",
+                "Deployment",
+                "Systems Manager",
+                "aws",
+                "deployment",
+                "systems manager"
+              ],
+              "category": "Deployment",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:05.584Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:05.584Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:19.817Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:19.817Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:05.584Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:05.584Z"
+                }
+              ]
+            },
+            "card_2n9ahn6ncsby": {
+              "id": "card_2n9ahn6ncsby",
+              "question": "O que é Amazon QLDB e qual é sua principal função?",
+              "answer": "Amazon QLDB é um serviço de banco de dados gerenciado que fornece um registro imutável e transparente de transações, permitindo que os desenvolvedores rastreiem a origem dos dados de forma confiável.",
+              "tags": [
+                "AWS",
+                "Databases",
+                "Analytics",
+                "Amazon QLDB",
+                "aws",
+                "databases & analytics",
+                "amazon qldb"
+              ],
+              "category": "Databases & Analytics",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:07.660Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:07.660Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:22.316Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:22.316Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:07.660Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:07.660Z"
+                }
+              ]
+            },
+            "card_2na51o0wgsx2": {
+              "id": "card_2na51o0wgsx2",
+              "question": "Como o AWS IAM permite realizar Audit das atividades dos usuários?",
+              "answer": "O AWS IAM permite realizar Audit das atividades dos usuários através da integração com o AWS CloudTrail, que registra todas as chamadas de API feitas pelos usuários e serviços, possibilitando a análise e auditoria das ações realizadas na conta.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Audit",
+                "aws",
+                "iam",
+                "audit"
+              ],
+              "category": "IAM",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:09.512Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:09.512Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:24.301Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:24.301Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:09.512Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:09.512Z"
+                }
+              ]
+            },
+            "card_2nacd6mi9m4p": {
+              "id": "card_2nacd6mi9m4p",
+              "question": "O que são Access Keys no AWS IAM?",
+              "answer": "Access Keys são credenciais usadas para autenticar e autorizar o acesso a serviços da AWS, consistindo em uma chave de acesso e uma chave secreta.",
+              "tags": [
+                "AWS",
+                "IAM",
+                "Access Keys",
+                "aws",
+                "iam",
+                "access keys"
+              ],
+              "category": "IAM",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:11.331Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:11.331Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:26.499Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:26.499Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:11.331Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:11.331Z"
+                }
+              ]
+            },
+            "card_2napu99cg6av": {
+              "id": "card_2napu99cg6av",
+              "question": "O que é o Security Token Service (STS) da AWS?",
+              "answer": "O Security Token Service (STS) da AWS é um serviço que permite a criação de tokens de segurança temporários para fornecer acesso a recursos da AWS de forma segura e controlada.",
+              "tags": [
+                "AWS",
+                "Advanced Identity",
+                "Security Token Service",
+                "aws",
+                "advanced identity",
+                "security token service (sts)"
+              ],
+              "category": "Advanced Identity",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:13.450Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:13.450Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:28.788Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:28.788Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:13.450Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:13.450Z"
+                }
+              ]
+            },
+            "card_2nat77tn1d8r": {
+              "id": "card_2nat77tn1d8r",
+              "question": "O que é o Amazon Cognito e como ele pode ser utilizado na gestão de identidade?",
+              "answer": "O Amazon Cognito é um serviço da AWS que facilita a gestão de identidades de usuários, permitindo autenticação e autorização em aplicações web e móveis. Ele permite a criação de um diretório de usuários e a integração com provedores de identidade social.",
+              "tags": [
+                "AWS",
+                "Advanced Identity",
+                "Cognito",
+                "aws",
+                "advanced identity",
+                "cognito"
+              ],
+              "category": "Advanced Identity",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:15.572Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:15.572Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:30.861Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:30.861Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:15.572Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:15.572Z"
+                }
+              ]
+            },
+            "card_2nazoaga1wn0": {
+              "id": "card_2nazoaga1wn0",
+              "question": "O que são os Directory Services da AWS?",
+              "answer": "Os Directory Services da AWS são serviços que permitem a integração de diretórios como o Microsoft Active Directory com a nuvem da AWS, facilitando o gerenciamento de identidades e acessos.",
+              "tags": [
+                "AWS",
+                "Advanced Identity",
+                "Directory Services",
+                "aws",
+                "advanced identity",
+                "directory services"
+              ],
+              "category": "Advanced Identity",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:18.076Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:18.076Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:32.731Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:32.731Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:18.076Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:18.076Z"
+                }
+              ]
+            },
+            "card_2nbactpm24km": {
+              "id": "card_2nbactpm24km",
+              "question": "O que é o IAM Identity Center na AWS?",
+              "answer": "O IAM Identity Center é um serviço da AWS que permite gerenciar identidades e acessos de forma centralizada, facilitando a autenticação e autorização para múltiplos serviços da AWS.",
+              "tags": [
+                "AWS",
+                "Advanced Identity",
+                "IAM Identity Center",
+                "aws",
+                "advanced identity",
+                "iam identity center"
+              ],
+              "category": "Advanced Identity",
+              "repetitions": 1,
+              "interval": 4,
+              "easeFactor": 2.5,
+              "nextReviewAt": "2025-10-27T00:08:19.678Z",
+              "reviews": 2,
+              "lastReviewedAt": "2025-10-23T00:08:19.678Z",
+              "gradeLog": [
+                {
+                  "ts": "2025-10-22T23:57:35.146Z",
+                  "grade": 2,
+                  "reviewedAt": "2025-10-22T23:57:35.146Z"
+                },
+                {
+                  "ts": "2025-10-23T00:08:19.678Z",
+                  "grade": 4,
+                  "reviewedAt": "2025-10-23T00:08:19.678Z"
+                }
+              ]
+            }
+          },
+          "reviewedCount": 100
+        }
+      },
       "stats": {
-        "totalReviews": 0,
-        "byDay": {},
-        "gradeTotals": {
-          "bad": 0,
-          "good": 0,
-          "excellent": 0
+        "totalReviews": 100,
+        "byDay": {
+          "2025-10-22": 53,
+          "2025-10-23": 47
         },
-        "gradeByDay": {}
+        "gradeTotals": {
+          "bad": 56,
+          "good": 1,
+          "excellent": 43
+        },
+        "gradeByDay": {
+          "2025-10-22": {
+            "bad": 51,
+            "good": 1,
+            "excellent": 1
+          },
+          "2025-10-23": {
+            "bad": 5,
+            "good": 0,
+            "excellent": 42
+          }
+        }
       }
     }
   }

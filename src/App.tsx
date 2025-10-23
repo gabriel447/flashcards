@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import './App.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -19,6 +19,7 @@ function App() {
   const [busy, setBusy] = useState(false);
   const [selectedDeckId, setSelectedDeckId] = useState<string>('');
   const [nowTick, setNowTick] = useState<number>(Date.now());
+  const prevTotalRef = useRef<number>(0);
   const deckCount = useMemo(() => Object.keys(decks).length, [decks]);
   const totalReview = useMemo(() => {
     const now = nowTick;
@@ -55,7 +56,7 @@ function App() {
   useEffect(() => {
     const id = setInterval(() => {
       setNowTick(Date.now());
-    }, 10000);
+    }, 5000);
     return () => clearInterval(id);
   }, []);
 
@@ -63,6 +64,7 @@ function App() {
     setNowTick(Date.now());
   }, [decks]);
 
+  // Ao trocar de aba, limpar seleção de deck específica
   useEffect(() => {
     if (view !== 'revisar' && selectedDeckId) {
       setSelectedDeckId('');
@@ -129,12 +131,7 @@ function App() {
             />
           )}
           {view === 'decks' && (
-            <DeckManager
-              userId={userId}
-              decks={decks}
-              onUpdateDecks={setDecks}
-              onOpenDeckReview={(deckId) => { setSelectedDeckId(deckId); setView('revisar'); }}
-            />
+            <DeckManager userId={userId} decks={decks} onUpdateDecks={setDecks} />
           )}
           {view === 'revisar' && (
             <Review
@@ -163,6 +160,7 @@ function App() {
                   return next;
                 });
               }}
+              nowTick={nowTick}
             />
           )}
           {view === 'stats' && (

@@ -12,9 +12,10 @@ type Props = {
   onCardUpdated: (deckId: string, card: Card, reviewedCount?: number) => void;
   selectedDeckId?: string;
   onCardDeleted?: (deckId: string, cardId: string) => void;
+  nowTick?: number;
 };
 
-export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDeleted }: Props) {
+export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDeleted, nowTick }: Props) {
   const now = Date.now();
   const initialQueue = useMemo(() => {
     const items: Array<{ deckId: string; card: Card }> = [];
@@ -75,6 +76,13 @@ export function Review({ userId, decks, onCardUpdated, selectedDeckId, onCardDel
       }
     };
   }, []);
+
+  // Anexa novos cards quando o tempo avança
+  useEffect(() => {
+    if (nowTick) {
+      appendNewlyReviewCards();
+    }
+  }, [nowTick]);
 
   const appendNewlyReviewCards = () => {
     const existingKeys = new Set(
