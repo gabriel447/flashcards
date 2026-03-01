@@ -7,6 +7,8 @@ export const useFlashcardsStore = defineStore(
   () => {
     const userId = ref<string>('')
     const userEmail = ref<string>('')
+    const userName = ref<string>('')
+    const userAvatar = ref<string>('')
     const decks = ref<Record<string, Deck>>({})
     const busy = ref(false)
     const nowTick = ref(Date.now())
@@ -24,16 +26,18 @@ export const useFlashcardsStore = defineStore(
       }, 0)
     })
 
-    function setUserId(uid: string, email?: string) {
+    function setUserId(uid: string, email?: string, name?: string, avatar?: string) {
       userId.value = uid
-      if (email) {
-        userEmail.value = email
-      }
+      if (email) userEmail.value = email
+      if (name) userName.value = name
+      if (avatar) userAvatar.value = avatar
     }
 
     function logout() {
       userId.value = ''
       userEmail.value = ''
+      userName.value = ''
+      userAvatar.value = ''
       decks.value = {}
     }
 
@@ -152,6 +156,8 @@ export const useFlashcardsStore = defineStore(
     return {
       userId,
       userEmail,
+      userName,
+      userAvatar,
       decks,
       busy,
       nowTick,

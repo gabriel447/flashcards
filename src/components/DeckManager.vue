@@ -185,7 +185,7 @@ async function handleImportFile(event: Event) {
           <input
             v-model="newDeckName"
             type="text"
-            placeholder="Ex: AWS Solutions Architect..."
+            placeholder="Ex: AWS..."
             class="flex-1 px-5 py-3 rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all outline-none text-base shadow-sm"
             @keyup.enter="handleCreateDeck"
           />

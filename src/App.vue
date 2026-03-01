@@ -17,12 +17,15 @@ const selectedDeckId = ref('')
 const userId = computed(() => store.userId)
 const userEmail = computed(() => store.userEmail)
 const userName = computed(() => {
+  if (store.userName) return store.userName
   if (!userEmail.value) return 'Usuário'
   const parts = userEmail.value.split('@')
   const name = parts[0] || 'Usuário'
   return name.charAt(0).toUpperCase() + name.slice(1)
 })
+
 const avatarUrl = computed(() => {
+  if (store.userAvatar) return store.userAvatar
   return `https://ui-avatars.com/api/?name=${userName.value}&background=10b981&color=fff&rounded=true&bold=true`
 })
 const decks = computed(() => store.decks)
@@ -115,13 +118,22 @@ const navItems = computed<{ id: ViewMode; label: string; count: number; icon: st
         class="container mx-auto max-w-5xl px-4 md:px-8 h-16 flex items-center justify-between relative"
       >
         <div class="flex items-center gap-3">
-          <div class="relative flex h-3 w-3">
-            <span
-              class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"
-            ></span>
-            <span
-              class="relative inline-flex rounded-full h-3 w-3 bg-indigo-600 dark:bg-indigo-500"
-            ></span>
+          <div
+            class="relative flex items-center justify-center w-8 h-8 rounded-lg bg-linear-to-br from-indigo-500 to-violet-600 text-white shadow-lg shadow-indigo-500/30 dark:shadow-indigo-900/30"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+            </svg>
           </div>
           <h1
             class="text-xl font-bold bg-linear-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 bg-clip-text text-transparent font-['Satisfy'] tracking-wider"
@@ -269,7 +281,7 @@ const navItems = computed<{ id: ViewMode; label: string; count: number; icon: st
     </main>
 
     <nav
-      class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 backdrop-blur-md border-t border-gray-200 z-100 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]"
+      class="md:hidden fixed bottom-0 left-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-t border-gray-200 dark:border-slate-800 z-100 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)] dark:shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.3)] transition-colors duration-300"
     >
       <div class="flex justify-around items-center h-16">
         <button
@@ -278,7 +290,9 @@ const navItems = computed<{ id: ViewMode; label: string; count: number; icon: st
           @click="!busy && (view = item.id)"
           :class="[
             'flex flex-col items-center justify-center w-full h-full space-y-1 transition-colors relative',
-            view === item.id ? 'text-indigo-600' : 'text-gray-400 hover:text-gray-600',
+            view === item.id
+              ? 'text-indigo-600 dark:text-indigo-400'
+              : 'text-gray-400 dark:text-slate-500 hover:text-gray-600 dark:hover:text-slate-300',
           ]"
           :disabled="busy"
         >
@@ -286,7 +300,7 @@ const navItems = computed<{ id: ViewMode; label: string; count: number; icon: st
             <span class="text-2xl">{{ item.icon }}</span>
             <span
               v-if="item.count > 0"
-              class="absolute -top-1 -right-2 min-w-[16px] h-4 flex items-center justify-center text-[10px] font-bold bg-indigo-600 text-white rounded-full px-1 shadow-sm border border-white"
+              class="absolute -top-1 -right-2 min-w-[16px] h-4 flex items-center justify-center text-[10px] font-bold bg-indigo-600 text-white rounded-full px-1 shadow-sm border border-white dark:border-slate-900"
             >
               {{ item.count }}
             </span>
