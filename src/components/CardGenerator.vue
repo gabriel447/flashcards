@@ -169,13 +169,14 @@ async function generate() {
       Escopo da Geração:
       ${scopeInstruction}
 
-      Diretrizes de Qualidade:
-      1. Crie perguntas que estimulem o pensamento crítico, evitando respostas óbvias ou de "sim/não".
-      2. As respostas devem ser explicativas mas concisas, ideais para memorização.
-      3. Se o tema for técnico, garanta precisão terminológica.
-      4. Use uma linguagem clara e acessível, mas profissional.
-      5. Idioma: Português do Brasil (pt-BR).
-      6. Categoria/Tag: Todos os cards DEVEM ter a tag "${finalAiCategory}".
+      Diretrizes de Qualidade (Foco em Memorização Rápida):
+      1. Crie perguntas DIRETAS e CURTAS. Evite enunciados longos.
+      2. As respostas devem ser EXTREMAMENTE CONCISAS e OBJETIVAS (máximo de 1 a 2 frases curtas).
+      3. Priorize palavras-chave e conceitos essenciais. Corte explicações verbosas.
+      4. O objetivo é "bater o olho e responder", facilitando a repetição espaçada.
+      5. Se o tema for técnico, vá direto ao ponto (ex: "O que é X?" -> "É Y.").
+      6. Idioma: Português do Brasil (pt-BR).
+      7. Categoria/Tag: Todos os cards DEVEM ter a tag "${finalAiCategory}".
          - Não crie tags diferentes. Use apenas esta.
 
       Formato de Saída (JSON Obrigatório):
@@ -549,12 +550,14 @@ async function resolveDeckId(): Promise<string> {
           <button
             @click="generate"
             :disabled="loading || !selectedDeckId || (!isNewAiCategory && !aiCategory)"
-            class="w-full py-3 px-6 font-bold rounded-xl shadow-md transition-all active:scale-[0.98] disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg cursor-pointer"
-            :class="
-              loading || !selectedDeckId || (!isNewAiCategory && !aiCategory)
-                ? 'bg-gray-200 text-gray-400 shadow-none'
-                : 'bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-indigo-200'
-            "
+            class="w-full py-3 px-6 font-bold rounded-xl shadow-md transition-all flex items-center justify-center gap-3 text-lg"
+            :class="[
+              !selectedDeckId || (!isNewAiCategory && !aiCategory)
+                ? 'bg-gray-200 text-gray-400 shadow-none cursor-not-allowed dark:bg-slate-800 dark:text-slate-600'
+                : loading
+                  ? 'bg-linear-to-r from-indigo-600 to-violet-600 text-white shadow-indigo-200 dark:shadow-indigo-900/20 opacity-80 cursor-wait'
+                  : 'bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-indigo-200 dark:shadow-indigo-900/20 active:scale-[0.98] cursor-pointer'
+            ]"
           >
             <span
               v-if="loading"

@@ -107,10 +107,7 @@ const navItems = computed<{ id: ViewMode; label: string; count: number; icon: st
     class="h-dvh bg-gray-50 dark:bg-slate-950 text-gray-900 dark:text-slate-100 flex flex-col font-sans overflow-hidden transition-colors duration-300"
     :class="{ 'cursor-not-allowed': busy }"
   >
-    <div
-      v-if="busy"
-      class="fixed inset-0 z-9999 cursor-not-allowed bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm"
-    ></div>
+    <div v-if="busy" class="fixed inset-0 z-9999 cursor-wait"></div>
     <header
       class="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-gray-200 dark:border-slate-800 shrink-0 shadow-sm transition-colors duration-300"
     >
