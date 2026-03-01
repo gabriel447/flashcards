@@ -120,8 +120,8 @@ const gradeCard = async (quality: number) => {
     class="flex flex-col h-[80%] md:h-[calc(100vh-200px)] max-h-[600px] md:max-h-[700px] w-[94%] md:w-full max-w-sm mx-auto relative mt-14 md:mt-auto md:my-auto"
   >
     <div class="text-center mb-2 z-10">
-      <h2 class="text-base font-bold text-slate-200">{{ deckName }}</h2>
-      <p class="text-[10px] text-slate-500" v-if="queue.length > 0">
+      <h2 class="text-base font-bold text-gray-700 dark:text-slate-200">{{ deckName }}</h2>
+      <p class="text-[10px] text-gray-400 dark:text-slate-500" v-if="queue.length > 0">
         Card {{ activeIndex + 1 }} de {{ queue.length }}
       </p>
     </div>
@@ -130,14 +130,14 @@ const gradeCard = async (quality: number) => {
       v-if="queue.length === 0 || finishedSession"
       class="flex-1 flex flex-col items-center justify-center p-8 text-center animate-fade-in"
     >
-      <div class="w-24 h-24 bg-emerald-500/10 rounded-full flex items-center justify-center mb-6">
+      <div class="w-24 h-24 bg-indigo-500/10 dark:bg-indigo-500/20 rounded-full flex items-center justify-center mb-6">
         <span class="text-4xl">🎉</span>
       </div>
-      <h3 class="text-2xl font-bold text-slate-100 mb-2">Tudo em dia!</h3>
-      <p class="text-slate-400 mb-8">Você revisou todos os cards pendentes no momento.</p>
+      <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-2">Tudo em dia!</h3>
+      <p class="text-gray-500 dark:text-slate-400 mb-8">Você revisou todos os cards pendentes no momento.</p>
       <button
         @click="$emit('back')"
-        class="px-6 py-3 bg-slate-800 hover:bg-slate-700 text-slate-200 rounded-lg transition-colors font-semibold cursor-pointer"
+        class="px-6 py-3 bg-white dark:bg-slate-800 hover:bg-gray-50 dark:hover:bg-slate-700 text-gray-700 dark:text-slate-300 border border-gray-200 dark:border-slate-700 rounded-lg transition-colors font-semibold cursor-pointer shadow-sm hover:shadow-md"
       >
         Voltar aos Decks
       </button>
@@ -160,16 +160,16 @@ const gradeCard = async (quality: number) => {
             @click="activeIndex === index && toggleFlip()"
           >
             <div
-              class="absolute inset-0 backface-hidden bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-6 flex flex-col items-center justify-center text-center"
+              class="absolute inset-0 backface-hidden bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl shadow-xl p-6 flex flex-col items-center justify-center text-center"
             >
               <span
-                class="text-[10px] md:text-[10px] uppercase tracking-widest text-emerald-500 font-bold mb-4"
+                class="text-[10px] md:text-[10px] uppercase tracking-widest text-indigo-500 dark:text-indigo-400 font-bold mb-4"
                 >Pergunta</span
               >
-              <p class="text-lg md:text-xl font-medium text-slate-100 leading-relaxed">
+              <p class="text-lg md:text-xl font-medium text-gray-800 dark:text-white leading-relaxed">
                 {{ item.card.question }}
               </p>
-              <p class="mt-8 text-[10px] md:text-[10px] text-slate-500 animate-bounce">
+              <p class="mt-8 text-[10px] md:text-[10px] text-gray-400 dark:text-slate-500 animate-bounce">
                 👆 Toque para ver a resposta
               </p>
 
@@ -177,7 +177,7 @@ const gradeCard = async (quality: number) => {
                 <span
                   v-for="tag in item.card.tags"
                   :key="tag"
-                  class="text-[10px] px-2 py-1 bg-slate-900 rounded text-slate-400"
+                  class="text-[10px] px-2 py-1 bg-gray-100 dark:bg-slate-800 rounded text-gray-500 dark:text-slate-400"
                 >
                   #{{ tag }}
                 </span>
@@ -185,40 +185,40 @@ const gradeCard = async (quality: number) => {
             </div>
 
             <div
-              class="absolute inset-0 backface-hidden rotate-y-180 bg-slate-800 border border-slate-700 rounded-2xl shadow-2xl p-6 flex flex-col"
+              class="absolute inset-0 backface-hidden rotate-y-180 bg-gray-50 dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl shadow-xl p-6 flex flex-col"
             >
               <div
                 class="flex-1 flex flex-col items-center justify-center text-center overflow-y-auto scrollbar-hide"
               >
                 <span
-                  class="text-[10px] md:text-[10px] uppercase tracking-widest text-blue-500 font-bold mb-4"
+                  class="text-[10px] md:text-[10px] uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold mb-4"
                   >Resposta</span
                 >
-                <p class="text-base md:text-lg text-slate-200 leading-relaxed whitespace-pre-wrap">
+                <p class="text-base md:text-lg text-gray-800 dark:text-white leading-relaxed whitespace-pre-wrap">
                   {{ item.card.answer }}
                 </p>
               </div>
 
-              <div class="mt-6 pt-6 border-t border-slate-700/50 w-full" @click.stop>
-                <p class="text-center text-[10px] md:text-[10px] text-slate-400 mb-3">Como foi?</p>
+              <div class="mt-6 pt-6 border-t border-gray-200 dark:border-slate-700 w-full" @click.stop>
+                <p class="text-center text-[10px] md:text-[10px] text-gray-400 dark:text-slate-500 mb-3">Como foi?</p>
                 <div class="grid grid-cols-3 gap-3">
                   <button
                     @click="gradeCard(2)"
-                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-red-500/10 text-red-400 hover:bg-red-500 hover:text-white transition-all active:scale-95 border border-red-500/20 cursor-pointer"
+                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-red-500/10 dark:bg-red-500/20 text-red-500 dark:text-red-400 hover:bg-red-500 hover:text-white transition-all active:scale-95 border border-red-500/20 cursor-pointer"
                   >
                     <span class="text-lg md:text-lg mb-1">😫</span>
                     <span class="text-[10px] md:text-[10px] font-bold">Mal</span>
                   </button>
                   <button
                     @click="gradeCard(3)"
-                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-500/10 text-blue-400 hover:bg-blue-500 hover:text-white transition-all active:scale-95 border border-blue-500/20 cursor-pointer"
+                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-blue-500/10 dark:bg-blue-500/20 text-blue-500 dark:text-blue-400 hover:bg-blue-500 hover:text-white transition-all active:scale-95 border border-blue-500/20 cursor-pointer"
                   >
                     <span class="text-lg md:text-lg mb-1">🤔</span>
                     <span class="text-[10px] md:text-[10px] font-bold">Bem</span>
                   </button>
                   <button
                     @click="gradeCard(4)"
-                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-emerald-500/10 text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all active:scale-95 border border-emerald-500/20 cursor-pointer"
+                    class="flex flex-col items-center justify-center p-3 rounded-xl bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 dark:text-emerald-400 hover:bg-emerald-500 hover:text-white transition-all active:scale-95 border border-emerald-500/20 cursor-pointer"
                   >
                     <span class="text-lg md:text-lg mb-1">🤩</span>
                     <span class="text-[10px] md:text-[10px] font-bold">Excelente</span>

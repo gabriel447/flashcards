@@ -126,11 +126,11 @@ async function handleImportFile(event: Event) {
     <div class="flex flex-col md:flex-row justify-between items-center mb-10 gap-6">
       <div class="text-center md:text-left">
         <h2
-          class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-cyan-500 mb-2"
+          class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-violet-600 dark:from-indigo-400 dark:to-violet-400 mb-2"
         >
           Gerenciar Decks
         </h2>
-        <p class="text-slate-400 text-sm md:text-base">
+        <p class="text-gray-500 dark:text-slate-400 text-sm md:text-base">
           Organize seus estudos, crie novos baralhos ou importe coleções.
         </p>
       </div>
@@ -139,7 +139,7 @@ async function handleImportFile(event: Event) {
         <button
           @click="triggerImport"
           :disabled="importing"
-          class="flex-1 md:flex-none px-5 py-3 bg-slate-800 text-slate-300 border border-slate-700 rounded-xl hover:bg-slate-700 hover:text-white transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-95 font-medium cursor-pointer"
+          class="flex-1 md:flex-none px-5 py-3 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 border border-gray-200 dark:border-slate-700 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-95 font-medium cursor-pointer"
         >
           <span
             v-if="importing"
@@ -174,33 +174,34 @@ async function handleImportFile(event: Event) {
     </div>
 
     <div
-      class="bg-slate-800/50 p-1 rounded-2xl shadow-xl border border-slate-700/50 mb-12 backdrop-blur-sm"
+      class="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-gray-200 dark:border-slate-800 mb-12 transition-colors duration-300 overflow-hidden"
     >
-      <div class="bg-slate-900/80 p-6 md:p-8 rounded-xl flex flex-col gap-2">
-        <label class="block text-xs font-bold text-emerald-500 uppercase tracking-wider mb-1 ml-1"
+      <div class="bg-gray-50/50 dark:bg-slate-800/50 p-6 md:p-8 flex flex-col gap-2">
+        <label
+          class="block text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1 ml-1"
           >Criar Novo Deck</label
         >
         <div class="flex flex-col md:flex-row gap-4 items-stretch">
           <input
             v-model="newDeckName"
             type="text"
-            placeholder="Ex: AWS.."
-            class="flex-1 px-5 py-3 rounded-xl border border-slate-700 bg-slate-800 text-slate-100 placeholder-slate-500 focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all outline-none text-base shadow-inner"
+            placeholder="Ex: AWS Solutions Architect..."
+            class="flex-1 px-5 py-3 rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all outline-none text-base shadow-sm"
             @keyup.enter="handleCreateDeck"
           />
           <button
             @click="handleCreateDeck"
             :disabled="creating || !newDeckName.trim()"
-            class="md:w-auto px-6 py-3 bg-linear-to-r from-emerald-500 to-emerald-600 text-white rounded-xl hover:from-emerald-400 hover:to-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-bold shadow-lg shadow-emerald-900/20 active:scale-95 cursor-pointer whitespace-nowrap"
+            class="md:w-auto px-6 py-3 bg-linear-to-r from-indigo-600 to-violet-600 dark:from-indigo-500 dark:to-violet-500 text-white rounded-xl hover:from-indigo-500 hover:to-violet-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all font-bold shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30 active:scale-95 cursor-pointer whitespace-nowrap"
           >
             <span v-if="creating">Criando...</span>
             <span v-else>Criar Deck</span>
           </button>
         </div>
         <p
-          class="text-xs text-slate-500 mt-2 md:mt-2 flex items-start md:items-center gap-3 md:gap-1 ml-1 leading-relaxed md:leading-normal"
+          class="text-xs text-gray-500 dark:text-slate-400 mt-2 md:mt-2 flex items-start md:items-center gap-3 md:gap-1 ml-1 leading-relaxed md:leading-normal"
         >
-          <span class="text-emerald-500 text-sm shrink-0 mt-2 md:mt-0">ℹ️</span>
+          <span class="text-indigo-500 text-sm shrink-0 mt-2 md:mt-0">ℹ️</span>
           <span> O nome do deck influencia diretamente nos cards gerados pela IA. </span>
         </p>
       </div>
@@ -208,9 +209,9 @@ async function handleImportFile(event: Event) {
 
     <div
       v-if="sortedDecks.length === 0"
-      class="flex flex-col items-center justify-center py-24 text-center border-2 border-dashed border-slate-800 rounded-3xl bg-slate-800/20"
+      class="flex flex-col items-center justify-center py-24 text-center border-2 border-dashed border-gray-200 dark:border-slate-800 rounded-3xl bg-gray-50/50 dark:bg-slate-900/50 transition-colors duration-300"
     >
-      <div class="mb-6 opacity-30 text-slate-400">
+      <div class="mb-6 opacity-30 text-gray-400 dark:text-slate-500">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="80"
@@ -233,8 +234,10 @@ async function handleImportFile(event: Event) {
           <path d="M4 19h6" />
         </svg>
       </div>
-      <h3 class="text-xl font-semibold text-slate-300 mb-2">Nenhum deck encontrado</h3>
-      <p class="text-slate-500 max-w-md mx-auto">
+      <h3 class="text-xl font-semibold text-gray-600 dark:text-slate-300 mb-2">
+        Nenhum deck encontrado
+      </h3>
+      <p class="text-gray-500 dark:text-slate-400 max-w-md mx-auto">
         Crie um novo deck acima e utilize o gerador de cards com IA para começar seus estudos agora
         mesmo.
       </p>
@@ -244,21 +247,21 @@ async function handleImportFile(event: Event) {
       <div
         v-for="deck in sortedDecks"
         :key="deck.id"
-        class="group relative bg-slate-800 rounded-3xl p-6 border border-slate-700/60 hover:border-emerald-500/30 transition-all duration-300 hover:shadow-2xl hover:shadow-emerald-500/10 hover:-translate-y-1 cursor-pointer flex flex-col h-full min-h-[180px] overflow-hidden"
+        class="group relative bg-white dark:bg-slate-900 rounded-3xl p-6 border border-gray-200 dark:border-slate-800 hover:border-indigo-300 dark:hover:border-indigo-700 transition-all duration-300 hover:shadow-xl hover:shadow-indigo-100 dark:hover:shadow-indigo-900/20 hover:-translate-y-1 cursor-pointer flex flex-col h-full min-h-[180px] overflow-hidden"
         @click="emit('review-deck', deck.id)"
       >
         <div
-          class="absolute inset-0 bg-linear-to-br from-emerald-500/5 to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          class="absolute inset-0 bg-linear-to-br from-indigo-50 to-violet-50 dark:from-indigo-900/20 dark:to-violet-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
         ></div>
 
         <div class="flex justify-between items-start z-10 mb-6">
           <div class="relative">
             <div
-              class="absolute inset-0 bg-emerald-500/20 rounded-2xl blur-md animate-pulse group-hover:bg-emerald-500/40 transition-colors duration-500"
+              class="absolute inset-0 bg-indigo-200/50 dark:bg-indigo-900/50 rounded-2xl blur-md animate-pulse group-hover:bg-indigo-300/50 dark:group-hover:bg-indigo-800/50 transition-colors duration-500"
             ></div>
 
             <div
-              class="relative w-10 h-10 rounded-2xl bg-linear-to-br from-emerald-500 to-cyan-500 flex items-center justify-center text-white border border-white/20 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-emerald-500/30"
+              class="relative w-10 h-10 rounded-2xl bg-linear-to-br from-indigo-500 to-violet-600 dark:from-indigo-600 dark:to-violet-700 flex items-center justify-center text-white border border-white/20 dark:border-white/10 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg shadow-indigo-200 dark:shadow-indigo-900/40"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -281,7 +284,7 @@ async function handleImportFile(event: Event) {
           <div class="flex gap-1">
             <button
               @click.stop="handleExportDeck(deck.id)"
-              class="p-2 text-slate-500 hover:text-cyan-400 hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer"
+              class="p-2 text-gray-400 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/50 rounded-lg transition-colors cursor-pointer"
               title="Exportar Deck"
             >
               <svg
@@ -302,7 +305,7 @@ async function handleImportFile(event: Event) {
             </button>
             <button
               @click.stop="handleDeleteDeck(deck.id)"
-              class="p-2 text-slate-500 hover:text-red-400 hover:bg-slate-700/50 rounded-lg transition-colors cursor-pointer"
+              class="p-2 text-gray-400 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-lg transition-colors cursor-pointer"
               title="Excluir Deck"
             >
               <svg
@@ -328,20 +331,22 @@ async function handleImportFile(event: Event) {
 
         <div class="z-10 flex-1 flex flex-col justify-end">
           <h3
-            class="text-xl font-bold text-slate-100 mb-2 truncate leading-tight group-hover:text-emerald-400 transition-colors"
+            class="text-xl font-bold text-gray-900 dark:text-slate-100 mb-2 truncate leading-tight group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors"
             :title="deck.name"
           >
             {{ deck.name }}
           </h3>
 
-          <div class="flex items-center gap-3 text-sm font-medium text-slate-500">
+          <div
+            class="flex items-center gap-3 text-sm font-medium text-gray-500 dark:text-slate-400"
+          >
             <div class="flex items-center gap-1.5">
-              <span class="text-emerald-500">●</span>
+              <span class="text-indigo-500 dark:text-indigo-400">●</span>
               <span>{{ Object.keys(deck.cards || {}).length }} Cards</span>
             </div>
-            <span class="w-1 h-1 rounded-full bg-slate-700"></span>
+            <span class="w-1 h-1 rounded-full bg-gray-300 dark:bg-slate-700"></span>
             <div class="flex items-center gap-1.5">
-              <span class="text-blue-500">●</span>
+              <span class="text-violet-500 dark:text-violet-400">●</span>
               <span>{{ deck.reviewedCount || 0 }} Revisões</span>
             </div>
           </div>
@@ -352,20 +357,20 @@ async function handleImportFile(event: Event) {
 
   <div
     v-if="showDeleteModal"
-    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fade-in"
+    class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 dark:bg-slate-950/80 backdrop-blur-sm animate-fade-in"
   >
     <div
-      class="bg-slate-900 border border-slate-700 rounded-2xl p-6 max-w-md w-full shadow-2xl relative"
+      class="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-6 max-w-md w-full shadow-2xl relative"
     >
-      <h3 class="text-xl font-bold text-slate-100 mb-2">Excluir Deck?</h3>
-      <p class="text-slate-400 mb-6">
+      <h3 class="text-xl font-bold text-gray-800 dark:text-slate-100 mb-2">Excluir Deck?</h3>
+      <p class="text-gray-500 dark:text-slate-400 mb-6">
         Tem certeza que deseja excluir este deck e todos os seus cards? Essa ação não pode ser
         desfeita.
       </p>
       <div class="flex gap-3 justify-end">
         <button
           @click="cancelDelete"
-          class="px-4 py-2 rounded-lg text-slate-300 hover:bg-slate-800 transition-colors font-medium cursor-pointer"
+          class="px-4 py-2 rounded-lg text-gray-600 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors font-medium cursor-pointer"
         >
           Cancelar
         </button>

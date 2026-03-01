@@ -265,26 +265,30 @@ async function resolveDeckId(): Promise<string> {
   <div class="animate-fade-in">
     <div class="mb-10 text-center md:text-left">
       <h2
-        class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-emerald-400 to-cyan-500 mb-2"
+        class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-linear-to-r from-indigo-600 to-violet-600 mb-2"
       >
         Criar Cards
       </h2>
-      <p class="text-slate-400 text-sm md:text-base">
+      <p class="text-gray-500 text-sm md:text-base">
         Gere flashcards automaticamente com IA ou crie manualmente.
       </p>
     </div>
 
-    <div class="bg-slate-900 rounded-xl shadow-lg border border-slate-800 overflow-hidden">
+    <div
+      class="bg-white dark:bg-slate-900 rounded-xl shadow-sm border border-gray-200 dark:border-slate-800 overflow-hidden"
+    >
       <div class="p-2 md:p-6 pb-0">
-        <div class="flex p-1 bg-slate-950/50 rounded-xl border border-slate-800/50 relative">
+        <div
+          class="flex bg-gray-100 dark:bg-slate-800 rounded-xl border border-gray-200 dark:border-slate-700 relative overflow-hidden"
+        >
           <button
             @click="generationMode = 'ai'"
             :disabled="loading"
-            class="flex-1 py-2 px-2 md:px-4 rounded-lg text-sm md:text-base font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+            class="flex-1 py-3 px-2 md:px-4 text-sm md:text-base font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             :class="[
               generationMode === 'ai'
-                ? 'bg-emerald-500 text-white shadow-lg shadow-emerald-900/20'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800',
+                ? 'bg-indigo-600 text-white shadow-md'
+                : 'text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 hover:bg-gray-200 dark:hover:bg-slate-700',
               loading ? 'opacity-50 cursor-not-allowed' : '',
             ]"
           >
@@ -293,11 +297,11 @@ async function resolveDeckId(): Promise<string> {
           <button
             @click="generationMode = 'manual'"
             :disabled="loading"
-            class="flex-1 py-2 px-2 md:px-4 rounded-lg text-sm md:text-base font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
+            class="flex-1 py-3 px-2 md:px-4 text-sm md:text-base font-bold transition-all duration-200 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap"
             :class="[
               generationMode === 'manual'
-                ? 'bg-blue-500 text-white shadow-lg shadow-blue-900/20'
-                : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800',
+                ? 'bg-violet-600 text-white shadow-md'
+                : 'text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200 hover:bg-gray-200 dark:hover:bg-slate-700',
               loading ? 'opacity-50 cursor-not-allowed' : '',
             ]"
           >
@@ -309,7 +313,8 @@ async function resolveDeckId(): Promise<string> {
       <div class="p-6 md:p-8 space-y-6">
         <!-- Common: Deck Selection -->
         <div class="space-y-2 relative">
-          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider ml-1"
+          <label
+            class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider ml-1"
             >Deck de Destino</label
           >
 
@@ -317,15 +322,21 @@ async function resolveDeckId(): Promise<string> {
             <button
               @click="toggleDropdown"
               :disabled="loading || Object.keys(decks).length === 0"
-              class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
+              class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
               :class="[
-                dropdownOpen ? 'border-emerald-500 ring-1 ring-emerald-500' : '',
+                dropdownOpen ? 'border-indigo-500 ring-1 ring-indigo-500' : '',
                 loading || Object.keys(decks).length === 0
                   ? 'cursor-not-allowed opacity-75'
-                  : 'hover:border-emerald-500/50 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 cursor-pointer',
+                  : 'hover:border-indigo-500/50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 cursor-pointer',
               ]"
             >
-              <span :class="selectedDeckId ? 'text-slate-200 font-medium' : 'text-slate-500'">
+              <span
+                :class="
+                  selectedDeckId
+                    ? 'text-gray-900 dark:text-white font-medium'
+                    : 'text-gray-500 dark:text-slate-500'
+                "
+              >
                 {{ selectedDeckName }}
               </span>
               <svg
@@ -339,7 +350,7 @@ async function resolveDeckId(): Promise<string> {
                 stroke-width="2"
                 stroke-linecap="round"
                 stroke-linejoin="round"
-                class="text-slate-500 transition-transform duration-200 group-hover:text-emerald-500"
+                class="text-gray-400 transition-transform duration-200 group-hover:text-indigo-500"
                 :class="{ 'rotate-180': dropdownOpen }"
               >
                 <path d="m6 9 6 6 6-6" />
@@ -348,18 +359,19 @@ async function resolveDeckId(): Promise<string> {
 
             <div
               v-if="dropdownOpen"
-              class="absolute top-full left-0 right-0 mt-2 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
+              class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
             >
               <div
                 v-for="deck in decks"
                 :key="deck.id"
                 @click="selectOption(deck.id)"
-                class="px-4 py-3 hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-slate-800/50 last:border-0"
+                class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-gray-100 dark:border-slate-800 last:border-0"
               >
-                <span class="text-slate-300 group-hover:text-white transition-colors">{{
-                  deck.name
-                }}</span>
-                <span v-if="selectedDeckId === deck.id" class="text-emerald-500">
+                <span
+                  class="text-gray-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors"
+                  >{{ deck.name }}</span
+                >
+                <span v-if="selectedDeckId === deck.id" class="text-indigo-600">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -384,18 +396,22 @@ async function resolveDeckId(): Promise<string> {
         <div v-if="generationMode === 'ai'" class="space-y-6 animate-fade-in">
           <div class="space-y-4">
             <div class="flex items-center justify-between mb-2 ml-1">
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <label
+                class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider"
+              >
                 Categoria (Opcional)
               </label>
-              <div class="flex bg-slate-900 rounded-lg p-1 border border-slate-700/50">
+              <div
+                class="flex bg-gray-100 dark:bg-slate-800 rounded-lg border border-gray-200 dark:border-slate-700 overflow-hidden"
+              >
                 <button
                   @click="switchToNewAiCategory"
                   :disabled="loading"
-                  class="px-3 py-1 rounded-md text-xs font-medium transition-all"
+                  class="flex-1 px-3 py-1 text-xs font-medium transition-all"
                   :class="[
                     isNewAiCategory
-                      ? 'bg-slate-700 text-white shadow-sm'
-                      : 'text-slate-500 hover:text-slate-300',
+                      ? 'bg-white dark:bg-slate-700 text-gray-800 dark:text-white shadow-sm'
+                      : 'text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200',
                     loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
                   ]"
                 >
@@ -404,12 +420,14 @@ async function resolveDeckId(): Promise<string> {
                 <button
                   @click="isNewAiCategory = false"
                   :disabled="loading || availableCategories.length === 0"
-                  class="px-3 py-1 rounded-md text-xs font-medium transition-all"
+                  class="flex-1 px-3 py-1 text-xs font-medium transition-all"
                   :class="[
-                    !isNewAiCategory ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-500',
+                    !isNewAiCategory
+                      ? 'bg-white dark:bg-slate-700 text-gray-800 dark:text-white shadow-sm'
+                      : 'text-gray-500 dark:text-slate-400',
                     loading || availableCategories.length === 0
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:text-slate-300 cursor-pointer',
+                      : 'hover:text-gray-700 dark:hover:text-slate-200 cursor-pointer',
                   ]"
                 >
                   Existente
@@ -421,15 +439,21 @@ async function resolveDeckId(): Promise<string> {
                 <button
                   @click="toggleAiCategoryDropdown"
                   :disabled="loading"
-                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
+                  class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
                   :class="[
-                    aiCategoryDropdownOpen ? 'border-emerald-500 ring-1 ring-emerald-500' : '',
+                    aiCategoryDropdownOpen ? 'border-indigo-500 ring-1 ring-indigo-500' : '',
                     loading
                       ? 'cursor-not-allowed opacity-75'
-                      : 'hover:border-emerald-500/50 focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 cursor-pointer',
+                      : 'hover:border-indigo-500/50 focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 cursor-pointer',
                   ]"
                 >
-                  <span :class="aiCategory ? 'text-slate-200' : 'text-slate-500'">
+                  <span
+                    :class="
+                      aiCategory
+                        ? 'text-gray-900 dark:text-white'
+                        : 'text-gray-500 dark:text-slate-500'
+                    "
+                  >
                     {{ aiCategory || 'Selecione uma categoria...' }}
                   </span>
                   <svg
@@ -442,7 +466,7 @@ async function resolveDeckId(): Promise<string> {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="text-slate-500 transition-transform duration-200 group-hover:text-emerald-500"
+                    class="text-gray-400 transition-transform duration-200 group-hover:text-indigo-500"
                     :class="{ 'rotate-180': aiCategoryDropdownOpen }"
                   >
                     <path d="m6 9 6 6 6-6" />
@@ -451,18 +475,19 @@ async function resolveDeckId(): Promise<string> {
 
                 <div
                   v-if="aiCategoryDropdownOpen"
-                  class="absolute top-full left-0 right-0 mt-2 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
+                  class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
                 >
                   <div
                     v-for="cat in availableCategories"
                     :key="cat"
                     @click="selectAiCategory(cat)"
-                    class="px-4 py-3 hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-slate-800/50 last:border-0"
+                    class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-gray-100 dark:border-slate-800 last:border-0"
                   >
-                    <span class="text-slate-300 group-hover:text-white transition-colors">{{
-                      cat
-                    }}</span>
-                    <span v-if="aiCategory === cat" class="text-emerald-500">
+                    <span
+                      class="text-gray-700 dark:text-slate-300 group-hover:text-indigo-600 transition-colors"
+                      >{{ cat }}</span
+                    >
+                    <span v-if="aiCategory === cat" class="text-indigo-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -492,20 +517,24 @@ async function resolveDeckId(): Promise<string> {
                 type="text"
                 :disabled="loading"
                 placeholder="Ex: Lambda.. (padrão: Geral)"
-                class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:border-emerald-500 focus:ring-1 focus:ring-emerald-500 transition-all placeholder-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500 transition-all placeholder-gray-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
             <p
-              class="text-xs text-slate-500 mt-4 md:mt-2 flex items-start md:items-center gap-3 md:gap-1 ml-1 leading-relaxed md:leading-normal"
+              class="text-xs text-gray-500 dark:text-slate-400 mt-4 md:mt-2 flex items-start md:items-center gap-3 md:gap-1 ml-1 leading-relaxed md:leading-normal"
             >
-              <span class="text-emerald-500 text-sm shrink-0 mt-2 md:mt-0">ℹ️</span>
+              <span class="text-indigo-500 text-sm shrink-0 mt-2 md:mt-0">ℹ️</span>
               <span> Adicionar uma categoria torna os cards gerados pela IA mais precisos. </span>
             </p>
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-4"
-              >Quantidade: <span class="text-emerald-400 text-base ml-1">{{ aiCount }}</span></label
+            <label
+              class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-4"
+              >Quantidade:
+              <span class="text-indigo-600 dark:text-indigo-400 text-base ml-1">{{
+                aiCount
+              }}</span></label
             >
             <input
               v-model="aiCount"
@@ -513,18 +542,18 @@ async function resolveDeckId(): Promise<string> {
               min="1"
               max="20"
               :disabled="loading"
-              class="w-full h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer accent-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed"
+              class="w-full h-2 bg-gray-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-indigo-600 disabled:opacity-50 disabled:cursor-not-allowed"
             />
           </div>
 
           <button
             @click="generate"
             :disabled="loading || !selectedDeckId || (!isNewAiCategory && !aiCategory)"
-            class="w-full py-3 px-6 font-bold rounded-xl shadow-lg transition-all active:scale-[0.98] disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg cursor-pointer"
+            class="w-full py-3 px-6 font-bold rounded-xl shadow-md transition-all active:scale-[0.98] disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg cursor-pointer"
             :class="
               loading || !selectedDeckId || (!isNewAiCategory && !aiCategory)
-                ? 'bg-slate-800 text-slate-500 shadow-none'
-                : 'bg-linear-to-r from-emerald-500 to-emerald-600 hover:from-emerald-400 hover:to-emerald-500 text-white shadow-emerald-900/20'
+                ? 'bg-gray-200 text-gray-400 shadow-none'
+                : 'bg-linear-to-r from-indigo-600 to-violet-600 hover:from-indigo-500 hover:to-violet-500 text-white shadow-indigo-200'
             "
           >
             <span
@@ -537,49 +566,51 @@ async function resolveDeckId(): Promise<string> {
 
         <div v-else class="space-y-6 animate-fade-in">
           <div>
-            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1"
-              >Pergunta (Frente)</label
+            <label
+              class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-2 ml-1"
+              >Pergunta</label
             >
-            <div class="relative">
-              <textarea
-                v-model="manualQuestion"
-                rows="3"
-                :disabled="loading"
-                class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none placeholder-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="O que é..."
-              ></textarea>
-            </div>
+            <textarea
+              v-model="manualQuestion"
+              rows="3"
+              :disabled="loading"
+              class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all placeholder-gray-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+              placeholder="Digite a pergunta..."
+            ></textarea>
           </div>
 
           <div>
-            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2 ml-1"
-              >Resposta (Verso)</label
+            <label
+              class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider mb-2 ml-1"
+              >Resposta</label
             >
-            <div class="relative">
-              <textarea
-                v-model="manualAnswer"
-                rows="3"
-                :disabled="loading"
-                class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all resize-none placeholder-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
-                placeholder="É..."
-              ></textarea>
-            </div>
+            <textarea
+              v-model="manualAnswer"
+              rows="4"
+              :disabled="loading"
+              class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all placeholder-gray-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed resize-none"
+              placeholder="Digite a resposta..."
+            ></textarea>
           </div>
 
-          <div>
+          <div class="space-y-4">
             <div class="flex items-center justify-between mb-2 ml-1">
-              <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">
+              <label
+                class="block text-xs font-bold text-gray-500 dark:text-slate-400 uppercase tracking-wider"
+              >
                 Categoria (Opcional)
               </label>
-              <div class="flex bg-slate-900 rounded-lg p-1 border border-slate-700/50">
+              <div
+                class="flex bg-gray-100 dark:bg-slate-800 rounded-lg p-1 border border-gray-200 dark:border-slate-700"
+              >
                 <button
                   @click="switchToNewManualCategory"
                   :disabled="loading"
                   class="px-3 py-1 rounded-md text-xs font-medium transition-all"
                   :class="[
                     isNewCategory
-                      ? 'bg-slate-700 text-white shadow-sm'
-                      : 'text-slate-500 hover:text-slate-300',
+                      ? 'bg-white dark:bg-slate-700 text-gray-800 dark:text-white shadow-sm border border-gray-200 dark:border-slate-600'
+                      : 'text-gray-500 dark:text-slate-400 hover:text-gray-700 dark:hover:text-slate-200',
                     loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer',
                   ]"
                 >
@@ -590,30 +621,39 @@ async function resolveDeckId(): Promise<string> {
                   :disabled="loading || availableCategories.length === 0"
                   class="px-3 py-1 rounded-md text-xs font-medium transition-all"
                   :class="[
-                    !isNewCategory ? 'bg-slate-700 text-white shadow-sm' : 'text-slate-500',
+                    !isNewCategory
+                      ? 'bg-white dark:bg-slate-700 text-gray-800 dark:text-white shadow-sm border border-gray-200 dark:border-slate-600'
+                      : 'text-gray-500 dark:text-slate-400',
                     loading || availableCategories.length === 0
                       ? 'opacity-50 cursor-not-allowed'
-                      : 'hover:text-slate-300 cursor-pointer',
+                      : 'hover:text-gray-700 dark:hover:text-slate-200 cursor-pointer',
                   ]"
                 >
                   Existente
                 </button>
               </div>
             </div>
+
             <div class="relative">
               <div v-if="!isNewCategory" class="relative">
                 <button
                   @click="toggleManualCategoryDropdown"
                   :disabled="loading"
-                  class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
+                  class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-left flex justify-between items-center transition-all group"
                   :class="[
-                    manualCategoryDropdownOpen ? 'border-blue-500 ring-1 ring-blue-500' : '',
+                    manualCategoryDropdownOpen ? 'border-violet-500 ring-1 ring-violet-500' : '',
                     loading
                       ? 'cursor-not-allowed opacity-75'
-                      : 'hover:border-blue-500/50 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 cursor-pointer',
+                      : 'hover:border-violet-500/50 focus:border-violet-500 focus:ring-1 focus:ring-violet-500 cursor-pointer',
                   ]"
                 >
-                  <span :class="manualTags ? 'text-slate-200' : 'text-slate-500'">
+                  <span
+                    :class="
+                      manualTags
+                        ? 'text-gray-900 dark:text-white'
+                        : 'text-gray-500 dark:text-slate-500'
+                    "
+                  >
                     {{ manualTags || 'Selecione uma categoria...' }}
                   </span>
                   <svg
@@ -626,7 +666,7 @@ async function resolveDeckId(): Promise<string> {
                     stroke-width="2"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="text-slate-500 transition-transform duration-200 group-hover:text-blue-500"
+                    class="text-gray-400 transition-transform duration-200 group-hover:text-violet-500"
                     :class="{ 'rotate-180': manualCategoryDropdownOpen }"
                   >
                     <path d="m6 9 6 6 6-6" />
@@ -635,18 +675,19 @@ async function resolveDeckId(): Promise<string> {
 
                 <div
                   v-if="manualCategoryDropdownOpen"
-                  class="absolute top-full left-0 right-0 mt-2 bg-slate-900 border border-slate-700 rounded-xl shadow-2xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
+                  class="absolute top-full left-0 right-0 mt-2 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-xl shadow-xl z-50 overflow-hidden animate-fade-in max-h-60 overflow-y-auto"
                 >
                   <div
                     v-for="cat in availableCategories"
                     :key="cat"
                     @click="selectManualCategory(cat)"
-                    class="px-4 py-3 hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-slate-800/50 last:border-0"
+                    class="px-4 py-3 hover:bg-gray-50 dark:hover:bg-slate-800 cursor-pointer flex items-center justify-between group transition-colors border-b border-gray-100 dark:border-slate-800 last:border-0"
                   >
-                    <span class="text-slate-300 group-hover:text-white transition-colors">{{
-                      cat
-                    }}</span>
-                    <span v-if="manualTags === cat" class="text-blue-500">
+                    <span
+                      class="text-gray-700 dark:text-slate-300 group-hover:text-violet-600 transition-colors"
+                      >{{ cat }}</span
+                    >
+                    <span v-if="manualTags === cat" class="text-violet-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -675,87 +716,44 @@ async function resolveDeckId(): Promise<string> {
                 v-model="manualTags"
                 type="text"
                 :disabled="loading"
-                placeholder="Ex: Lambda (padrão: Geral)"
-                class="w-full bg-slate-950 border border-slate-700 rounded-xl px-5 py-3 text-slate-200 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all placeholder-slate-600 disabled:opacity-50 disabled:cursor-not-allowed"
+                placeholder="Ex: VPC... (padrão: Geral)"
+                class="w-full bg-gray-50 dark:bg-slate-800 border border-gray-300 dark:border-slate-700 rounded-xl px-5 py-3 text-gray-900 dark:text-white focus:outline-none focus:border-violet-500 focus:ring-1 focus:ring-violet-500 transition-all placeholder-gray-400 dark:placeholder-slate-500 disabled:opacity-50 disabled:cursor-not-allowed"
               />
             </div>
           </div>
 
           <button
             @click="handleCreateManualCard"
-            :disabled="
-              loading ||
-              !selectedDeckId ||
-              !manualQuestion.trim() ||
-              !manualAnswer.trim() ||
-              (!isNewCategory && !manualTags)
-            "
-            class="w-full py-3 px-6 font-bold rounded-xl shadow-lg transition-all active:scale-[0.98] disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg cursor-pointer"
+            :disabled="loading || !selectedDeckId || !manualQuestion.trim() || !manualAnswer.trim()"
+            class="w-full py-3 px-6 font-bold rounded-xl shadow-md transition-all active:scale-[0.98] disabled:cursor-not-allowed flex items-center justify-center gap-3 text-lg cursor-pointer"
             :class="
-              loading ||
-              !selectedDeckId ||
-              !manualQuestion.trim() ||
-              !manualAnswer.trim() ||
-              (!isNewCategory && !manualTags)
-                ? 'bg-slate-800 text-slate-500 shadow-none'
-                : 'bg-linear-to-r from-blue-500 to-blue-600 hover:from-blue-400 hover:to-blue-500 text-white shadow-blue-900/20'
+              loading || !selectedDeckId || !manualQuestion.trim() || !manualAnswer.trim()
+                ? 'bg-gray-200 dark:bg-slate-700 text-gray-400 dark:text-slate-500 shadow-none'
+                : 'bg-violet-600 hover:bg-violet-500 text-white shadow-violet-200'
             "
           >
             <span
               v-if="loading"
               class="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"
             ></span>
-            <span v-else class="flex items-center gap-2"
-              ><span>💾</span> <span>Adicionar Card</span></span
-            >
+            <span v-else>Adicionar Card Manualmente</span>
           </button>
-        </div>
-
-        <div
-          v-if="error"
-          class="p-4 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-sm flex items-start gap-2"
-        >
-          <span>⚠️</span>
-          <span>{{ error }}</span>
-        </div>
-        <div
-          v-if="success"
-          class="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-xl text-emerald-400 text-sm flex items-start gap-2"
-        >
-          <span>✅</span>
-          <span>{{ success }}</span>
         </div>
       </div>
     </div>
+
+    <div
+      v-if="error"
+      class="mt-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-300 rounded-xl text-center"
+    >
+      {{ error }}
+    </div>
+
+    <div
+      v-if="success"
+      class="mt-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 rounded-xl text-center"
+    >
+      {{ success }}
+    </div>
   </div>
 </template>
-
-<style scoped>
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 24px;
-  width: 24px;
-  border-radius: 50%;
-  background: #10b981;
-  cursor: pointer;
-  margin-top: -8px;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
-  transition: transform 0.1s;
-}
-input[type='range']::-webkit-slider-thumb:hover {
-  transform: scale(1.1);
-}
-input[type='range']::-moz-range-thumb {
-  height: 24px;
-  width: 24px;
-  border: none;
-  border-radius: 50%;
-  background: #10b981;
-  cursor: pointer;
-  box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.2);
-  transition: transform 0.1s;
-}
-input[type='range']::-moz-range-thumb:hover {
-  transform: scale(1.1);
-}
-</style>
