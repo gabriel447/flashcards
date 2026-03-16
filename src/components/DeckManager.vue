@@ -139,7 +139,7 @@ async function handleImportFile(event: Event) {
         <button
           @click="triggerImport"
           :disabled="importing"
-          class="flex-1 md:flex-none px-5 py-3 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 border border-gray-200 dark:border-slate-700 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-95 font-medium cursor-pointer"
+          class="flex-1 md:flex-none px-6 py-3 bg-white dark:bg-slate-800 text-gray-700 dark:text-slate-200 border border-gray-200 dark:border-slate-700 rounded-xl hover:bg-gray-50 dark:hover:bg-slate-700 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all flex items-center justify-center gap-2 shadow-sm hover:shadow-md active:scale-95 font-medium cursor-pointer"
         >
           <span
             v-if="importing"

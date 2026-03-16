@@ -233,7 +233,7 @@ onMounted(() => {
     <div v-else-if="stats" class="space-y-8">
       <div class="grid gap-4 md:gap-6 grid-cols-2 md:grid-cols-3">
         <div
-          class="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
+          class="bg-white dark:bg-slate-900 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
         >
           <div
             class="p-3 md:p-4 bg-emerald-500/10 dark:bg-emerald-500/20 rounded-2xl text-2xl md:text-3xl"
@@ -252,7 +252,7 @@ onMounted(() => {
           </div>
         </div>
         <div
-          class="bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
+          class="bg-white dark:bg-slate-900 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
         >
           <div
             class="p-3 md:p-4 bg-blue-500/10 dark:bg-blue-500/20 rounded-2xl text-2xl md:text-3xl"
@@ -271,7 +271,7 @@ onMounted(() => {
           </div>
         </div>
         <div
-          class="col-span-2 md:col-span-1 bg-white dark:bg-slate-800 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
+          class="col-span-2 md:col-span-1 bg-white dark:bg-slate-900 p-4 md:p-6 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm hover:shadow-md flex flex-col md:flex-row items-center gap-3 md:gap-5 hover:-translate-y-1 transition-transform duration-300 text-center md:text-left cursor-pointer"
         >
           <div
             class="p-3 md:p-4 bg-purple-500/10 dark:bg-purple-500/20 rounded-2xl text-2xl md:text-3xl"
@@ -293,7 +293,7 @@ onMounted(() => {
 
       <div class="hidden md:grid gap-6 md:grid-cols-2">
         <div
-          class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm"
+          class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm"
         >
           <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-6 flex items-center gap-2">
             <span class="w-2 h-6 bg-indigo-600 rounded-full"></span>
@@ -305,7 +305,7 @@ onMounted(() => {
         </div>
 
         <div
-          class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm"
+          class="bg-white dark:bg-slate-900 p-6 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm"
         >
           <h3 class="text-lg font-bold text-gray-800 dark:text-white mb-6 flex items-center gap-2">
             <span class="w-2 h-6 bg-violet-600 rounded-full"></span>
@@ -319,10 +319,10 @@ onMounted(() => {
 
       <div class="md:hidden space-y-4">
         <div
-          class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-gray-200 dark:border-slate-700 shadow-sm"
+          class="bg-white dark:bg-slate-900 p-4 rounded-xl border border-gray-200 dark:border-slate-800 shadow-sm"
         >
           <div
-            class="p-4 bg-gray-50 dark:bg-slate-900/50 border-b border-gray-200 dark:border-slate-700 flex items-center gap-2"
+            class="p-4 bg-gray-50 dark:bg-slate-900/50 border-b border-gray-200 dark:border-slate-800 flex items-center gap-2"
           >
             <span class="w-1.5 h-5 bg-indigo-600 rounded-full"></span>
             <h3 class="font-bold text-gray-800 dark:text-white">Histórico Recente</h3>
@@ -350,10 +350,10 @@ onMounted(() => {
         </div>
 
         <div
-          class="bg-white dark:bg-slate-800 rounded-2xl border border-gray-200 dark:border-slate-700 shadow-sm overflow-hidden"
+          class="bg-white dark:bg-slate-900 rounded-2xl border border-gray-200 dark:border-slate-800 shadow-sm overflow-hidden"
         >
           <div
-            class="p-4 bg-gray-50 dark:bg-slate-900/50 border-b border-gray-200 dark:border-slate-700 flex items-center gap-2"
+            class="p-4 bg-gray-50 dark:bg-slate-900/50 border-b border-gray-200 dark:border-slate-800 flex items-center gap-2"
           >
             <span class="w-1.5 h-5 bg-violet-600 rounded-full"></span>
             <h3 class="font-bold text-gray-800 dark:text-white">Desempenho Geral</h3>
@@ -417,7 +417,7 @@ onMounted(() => {
       class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-gray-900/60 backdrop-blur-sm animate-fade-in"
     >
       <div
-        class="bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-700 rounded-2xl p-6 max-w-md w-full shadow-2xl relative"
+        class="bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-2xl p-6 max-w-md w-full shadow-2xl relative"
       >
         <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Resetar Estatísticas?</h3>
         <p class="text-gray-500 dark:text-slate-400 mb-6">

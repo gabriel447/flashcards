@@ -1,33 +1,36 @@
 <script setup lang="ts">
-import { googleOneTap, decodeCredential } from 'vue3-google-login'
-import { onMounted } from 'vue'
+import { ref } from 'vue'
 import { useFlashcardsStore } from '../stores/flashcards'
 
 const store = useFlashcardsStore()
 
-const callback = (response: { credential: string }) => {
-  const userData = decodeCredential(response.credential) as {
-    email: string
-    name?: string
-    picture?: string
+const email = ref('')
+const password = ref('')
+const loading = ref(false)
+const error = ref('')
+
+async function handleLogin() {
+  if (!email.value || !password.value) {
+    error.value = 'Preencha o email e a senha.'
+    return
   }
-  console.log('Handle the userData', userData)
 
-  const email = userData.email.toLowerCase()
-  const userId = email.replace(/[^a-z0-9]+/g, '-')
+  loading.value = true
+  error.value = ''
 
-  store.setUserId(userId, email, userData.name, userData.picture)
+  try {
+    await store.signIn(email.value, password.value)
+  } catch (e: unknown) {
+    const msg = e instanceof Error ? e.message : ''
+    if (msg.includes('Invalid login credentials')) {
+      error.value = 'Email ou senha incorretos.'
+    } else {
+      error.value = 'Erro ao entrar. Tente novamente.'
+    }
+  } finally {
+    loading.value = false
+  }
 }
-
-onMounted(() => {
-  googleOneTap({ clientId: import.meta.env.VITE_GOOGLE_CLIENT_ID })
-    .then((response) => {
-      callback(response)
-    })
-    .catch((error) => {
-      console.error('Google One Tap error:', error)
-    })
-})
 </script>
 
 <template>
@@ -35,7 +38,6 @@ onMounted(() => {
     <div
       class="w-full max-w-md p-8 bg-white dark:bg-slate-900 border border-gray-200 dark:border-slate-800 rounded-3xl shadow-2xl relative overflow-hidden group transition-all duration-300"
     >
-      <!-- Background Effects -->
       <div
         class="absolute -top-32 -right-32 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl group-hover:bg-indigo-500/20 transition-colors duration-700"
       ></div>
@@ -44,7 +46,6 @@ onMounted(() => {
       ></div>
 
       <div class="relative text-center flex flex-col items-center">
-        <!-- Logo Icon -->
         <div
           class="flex items-center justify-center w-16 h-16 mb-6 rounded-2xl bg-linear-to-br from-indigo-500 to-violet-600 text-white shadow-lg shadow-indigo-500/30 dark:shadow-indigo-900/30 transform transition-transform group-hover:scale-110 duration-500"
         >
@@ -68,27 +69,74 @@ onMounted(() => {
         >
           Flashcards AI
         </h2>
-        
+
         <p class="mt-4 text-base text-gray-600 dark:text-slate-300 font-medium">
           Potencialize seus estudos
         </p>
-        
+
         <p class="mt-2 text-sm text-gray-500 dark:text-slate-400 max-w-xs mx-auto">
           Crie, revise e domine qualquer assunto com o poder da Inteligência Artificial.
         </p>
       </div>
 
-      <div class="mt-10 space-y-6 relative z-10">
-        <div class="flex flex-col items-center space-y-4">
-          <div class="transform transition-transform hover:scale-105 duration-200">
-            <GoogleLogin :callback="callback" />
-          </div>
-          
-          <p class="text-xs text-center text-gray-400 dark:text-slate-500">
-            Ao entrar, você concorda com nossos termos de uso.
-          </p>
+      <form @submit.prevent="handleLogin" class="mt-10 space-y-4 relative z-10">
+        <div>
+          <label
+            for="email"
+            class="block text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1 ml-1"
+          >
+            Email
+          </label>
+          <input
+            id="email"
+            v-model="email"
+            type="email"
+            autocomplete="email"
+            placeholder="seu@email.com"
+            class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all outline-none text-sm"
+          />
         </div>
-      </div>
+
+        <div>
+          <label
+            for="password"
+            class="block text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider mb-1 ml-1"
+          >
+            Senha
+          </label>
+          <input
+            id="password"
+            v-model="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="••••••••"
+            class="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-slate-700 bg-white dark:bg-slate-950 text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 transition-all outline-none text-sm"
+          />
+        </div>
+
+        <div
+          v-if="error"
+          class="px-4 py-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl text-sm text-red-600 dark:text-red-400"
+        >
+          {{ error }}
+        </div>
+
+        <button
+          type="submit"
+          :disabled="loading"
+          class="w-full py-3 bg-linear-to-r from-indigo-600 to-violet-600 dark:from-indigo-500 dark:to-violet-500 text-white rounded-xl font-bold hover:from-indigo-500 hover:to-violet-500 disabled:opacity-50 disabled:cursor-not-allowed transition-all shadow-lg shadow-indigo-200 dark:shadow-indigo-900/30 active:scale-95 cursor-pointer flex items-center justify-center gap-2 mt-2"
+        >
+          <span
+            v-if="loading"
+            class="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"
+          ></span>
+          <span>{{ loading ? 'Entrando...' : 'Entrar' }}</span>
+        </button>
+
+        <p class="text-xs text-center text-gray-400 dark:text-slate-500 pt-2">
+          Acesso somente para usuários cadastrados.
+        </p>
+      </form>
     </div>
   </div>
 </template>
